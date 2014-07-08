@@ -1,3 +1,14 @@
 # C2C
 
 Scholarmatch Career 2 College 
+
+
+Getting setup 
+--------------------------------
+
+    1. git clone git@github.paypal.com:mathahar/ScholarMatch.git
+    2. cd ScholarMatch
+    3. npm install .
+    4. node .
+    5. http://localhost:8000/
+    
