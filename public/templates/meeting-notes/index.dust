@@ -1,0 +1,52 @@
+{>"layouts/master" /}
+
+{<title}
+	Meeting invite - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<h1>Add/View meeting notes</h1>		
+		<br/>
+		<form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   <div class="form-group">
+		      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
+		      <div class="col-sm-7">
+		      	<select name="student">
+		      		<option value="101">Diana</option>
+		      		<option value="102">Monica</option>
+		      		<option value="103">Juliana</option>
+		      		<option value="103">Ramirez</option>
+		      		<option value="103">Selena</option>
+		      	</select>
+		      </div>
+		   </div>
+		   <div class="form-group">
+		      <label for="meeting-date" class="col-sm-3 control-label">Date (MM/DD/YYYY)</label>
+		      <div class="col-sm-7"><input type="text" name="meeting-date" id="meeting-date" placeholder="Date(MM/DD/YYYY)" autofocus="" class="form-control"></div>
+		   </div>
+		   <div class="form-group">
+		      <label for="meeting-time" class="col-sm-3 control-label">Time (HH:MM)</label>
+		      <div class="col-sm-7"><input type="text" name="meeting-time" id="meeting-time" placeholder="Meeting Time(HH:MM)" autofocus="" class="form-control"></div>
+		   </div>
+		   <div class="form-group">
+		      <label for="topic" class="col-sm-3 control-label">Topic</label>
+		      <div class="col-sm-7"><input type="text" name="topic" id="topic" placeholder="Topic" autofocus="" class="form-control"></div>		       
+		   </div>
+		   <div class="form-group">
+		      <label for="notes" class="col-sm-3 control-label">Notes</label>
+		      <div class="col-sm-7"><textarea  cols="80" name="notes" id="notes" placeholder="Notes" autofocus="" class="form-control"></textarea>
+		      </div>		       
+		   </div>
+		   
+		   <div class="form-group">
+		      <div class="col-sm-7"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Add/update notes</button></div>
+		   </div>
+
+		   	<input type="hidden" name="_csrf" value="{_csrf}" />
+			<input type="hidden" name="type" id="type" value="0" />
+		</form>		
+
+	</div>
+{/body}
