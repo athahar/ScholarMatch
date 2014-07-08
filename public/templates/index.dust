@@ -1,0 +1,9 @@
+{>"layouts/master" /}
+
+{<title}
+	College to Career Program  - ScholarMatch
+{/title}
+
+{<body}            
+     {>"inc/home/base" /}     
+{/body}

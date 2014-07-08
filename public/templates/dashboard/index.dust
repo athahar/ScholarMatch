@@ -1,0 +1,75 @@
+{>"layouts/master" /}
+
+{<title}
+	Dashboard - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	<div class="container">
+
+		<div class="row">
+		   <div id="connections" class="well col-md-3">
+		      <h3>Next Meeting </h3>
+		      <h5>with <a href="/profile/selina">Selina</a></h5>
+		      <h5>07/16/2014 3:00PM</h5>
+		      <a href="/student-notes?studentId=123&amp;coachId=98">Previous Notes</a>		      
+
+		      <br/><br/><br/>
+		      
+		      <h3>Quick Links</h3>
+		      	<ul class="nav nav-pills nav-stacked">
+					<li> <a href="/meeting-invite">Set up a meeting</a></li>
+					<li> <a href="/coaching-help">Coaching Help</a></li>
+					<li> <a href="/contact">Contact ScholarMatch</a></li>
+
+				</ul>
+		   </div>
+
+		   <div class="col-md-8">
+		      <legend>Recent meetings</legend>
+		      <table id="visits" class="table table-bordered table-striped table-condensed">
+		         <thead>
+		            <tr>
+		               <td>Date/Time</td>
+		               <td>Name</td>
+		               <td>Topic</td>
+		               <td>Notes</td>
+		            </tr>
+		         </thead>
+		         <tbody>
+		            <tr>
+		               <td>07/10/2014 1:00PM</td>
+		               <td>Selina</td>
+		               <td>Preparing LinkedIn resume</td>
+		               <td><a href="/meeting-notes?meetingId=123">Add/View Notes</a></td>
+		            </tr>
+		             <tr>
+		               <td>07/01/2014 10:00AM</td>
+		               <td>Diana</td>
+		               <td>Meet n Greet</td>
+		               <td><a href="/meeting-notes?meetingId=436">Add/View Notes</a></td>
+		            </tr>
+		            <tr>
+		               <td>06/25/2014 11:00AM</td>
+		               <td>Ramirez</td>
+		               <td>Meet n Greet</td>
+		               <td><a href="/meeting-notes?meetingId=436">Add/View Notes</a></td>
+		            </tr>
+		            <tr>
+		               <td>06/19/2014 2:00PM</td>
+		               <td>Monica</td>
+		               <td>Meet n Greet</td>
+		               <td><a href="/meeting-notes?meetingId=426">Add/View Notes</a></td>
+		            </tr>
+		            <tr>
+		               <td>06/1/2014 4:00PM</td>
+		               <td>Juliana</td>
+		               <td>Meet n Greet</td>
+		               <td><a href="/meeting-notes?meetingId=456">Add/View Notes</a></td>
+		            </tr>
+		         </tbody>
+		      </table>		      
+		   </div>
+		</div>
+	</div>
+{/body}
