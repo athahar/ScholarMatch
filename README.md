@@ -2,6 +2,12 @@
 
 Scholarmatch Career 2 College 
 
+Prerequisites 
+--------------------------------
+	1. Install node
+	2. Install npm
+
+
 
 Getting setup 
 --------------------------------
