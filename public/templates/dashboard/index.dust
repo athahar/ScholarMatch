@@ -8,32 +8,40 @@
 	<div class="container">
 
 		<div class="row">
-		   <div id="connections" class="well col-md-3">
-		      <h3>Next Meeting </h3>
-		      <h5>with <a href="/profile/selina">Selina</a></h5>
-		      <h5>07/16/2014 3:00PM</h5>
-		      <a href="/student-notes?studentId=123&amp;coachId=98">Previous Notes</a>		      
-
-		      <br/><br/><br/>
-		      
-		      <h3>Quick Links</h3>
-		      	<ul class="nav nav-pills nav-stacked">
-					<li> <a href="/meeting-invite">Set up a meeting</a></li>
-					<li> <a href="/coaching-help">Coaching Help</a></li>
-					<li> <a href="/contact">Contact ScholarMatch</a></li>
-
-				</ul>
+		   <div id="connections" class="col-md-3">
+		   		<div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">Upcoming Meeting(s) <span class="badge pull-right">2</span></div>				  
+				  <!-- List group -->
+				  	<ul class="list-group">
+						<li class="list-group-item"> <span> <a href="/profile/selena">Selena</a> - 07/16/2014 3:00PM  </span>
+							<span><a href="/student-notes?studentId=123&amp;coachId=98">Previous Notes</a></span>
+						</li>
+						<li class="list-group-item"> <span> <a href="/profile/selena">Selena</a> - 07/16/2014 3:00PM  </span>
+							<span><a href="/student-notes?studentId=123&amp;coachId=98">Previous Notes</a></span>
+						</li>					
+					</ul>
+				</div>			   
+			    <div class="panel panel-default">
+				  <div class="panel-heading">Quick Links</div>				  
+				    <ul class="nav nav-pills nav-stacked">
+						<li> <a href="/meeting-invite">Set up a meeting</a></li>
+						<li> <a href="/coaching-help">Coaching Help</a></li>
+						<li> <a href="/contact">Contact ScholarMatch</a></li>
+					</ul>				  
+				</div>
 		   </div>
 
 		   <div class="col-md-8">
-		      <legend>Recent meetings</legend>
+		   		<p class="lead">Recent meetings<p>
+		      <!-- <h3>Recent meetings</h3> -->
 		      <table id="visits" class="table table-bordered table-striped table-condensed">
 		         <thead>
 		            <tr>
 		               <td>Date/Time</td>
 		               <td>Name</td>
 		               <td>Topic</td>
-		               <td>Notes</td>
+		               <td>Meeting Notes</td>
 		            </tr>
 		         </thead>
 		         <tbody>
