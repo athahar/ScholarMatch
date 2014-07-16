@@ -8,9 +8,22 @@
     <div class="container">
 		<h1>Login</h1>
 
+
+		
+
 		<form action="{requestURI}/login" method="post" class="form-horizontal">
 
+
 	        <div class="col-sm-8 col-sm-offset-2">
+		        <div class="form-group">
+					<form action="/users/auth/linkedin" class="button_to" method="get"><div><input class="linked-in-btn" style="margin: 0 auto;" type="submit" value="Sign in with LinkedIn"></div></form>
+				</div>
+
+				<div class="form-group">
+	                OR
+	            </div>
+
+
 	            <div class="form-group">
 	                <label class="control-label" for=
 	                "email">Email</label><input autofocus="" class="form-control"

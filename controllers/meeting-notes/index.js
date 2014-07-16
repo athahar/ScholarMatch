@@ -10,9 +10,12 @@ module.exports = function (router) {
 
 
     router.get('/', function (req, res) {
-        
-        res.render('meeting-notes/index', model);
+    	if(req.body.meetingId!== null){
+    		res.render('meeting-notes/existing', model);	
+    	}else{
+    		res.render('meeting-notes/index', model);	
+    	}
         
     });
-
+     
 };

@@ -15,4 +15,10 @@ module.exports = function (router) {
         
     });
 
+
+    router.get('/:name', function (req, res) {
+        
+        res.render('profile/student', model);
+        
+    });
 };
