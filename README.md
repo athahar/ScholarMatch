@@ -1,7 +1,6 @@
 
-# C2C
 
-Scholarmatch Career 2 College 
+Scholarmatch  College 2 Career
 
 Prerequisites 
 --------------------------------
@@ -21,3 +20,4 @@ Getting setup
     
 
 Heroku : http://scholarmatch.herokuapp.com
+
