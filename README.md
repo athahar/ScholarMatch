@@ -19,3 +19,5 @@ Getting setup
     4. node .
     5. http://localhost:8000/
     
+
+Heroku : http://scholarmatch.herokuapp.com
