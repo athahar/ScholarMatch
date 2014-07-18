@@ -1,8 +1,4 @@
-{ 
- "gpaas": { 
- "consumer-id" : "urn:paypal-consumerid:7b749414-62d5-497c-918b-5f9f2c4d0858", 
- "short-app-name": "ScholarMatch" 
- },
+{  
   "name": "c2c",
   "version": "0.1.0",
   "description": "Scholarmatch Career 2 College ",
