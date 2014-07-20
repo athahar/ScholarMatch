@@ -1,5 +1,5 @@
 {
-    
+
     "express": {
         "view cache": false,
         "view engine": "dust",
@@ -23,7 +23,6 @@
             }
         }
     },
-
     "middleware": {
 
         "devtools": {
@@ -34,14 +33,14 @@
                 "arguments": [
                     "path:./public",
                     "path:./.build",
-                    {   
-                        "template": {
+                    {
+                        "dust": {
                             "module": "kraken-devtools/plugins/dustjs",
                             "files": "/templates/**/*.js",
                             "base": "templates",
                             "i18n": "config:i18n"
                         },
-                        "css": {
+                        "less": {
                             "module": "kraken-devtools/plugins/less",
                             "files": "/css/**/*.css"
                         },
@@ -54,4 +53,5 @@
             }
         }
     }
+
 }
