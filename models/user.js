@@ -23,8 +23,9 @@ var userModel = function () {
             city: String
         });
 
+        // plugin architecture
         userSchema.plugin(uniqueValidator);
-        userSchema.plugin(mongooseHidden);
+        userSchema.plugin(mongooseHidden); // hide passowrd from the user response object using hide:true in password field
         /**
          * Helper function that hooks into the 'save' method, and replaces plaintext passwords with a hashed version.
          */
