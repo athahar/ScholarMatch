@@ -4,17 +4,25 @@
 'use strict';
 var mongoose = require('mongoose'),
     bcrypt = require('bcrypt'),
-    crypto = require('../lib/crypto');
+    crypto = require('../lib/crypto'),
+    uniqueValidator = require('mongoose-unique-validator');
 
 var userModel = function () {
 
         var userSchema = mongoose.Schema({
             name: String,
-            login: { type: String, unique: true },  //Ensure logins are unique.
-            password: String, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
-            role: String
+            login: { type: String,  required: true,  unique: true },  //Ensure logins are unique.
+            password: { type: String, required: true }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
+            role: String,
+            phone: String,
+            college: String,
+            industry: String,
+            experience: Number,
+            gender: String,
+            city: String
         });
 
+        userSchema.plugin(uniqueValidator);
         /**
          * Helper function that hooks into the 'save' method, and replaces plaintext passwords with a hashed version.
          */

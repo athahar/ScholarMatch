@@ -2,6 +2,9 @@
 
 {<body}
     <h1>{@pre type="content" key="greeting"/}</h1>
+    {#data}
+    	<!-- <p data-data="{data|js}" data-locals="{user|js}">You are 2 <strong>{user.name}</strong> and your role is <strong>{data.user.role}</strong></p> -->
 
-    <p data-data="{user}">You are <strong>{user.name}</strong> and your role is <strong>{user.role}</strong></p>
+    	Email : {user2.name}
+    {/data}	
 {/body}

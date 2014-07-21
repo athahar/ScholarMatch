@@ -18,10 +18,20 @@ module.exports = function (router) {
         res.render('index', indexmodel);
     });
 
+    
+    // router.get('/profile', function(req, res) {
+        
+    //     profilemodel.data = profilemodel.data || {};
+        
+    //     profilemodel.data.userDetails = profilemodel.data.userDetails || {}
+    //     profilemodel.data.userDetails.name = req.user.name;
+    //     profilemodel.data.userDetails.role = req.user.role;
+    //     profilemodel.data.userDetails.userid = req.user._id
 
-    router.get('/profile', function(req, res) {
-        res.render('profile', profilemodel);
-    });
+    //     console.dir(profilemodel);
+                
+    //     res.render('profile/index', profilemodel);
+    // });
 
 
     router.get('/admin', auth.isAuthenticated('admin'), auth.injectUser(), function(req, res) {
