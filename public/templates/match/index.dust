@@ -1,0 +1,51 @@
+{>"layouts/master" /}
+
+{<title}
+	Match Coach 2 Students  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<h1>Match Coach 2 Students</h1>
+
+		{?messages}
+            <ul class="bg-warning">
+                {#messages}
+                    <li>{.}</li>
+                {/messages}
+            </ul>
+        {/messages}
+
+        <form id="match-form" method="POST" action="{requestURI}/match" class="form-horizontal">		   	
+
+	        <div class="col-sm-6">
+
+	        	<div class="form-group">
+			      <label for="fullName" class="col-sm-3 control-label">Full Name</label>
+			      <div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" class="form-control"></div>
+			   	</div>
+			   	<div class="form-group">
+			      <label for="industry" class="col-sm-3 control-label">Industry</label>
+			      <div class="col-sm-7"><input type="text" name="industry" id="industry" placeholder="Industry" autofocus="" class="form-control"></div>
+			   	</div>
+			   	<div class="form-group">
+			      <label for="city" class="col-sm-3 control-label">City</label>
+			      <div class="col-sm-7"><input type="text" name="city" id="city" placeholder="City" autofocus="" class="form-control"></div>
+			   	</div>
+				  <button type="submit" class="btn btn-primary">Search</button>
+				  <input type="hidden" name="_csrf" value="{_csrf}" />
+			 </div>
+		</form>
+
+		<div class="results" data-results="{data.result|s}"> 
+			{result}
+			<br/>
+			{#result}
+				{fullName} - {city} - {industry}
+			{/result}
+		 </div>
+		
+
+	</div>
+{/body}

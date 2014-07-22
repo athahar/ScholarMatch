@@ -21,6 +21,7 @@ module.exports = function (router) {
         model.data.userDetails.role = req.user.role;
         model.data.userDetails.phone = req.user.phone;
         model.data.userDetails.college = req.user.college;
+        model.data.userDetails.industry = req.user.industry;
         model.data.userDetails.experience = req.user.experience;
         model.data.userDetails.gender = req.user.gender;
         model.data.userDetails.city = req.user.city;
