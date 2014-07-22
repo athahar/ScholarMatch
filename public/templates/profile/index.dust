@@ -7,21 +7,29 @@
 
 {<body}
 	{#data}
-	<div class="container" data-data="{data|js}">
+	<div class="container"  data-data2="{data|js}">
 		<h1>Profile </h1>
-		<h4> Email : {userDetails.name} - {userdetails.userid}</h4>
+
+		{?data.firstlogin}
+			<p class="bg-success">
+				Welcome to Scholarmatch. Please complete your profile.
+			</p>
+		{/data.firstlogin}
+
+		<h4> User ID : {userDetails.login} (<em>{userDetails.role}</em>)</h4>
 		<br/>
 		{?messages}
-            <ul>
+            <ul class="bg-warning">
                 {#messages}
                     <li>{.}</li>
                 {/messages}
             </ul>
         {/messages}
 		<form id="signup-form" method="POST" class="form-horizontal">		   		   
+		
 		   <div class="form-group">
 		      <label for="fullName" class="col-sm-3 control-label">Full Name</label>
-		      <div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{userDetails.name}" class="form-control" ></div>
+		      <div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{userDetails.fullName}" class="form-control" ></div>
 		   </div>
 		   <div class="form-group">
 		      <label for="phone" class="col-sm-3 control-label">Contact Number</label>

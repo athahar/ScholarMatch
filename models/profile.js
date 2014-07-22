@@ -2,13 +2,16 @@
 
 
 module.exports = function ProfileModel() {
+
+	// ProfileModel.prototype = BaseModel();
+	// FIXME : data & messages object shoudl come from Base model
+
     return {
         name: 'profile',
-        data: {
-        	magic :{
-        		name : "athahar",
-        		login : "magic"
-        	}
-        }
+        data: {}
+        // messages: {
+        // 	desc: {},
+        // 	status: 'SUCCESS'
+        // }
     };
 };

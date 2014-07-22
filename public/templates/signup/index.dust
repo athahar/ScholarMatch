@@ -10,7 +10,7 @@
 		<h1>Signup</h1>
 
 		{?messages}
-            <ul>
+            <ul class="bg-warning">
                 {#messages}
                     <li>{.}</li>
                 {/messages}
@@ -22,8 +22,8 @@
 			<div class="col-sm-8 col-sm-offset-2">
 				
 			   <div class="form-group">
-			      <label for="username" class="col-sm-3 control-label">username / Username</label>
-			      <div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email / Username" autofocus="" class="form-control"></div>
+			      <label for="username" class="col-sm-3 control-label">Email ID</label>
+			      <div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control"></div>
 			   </div>
 			   <div class="form-group">
 			      <label for="password" class="col-sm-3 control-label">Password</label>

@@ -4,6 +4,7 @@
 var SignupModel = require('../../models/signup');
 var userLib = require('../../lib/user')();
 var ProfileModel = require('../../models/profile');
+var passport = require('passport');
 
 module.exports = function (router) {
 
@@ -13,6 +14,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
         
+        model.messages = ''; // clear flash messages
         res.render('signup/index', model);
         
     });
@@ -20,9 +22,9 @@ module.exports = function (router) {
 	router.post('/', function (req, res) {
         
         var options = {};
-
+        
         options.username = req.body.username;
-        options.login = req.body.username;
+        // options.login = req.body.username;
         options.password = req.body.password;
         options.role = req.body.role;
 
@@ -33,13 +35,21 @@ module.exports = function (router) {
         userLib.createUser(options, function (err, result) {
 
         	if(err){
-        		console.log('error : '+ err);
-        		// req.flash('error', err);
-        		model.messages = err;        		
+                model.messages = err;        		
         		res.render('signup/index', model);
         	}else{
         		console.log('result '  + result);
-        		res.redirect('/profile');
+        		
+                req.session.firstlogin = true;
+                
+                // After signup, do a user login & send to profile page
+
+                passport.authenticate('local', {
+                    successRedirect: req.session.goingTo || '/profile',
+                    failureRedirect: '/login',
+                    failureFlash: true
+                })(req, res);
+
         	}
 
         });

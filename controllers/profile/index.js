@@ -16,7 +16,8 @@ module.exports = function (router) {
         model.messages = ''; // clear any messages
         
         model.data.userDetails = model.data.userDetails || {}
-        model.data.userDetails.name = req.user.name;
+        model.data.userDetails.login = req.user.login;
+        model.data.userDetails.fullName = req.user.fullName;
         model.data.userDetails.role = req.user.role;
         model.data.userDetails.phone = req.user.phone;
         model.data.userDetails.college = req.user.college;
@@ -26,7 +27,9 @@ module.exports = function (router) {
 
         model.data.userDetails.userid = req.session.userid = req.user._id
 
-        // console.dir(model);
+        model.data.firstlogin = req.session.firstlogin;
+
+        req.session.firstlogin = false; // clear initial login flag
 
         res.render('profile/index', model);
     });
@@ -38,9 +41,8 @@ module.exports = function (router) {
 
         	model.data = model.data || {};        
 	        model.data.userDetails = model.data.userDetails || {}
-
-	        // console.log("req.session.userid  : " + req.session.userid );
-	        // model.data.userDetails._id		= req.body.userid;
+	        
+	        model.data.userDetails.fullName = req.body.fullName;
 	        model.data.userDetails.phone = req.body.phone;
 	        model.data.userDetails.college = req.body.college;
 	        model.data.userDetails.industry = req.body.industry;
@@ -51,18 +53,16 @@ module.exports = function (router) {
 	        // console.dir(model.data.userDetails);
 
 	        userLib.updateUser(model.data.userDetails , function (err, result) {
-
+	        	
 	        	if(err){
-	        		// console.log('error : '+ err);
-	        		// req.flash('error', err);
-	        		model.messages = err;        		
+	        		model.messages = err;	
+	        		// model.messages.status = 'error';	 - Need to add this later
 	        		res.render('profile/index', model);
 	        	}else{
 	        		// console.log('result '  + result);
-
+	        		// model.messages.status = 'success';
 	        		model.messages = 'Profile Updated';        		
-	        		res.render('profile/index', model);
-	        		
+	        		res.render('profile/index', model);	        		
 	        	}
 
 	        });
