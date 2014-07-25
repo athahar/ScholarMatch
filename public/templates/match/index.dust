@@ -8,7 +8,7 @@
 
 	<div class="container">
 		<h1>Match Coach 2 Students</h1>
-
+		
 		{?messages}
             <ul class="bg-warning">
                 {#messages}
@@ -33,12 +33,20 @@
 			      <label for="city" class="col-sm-3 control-label">City</label>
 			      <div class="col-sm-7"><input type="text" name="city" id="city" placeholder="City" autofocus="" class="form-control"></div>
 			   	</div>
+			   	<div class="form-group">
+			      <label for="role" class="col-sm-3 control-label">Coach / Student ?</label>
+			      <div class="col-sm-7"><input type="text" name="role" id="role" placeholder="Coach / Student ?" autofocus="" class="form-control"></div>
+			   	</div>
 				  <button type="submit" class="btn btn-primary">Search</button>
 				  <input type="hidden" name="_csrf" value="{_csrf}" />
 			 </div>
 		</form>
-
-		<div class="results" data-results="{data.result|s}"> 
+		<hr/>
+		<div class="clearfix">
+			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a>
+		</div>
+		<hr/>
+		<div class="results clearfix" data-results="{data.result|s}"> 
 			{result}
 			<br/>
 			{#result}

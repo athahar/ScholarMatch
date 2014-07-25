@@ -1,0 +1,13 @@
+{>"layouts/master" /}
+
+{<title}
+	Meeting invite - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container" data-model="{data|js}">
+		Email Sent successfully!
+
+	</div>
+{/body}
