@@ -5,6 +5,7 @@ var SignupModel = require('../../models/signup');
 var userLib = require('../../lib/user')();
 var ProfileModel = require('../../models/profile');
 var passport = require('passport');
+var expressValidator = require('express-validator');
 
 module.exports = function (router) {
 
@@ -21,6 +22,23 @@ module.exports = function (router) {
 
 	router.post('/', function (req, res) {
         
+        // ref : https://github.com/IEEE-NU/DevElement/blob/996e29ac8d01aa45f918a71f8814d9b97ff2f73b/controllers/user.js
+       
+       // TODO: Need to know how to access the flash errors in UI
+        
+        // req.assert('username', 'Email is not valid').isEmail();
+        // req.assert('password', 'Password must be at least 4 characters long').len(4);
+        // req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
+
+        // var errors = req.validationErrors();
+
+        // if (errors) {
+        //     req.flash('errors', errors);            
+        //     console.dir(req);
+        //     return res.redirect('/signup');
+        // }
+
+        
         var options = {};
         
         options.username = req.body.username;
@@ -28,9 +46,6 @@ module.exports = function (router) {
         options.password = req.body.password;
         options.role = req.body.role;
 
-
-        // FIXME : if password !== confirm throw error.
-         
 
         userLib.createUser(options, function (err, result) {
 
@@ -53,10 +68,7 @@ module.exports = function (router) {
         	}
 
         });
-
          
-        // res.render('signup/index', model);
-        
     });
 
 

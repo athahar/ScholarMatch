@@ -11,16 +11,27 @@ var mongoose = require('mongoose'),
 var userModel = function () {
 
         var userSchema = mongoose.Schema({
-            fullName: String,
             login: { type: String,  required: true,  unique: true },  //Ensure logins are unique.
+            email: { type: String,  required: true,  unique: true },  //Ensure emails are unique.
+            // email: { type: String },  //Ensure emails are unique.
             password: { type: String, required: true, hide: true }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
-            role: String,
-            phone: String,
+            fullName: String,            
+            role: String,   
+            phone: String,    
             college: String,
             industry: String,
-            experience: Number,
+            experience: Number, 
             gender: String,
-            city: String
+            city: String,    
+            creationDate: { type: Date},
+            resetPasswordToken: String,
+            resetPasswordExpires: Date,
+            lastLoginDate:{ type: Date},
+            lastModifiedDate:{ type: Date, default: Date.now },
+            coachLinked: Array,
+            studentsLinked: Array,
+            linkedin: {},
+            search: [String]
         });
 
         // plugin architecture
@@ -57,6 +68,33 @@ var userModel = function () {
             return bcrypt.compareSync(plainText, user.password);
         };
 
+        userSchema.statics.findByEmail = function(email, callback){
+            this.find({ email : email}, callback);
+        };
+
+        userSchema.statics.findByUsername = function(username, callback){
+            this.find({ username : username}, callback);
+        };
+
+        userSchema.statics.findById = function(id, callback){
+            this.findOne({_id: id},callback);
+            
+        };
+
+        userSchema.statics.findAll = function(callback){
+            this.find({}, callback);
+        };
+
+        userSchema.statics.findByObjQuery = function(objQuery, display, callback){
+            console.log("---- findByObjQuery ----- ");
+            console.dir(objQuery);
+            // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1})
+            this.find(objQuery,display, callback);
+
+            // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1}).
+        };
+
+        
 
         return mongoose.model('User', userSchema);
     };
