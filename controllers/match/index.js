@@ -37,7 +37,7 @@ module.exports = function (router) {
 
                 // model.messages = 'sucessfully connected';
                 model.data = model.data || {};
-                model.data.results = JSON.stringify(result);
+                model.data.results = JSON.parse(JSON.stringify(result));
                 
                 res.render('match/results', model);
             }
@@ -54,7 +54,7 @@ module.exports = function (router) {
         options.role = "coach";
 
          userLib.findAllUsers(options, function(err, result){
-            model.result = result;
+            model.result = JSON.parse(JSON.stringify(result));
             console.dir(model);
             res.render('match/index', model);
         })
@@ -66,7 +66,7 @@ module.exports = function (router) {
         options.role = "student";
 
          userLib.findAllUsers(options, function(err, result){
-            model.result = JSON.stringify(result);;
+            model.result = JSON.parse(JSON.stringify(result));
             console.dir(model);
             res.render('match/index', model);
         })
