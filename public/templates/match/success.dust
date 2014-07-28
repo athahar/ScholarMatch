@@ -1,0 +1,13 @@
+{>"layouts/master" /}
+
+{<title}
+	Match  - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container" data-model="{data|js}">
+		Matched successfully!
+
+	</div>
+{/body}

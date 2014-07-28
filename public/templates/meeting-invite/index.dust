@@ -9,6 +9,8 @@
 	<div class="container">
 		<h1>Setup a meeting</h1>		
 		<br/>
+			<a href="/meeting-invite/sendmail"> Send Meeting invite </a>
+		<br/>
 		<form id="signup-form" method="POST" class="form-horizontal">		   		   
 		   <div class="form-group">
 		      <label for="fullName" class="col-sm-3 control-label">Student Name</label>

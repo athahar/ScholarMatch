@@ -1,0 +1,37 @@
+{>"layouts/master" /}
+
+{<title}
+	Match Coach 2 Students  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<h1>Match Coach 2 Students</h1>
+		
+		{?messages}
+            <ul class="bg-warning">
+                {#messages}
+                    <li>{.}</li>
+                {/messages}
+            </ul>
+        {/messages}
+       
+		<hr/>
+		<div class="clearfix">
+			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> | <a href="/match/connect"> Connect </a>
+		</div>
+		<hr/>
+		<div class="results clearfix" data-results="{data.results|s}"> 
+			
+			{data.results|s}
+
+			<br/>
+			{#data.results}
+				{fullName} - {city} - {industry}
+			{/data.results}
+		 </div>
+		
+
+	</div>
+{/body}

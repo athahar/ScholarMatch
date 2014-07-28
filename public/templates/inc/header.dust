@@ -24,11 +24,17 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="/login">Login</a>
-        </li>
+            {#user}
+                 <a href="/logout">Logout</a>
+            {:else}
+                 <a href="/login">Login</a>
+            {/user}
+        </li>       
 
         <li>
-            <a href="/signup">Signup</a>
+            {^user}
+                <a href="/signup">Signup</a>
+            {/user}
         </li>
     </ul>      
     </nav>
