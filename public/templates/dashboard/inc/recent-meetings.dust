@@ -1,0 +1,38 @@
+
+{! Recent meetings !}
+
+<p class="lead">Recent meetings</p>         
+
+<!-- check for past meetings count  here below -->
+{^data.meetings.past}    
+
+  <!--  check if there are any new meetinsg setup, else ask the user to setup a meeting or explore Scholarmatch
+    {?data.meetings.upcoming.details}    
+
+    {/data.meetings.upcoming.details} -->
+You have not met anyone yet!
+
+{:else}
+
+  <table id="visits" class="table table-bordered table-striped table-condensed">
+     <thead>
+        <tr>
+           <td>Date/Time</td>
+           <td>Name</td>
+           <td>Topic</td>
+           <td>Meeting Notes</td>
+        </tr>
+     </thead>
+     <tbody>
+        {#data.meetings.past.details}    
+        <tr>
+           <td>{time}</td>
+           <td>{meetingWith.name}</td>
+           <td>{topic}</td>
+           <td><a href="/meeting-notes?meetingId={meetingid}">Add/View Notes</a></td>
+        </tr>     
+        {/data.meetings.past.details}      
+     </tbody>
+  </table>
+
+{/data.meetings.past}    
