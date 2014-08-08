@@ -29,7 +29,7 @@
     },
     "databaseConfig": {
         "host": "localhost",
-        "database": "scholarmatch"
+        "database": "scholarmatch2"
     },
 
     "bcrypt": {
