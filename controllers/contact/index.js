@@ -4,58 +4,59 @@
 // todo: use plugin for last modified from this example 
 //  http://mongoosejs.com/docs/plugins.html
 
+
+// Mistakes You’re Probably Making With MongooseJS, And How To Fix Them
+// http://thecodebarbarian.wordpress.com/2013/06/06/61/
+
+
+// http://jaketrent.com/post/mongoose-population/ 
+
 var ContactModel = require('../../models/contact');
 
 var mongoose = require('mongoose');
 var schemas = require('../../models/schemas');
 var Person = mongoose.model("Person");
-var Story = mongoose.model("Story");
+var Meeting = mongoose.model("Meeting");
 
 module.exports = function(router) {
 
     var model = new ContactModel();
 
-
     router.get('/saveperson', function(req, res) {
-
 
     	var name = req.query["name"],
     		age = req.query["age"];
-
 
         var person = new Person({
             name: name,
             age: age
         });
-
 	
-
         person.save(function(err, resp) {
 
         	debugger;
 
             if (err) {
-            	console.log(err);
-            	return;
+            	return console.log(err);            	
             } 
 
-            console.log(" person save done .. now story ");
-            var story2 = new Story({
-                title: "new again upon a magic time.",
+            console.log(" person save done .. now meeting ");
+            var meeting = new Meeting({
+                title: "New meeting - " + Date.now(),
                 _creator: person._id, // assign the _id from the person
-                fans:[person._id, '53e48a428abc4c2e3c24b61a']
+                attendees:[person._id,'53e49b374083ea4a50e37889']
             });
 
-            story2.save(function(err) {
+            meeting.save(function(err) {
                 if (err) return console.log(err);
                 // thats it!
                 console.log(" all done");
-                person.stories.push(story2);
+                person.meetings.push(meeting);
                 person.save(function(err){
 
                       if (err) return console.log(err);
 
-                    res.send(person);    
+                    res.send(person);                     
                 });
                 
             });
@@ -67,52 +68,65 @@ module.exports = function(router) {
     });
 
 
-    router.get('/getAllStories', function(req, res) {
-
-    	var stories = {};
 
 
-    	Story.find(function (err, stories) {
-            if (err) return console.error(err);
-          console.dir(stories)
-          res.send(stories);
+
+
+    router.get('/getAllMeetings', function(req, res) {
+
+    	var meetings = {};
+
+       var personName = new RegExp(req.query["name"] || 'arun', 'i');
+     // var title = req.query["title"] ;
+
+        // var query = {_creator[name]: personName};
+
+        var populateQuery = [{path:'_creator', select:'name age'}, {path:'attendees', select:'name age'}];
+
+         Meeting
+        .find({})
+        .populate(populateQuery)
+        // .populate({
+        //     path: '_creator',
+        //     select: 'name age',
+        //     // match: { age: { $gte: 21 }}
+        // }) // only return the Persons name
+        // .populate({
+        //   path: 'attendees',
+        //   // match: { age: { $lte: 21 }},
+        //   select: 'name age -_id',
+        //   options: { limit: 15 }
+        // })
+        .exec(function (err, meetings) {
+
+            debugger;
+          if (err) return console.log(err);
+          
+          res.send(meetings);
         })
+
+
+
+    	// Meeting.find(function (err, meetings) {
+     //        if (err) return console.error(err);
+     //      console.dir(meetings)
+     //      res.send(meetings);
+     //    })
     	
-    	// Story.find({}, function (err, story) {
-    	// 	if(err){
-    	// 		return console.log(err);
-    	// 	}
-    	// 	debugger;
-	    //     stories[story._id] = story;
-	    //     res.send(stories);
-	    // });
-
-  //   	// populate the
-  //   	Story
-		// .findOne({ title: 'Once upon a timex.' })
-		// .populate('_creator') 
-		// .exec(function (err, story) {
-		//   if (err) return console.log(err);
-		//   console.log('The creator is %s', story._creator.name);
-		//   // prints "The creator is Aaron"
-		//   res.send(story);
-		// })
-        
-
     });
 
 
     router.get('/getdata', function(req, res) {
 
     	// populate the
-    	Story
+    	Meeting
 		.findOne({ title: 'Once upon a timex.' })
 		.populate('_creator') 
-		.exec(function (err, story) {
+		.exec(function (err, meeting) {
 		  if (err) return console.log(err);
-		  console.log('The creator is %s', story._creator.name);
+		  console.log('The creator is %s', meeting._creator.name);
 		  // prints "The creator is Aaron"
-		  res.send(story);
+		  res.send(meeting);
 		})
         
 
@@ -126,34 +140,52 @@ module.exports = function(router) {
 
       var query = {name: personName}
 
-        Person
-        .find(query)
-        .populate('stories') // only works if we pushed refs to children
-        .exec(function (err, persons) {
-          if (err) return console.log(err);
-          console.log(persons);
-          res.send(persons);
-        })
+      var populateQuery = [{path:'_creator', select:'name age'}, {path:'attendees', select:'name age'}];
+
+       Person.find(query)
+      .lean()
+      // .populate({ path: 'meetings' })
+      .populate(populateQuery)
+      .exec(function(err, docs) {
+
+        var options = {
+          path: 'meetings.attendees'
+          // model: 'attendees'
+        };
+
+        if (err) return res.json(500);
+        Meeting.populate(docs, options, function (err, meetings) {
+          res.json(meetings);
+        });
+      })
+
+        // Person
+        // .find(query)
+        // // .populate('meetings') // only works if we pushed refs to children
+        // .populate({
+        //   path: 'meetings',
+        //   // match: { age: { $lte: 21 }},
+        //   select: '_creator',
+        //   options: { limit: 15 }
+        // })
+        // .populate({
+        //   path: '_creator',
+        //   // match: { age: { $lte: 21 }},
+        //   select: 'name age -_id',
+        //   options: { limit: 15 }
+        // })
+        // .exec(function (err, persons) {
+        //   if (err) return console.log(err);
+        //   console.log(persons);
+        //   res.send(persons);
+        // })
         
 
     });
 
 
-
-
     router.get('/search', function(req,res){
-
-
-        // var storydesc = req.query["s"] || 'time',
-        //     regexStory = new RegExp('^'+storydesc+'$', "i");
-
-        // Story.findOne({name: new RegExp('^'+storydesc+'$', "i")}, function(err, doc) {
-        //   //Do your action here..
-        // });
-
-
-      // var query = { description: /req.query["title"]/i };
-
+     
      var titledesc = new RegExp(req.query["title"], 'i');
      // var title = req.query["title"] ;
 
@@ -161,32 +193,32 @@ module.exports = function(router) {
 
     // ref : http://mongoosejs.com/docs/populate.html
 
-        Story
+        Meeting
         .find(query)
         .populate({
             path: '_creator',
-            select: 'name age',
-            match: { age: { $gte: 21 }}
+            select: 'name age'
+            // match: { age: { $gte: 21 }}
         }) // only return the Persons name
         .populate({
-          path: 'fans',
-          match: { age: { $lte: 21 }},
+          path: 'attendees',
+          // match: { age: { $lte: 21 }},
           select: 'name age -_id',
           options: { limit: 15 }
         })
-        .exec(function (err, stories) {
+        .exec(function (err, meetings) {
 
             debugger;
           if (err) return console.log(err);
           
-          // stories.
-          // console.log('The creator is %s', story._creator.name);
+          // meetings.
+          // console.log('The creator is %s', meeting._creator.name);
           // // prints "The creator is Aaron"
           
-          // console.log('The creators age is %s', story._creator.age);
+          // console.log('The creators age is %s', meeting._creator.age);
           // // prints "The creators age is null'
 
-          res.send(stories);
+          res.send(meetings);
         })
 
     });

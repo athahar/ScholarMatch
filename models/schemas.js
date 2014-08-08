@@ -6,28 +6,28 @@ var mongoose = require('mongoose'),
 var personSchema = Schema({    
     name: String,
     age: Number,
-    stories: [{
+    meetings: [{
         type: Schema.Types.ObjectId,
-        ref: 'Story'
+        ref: 'Meeting'
     }]
 });
 
-var storySchema = Schema({
+var meetingSchema = Schema({
     _creator: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Person' 
     },        
     title: String,
-    fans: [{
+    attendees: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Person' 
     }]
 });
 
-var Story = mongoose.model('Story', storySchema);
+var Meeting = mongoose.model('Meeting', meetingSchema);
 var Person = mongoose.model('Person', personSchema);
 
 // debugger;
 
-module.exports.Story = Story;
+module.exports.Meeting = Meeting;
 module.exports.Person = Person;
