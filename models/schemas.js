@@ -9,6 +9,14 @@ var personSchema = Schema({
     meetings: [{
         type: Schema.Types.ObjectId,
         ref: 'Meeting'
+    }],
+    coachesLinked: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Person' 
+    }],
+    studentsLinked: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Person' 
     }]
 });
 
@@ -18,11 +26,14 @@ var meetingSchema = Schema({
         ref: 'Person' 
     },        
     title: String,
-    attendees: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Person' 
-    }]
+    attendees: [attendeeSchema]
 });
+
+
+var attendeeSchema = Schema({
+    _id:false,
+    attendee: { type: String, required: true, ref: 'Person' }
+})
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var Person = mongoose.model('Person', personSchema);

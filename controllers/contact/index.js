@@ -44,7 +44,7 @@ module.exports = function(router) {
             var meeting = new Meeting({
                 title: "New meeting - " + Date.now(),
                 _creator: person._id, // assign the _id from the person
-                attendees:[person._id,'53e49b374083ea4a50e37889']
+                attendees: [person._id,'53e49b374083ea4a50e37889'],                
             });
 
             meeting.save(function(err) {
@@ -52,6 +52,7 @@ module.exports = function(router) {
                 // thats it!
                 console.log(" all done");
                 person.meetings.push(meeting);
+                person.studentsLinked.push('53e49fdc186527f555dae5cb', '53e49b503159307550e01f9f');
                 person.save(function(err){
 
                       if (err) return console.log(err);
@@ -128,6 +129,48 @@ module.exports = function(router) {
 		  // prints "The creator is Aaron"
 		  res.send(meeting);
 		})
+        
+
+    });
+
+
+    router.get('/findlinked', function(req, res) {
+
+
+    var populateQuery = [
+        {path:'studentsLinked', select:'name age meetings'},
+        {path:'meetings', select:'title attendees'},
+        {path:'studentsLinked.meetings', select:'title attendees'}
+        ];
+    var userid = req.query["id"] || '53e4a5869dfaee175c3657cd'
+
+        // populate the
+        Person
+        .findOne({ _id: userid })
+        .populate(populateQuery)
+        // .populate('studentsLinked meetings attendees attendees.name') 
+        .exec(function (err, person) {
+
+
+          if (err) return console.log(err);
+          // console.log('The creator is %s', person._creator.name);
+          // prints "The creator is Aaron"
+          console.log('person : ' , person);
+          res.send(person);
+
+          
+
+          // Meeting
+          // .populate(person.meetings) 
+          // .exec(function (err, attendees) {
+
+          //   console.log('attendees : ' , attendees);
+
+          //   person.meetings.attendees = attendees;
+          //   res.send(person);            
+
+          // })
+        })
         
 
     });
