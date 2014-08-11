@@ -5,8 +5,8 @@
   "author": "paypal",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test",
-    "start": "node index.js"
+    "test": "grunt test",    
+    "start": "nodemon --debug index.js"
   },
   "dependencies": {
     "adaro": "^0.1.5",
@@ -24,7 +24,7 @@
     "less": "^1.7.3",
     "localeresolver": "^0.1.1",
     "localizr": "^0.1.0",
-    "moment": "^2.7.0",
+    "moment": "~2.7.0",
     "mongoose": "~3.8.8",
     "mongoose-hidden": "^0.3.2",
     "mongoose-unique-validator": "^0.3.0",

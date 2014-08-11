@@ -115,20 +115,46 @@ userSchema.statics.findByUsername = function (username, callback) {
 };
 
 userSchema.statics.findById = function (id, callback) {
-    debugger;
     this.findOne({
         _id: id
     }, callback);
 
 };
 
-userSchema.statics.findCoaches = function (id, callback) {
+userSchema.statics.findByIdAndMeetings = function (id, callback) {
     this.findOne({
         _id: id
-    }).populate('CoachesLinked StudentLinked')
+    }).populate({
+        path: 'meetings',
+        select: '_creator topic location meetingdate attendees'
+    }).populate({
+        path: 'meetings.attendees',
+        model: Attendee
+    })
         .exec(callback);
 };
 
+
+
+userSchema.statics.linkedCoach = function (id, callback) {
+    this.findOne({
+        _id: id
+    }).populate({
+        path: 'coachesLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
+
+userSchema.statics.linkedStudents = function (id, callback) {
+    this.findOne({
+        _id: id
+    }).populate({
+        path: 'studentsLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
 
 userSchema.statics.findAll = function (callback) {
     this.find({}, callback);
@@ -150,7 +176,9 @@ var meetingSchema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    title: String,
+    topic: String,
+    location: String,
+    meetingdate: String,
     attendees: [attendeeSchema]
 });
 
@@ -167,6 +195,7 @@ var attendeeSchema = Schema({
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
+var Attendee = mongoose.model('Attendee', attendeeSchema);
 
 
 module.exports.Meeting = Meeting;
