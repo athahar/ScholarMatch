@@ -3,100 +3,171 @@
  */
 'use strict';
 var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
     bcrypt = require('bcrypt'),
     crypto = require('../lib/crypto'),
     uniqueValidator = require('mongoose-unique-validator'),
-    mongooseHidden = require('mongoose-hidden')({ defaultHidden: { password: true } });
+    mongooseHidden = require('mongoose-hidden')({
+        defaultHidden: {
+            password: true
+        }
+    });
 
-var userModel = function () {
+var userSchema = Schema({
+    login: {
+        type: String,
+        required: true,
+        unique: true
+    }, //Ensure logins are unique.
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }, //Ensure emails are unique.
+    // email: { type: String },  //Ensure emails are unique.
+    password: {
+        type: String,
+        required: true,
+        hide: true
+    }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
+    fullName: String,
+    role: String,
+    phone: String,
+    college: String,
+    industry: String,
+    experience: Number,
+    gender: String,
+    city: String,
+    creationDate: {
+        type: Date
+    },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+    lastLoginDate: {
+        type: Date
+    },
+    lastModifiedDate: {
+        type: Date,
+        default: Date.now
+    },
+    linkedin: {},
+    // search: [String],
+    meetings: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Meeting'
+    }],
+    coachesLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    studentsLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
+});
 
-        var userSchema = mongoose.Schema({
-            login: { type: String,  required: true,  unique: true },  //Ensure logins are unique.
-            email: { type: String,  required: true,  unique: true },  //Ensure emails are unique.
-            // email: { type: String },  //Ensure emails are unique.
-            password: { type: String, required: true, hide: true }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
-            fullName: String,            
-            role: String,   
-            phone: String,    
-            college: String,
-            industry: String,
-            experience: Number, 
-            gender: String,
-            city: String,    
-            creationDate: { type: Date},
-            resetPasswordToken: String,
-            resetPasswordExpires: Date,
-            lastLoginDate:{ type: Date},
-            lastModifiedDate:{ type: Date, default: Date.now },
-            coachLinked: Array,
-            studentsLinked: Array,
-            linkedin: {},
-            search: [String]
-        });
 
-        // plugin architecture
-        userSchema.plugin(uniqueValidator);
-        userSchema.plugin(mongooseHidden); // hide passowrd from the user response object using hide:true in password field
-        /**
-         * Helper function that hooks into the 'save' method, and replaces plaintext passwords with a hashed version.
-         */
-        userSchema.pre('save', function (next) {
-            var user = this;
 
-            //If the password has not been modified in this save operation, leave it alone (So we don't double hash it)
-            if (!user.isModified('password')) {
-                next();
-                return;
-            }
-            //Encrypt it using bCrypt. Using the Sync method instead of Async to keep the code simple.
-            var hashedPwd = bcrypt.hashSync(user.password, crypto.getCryptLevel());
+// plugin architecture
+userSchema.plugin(uniqueValidator);
+userSchema.plugin(mongooseHidden); // hide passowrd from the user response object using hide:true in password field
+/**
+ * Helper function that hooks into the 'save' method, and replaces plaintext passwords with a hashed version.
+ */
+userSchema.pre('save', function (next) {
+    var user = this;
 
-            //Replace the plaintext pw with the Hash+Salted pw;
-            user.password = hashedPwd;
+    //If the password has not been modified in this save operation, leave it alone (So we don't double hash it)
+    if (!user.isModified('password')) {
+        next();
+        return;
+    }
+    //Encrypt it using bCrypt. Using the Sync method instead of Async to keep the code simple.
+    var hashedPwd = bcrypt.hashSync(user.password, crypto.getCryptLevel());
 
-            //Continue with the save operation
-            next();
-        });
+    //Replace the plaintext pw with the Hash+Salted pw;
+    user.password = hashedPwd;
 
-        /**
-         * Helper function that takes a plaintext password and compares it against the user's hashed password.
-         * @param plainText
-         * @returns true/false
-         */
-        userSchema.methods.passwordMatches = function (plainText) {
-            var user = this;
-            return bcrypt.compareSync(plainText, user.password);
-        };
+    //Continue with the save operation
+    next();
+});
 
-        userSchema.statics.findByEmail = function(email, callback){
-            this.find({ email : email}, callback);
-        };
+/**
+ * Helper function that takes a plaintext password and compares it against the user's hashed password.
+ * @param plainText
+ * @returns true/false
+ */
+userSchema.methods.passwordMatches = function (plainText) {
+    var user = this;
+    return bcrypt.compareSync(plainText, user.password);
+};
 
-        userSchema.statics.findByUsername = function(username, callback){
-            this.find({ username : username}, callback);
-        };
+userSchema.statics.findByEmail = function (email, callback) {
+    this.find({
+        email: email
+    }, callback);
+};
 
-        userSchema.statics.findById = function(id, callback){
-            this.findOne({_id: id},callback);
-            
-        };
+userSchema.statics.findByUsername = function (username, callback) {
+    this.find({
+        username: username
+    }, callback);
+};
 
-        userSchema.statics.findAll = function(callback){
-            this.find({}, callback);
-        };
+userSchema.statics.findById = function (id, callback) {
+    debugger;
+    this.findOne({
+        _id: id
+    }, callback);
 
-        userSchema.statics.findByObjQuery = function(objQuery, display, callback){
-            console.log("---- findByObjQuery ----- ");
-            console.dir(objQuery);
-            // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1})
-            this.find(objQuery,display, callback);
+};
 
-            // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1}).
-        };
+userSchema.statics.findCoaches = function (id, callback) {
+    this.findOne({
+        _id: id
+    }).populate('CoachesLinked StudentLinked')
+        .exec(callback);
+};
 
-        
 
-        return mongoose.model('User', userSchema);
-    };
+userSchema.statics.findAll = function (callback) {
+    this.find({}, callback);
+};
 
-module.exports = new userModel();
+userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
+    console.log("---- findByObjQuery ----- ");
+    console.dir(objQuery);
+    // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1})
+    this.find(objQuery, display, callback);
+
+    // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1}).
+};
+
+
+
+var meetingSchema = Schema({
+    _creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    title: String,
+    attendees: [attendeeSchema]
+});
+
+
+var attendeeSchema = Schema({
+    _id: false,
+    attendee: {
+        type: String,
+        required: true,
+        ref: 'User'
+    }
+})
+
+
+var Meeting = mongoose.model('Meeting', meetingSchema);
+var User = mongoose.model('User', userSchema);
+
+
+module.exports.Meeting = Meeting;
+module.exports.User = User;

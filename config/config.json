@@ -10,15 +10,14 @@
             "module": "engine-munger",
             "renderer": {
                 "method": "js",
-                "arguments": [
-                    { "cache": true },
-                    {
-                        "views": "config:express.views",
-                        "view engine": "config:express.view engine",
-                        "specialization": "config:specialization",
-                        "i18n": "config:i18n"
-                    }
-                ]
+                "arguments": [{
+                    "cache": true
+                }, {
+                    "views": "config:express.views",
+                    "view engine": "config:express.view engine",
+                    "specialization": "config:specialization",
+                    "i18n": "config:i18n"
+                }]
             }
         }
     },
@@ -29,7 +28,7 @@
     },
     "databaseConfig": {
         "host": "localhost",
-        "database": "scholarmatch3"
+        "database": "scholarmatch4"
     },
 
     "bcrypt": {
@@ -40,13 +39,15 @@
 
         "static": {
             "module": {
-                "arguments": [ "path:./.build" ]
+                "arguments": ["path:./.build"]
             }
         },
 
         "router": {
             "module": {
-                "arguments": [{ "directory": "path:./controllers" }]
+                "arguments": [{
+                    "directory": "path:./controllers"
+                }]
             }
         },
 
@@ -63,7 +64,7 @@
             "priority": 130,
             "module": {
                 "name": "kraken-js/middleware/404",
-                "arguments": [ "errors/404" ]
+                "arguments": ["errors/404"]
             }
         },
 
@@ -71,8 +72,8 @@
             "enabled": true,
             "priority": 140,
             "module": {
-                "name" : "kraken-js/middleware/500",
-                "arguments": [ "errors/500" ]
+                "name": "kraken-js/middleware/500",
+                "arguments": ["errors/500"]
             }
         },
 
@@ -81,7 +82,7 @@
             "priority": 91,
             "enabled": true,
             "module": {
-                "name":"connect-flash",
+                "name": "connect-flash",
                 "method": "flash"
             }
         },
@@ -97,7 +98,7 @@
             "enabled": true,
             "priority": 111,
             "module": {
-                "name":"path:./lib/auth",
+                "name": "path:./lib/auth",
                 "method": "isAuthenticated"
 
             }
@@ -107,7 +108,7 @@
             "enabled": true,
             "priority": 112,
             "module": {
-                "name":"path:./lib/auth",
+                "name": "path:./lib/auth",
                 "method": "injectUser"
             }
         }

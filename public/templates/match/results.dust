@@ -43,7 +43,7 @@
 						<td>{industry}</td>
 						<td>{city}</td>
 						<td>{gender}</td>
-						<td> <a class="button" href="/match/connect?coachid={_id}&amp;studentId={user._id}">Connect</a class="button" href="/connect?id={_id}"></td>
+						<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Connect</a></td>
 					</tr>
 					{/data.results}
 				</tbody>
