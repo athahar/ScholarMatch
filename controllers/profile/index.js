@@ -32,6 +32,8 @@ module.exports = function (router) {
 
         req.session.firstlogin = false; // clear initial login flag
 
+        // should use this
+        //model.data.user = JSON.parse(JSON.stringify(req.user));                
         res.render('profile/index', model);
     });
 
@@ -50,6 +52,8 @@ module.exports = function (router) {
 	        model.data.userDetails.experience = req.body.experience;
 	        model.data.userDetails.gender = req.body.gender;
 	        model.data.userDetails.city = req.body.city;
+
+            model.data.firstlogin = req.session.firstlogin = false;
 
 	        // console.dir(model.data.userDetails);
 

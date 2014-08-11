@@ -1,0 +1,21 @@
+{>"layouts/master" /}
+
+{<title}
+	Dashboard Coach - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	<div class="container">
+
+		<div class="row">
+		   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+			  {>"dashboard/inc/upcoming-meetings" /}  
+			  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
+	   		</div>
+
+		   <div class="col-md-8">
+		   		{>"dashboard/inc/recent-meetings" /}
+		   </div>
+		</div>		
+	</div>
+{/body}

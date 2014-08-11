@@ -6,8 +6,12 @@
 
 {<body}
 
-	<div class="container" data-model="{data|js}">
-		Matched successfully!
+	<div class="container" data-model="{data.result|js}">
+		Connected successfully!  <br/><br/>
+
+		Next Steps:  <br/>
+		1. Check out the students <a href="/help/student">  help </a> section. <br/>
+		2. Set up a <a href="/meeting-invite"> meeting</a> with your coach.
 
 	</div>
 {/body}

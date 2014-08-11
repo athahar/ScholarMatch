@@ -15,6 +15,7 @@ module.exports = function (router) {
      */
     router.get('/', function (req, res) {
 
+        console.dir(model);
         //Include any error messages that come from the login process.
         model.messages = req.flash('error');
         res.render('login', model);
@@ -30,7 +31,7 @@ module.exports = function (router) {
     router.post('/', function (req, res) {
 
         passport.authenticate('local', {
-            successRedirect: req.session.goingTo || '/profile',
+            successRedirect: req.session.goingTo || '/dashboard',
             failureRedirect: '/login',
             failureFlash: true
         })(req, res);
