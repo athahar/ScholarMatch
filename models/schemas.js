@@ -11,7 +11,8 @@ var mongoose = require('mongoose'),
         defaultHidden: {
             password: true
         }
-    });
+    }),
+    async = require("async");
 
 var userSchema = Schema({
     login: {
@@ -115,24 +116,27 @@ userSchema.statics.findByUsername = function (username, callback) {
 };
 
 userSchema.statics.findById = function (id, callback) {
+    debugger;
     this.findOne({
         _id: id
     }, callback);
 
 };
 
-userSchema.statics.findByIdAndMeetings = function (id, callback) {
-    this.findOne({
-        _id: id
-    }).populate({
-        path: 'meetings',
-        select: '_creator topic location meetingdate attendees'
-    }).populate({
-        path: 'meetings.attendees',
-        model: Attendee
-    })
-        .exec(callback);
-};
+
+
+// userSchema.statics.findByIdAndMeetings = function (id, callback) {
+//     this.findOne({
+//         _id: id
+//     }).populate({
+//         path: 'meetings',
+//         select: '_creator topic location meetingdate attendees'
+//     }).populate({
+//         path: 'meetings.attendees',
+//         model: Attendee
+//     })
+//         .exec(callback);
+// };
 
 
 

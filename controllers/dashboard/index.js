@@ -4,7 +4,8 @@
 var DashboardModel = require('../../models/dashboard'),
     mongoose = require('mongoose'),
     User = mongoose.model("User"),
-    Meeting = mongoose.model("Meeting");
+    Meeting = mongoose.model("Meeting"),
+    async = require("async");
 
 module.exports = function (router) {
 
@@ -97,26 +98,30 @@ module.exports = function (router) {
 
     router.get('/getAllMeetings', function (req, res) {
 
-        User.findByIdAndMeetings(req.query.userid, function (err, result) {
+        // debugger;
+        var userid = req.query.userid;
+
+        User.findById(userid, function (err, doc) {
             if (err) {
-                model.messages = err;
-                res.send(err);
-            } else {
-
-                // 1
-                var opts = [{
-                    path: 'meetings.attendees'
-                }];
-
-                debugger;
-                console.dir(result.meetings);
-
-                Meeting.populate(result, opts, function (err, result2) {
-                    res.send(result2);
-                })
+                return res.send(err);
             }
+            debugger;
+
+            Meeting.populate(doc.meetings, {
+                    path: 'attendees'
+                },
+                function (err, data) {
+
+                    if (err) {
+                        return res.send(err);
+                    }
+                    debugger;
+                    res.send(data);
+                }
+            );
 
         })
+
 
     });
 
