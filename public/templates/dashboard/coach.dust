@@ -9,12 +9,19 @@
 
 		<div class="row">
 		   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-			  {>"dashboard/inc/upcoming-meetings" /}  
+			  {! >"dashboard/inc/upcoming-meetings" / !}  
 			  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
+			  {>"dashboard/inc/progress" role="{data.user.role}" /}  
 	   		</div>
 
 		   <div class="col-md-8">
-		   		{>"dashboard/inc/recent-meetings" /}
+
+		   		{?data.user.studentsLinked}
+		   			{>"dashboard/inc/meetings" /}
+		   		{:else}	
+		   			<div class="lead"> You do not have any students assigned yet. </div>
+		   		{/data.user.studentsLinked}
+		   		
 		   </div>
 		</div>		
 	</div>

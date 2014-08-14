@@ -7,11 +7,14 @@
 {<body}
 
 	<div class="container" data-model="{data.result|js}">
-		Connected successfully!  <br/><br/>
+		Your request to connect to the coach has been sent to ScholarMatch! <br/><br/>
 
 		Next Steps:  <br/>
-		1. Check out the students <a href="/help/student">  help </a> section. <br/>
-		2. Set up a <a href="/meeting-invite"> meeting</a> with your coach.
+		<ol>
+			<li> Scholarmatch will review the request, and contact the coach. </li> 
+			<li>  Once we have a mutual fit, we'll inform you via email. </li> 
+			<li>  Check out the students <a href="/help/student">  help </a> section. </li> 
+		</ol>
 
 	</div>
 {/body}

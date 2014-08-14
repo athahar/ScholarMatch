@@ -1,10 +1,10 @@
 
 {! Recent meetings !}
 
-<p class="lead">Recent meetings</p>         
+<p class="lead">Meetings</p>
 
 <!-- check for past meetings count  here below -->
-{^data.meetings}    
+{^data.meetingDetails}    
 
   <!--  check if there are any new meetinsg setup, else ask the user to setup a meeting or explore Scholarmatch
     {?data.meetings.upcoming.details}    
@@ -17,22 +17,26 @@ You have not met anyone yet!
   <table id="visits" class="table table-bordered table-striped table-condensed">
      <thead>
         <tr>
-           <td>Date/Time</td>
+           <td>Date/Time</td>           
            <td>Name</td>
+           <td>Address</td>
            <td>Topic</td>
-           <td>Meeting Notes</td>
+           <td>Meeting Feedback</td>
+           <td>Actions</td>
         </tr>
      </thead>
      <tbody>
-        {#data.meetings}    
+        {#data.meetingDetails.meetings}    
         <tr>
            <td>{meetingdate}</td>
+           <td>{attendee.name}</td>
            <td>{location}</td>
            <td>{topic}</td>
-           <td><a href="/meeting-notes?meetingId={_id}">Add/View Notes</a></td>
+           <td><a href="/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
+           <td><a href="/meetings/cancel">Cancel</a></td>
         </tr>     
-        {/data.meetings}      
+        {/data.meetingDetails.meetings}      
      </tbody>
   </table>
 
-{/data.meetings}    
+{/data.meetingDetails}

@@ -54,6 +54,26 @@ module.exports = function (router) {
     });
 
 
+    router.get('/all', function (req, res) {
+
+        Meeting.findAll(function (err, result) {
+            if (err) {
+                console.log(err);
+                model.messages = err;
+                // res.render('meeting-invite/index', model);
+                res.send(model);
+            } else {
+                console.dir(result);
+                model.data = model.data || {};
+                model.data.meetingDetails = JSON.parse(JSON.stringify(result));
+
+                res.render('meeting-invite/all', model);
+            }
+        })
+
+    });
+
+
     router.post('/', function (req, res) {
 
         var meetingType = req.body.meetingType,
@@ -188,8 +208,8 @@ module.exports = function (router) {
 
 
                                 }
-                            })
-
+                            }
+                        )
                     });
 
                 }

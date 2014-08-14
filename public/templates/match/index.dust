@@ -17,12 +17,17 @@
             </ul>
         {/messages}
 
-        {>"match/inc/custom-match" /}
+		<br/>
+        <div class="clearfix">
+			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a>
+		</div>
 
 		<hr/>
-		<div class="clearfix">
-			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> | <a href="/match/connect"> Connect </a>
-		</div>
+
+        {>"match/inc/custom-match" /}
+
+		
+		
 		
 	</div>
 {/body}

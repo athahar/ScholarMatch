@@ -19,7 +19,7 @@
        
 		<hr/>
 		<div class="clearfix">
-			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> | <a href="/match/connect"> Connect </a>
+			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> 
 		</div>
 		<hr/>
 		<div class="results clearfix" data-results="{data.results|s}"> 						
@@ -32,6 +32,7 @@
 					<th>Industry</th>
 					<th>City</th>					
 					<th>Gender</th>
+					<th>Profile</th>
 					<th>connect</th>
 				</thead>
 				<tbody>
@@ -43,7 +44,8 @@
 						<td>{industry}</td>
 						<td>{city}</td>
 						<td>{gender}</td>
-						<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Connect</a></td>
+						<td><a class="button" href="/profile/user?userId={_id}"> View</a></td>
+						<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Request to connect</a></td>
 					</tr>
 					{/data.results}
 				</tbody>

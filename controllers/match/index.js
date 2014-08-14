@@ -5,7 +5,9 @@ var MatchModel = require('../../models/match');
 var userLib = require('../../lib/user')();
 var auth = require('../../lib/auth');
 var async = require('async');
-
+var matchRequest = require('../../lib/matchRequest')();
+var meetingLib = require('../../lib/meetinginvite');
+var email = require('../../lib/email');
 
 module.exports = function (router) {
 
@@ -85,16 +87,69 @@ module.exports = function (router) {
         })
     })
 
+
+
     router.get('/connect', function (req, res) {
+
+        var studentId = req.query.studentId;
+        var coachId = req.query.coachId;
+
+        matchRequest.requestConnection(studentId, coachId, function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+                model.messages = 'Requested for getting connected';
+                model.data = model.data || {};
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/success', model);
+            }
+
+        })
+
+    })
+
+    router.get('/pending', function (req, res) {
+
+        model.messages = null;
+
+        matchRequest.showPendingConnections(function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+
+                debugger;
+                model.data = model.data || {};
+                console.dir(result);
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/pending', model);
+            }
+
+        })
+
+    })
+
+    router.get('/approve', function (req, res) {
 
         // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
 
         var studentId = req.query.studentId;
         var coachId = req.query.coachId;
+        var matchingRequestId = req.query.matchRequest;
 
-        async.parallel([
+        debugger;
+        async.parallel({
 
-                function (callback) {
+                connectStudentWithCoach: function (callback) {
                     userLib.connectStudentWithCoach(studentId, coachId, function (err, result) {
                         if (err) {
                             model.messages = err;
@@ -105,7 +160,7 @@ module.exports = function (router) {
 
                     })
                 },
-                function (callback) {
+                connectCoachWithStudent: function (callback) {
 
                     userLib.connectCoachWithStudent(studentId, coachId, function (err, result) {
                         if (err) {
@@ -115,8 +170,19 @@ module.exports = function (router) {
                             callback(null, result);
                         }
                     });
+                },
+                approveConnection: function (callback) {
+
+                    matchRequest.approveConnection(matchingRequestId, function (err, result) {
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    });
                 }
-            ],
+            },
             function (err, result) {
 
 
@@ -125,13 +191,47 @@ module.exports = function (router) {
                     res.render('match/index', model)
                 } else {
 
-                    model.messages = 'sucessfully connected';
-                    model.data = model.data || {};
-                    model.data.result = JSON.parse(JSON.stringify(result));
+                    console.dir(result.approveConnection);
+                    debugger;
 
-                    //TODO: response handling shoudl be better
+                    var student = result.approveConnection.student,
+                        coach = result.approveConnection.coach;
 
-                    res.render('match/success', model);
+
+                    var emailList = new Array();
+                    emailList.push(student.email);
+                    emailList.push(coach.email);
+
+                    var options = {
+                        to: emailList.toString(),
+                        subject: 'Coach/Student - You are connected', // Subject line
+                        text: meetingLib.buildTextWelcome(student, coach), // plaintext body
+                        html: meetingLib.buildHTMLWelcome(student, coach) // html body
+                    }
+
+
+                    // users were succesfully connected, now send an email
+                    email.sendEmail(options, function (err, result) {
+
+                        if (err) {
+                            console.log(err);
+                            model.messages = err;
+                            res.render('errors/500', model);
+                        } else {
+
+                            console.dir(model);
+                            model.messages = 'sucessfully connected';
+                            model.data = model.data || {};
+                            model.data.result = JSON.parse(JSON.stringify(result));
+
+                            //TODO: response handling shoudl be better
+
+                            res.render('match/approved', model);
+                            // res.render('meeting-invite/emailSent', model);
+                        }
+                    })
+
+
                 }
             }
         );

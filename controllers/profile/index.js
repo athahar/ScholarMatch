@@ -3,18 +3,20 @@
 
 var ProfileModel = require('../../models/profile');
 var userLib = require('../../lib/user')();
+var mongoose = require('mongoose');
+var User = mongoose.model("User");
 
 module.exports = function (router) {
 
-    
-	var model = new ProfileModel();
-   
-	router.get('/', function(req, res) {
-        
+
+    var model = new ProfileModel();
+
+    router.get('/', function (req, res) {
+
         model.data = model.data || {};
 
         model.messages = ''; // clear any messages
-        
+
         model.data.userDetails = model.data.userDetails || {}
         model.data.userDetails.login = req.user.login;
         model.data.userDetails.fullName = req.user.fullName;
@@ -38,49 +40,67 @@ module.exports = function (router) {
     });
 
 
-    router.post('/', function(req, res) {
-        
-        if(req.session.userid){
+    router.post('/', function (req, res) {
 
-        	model.data = model.data || {};        
-	        model.data.userDetails = model.data.userDetails || {}
-	        
-	        model.data.userDetails.fullName = req.body.fullName;
-	        model.data.userDetails.phone = req.body.phone;
-	        model.data.userDetails.college = req.body.college;
-	        model.data.userDetails.industry = req.body.industry;
-	        model.data.userDetails.experience = req.body.experience;
-	        model.data.userDetails.gender = req.body.gender;
-	        model.data.userDetails.city = req.body.city;
+        if (req.session.userid) {
+
+            model.data = model.data || {};
+            model.data.userDetails = model.data.userDetails || {}
+
+            model.data.userDetails.fullName = req.body.fullName;
+            model.data.userDetails.phone = req.body.phone;
+            model.data.userDetails.college = req.body.college;
+            model.data.userDetails.industry = req.body.industry;
+            model.data.userDetails.experience = req.body.experience;
+            model.data.userDetails.gender = req.body.gender;
+            model.data.userDetails.city = req.body.city;
 
             model.data.firstlogin = req.session.firstlogin = false;
 
-	        // console.dir(model.data.userDetails);
+            // console.dir(model.data.userDetails);
 
-	        userLib.updateUser(model.data.userDetails , function (err, result) {
-	        	
-	        	if(err){
-	        		model.messages = err;	
-	        		// model.messages.status = 'error';	 - Need to add this later
-	        		res.render('profile/index', model);
-	        	}else{
-	        		// console.log('result '  + result);
-	        		// model.messages.status = 'success';
-	        		model.messages = 'Profile Updated';        		
-	        		res.render('profile/index', model);	        		
-	        	}
+            userLib.updateUser(model.data.userDetails, function (err, result) {
 
-	        });
-        }else{
-        	res.redirect('/login');
+                if (err) {
+                    model.messages = err;
+                    // model.messages.status = 'error';	 - Need to add this later
+                    res.render('profile/index', model);
+                } else {
+                    // console.log('result '  + result);
+                    // model.messages.status = 'success';
+                    model.messages = 'Profile Updated';
+                    res.render('profile/index', model);
+                }
+
+            });
+        } else {
+            res.redirect('/login');
         }
-		
+
     });
 
 
-    router.get('/:name', function (req, res) {
-        
-        res.render('profile/student', model);
-        
+    router.get('/user', function (req, res) {
+
+
+        User.findByIdAndMeetings(req.query.userId, function (err, result) {
+            if (err) {
+                console.log('error')
+                // model.messages = err;
+                res.send(err);
+            } else {
+                console.log(result)
+
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                // res.render(result);
+                res.render('profile/user', model);
+
+            }
+
+        })
+
+
+
     });
 };
