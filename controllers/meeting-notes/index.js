@@ -18,4 +18,7 @@ module.exports = function (router) {
         
     });
      
+     // good example for joins
+     // http://luiselizondo.net/blogs/luis-elizondo/joins-mongodb-mongoose-and-nodejs
+     // https://coderwall.com/p/6v5rcw
 };

@@ -1,0 +1,18 @@
+{>"layouts/master" /}
+
+{<title}
+	Match  - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container" data-model="{data.result|js}">
+		Request Approved!
+
+		<br/>
+
+		Respective coach and student have been emailed about the new connection.
+		
+
+	</div>
+{/body}

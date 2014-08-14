@@ -1,7 +1,24 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>{@pre type="content" key="greeting"/}</h1>
-    <p>Welcome to the Administrators private club. No users allowed here.</p>
+
+	<div class="container">
+		<p>Welcome to the Administrators private club. No users allowed here.</p>
+		<div class="row">
+		   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+			  {! >"dashboard/inc/upcoming-meetings" / !}  
+			  <div class="panel panel-info">
+			  	<div class="panel-heading">Quick Links</div>
+			    <ul class="nav nav-pills nav-stacked">
+			    	
+					<li> <a href="/match/pending">View Pending Request(s)</a></li>		
+					<li> <a href="/meeting-invite/all">View All meetings</a></li>
+					
+				</ul>
+			</div>			  
+	   		</div>
+		</div>		
+	</div>
 
 {/body}
+

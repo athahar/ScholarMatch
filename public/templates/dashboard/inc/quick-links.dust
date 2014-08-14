@@ -1,0 +1,30 @@
+
+{! Quick Links !}
+
+<!-- <p>Role : {role}</p> -->
+<div class="panel panel-info">
+  	<div class="panel-heading">Quick Links</div>
+    <ul class="nav nav-pills nav-stacked">
+    	{?data.user.studentsLinked}
+		<li> <a href="/meeting-invite">Set up a meeting</a></li>
+		{/data.user.studentsLinked}
+		{?data.user.coachesLinked}
+		<li> <a href="/meeting-invite">Set up a meeting</a></li>
+		{/data.user.coachesLinked}
+		{! <li> <a href="/dashboard/getAllMeetings?userid={user._id}">View my meetings</a></li> !}
+		<li> <a href="/coaching-help">Coaching Help</a></li>
+		<li> <a href="/contact">Contact ScholarMatch</a></li>
+	</ul>
+</div>
+
+
+
+
+
+<!-- {@if cond="'{role}' == 'coach'"}
+	coach
+{/if}
+{@if cond="'{role}' == 'student'"}
+	student
+{/if}
+ -->
