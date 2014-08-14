@@ -6,8 +6,15 @@
 
 {<body}
 
-	<div class="container" data-model="{data|js}">
-		Matched successfully!
+	<div class="container" data-model="{data.result|js}">
+		Your request to connect to the coach has been sent to ScholarMatch! <br/><br/>
+
+		Next Steps:  <br/>
+		<ol>
+			<li> Scholarmatch will review the request, and contact the coach. </li> 
+			<li>  Once we have a mutual fit, we'll inform you via email. </li> 
+			<li>  Check out the students <a href="/help/student">  help </a> section. </li> 
+		</ol>
 
 	</div>
 {/body}

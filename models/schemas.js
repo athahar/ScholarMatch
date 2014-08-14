@@ -115,20 +115,81 @@ userSchema.statics.findByUsername = function (username, callback) {
 };
 
 userSchema.statics.findById = function (id, callback) {
-    debugger;
     this.findOne({
         _id: id
     }, callback);
 
 };
 
-userSchema.statics.findCoaches = function (id, callback) {
+
+
+// userSchema.statics.findByIdAndMeetings = function (id, callback) {
+
+//     var that = this;
+
+//     this.findOne({
+//         _id: id
+//     }).populate({
+//         path: 'meetings.meeting'
+//     })
+//         .exec(function (err, docs) {
+//             debugger;
+
+//             var options = {
+//                 path: 'meetings.attendees',
+//                 model: 'Attendee'
+//             };
+
+//             if (err) {
+//                 console.log("500: error - findByIdAndMeetings")
+//                 return callback(err);
+//             }
+
+//             that.populate(docs, options, function (err, users) {
+//                 debugger;
+//                 callback(null, users);
+//             });
+//         });
+// }
+
+userSchema.statics.findByIdAndMeetings = function (id, callback) {
     this.findOne({
         _id: id
-    }).populate('CoachesLinked StudentLinked')
+    }).populate({
+        path: 'meetings',
+        select: '_creator topic location meetingdate attendees'
+        // }).populate({
+        //     path: 'meetings.attendees',
+        //     model: Attendee
+    }).populate({
+        path: 'coachesLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'studentsLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    })
         .exec(callback);
 };
 
+userSchema.statics.linkedCoach = function (id, callback) {
+    this.findOne({
+        _id: id
+    }).populate({
+        path: 'coachesLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
+
+userSchema.statics.linkedStudents = function (id, callback) {
+    this.findOne({
+        _id: id
+    }).populate({
+        path: 'studentsLinked',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
 
 userSchema.statics.findAll = function (callback) {
     this.find({}, callback);
@@ -150,10 +211,67 @@ var meetingSchema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    title: String,
+    topic: String,
+    location: String,
+    meetingdate: String,
     attendees: [attendeeSchema]
 });
 
+
+meetingSchema.statics.findAll = function (callback) {
+    // this.find({}, callback);
+    this.find({}).populate({
+        path: 'attendees',
+        model: 'User',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
+
+var matchRequestSchema = Schema({
+    student: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    coach: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    status: {
+        type: String,
+        default: 'pending'
+    },
+    lastModifiedDate: {
+        type: Date,
+        default: Date.now
+    },
+    requestedDate: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+matchRequestSchema.statics.findPending = function (callback) {
+    console.log("---- findPending ----- ");
+    this.find({
+        status: 'pending'
+    }).populate({
+        path: 'student',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'coach',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+
+};
+
+matchRequestSchema.statics.findById = function (id, callback) {
+    this.findOne({
+        _id: id
+    }, callback);
+
+};
 
 var attendeeSchema = Schema({
     _id: false,
@@ -167,6 +285,8 @@ var attendeeSchema = Schema({
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
+var Attendee = mongoose.model('Attendee', attendeeSchema);
+var MatchRequest = mongoose.model('MatchRequest', matchRequestSchema);
 
 
 module.exports.Meeting = Meeting;

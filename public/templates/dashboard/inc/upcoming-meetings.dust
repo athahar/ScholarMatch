@@ -1,0 +1,23 @@
+{! Upcoming meetings !}
+<!-- Default panel contents -->	
+
+<div class="panel panel-info">
+	<div class="panel-heading">Upcoming Meeting(s) <span class="badge pull-right">{data.meetings.upcoming.count}</span>
+	</div>
+	<!-- List group -->
+  	<ul class="list-group">
+  		{#data.meetings.upcoming.details}		
+		<li class="list-group-item"> 
+			<p> <a href="/profile/{meetingWith.userid}">{meetingWith.name}</a> - {time} </p>
+				<ul class="list-unstyled gray-nice">
+					<li> 
+						Topic: {topic}
+					</li>					
+					<li> 
+						{location} ({contact})
+					</li>
+				</ul>	
+		</li>
+		{/data.meetings.upcoming.details}
+	</ul>
+</div>
