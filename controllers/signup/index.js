@@ -60,7 +60,7 @@ module.exports = function (router) {
                 // After signup, do a user login & send to profile page
 
                 passport.authenticate('local', {
-                    successRedirect: req.session.goingTo || '/profile',
+                    successRedirect: '/profile',
                     failureRedirect: '/login',
                     failureFlash: true
                 })(req, res);

@@ -1,0 +1,38 @@
+{>"layouts/master" /}
+
+{<title}
+	Dashboard Student - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	<div class="container">
+
+		<div class="row">
+		   <div id="connections" class="col-md-3">	   					  
+			  {! 
+			   		{>"dashboard/inc/upcoming-meetings" /} 
+			   !}
+			  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
+	   		</div>
+
+		   <div class="col-md-8">
+
+		   		{! the user doesnt have had any coaches assigned yet !}
+		   		
+		   		{?data.user.coachesLinked}
+		   			<!-- {data.user.meetings|js} -->
+		   			{>"dashboard/inc/meetings" /}
+		   			
+		   		{:else}	
+		   			{>"match/inc/custom-match" /}
+		   		{/data.user.coachesLinked}
+
+		   		
+
+		   		{! 
+		   			{>"dashboard/inc/recent-meetings" /} 
+		   		!}
+		   </div>
+		</div>
+	</div>
+{/body}
