@@ -19,17 +19,45 @@
        
 		<hr/>
 		<div class="clearfix">
-			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> | <a href="/match/connect"> Connect </a>
+			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> 
 		</div>
 		<hr/>
-		<div class="results clearfix" data-results="{data.results|s}"> 
-			
-			{data.results|s}
+		<div class="results clearfix" data-results="{data.results|s}"> 						
 
-			<br/>
+			<table class="table table-striped">
+				<thead>
+					<th>Email</th>
+					<th>Full name</th>
+					<th>College</th>
+					<th>Industry</th>
+					<th>City</th>					
+					<th>Gender</th>
+					<th>Profile</th>
+					<th>connect</th>
+				</thead>
+				<tbody>
+					{#data.results}
+					<tr>
+						<td>{email}</td>
+						<td>{fullName}</td>
+						<td>{college}</td>
+						<td>{industry}</td>
+						<td>{city}</td>
+						<td>{gender}</td>
+						<td><a class="button" href="/profile/user?userId={_id}"> View</a></td>
+						<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Request to connect</a></td>
+					</tr>
+					{/data.results}
+				</tbody>
+			</table>
+
+			<p>Found: {data.count} record(s).</p>
+
+<!-- 			<ul>
 			{#data.results}
-				{fullName} - {city} - {industry}
+				<li>{fullName} - {city} - {industry} </li>
 			{/data.results}
+			</ul> -->
 		 </div>
 		
 

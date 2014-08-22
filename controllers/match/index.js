@@ -5,7 +5,9 @@ var MatchModel = require('../../models/match');
 var userLib = require('../../lib/user')();
 var auth = require('../../lib/auth');
 var async = require('async');
-
+var matchRequest = require('../../lib/matchRequest')();
+var meetingLib = require('../../lib/meetinginvite');
+var email = require('../../lib/email');
 
 module.exports = function (router) {
 
@@ -19,106 +21,220 @@ module.exports = function (router) {
 
     router.post('/', function (req, res) {
 
-
         var options = {};
-        
-        options.fullName = req.body.fullName;        
+
+        options.fullName = req.body.fullName;
         options.industry = req.body.industry;
         options.city = req.body.city;
-        options.role = req.body.role;
+        options.college = req.body.college;
+        options.gender = req.body.gender;
+        options.role = req.body.role || 'coach';
 
+        model.messages = ''; //clear msgs
 
-        userLib.queryAllUsers(options, function(err, result){
+        userLib.queryMatchingAlgorithm(options, function (err, result) {
 
-             if(err){
-                 model.messages = err;             
+            if (err) {
+                model.messages = err;
                 res.render('match/index', model)
-            }else{
+            } else {
 
                 // model.messages = 'sucessfully connected';
                 model.data = model.data || {};
                 model.data.results = JSON.parse(JSON.stringify(result));
-                
+                model.data.count = result.length;
+
                 res.render('match/results', model);
             }
-            
+
         })
-        
+
         // res.render('match/index', model);
     });
 
-    router.get('/findcoach', function(req, res){
-        
+    router.get('/findcoach', function (req, res) {
+
         var options = {};
 
         options.role = "coach";
 
-         userLib.findAllUsers(options, function(err, result){
-            model.result = JSON.parse(JSON.stringify(result));
-            console.dir(model);
-            res.render('match/index', model);
+        userLib.queryAllUsers(options, function (err, result) {
+
+            if (!err) {
+                model.data = model.data || {};
+                model.data.results = JSON.parse(JSON.stringify(result));
+                model.data.count = result.length;
+                // console.dir(model);
+                res.render('match/results', model);
+            } else {
+                res.send(err);
+            }
+
         })
     })
-    router.get('/findstudent', function(req, res){
-        
+    router.get('/findstudent', function (req, res) {
+
         var options = {};
 
         options.role = "student";
 
-         userLib.findAllUsers(options, function(err, result){
-            model.result = JSON.parse(JSON.stringify(result));
-            console.dir(model);
-            res.render('match/index', model);
+        userLib.queryAllUsers(options, function (err, result) {
+            model.data = model.data || {};
+            model.data.results = JSON.parse(JSON.stringify(result));
+            model.data.count = result.length;
+            // console.dir(model);
+            res.render('match/results', model);
         })
     })
 
-    router.get('/connect', function(req, res){
+
+
+    router.get('/connect', function (req, res) {
+
+        var studentId = req.query.studentId;
+        var coachId = req.query.coachId;
+
+        matchRequest.requestConnection(studentId, coachId, function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+                model.messages = 'Requested for getting connected';
+                model.data = model.data || {};
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/success', model);
+            }
+
+        })
+
+    })
+
+    router.get('/pending', function (req, res) {
+
+        model.messages = null;
+
+        matchRequest.showPendingConnections(function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+
+                debugger;
+                model.data = model.data || {};
+                console.dir(result);
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/pending', model);
+            }
+
+        })
+
+    })
+
+    router.get('/approve', function (req, res) {
 
         // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
 
-        var studentid = req.body.studentid || '53d58729ff1102000050c0f1';
-        var coachid = req.body.coachid || '53d587742a4069000042a0bc';
+        var studentId = req.query.studentId;
+        var coachId = req.query.coachId;
+        var matchingRequestId = req.query.matchRequest;
 
-        async.parallel([
-            function(callback){
-                userLib.connectStudentWithCoach(studentid, coachid, function(err, result){
-                    if(err){
-                        model.messages = err;             
-                        callback(err);
-                    }else{
-                       callback(null, result);
-                   }
+        debugger;
+        async.parallel({
 
-                })  
-            }, 
-            function(callback){
+                connectStudentWithCoach: function (callback) {
+                    userLib.connectStudentWithCoach(studentId, coachId, function (err, result) {
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
 
-                userLib.connectCoachWithStudent(studentid, coachid, function(err, result){
-                    if(err){
-                        model.messages = err;             
-                        callback(err);
-                    }else{
-                       callback(null, result);
-                   }
-                });  
-            }],
+                    })
+                },
+                connectCoachWithStudent: function (callback) {
+
+                    userLib.connectCoachWithStudent(studentId, coachId, function (err, result) {
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    });
+                },
+                approveConnection: function (callback) {
+
+                    matchRequest.approveConnection(matchingRequestId, function (err, result) {
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    });
+                }
+            },
             function (err, result) {
 
 
-                if(err){
-                     model.messages = err;             
+                if (err) {
+                    model.messages = err;
                     res.render('match/index', model)
-                }else{
+                } else {
 
-                    model.messages = 'sucessfully connected';
-                    model.data = JSON.stringify(result);;             
-                    
-                    //TODO: response handling shoudl be better
+                    console.dir(result.approveConnection);
+                    debugger;
 
-                    res.render('match/success', model);
+                    var student = result.approveConnection.student,
+                        coach = result.approveConnection.coach;
+
+
+                    var emailList = new Array();
+                    emailList.push(student.email);
+                    emailList.push(coach.email);
+
+                    var options = {
+                        to: emailList.toString(),
+                        subject: 'Coach/Student - You are connected', // Subject line
+                        text: meetingLib.buildTextWelcome(student, coach), // plaintext body
+                        html: meetingLib.buildHTMLWelcome(student, coach) // html body
+                    }
+
+
+                    // users were succesfully connected, now send an email
+                    email.sendEmail(options, function (err, result) {
+
+                        if (err) {
+                            console.log(err);
+                            model.messages = err;
+                            res.render('errors/500', model);
+                        } else {
+
+                            console.dir(model);
+                            model.messages = 'sucessfully connected';
+                            model.data = model.data || {};
+                            model.data.result = JSON.parse(JSON.stringify(result));
+
+                            //TODO: response handling shoudl be better
+
+                            res.render('match/approved', model);
+                            // res.render('meeting-invite/emailSent', model);
+                        }
+                    })
+
+
                 }
             }
         );
-        
+
     })
 };
