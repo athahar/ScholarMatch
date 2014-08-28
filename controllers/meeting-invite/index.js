@@ -143,6 +143,7 @@ module.exports = function (router) {
                         html: meetingLib.buildHTMLInvite(inviteCreator, invitee, meeting) // html body
                     }
 
+                    //create .ics file : https://github.com/shanebo/icalevent
 
                     // save the meeting invite
                     meetinginvite.save(function (err, result) {
