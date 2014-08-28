@@ -1,0 +1,36 @@
+{>"layouts/master" /}
+
+{<title}
+	Forgot Password - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<p class="lead">Forgot Password</p>
+	    <div id="flash"></div>
+	    <div class="col-sm-8 col-sm-offset-2">
+	        <form method="POST">
+	            
+	            <p>Enter your email address below and we will send you password reset instructions.</p>
+
+	            {?messages}
+                    <ul class="bg-warning">
+                        {#messages}
+                            <li>{.}</li>
+                        {/messages}
+                    </ul>
+                {/messages}
+	            <input type="hidden" name="_csrf" value="{_csrf}" />	            
+	            <div class="form-group">
+			      <label for="username" class="col-sm-4 control-label">Email address</label>
+			      <div class="col-sm-6"><input type="text" name="username" id="username" placeholder="Email address" autofocus="" value="{user.email}" class="form-control"></div>
+			   </div>
+	            <div class="form-group">
+	                <button type="submit" class="btn btn-primary">Reset Password</button>
+	            </div>
+	        </form>
+	    </div>
+	</div>
+
+{/body}

@@ -1,0 +1,14 @@
+{>"layouts/master" /}
+
+{<title}
+	Password Reset  - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container" data-model="{data.result|js}">
+		
+		An e-mail has been sent : 
+		<br/> {data.result.messages}
+	</div>
+{/body}
