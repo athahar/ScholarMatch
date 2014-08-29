@@ -54,10 +54,11 @@ module.exports = function (router) {
             model.data.userDetails.experience = req.body.experience;
             model.data.userDetails.gender = req.body.gender;
             model.data.userDetails.city = req.body.city;
+            model.data.userDetails.login = req.user.login;
+            model.data.userDetails.userid = req.session.userid;
 
             model.data.firstlogin = req.session.firstlogin = false;
 
-            // console.dir(model.data.userDetails);
 
             userLib.updateUser(model.data.userDetails, function (err, result) {
 
