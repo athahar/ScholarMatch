@@ -12,6 +12,7 @@ var mongoose = require('mongoose'),
             password: true
         }
     });
+// refer: https://github.com/madhums/mongoose-user/blob/master/lib/mongoose-user.js
 
 var userSchema = Schema({
     login: {
@@ -191,8 +192,16 @@ userSchema.statics.linkedStudents = function (id, callback) {
         .exec(callback);
 };
 
-userSchema.statics.findAll = function (callback) {
-    this.find({}, callback);
+userSchema.statics.load = function (options, callback) {
+    // this.find({}, callback);
+    var criteria = options.criteria || {}
+    var populate = options.populate || []
+    var select = options.select || ''
+
+    this.find(criteria)
+        .select(options.select)
+        .populate(options.populate)
+        .exec(cb)
 };
 
 userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
