@@ -7,7 +7,7 @@ var LoginModel = require('../../models/login'),
     mongoose = require('mongoose'),
     User = mongoose.model("User"),
     crypto = require('crypto'),
-    meetingLib = require('../../lib/meetinginvite'),
+    emailContent = require('../../lib/emailContent'),
     email = require('../../lib/email');
 
 
@@ -120,8 +120,8 @@ module.exports = function (router) {
                 var options = {
                     to: emailAddress,
                     subject: 'ScholarMatch Password Reset', // Subject line
-                    // text: meetingLib.buildTextResetpassword(req, token), // plaintext body
-                    html: meetingLib.buildHTMLResetPassword(req, token) // html body
+                    // text: emailContent.buildTextResetpassword(req, token), // plaintext body
+                    html: emailContent.resetPassword(req, token) // html body
                 }
 
                 // users were succesfully connected, now send an email
@@ -224,8 +224,8 @@ module.exports = function (router) {
                 var options = {
                     to: user.email,
                     subject: 'ScholarMatch Password Changed', // Subject line
-                    // text: meetingLib.buildTextResetpassword(req, token), // plaintext body
-                    html: meetingLib.buildHTMLPasswordChanged(req) // html body
+                    // text: emailContent.buildTextResetpassword(req, token), // plaintext body
+                    html: emailContent.passwordChanged(req) // html body
                 }
 
                 // users were succesfully connected, now send an email
