@@ -56,7 +56,7 @@ module.exports = function (router) {
 
     router.get('/all', function (req, res) {
 
-        Meeting.findAll(function (err, result) {
+        MeetingRequest.findAll(function (err, result) {
             if (err) {
                 console.log(err);
                 model.messages = err;
