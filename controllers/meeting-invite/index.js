@@ -3,10 +3,10 @@
 
 var MeetingInviteModel = require('../../models/meeting-invite'),
     email = require('../../lib/email'),
-    meetingLib = require('../../lib/meetinginvite'),
+    emailContent = require('../../lib/emailContent'),
     mongoose = require('mongoose'),
     User = mongoose.model("User"),
-    Meeting = mongoose.model("Meeting"),
+    MeetingRequest = mongoose.model("Meeting"),
     async = require('async');
 
 
@@ -123,7 +123,7 @@ module.exports = function (router) {
                     var invitee = result.invitee,
                         inviteCreator = result.inviteCreator;
 
-                    var meetinginvite = new Meeting({
+                    var meetingRequest = new MeetingRequest({
                         topic: meeting.meetingTopic,
                         _creator: inviteCreator._id, // assign the _id from the person
                         meetingdate: meeting.meetingdate,
@@ -139,14 +139,14 @@ module.exports = function (router) {
                     var options = {
                         to: emailList.toString(),
                         subject: 'Coach/Student meeting - ' + meeting.meetingTopic + " on " + meeting.meetingdate, // Subject line
-                        text: meetingLib.buildTextInvite(inviteCreator, invitee, meeting), // plaintext body
-                        html: meetingLib.buildHTMLInvite(inviteCreator, invitee, meeting) // html body
+                        text: emailContent.createMeetingText(inviteCreator, invitee, meeting), // plaintext body
+                        html: emailContent.createMeeting(inviteCreator, invitee, meeting) // html body
                     }
 
                     //create .ics file : https://github.com/shanebo/icalevent
 
                     // save the meeting invite
-                    meetinginvite.save(function (err, result) {
+                    meetingRequest.save(function (err, result) {
                         if (err) {
                             return console.log(err);
                         }
@@ -154,7 +154,7 @@ module.exports = function (router) {
                         // save the meeting in every user's profile
                         async.parallel({
                                 inviteCreatorMeetingSave: function (callback) {
-                                    inviteCreator.meetings.push(meetinginvite);
+                                    inviteCreator.meetings.push(meetingRequest);
                                     inviteCreator.save(function (err, result) {
                                         if (err) {
                                             callback(err);
@@ -165,7 +165,7 @@ module.exports = function (router) {
                                     })
                                 },
                                 inviteeMeetingSave: function (callback) {
-                                    invitee.meetings.push(meetinginvite);
+                                    invitee.meetings.push(meetingRequest);
                                     invitee.save(function (err, result) {
                                         if (err) {
                                             callback(err);
