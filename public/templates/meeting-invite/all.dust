@@ -1,0 +1,41 @@
+{>"layouts/master" /}
+
+{<title}
+	All Meetings - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	<div class="container">
+	<p class="lead">Meetings</p>
+
+		<div class="row">
+		   
+		   <div class="col-md-12">				
+				<table id="visits" class="table table-bordered table-striped table-condensed">
+			     <thead>
+			        <tr>
+			           <td>Date/Time</td>           
+			           <td>Attendees</td>
+			           <td>Address</td>
+			           <td>Topic</td>
+			           <td>Meeting Feedback</td>
+			           <td>Actions</td>
+			        </tr>
+			     </thead>
+			     <tbody>
+			        {#data.meetingDetails}    
+			        <tr>
+			           <td>{meetingdate}</td>
+			           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
+			           <td>{location}</td>
+			           <td>{topic}</td>
+			           <td><a href="/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
+			           <td><a href="/meetings/cancel">Cancel Meeting</a></td>
+			        </tr>     
+			        {/data.meetingDetails}      
+			     </tbody>
+			  </table>
+		   </div>
+		</div>		
+	</div>
+{/body}

@@ -1,0 +1,58 @@
+{>"layouts/master" /}
+
+{<title}
+	Profile - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+{#data.result}
+	<div class="container">
+		<h1>Profile : {fullName}</h1>
+		<br/>
+		<div class="row">
+			<div id="connections" class="col-md-6">
+				<div class="panel panel-default">
+				    
+				  <!-- List group -->
+				  	<ul class="list-group">
+						<li class="list-group-item"> Full Name: <strong>{fullName}</strong> ({role})</li>
+						<li class="list-group-item"> Contact: <strong>{phone}</strong></li>
+						<li class="list-group-item"> Email: <strong>{email}</strong></li>
+						<li class="list-group-item"> School: <strong>{college}</strong></li>
+						<li class="list-group-item"> City: <strong>{city}</strong></li>
+						<li class="list-group-item"> Gender: <strong>{gender}</strong></li>
+						<li class="list-group-item"> Industry: <strong>{industry}</strong></li>
+							{?data.result.studentsLinked}
+				   			<li class="list-group-item">	
+				   				Student(s) Linked:  
+				   					{#data.result.studentsLinked}
+				   						<br/> {email} 
+				   					{/data.result.studentsLinked}	
+				   			</li>		
+				   			{/data.result.studentsLinked}
+
+				   			{?data.result.coachesLinked}
+				   			<li class="list-group-item">
+				   				Coach(s) Linked:  
+				   					{#data.result.coachesLinked}
+				   						<br/> {email}
+				   					{/data.result.coachesLinked}	
+				   			</li>		
+				   			{/data.result.coachesLinked}
+					</ul>
+				</div>			   			    
+		   </div>			
+		   
+		</div>
+		<!-- <form id="signup-form" method="POST" class="form-horizontal">		   		   
+
+		   	<input type="hidden" name="_csrf" value="{_csrf}" />
+			<input type="hidden" name="type" id="type" value="0" />
+		</form>		 -->
+
+	</div>
+{:else}
+ <div class="lead"> Sorry, the user profile doesnt exist </div>
+{/data.result}
+
+{/body}

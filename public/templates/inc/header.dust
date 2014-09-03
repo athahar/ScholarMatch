@@ -25,6 +25,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
             {#user}
+              <p style="padding-top: 15px;padding-bottom: 15px;">{user.email} ({user.role}) <p>
+            {/user}
+        </li>
+        <li>
+            {#user}              
                  <a href="/logout">Logout</a>
             {:else}
                  <a href="/login">Login</a>
