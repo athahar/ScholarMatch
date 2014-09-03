@@ -14,6 +14,12 @@ module.exports = function (router) {
 
     var model = new MeetingInviteModel();
 
+    /**
+     * Show the meeting setup page
+     * @param  {[type]} req
+     * @param  {[type]} res
+     * @return {[type]}
+     */
     router.get('/', function (req, res) {
 
         if (req.user.role === 'student') {
@@ -53,27 +59,12 @@ module.exports = function (router) {
 
     });
 
-
-    router.get('/all', function (req, res) {
-
-        MeetingRequest.findAll(function (err, result) {
-            if (err) {
-                console.log(err);
-                model.messages = err;
-                // res.render('meeting-invite/index', model);
-                res.send(model);
-            } else {
-                console.dir(result);
-                model.data = model.data || {};
-                model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-
-                res.render('meeting-invite/all', model);
-            }
-        })
-
-    });
-
-
+    /**
+     * Create a meeting request
+     * @param  {[type]} req
+     * @param  {[type]} res
+     * @return {[type]}
+     */
     router.post('/', function (req, res) {
 
         var meetingType = req.body.meetingType,

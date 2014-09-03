@@ -12,7 +12,7 @@
 			    <ul class="nav nav-pills nav-stacked">
 			    	
 					<li> <a href="/match/pending">View Pending Request(s)</a></li>		
-					<li> <a href="/meeting-invite/all">View All meetings</a></li>
+					<li> <a href="/admin/allmeetings">View All meetings</a></li>
 					
 				</ul>
 			</div>			  
