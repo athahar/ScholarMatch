@@ -6,7 +6,7 @@ var userLib = require('../../lib/user')();
 var auth = require('../../lib/auth');
 var async = require('async');
 var matchRequest = require('../../lib/matchRequest')();
-var meetingLib = require('../../lib/meetinginvite');
+var emailContent = require('../../lib/emailContent');
 var email = require('../../lib/email');
 
 module.exports = function (router) {
@@ -205,8 +205,8 @@ module.exports = function (router) {
                     var options = {
                         to: emailList.toString(),
                         subject: 'Coach/Student - You are connected', // Subject line
-                        text: meetingLib.buildTextWelcome(student, coach), // plaintext body
-                        html: meetingLib.buildHTMLWelcome(student, coach) // html body
+                        text: emailContent.matchSuccessText(student, coach), // plaintext body
+                        html: emailContent.matchSuccess(student, coach) // html body
                     }
 
 
