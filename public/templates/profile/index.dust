@@ -52,7 +52,11 @@
 							   	<div class="form-group">
 							      	<label for="location" class="col-sm-3 control-label">Location</label>
 							      	<div class="col-sm-7"><input type="text" name="location" id="location" placeholder="City / State" value="{userDetails.location}" autofocus="" class="form-control"></div>
-							   	</div>		   
+							   	</div>	
+							   	<div id="bloodhound" class="form-group">
+							   	<label for="state" class="col-sm-3 control-label">States of USA</label>
+								  <input class="typeahead" name="states" type="text" placeholder="States of USA">
+								</div>	   
 
 							   	<div class="form-group">
 							      	<label for="underGradSchoolName" class="col-sm-3 control-label">Under Grad School</label>
