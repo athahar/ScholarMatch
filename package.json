@@ -31,7 +31,8 @@
         "nodemailer": "^0.4.2",
         "passport": "^0.2.0",
         "passport-local": "^1.0.0",
-        "requirejs": "^2.1.14"
+        "requirejs": "^2.1.14",
+        "tracer": "^0.7.1"
     },
     "devDependencies": {
         "grunt": "^0.4.5",
