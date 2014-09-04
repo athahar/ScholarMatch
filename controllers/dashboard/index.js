@@ -28,7 +28,8 @@ module.exports = function (router) {
         if (req.user.role === 'student') {
 
             viewname = 'dashboard/student';
-            if (req.user.coachesLinked.length > 0 && req.user.meetings.length > 0) {
+
+            if ((req.user.coachesLinked && (req.user.coachesLinked.length > 0)) &&(req.user.meetings && (req.user.meetings.length > 0))) {
 
                 User.findByIdAndMeetings(req.session.user._id, function (err, result) {
                     if (err) {
@@ -49,7 +50,7 @@ module.exports = function (router) {
         } else if (req.user.role === 'coach') {
             viewname = 'dashboard/coach';
 
-            if (req.user.studentsLinked.length > 0 && req.user.meetings.length > 0) {
+            if ((req.user.studentsLinked && (req.user.studentsLinked.length > 0)) && (req.user.meetings && (req.user.meetings.length > 0))) {
 
                 User.findByIdAndMeetings(req.session.user._id, function (err, result) {
                     if (err) {
