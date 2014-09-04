@@ -7,72 +7,247 @@
 
 {<body}
 	{#data}
-	<div class="container"  data-data2="{data|js}">
+		<div class="container"  data-data2="{data|js}">
+			<div class="panel panel-info">
+	            <div class="panel-heading">
+	              	<h3 class="panel-title">Welcome, {userDetails.login} (<em>{userDetails.role}</em>)</h3>
+	            </div>
+	            <div class="panel-body">
+	              	<div class="row">
+	                	<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+	                	<div class="col-md-9 col-lg-9">
+	                		{?data.firstlogin}
+								<p class="bg-success">
+									Welcome to Scholarmatch. Please complete your profile.
+								</p>
+							{/data.firstlogin}
+						
+							<form id="signup-form" method="POST" class="form-horizontal">		   		   
+			
+						   		<div class="form-group">
+						      		<label for="fullName" class="col-sm-3 control-label">Full Name</label>
+						      		<div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{userDetails.fullName}" class="form-control" ></div>
+						   		</div>
 
-		 <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Welcome, {userDetails.login} (<em>{userDetails.role}</em>)</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-                <div class="col-md-9 col-lg-9">
-                	{?data.firstlogin}
-						<p class="bg-success">
-							Welcome to Scholarmatch. Please complete your profile.
-						</p>
-					{/data.firstlogin}
-					
-					<form id="signup-form" method="POST" class="form-horizontal">		   		   
-		
-					   <div class="form-group">
-					      <label for="fullName" class="col-sm-3 control-label">Full Name</label>
-					      <div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{userDetails.fullName}" class="form-control" ></div>
-					   </div>
-					   <div class="form-group">
-					      <label for="phone" class="col-sm-3 control-label">Contact Number</label>
-					      <div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="Contact Number" autofocus="" value="{userDetails.phone}" class="form-control"></div>
-					   </div>
-					   <div class="form-group">
-					      <label for="college" class="col-sm-3 control-label">College / University</label>
-					      <div class="col-sm-7"><input type="text" name="college" id="college" placeholder="College / university" value="{userDetails.college}" autofocus="" class="form-control"></div>
-					   </div>
-					   <div class="form-group">
-					      <label for="industry" class="col-sm-3 control-label">Industry</label>
-					      <div class="col-sm-7"><input type="text" name="industry" id="industry" placeholder="Industry" autofocus="" value="{userDetails.industry}" class="form-control"></div>		       
-					   </div>
-					   <div class="form-group">
-					      <label for="experience" class="col-sm-3 control-label">Years of Experience</label>
-					      <div class="col-sm-7"><input type="text" name="experience" id="experience" placeholder="Years of Experience" autofocus="" value="{userDetails.experience}" class="form-control"></div>
-					   </div>
-					   <div class="form-group">
-					      <label for="gender" class="col-sm-3 control-label">Gender</label>
-					      <!-- <div class="col-sm-7"><input type="text" name="gender" id="gender" placeholder="Gender" autofocus="" value="{userDetails.gender}" class="form-control"></div> -->
-					      <div class="col-sm-7">
-						      <select name="gender" class="form-control col-sm-7">
-						      	  <option value="-1">Select Gender</option>	
-								  <option value="male">Male</option>
-								  <option value="female">Female</option>								  
-								</select>
-							</div>			   
-					   </div>
-					   <div class="form-group">
-					      <label for="gender" class="col-sm-3 control-label">City</label>
-					      <div class="col-sm-7"><input type="text" name="city" id="city" placeholder="City" value="{userDetails.city}" autofocus="" class="form-control"></div>
-					   </div>		   
+							   	<div class="form-group">
+							      	<label for="preferredName" class="col-sm-3 control-label">Preferred Name</label>
+							      	<div class="col-sm-7"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{userDetails.preferredName}" class="form-control" ></div>
+							   	</div>
 
-					   <div class="form-group">
-					      <div class="col-sm-4"><button type="submit" class="btn btn-primary">Update my profile</button></div>
-					   </div>
-					   
-					   	<input type="hidden" name="_csrf" value="{_csrf}" />
-						<input type="hidden" name="type" id="type" value="0" />
-						<input type="hidden" name="userid" id="userid" value="{userdetails.userid}" />
-					</form>	                	
-                </div>
-              </div>  
+							   	<div class="form-group">
+							      	<label for="coachId" class="col-sm-3 control-label">Coach ID</label>
+							      	<div class="col-sm-7"><input type="text" name="coachId" id="coachId" placeholder="Coach ID" autofocus="" value="{userDetails.coachId}" class="form-control" ></div>
+							   	</div>
+
+						   		<div class="form-group">
+						      		<label for="emailId" class="col-sm-3 control-label">E-mail</label>
+						      		<div class="col-sm-7"><input type="text" name="emailId" id="emailId" placeholder="E-mail" autofocus="" value="{userDetails.emailId}" class="form-control" ></div>
+						   		</div>
+
+							   	<div class="form-group">
+							      	<label for="phone" class="col-sm-3 control-label">Phone</label>
+							      	<div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{userDetails.phone}" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="location" class="col-sm-3 control-label">Location</label>
+							      	<div class="col-sm-7"><input type="text" name="location" id="location" placeholder="City / State" value="{userDetails.location}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="underGradSchoolName" class="col-sm-3 control-label">Under Grad School</label>
+							      	<div class="col-sm-7"><input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Under Grad School" value="{userDetails.underGradSchool.name}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="underGradSchoolMajor" class="col-sm-3 control-label">Under Grad Major</label>
+							      	<div class="col-sm-7"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Under Grad Major" value="{userDetails.underGradSchool.major}" autofocus="" class="form-control"></div>
+							   	</div>		   
+							   
+							   	<div class="form-group">
+							      	<label for="gradSchoolName" class="col-sm-3 control-label">Grad School</label>
+							      	<div class="col-sm-7"><input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{userDetails.gradSchool.name}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="gradSchoolMajor" class="col-sm-3 control-label">Grad Major</label>
+							      	<div class="col-sm-7"><input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{userDetails.gradSchool.major}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="primaryIndustryName" class="col-sm-3 control-label">Primary Industry</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{userDetails.primaryIndustry.industryName}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="primaryIndustryJobTitle" class="col-sm-3 control-label">Primary Job Title</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryIndustryJobTitle" id="primaryIndustryJobTitle" placeholder="Primary Job Title" value="{userDetails.primaryIndustry.jobTitle}" autofocus="" class="form-control"></div>
+							   	</div>		
+
+							   	<div class="form-group">
+							      	<label for="primaryIndustryCompany" class="col-sm-3 control-label">Primary Company</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryIndustryCompany" id="primaryIndustryCompany" placeholder="Primary Company" value="{userDetails.primaryIndustry.company}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="primaryIndustryYearsOfExperience" class="col-sm-3 control-label">Primary Years Of Experience</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryIndustryYearsOfExperience" id="primaryIndustryYearsOfExperience" placeholder="Primary Years Of Experience" value="{userDetails.primaryIndustry.yearsOfExperience}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="secondaryIndustryName" class="col-sm-3 control-label">Secondary Industry</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{userDetails.secondaryIndustry.industryName}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="secondaryIndustryJobTitle" class="col-sm-3 control-label">Secondary Job Title</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryIndustryJobTitle" id="secondaryIndustryJobTitle" placeholder="Secondary Job Title" value="{userDetails.secondaryIndustry.jobTitle}" autofocus="" class="form-control"></div>
+							   	</div>		
+
+							   	<div class="form-group">
+							      	<label for="secondaryIndustryCompany" class="col-sm-3 control-label">Secondary Company</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryIndustryCompany" id="secondaryIndustryCompany" placeholder="Secondary Company" value="{userDetails.secondaryIndustry.company}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="secondaryIndustryYearsOfExperience" class="col-sm-3 control-label">Secondary Years Of Experience</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryIndustryYearsOfExperience" id="secondaryIndustryYearsOfExperience" placeholder="Secondary Years Of Experience" value="{userDetails.secondaryIndustry.yearsOfExperience}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="coachingInterest" class="col-sm-3 control-label">Coaching Interest</label>
+							      	<div class="col-sm-7"><input type="text" name="coachingInterest" id="coachingInterest" placeholder="Coaching Interest" value="{userDetails.coachingInterest}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="studentMatchPreference" class="col-sm-3 control-label">Student Match Preference</label>
+							      	<div class="col-sm-7"><input type="text" name="studentMatchPreference" id="studentMatchPreference" placeholder="Student Match Preference" autofocus="" value="{userDetails.studentMatchPreference}" class="form-control"></div>		       
+							   	</div>
+{!
+							   	<div class="form-group">
+							      	<label for="gender" class="col-sm-3 control-label">Gender</label>
+							      	<div class="col-sm-7"><input type="text" name="gender" id="gender" placeholder="Gender" autofocus="" value="{userDetails.gender}" class="form-control"></div>
+							   	</div> 
+!}
+
+{!					   			<div class="form-group">
+					      			<label for="gender" class="col-sm-3 control-label">Gender</label>
+					      			<!-- <div class="col-sm-7"><input type="text" name="gender" id="gender" placeholder="Gender" autofocus="" value="{userDetails.gender}" class="form-control"></div> -->
+					      			<div class="col-sm-7">
+						      			<select name="gender" class="form-control col-sm-7">
+						      	  			<option value="-1">Select Gender</option>	
+								  			<option value="male">Male</option>
+								  			<option value="female">Female</option>								  
+										</select>
+									</div>			   
+					   			</div>
+!}
+						
+        						<div class="form-group">
+            						<label for="gender" class="col-sm-3 control-label">Gender</label>
+
+            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" id="genderRadios"value="male"
+                    						{#userDetails}
+                    							{@eq key=gender value="male"}
+                    								checked
+                    							{/eq}
+                    						{/userDetails}
+                    						> Male
+                						</label>
+            						</div>
+
+            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" id="genderRadios" value="female"
+                    						{#userDetails}
+                    							{@eq key=gender value="female"}
+                    								checked
+                    							{/eq}
+                    						{/userDetails}
+                    						> Female
+                						</label>
+            						</div>
 
 
-	</div>
+{!            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" value="male" {@select key=\"{userDetails.gender}\"}{@eq value=\"male\"}checked{/eq}{/select}> Male
+                						</label>
+            						</div>
+            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" value="female" {@select key="{userDetails.gender}"}{@eq value="female"}checked{/eq}{/select}> Female
+                						</label>
+            						</div>
+ !}       						</div>
+
+							   	<div class="form-group">
+							      	<label for="preferredMeetingFormat" class="col-sm-3 control-label">Preferred Meeting Format</label>
+							        <div class="col-sm-7">
+							        	<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatCall" name="preferredMeetingFormatCall" {?userDetails.preferredMeetingFormat.call}checked{/userDetails.preferredMeetingFormat.call}/>Call 
+										</label>
+							        	<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatEmail" name="preferredMeetingFormatEmail" {?userDetails.preferredMeetingFormat.email}checked{/userDetails.preferredMeetingFormat.email}/>E-mail 
+										</label>								
+										<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatSkype" name="preferredMeetingFormatSkype" {?userDetails.preferredMeetingFormat.skype}checked{/userDetails.preferredMeetingFormat.skype}/>Skype 
+										</label>
+										<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatInPerson" name="preferredMeetingFormatInPerson" {?userDetails.preferredMeetingFormat.inPerson}checked{/userDetails.preferredMeetingFormat.inPerson}/>In-Person 
+										</label>
+							   		</div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="linkedinProfileUrl" class="col-sm-3 control-label">Linkedin Profile Url</label>
+							      	<div class="col-sm-7"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{userDetails.linkedinProfileUrl}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="primaryReferenceName" class="col-sm-3 control-label">Primary Reference</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryReferenceName" id="primaryReferenceName" placeholder="Primary Reference" value="{userDetails.primaryReference.name}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							    	<label for="primaryReferencePhone" class="col-sm-3 control-label">Primary Reference Phone</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryReferencePhone" id="primaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.primaryReference.phone}" autofocus="" class="form-control"></div>
+							    </div>
+
+							   	<div class="form-group">
+							      	<label for="primaryReferenceEmail" class="col-sm-3 control-label">Primary Referenc Email</label>
+							      	<div class="col-sm-7"><input type="text" name="primaryReferenceEmail" id="primaryReferenceEmail" placeholder="Primary Reference Email" value="{userDetails.primaryReference.email}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="secondaryReferenceName" class="col-sm-3 control-label">Seoncdary Reference</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryReferenceName" id="secondaryReferenceName" placeholder="Secondary Reference" value="{userDetails.secondaryReference.name}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							    	<label for="secondaryReferencePhone" class="col-sm-3 control-label">Secondary Reference Phone</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryReferencePhone" id="secondaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.secondaryReference.phone}" autofocus="" class="form-control"></div>
+							    </div>
+
+							   	<div class="form-group">
+							      	<label for="secondaryReferenceEmail" class="col-sm-3 control-label">Secondary Referenc Email</label>
+							      	<div class="col-sm-7"><input type="text" name="secondaryReferenceEmail" id="secondaryReferenceEmail" placeholder="Secondary Reference Email" value="{userDetails.secondaryReference.email}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<div class="col-sm-4"><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Update my profile</button></div>
+							   	</div>
+							   
+							   	<input type="hidden" name="_csrf" value="{_csrf}" />
+								<input type="hidden" name="type" id="type" value="0" />
+								<input type="hidden" name="userid" id="userid" value="{userDetails.userid}" />
+							</form>	                	
+	                	</div>
+	              	</div>  
+				</div>
+			</div>
+		</div>
 	{/data}
 {/body}
