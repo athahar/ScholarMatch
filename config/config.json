@@ -31,10 +31,6 @@
         "database": "scholarmatch4"
     },
 
-    "bcrypt": {
-        "difficulty": 8
-    },
-
     "middleware": {
 
         "static": {
