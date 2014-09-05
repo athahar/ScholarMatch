@@ -26,8 +26,9 @@ define([
                     this.trimInput(ev);
                 }.bind(this));
 
-                // handle form submissions with ajax
-                this._handleForms();
+
+                // commented this temporarily            
+                //this._handleForms();
 
                 // after rendering view, scroll to top and hide any soft keyboards
                 setTimeout(function () {
@@ -40,7 +41,7 @@ define([
 
                 console.log("Base View");
             },
-
+            // handle form submissions with ajax
             _handleForms: function () {
                 var forms = this.$el.find("form");
 

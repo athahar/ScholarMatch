@@ -40,13 +40,13 @@
 							   	</div>
 
 						   		<div class="form-group">
-						      		<label for="emailId" class="col-sm-3 control-label">E-mail</label>
-						      		<div class="col-sm-7"><input type="text" name="emailId" id="emailId" placeholder="E-mail" autofocus="" value="{userDetails.emailId}" class="form-control" ></div>
+						      		<label for="email" class="col-sm-3 control-label">E-mail</label>
+						      		<div class="col-sm-7"><input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{userDetails.email}" class="form-control" ></div>
 						   		</div>
 
 							   	<div class="form-group">
 							      	<label for="phone" class="col-sm-3 control-label">Phone</label>
-							      	<div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{userDetails.phone}" class="form-control"></div>
+							      	<div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{userDetails.phone}" class="form-control phone"></div>
 							   	</div>
 
 							   	<div class="form-group">
@@ -212,7 +212,7 @@
 
 							   	<div class="form-group">
 							    	<label for="primaryReferencePhone" class="col-sm-3 control-label">Primary Reference Phone</label>
-							      	<div class="col-sm-7"><input type="text" name="primaryReferencePhone" id="primaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.primaryReference.phone}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7"><input type="text" name="primaryReferencePhone" id="primaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.primaryReference.phone}" autofocus="" class="form-control phone"></div>
 							    </div>
 
 							   	<div class="form-group">
@@ -227,7 +227,7 @@
 
 							   	<div class="form-group">
 							    	<label for="secondaryReferencePhone" class="col-sm-3 control-label">Secondary Reference Phone</label>
-							      	<div class="col-sm-7"><input type="text" name="secondaryReferencePhone" id="secondaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.secondaryReference.phone}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7"><input type="text" name="secondaryReferencePhone" id="secondaryReferencePhone" placeholder="(123) 456-7890" value="{userDetails.secondaryReference.phone}" autofocus="" class="form-control phone"></div>
 							    </div>
 
 							   	<div class="form-group">

@@ -41,7 +41,7 @@ module.exports = function (router) {
                 model.data.userDetails.fullName = result.fullName;
                 model.data.userDetails.preferredName = result.preferredName;
                 model.data.userDetails.coachId = result.coachId;
-                model.data.userDetails.emailId = result.emailId;
+                model.data.userDetails.email = result.email;
                 model.data.userDetails.phone = result.phone;
                 model.data.userDetails.location = result.location;
                 if (result.underGradSchool) {
@@ -116,7 +116,7 @@ module.exports = function (router) {
             model.data.userDetails.fullName = req.body.fullName;
             model.data.userDetails.preferredName = req.body.preferredName;
             model.data.userDetails.coachId = req.body.coachId;
-            model.data.userDetails.emailId = req.body.emailId;
+            model.data.userDetails.email = req.body.email;
             model.data.userDetails.phone = req.body.phone;
             model.data.userDetails.location = req.body.location;
             model.data.userDetails.underGradSchool.name = req.body.underGradSchoolName;

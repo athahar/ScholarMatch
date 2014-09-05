@@ -1,8 +1,9 @@
 define([
         "jquery",
-        "view"
+        "view",
+        "jqueryMask"
     ],
-    function ($, View) {
+    function ($, View, jqueryMask) {
 
         "use strict";
 
@@ -12,6 +13,8 @@ define([
                 // call super method first
                 View.prototype.afterRender.call(this);
                 console.log("ProfileView");
+
+                // $(".phone").mask("(999) 999-9999");
             }
         });
 
