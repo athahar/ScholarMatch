@@ -13,6 +13,7 @@ var MeetingInviteModel = require('../../models/meeting-invite'),
 module.exports = function (router) {
 
     var model = new MeetingInviteModel();
+    model.viewName = 'meetingInvite';
     model.data = model.data || {};
 
     /**
