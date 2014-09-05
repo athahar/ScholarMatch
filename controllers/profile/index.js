@@ -112,7 +112,8 @@ module.exports = function (router) {
             model.data.userDetails.primaryReference = model.data.userDetails.primaryReference || {};
             model.data.userDetails.secondaryReference = model.data.userDetails.secondaryReference || {};
 
-            model.data.userDetails.userid = req.body.userid;
+            model.data.userDetails.userid = req.session.user._id;
+            model.data.userDetails.login = req.session.user.login;
             model.data.userDetails.fullName = req.body.fullName;
             model.data.userDetails.preferredName = req.body.preferredName;
             model.data.userDetails.coachId = req.body.coachId;
