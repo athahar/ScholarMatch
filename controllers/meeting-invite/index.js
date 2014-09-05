@@ -13,6 +13,7 @@ var MeetingInviteModel = require('../../models/meeting-invite'),
 module.exports = function (router) {
 
     var model = new MeetingInviteModel();
+    model.viewName = 'meetingInvite';
     model.data = model.data || {};
 
     /**
@@ -72,8 +73,8 @@ module.exports = function (router) {
 
         var meeting = {
             meetingdate: req.body.meetingDate,
-            meetingtime: req.body.meetingTime + " (PDT) ",
             meetinglocation: req.body.location,
+            meetinglandmark: req.body.landmark,
             meetingType: req.body.meetingType,
             meetingTopic: req.body.topic
         }
@@ -123,6 +124,7 @@ module.exports = function (router) {
                         meetingdate: meeting.meetingdate,
                         location: meeting.meetinglocation,
                         meetingType: meeting.meetingType,
+                        meetinglandmark: meeting.landmark,
                         attendees: [inviteCreator._id, invitee._id],
                     });
 

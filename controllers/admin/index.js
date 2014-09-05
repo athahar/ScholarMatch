@@ -5,14 +5,19 @@ var AdminModel = require('../../models/admin'),
     mongoose = require('mongoose'),
     User = mongoose.model("User"),
     MeetingRequest = mongoose.model("Meeting"),
-    async = require('async');
+    async = require('async'),
+    auth = require('../../lib/auth');
 
 
 module.exports = function (router) {
 
     var model = new AdminModel();
 
+    model.viewName = 'admin';
 
+    router.get('/', auth.isAuthenticated('admin'), auth.injectUser(), function (req, res) {
+        res.render('admin/index', model);
+    });
 
     router.get('/allmeetings', function (req, res) {
 

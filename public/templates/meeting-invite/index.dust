@@ -37,13 +37,12 @@
 			      </div>
 			   </div>
 		  	{/data.result.studentsLinked} 
-		   <div class="form-group">
-		      <label for="meetingDate" class="col-sm-3 control-label">Date (MM/DD/YYYY)</label>
-		      <div class="col-sm-7"><input type="text" name="meetingDate" id="meetingDate" placeholder="Date(MM/DD/YYYY)" autofocus="" class="form-control"></div>
-		   </div>
-		   <div class="form-group">
-		      <label for="meetingTime" class="col-sm-3 control-label">Time (HH:MM)</label>
-		      <div class="col-sm-7"><input type="text" name="meetingTime" id="meetingTime" placeholder="Meeting Time(HH:MM)" autofocus="" class="form-control"></div>
+
+		   <div class="form-group date">
+			   <label for="meetingDate" class="col-sm-3 control-label">Meeting Date / Time</label>
+				<div class="col-sm-7"> 
+					<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+				</div>				
 		   </div>		   
 		   <div class="form-group">
 	  			<label for="topic" class="col-sm-3 control-label">Topic</label>	  			
@@ -68,9 +67,15 @@
 					</select>
 				</div>
 		   </div>
+		   
 		   <div class="form-group">
 		      <label for="location" class="col-sm-3 control-label">Location</label>
-		      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="location" autofocus="" class="form-control"></div>
+		      <div class="col-sm-7"><input type="text" name="location" id="address, city" placeholder="location" autofocus="" class="form-control"></div>
+		   </div>
+
+		   <div class="form-group">
+		      <label for="landmark" class="col-sm-3 control-label">Landmark</label>
+		      <div class="col-sm-7"><input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control"></div>
 		   </div>
 		   
 		   <div class="form-group">

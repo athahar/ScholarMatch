@@ -5,6 +5,7 @@ var ContactModel = require('../../models/contact');
 module.exports = function (router) {
 
     var model = new ContactModel();
+    model.viewName = 'contact';
 
     router.get('/', function (req, res) {
 

@@ -8,13 +8,15 @@ var logger = require('tracer').colorConsole();
 module.exports = function (router) {
 
     var model = new User();
-	router.get('/', function(req, res) {
+    model.viewName = 'profile';
 
-        debugger;        
+    router.get('/', function (req, res) {
+
+        debugger;
 
         model.messages = ''; // clear any messages
 
-        model.data = model.data || {};        
+        model.data = model.data || {};
         model.data.userDetails = model.data.userDetails || {};
         model.data.userDetails.underGradSchool = model.data.userDetails.underGradSchool || {};
         model.data.userDetails.gradSchool = model.data.userDetails.gradSchool || {};
@@ -23,13 +25,13 @@ module.exports = function (router) {
         model.data.userDetails.preferredMeetingFormat = model.data.userDetails.preferredMeetingFormat || {};
         model.data.userDetails.primaryReference = model.data.userDetails.primaryReference || {};
         model.data.userDetails.secondaryReference = model.data.userDetails.secondaryReference || {};
-           
+
         model.data.userDetails.userid = req.user._id;
-   
-        userLib.findUser(model.data.userDetails, function(err, result){
-   
-            if(err){
-                   res.render('profile/index', model);
+
+        userLib.findUser(model.data.userDetails, function (err, result) {
+
+            if (err) {
+                res.render('profile/index', model);
             } else {
                 logger.trace("i am here 666, userid: " + req.user._id + " result " + result);
 
@@ -39,24 +41,24 @@ module.exports = function (router) {
                 model.data.userDetails.fullName = result.fullName;
                 model.data.userDetails.preferredName = result.preferredName;
                 model.data.userDetails.coachId = result.coachId;
-                model.data.userDetails.emailId = result.emailId;
+                model.data.userDetails.email = result.email;
                 model.data.userDetails.phone = result.phone;
                 model.data.userDetails.location = result.location;
-                if(result.underGradSchool){
+                if (result.underGradSchool) {
                     model.data.userDetails.underGradSchool.name = result.underGradSchool.name;
                     model.data.userDetails.underGradSchool.major = result.underGradSchool.major;
                 }
-                if(result.gradSchool){
+                if (result.gradSchool) {
                     model.data.userDetails.gradSchool.name = result.gradSchool.name;
                     model.data.userDetails.gradSchool.major = result.gradSchool.major;
                 }
-                if(result.primaryIndustry){
+                if (result.primaryIndustry) {
                     model.data.userDetails.primaryIndustry.industryName = result.primaryIndustry.industryName;
                     model.data.userDetails.primaryIndustry.jobTitle = result.primaryIndustry.jobTitle;
                     model.data.userDetails.primaryIndustry.yearsOfExperience = result.primaryIndustry.yearsOfExperience;
                     model.data.userDetails.primaryIndustry.company = result.primaryIndustry.company;
                 }
-                if(result.secondaryIndustry){
+                if (result.secondaryIndustry) {
                     model.data.userDetails.secondaryIndustry.industryName = result.secondaryIndustry.industryName;
                     model.data.userDetails.secondaryIndustry.jobTitle = result.secondaryIndustry.jobTitle;
                     model.data.userDetails.secondaryIndustry.yearsOfExperience = result.secondaryIndustry.yearsOfExperience;
@@ -65,19 +67,19 @@ module.exports = function (router) {
                 model.data.userDetails.coachingInterest = result.coachingInterest;
                 model.data.userDetails.studentMatchPreference = result.studentMatchPreference;
                 model.data.userDetails.gender = result.gender;
-                if(result.preferredMeetingFormat){
+                if (result.preferredMeetingFormat) {
                     model.data.userDetails.preferredMeetingFormat.phone = result.preferredMeetingFormat.phone;
                     model.data.userDetails.preferredMeetingFormat.email = result.preferredMeetingFormat.email;
                     model.data.userDetails.preferredMeetingFormat.skype = result.preferredMeetingFormat.skype;
                     model.data.userDetails.preferredMeetingFormat.inPerson = result.preferredMeetingFormat.inPerson;
                 }
                 model.data.userDetails.linkedinProfileUrl = result.linkedinProfileUrl;
-                if(result.primaryReference){
+                if (result.primaryReference) {
                     model.data.userDetails.primaryReference.name = result.primaryReference.name;
                     model.data.userDetails.primaryReference.phone = result.primaryReference.phone;
                     model.data.userDetails.primaryReference.email = result.primaryReference.email;
                 }
-                if(result.secondaryReference){
+                if (result.secondaryReference) {
                     model.data.userDetails.secondaryReference.name = result.secondaryReference.name;
                     model.data.userDetails.secondaryReference.phone = result.secondaryReference.phone;
                     model.data.userDetails.secondaryReference.email = result.secondaryReference.email;
@@ -95,12 +97,12 @@ module.exports = function (router) {
     });
 
 
-    router.post('/', function(req, res) {
+    router.post('/', function (req, res) {
 
         debugger;
-        
-        if(req.session.userid){
-        	model.data = model.data || {};
+
+        if (req.session.userid) {
+            model.data = model.data || {};
             model.data.userDetails = model.data.userDetails || {};
             model.data.userDetails.underGradSchool = model.data.userDetails.underGradSchool || {};
             model.data.userDetails.gradSchool = model.data.userDetails.gradSchool || {};
@@ -109,15 +111,16 @@ module.exports = function (router) {
             model.data.userDetails.preferredMeetingFormat = model.data.userDetails.preferredMeetingFormat || {};
             model.data.userDetails.primaryReference = model.data.userDetails.primaryReference || {};
             model.data.userDetails.secondaryReference = model.data.userDetails.secondaryReference || {};
-	        
-	        model.data.userDetails.userid = req.body.userid;
+
+            model.data.userDetails.userid = req.session.user._id;
+            model.data.userDetails.login = req.session.user.login;
             model.data.userDetails.fullName = req.body.fullName;
             model.data.userDetails.preferredName = req.body.preferredName;
             model.data.userDetails.coachId = req.body.coachId;
-            model.data.userDetails.emailId = req.body.emailId;
-	        model.data.userDetails.phone = req.body.phone;
+            model.data.userDetails.email = req.body.email;
+            model.data.userDetails.phone = req.body.phone;
             model.data.userDetails.location = req.body.location;
-	        model.data.userDetails.underGradSchool.name = req.body.underGradSchoolName;
+            model.data.userDetails.underGradSchool.name = req.body.underGradSchoolName;
             model.data.userDetails.underGradSchool.major = req.body.underGradSchoolMajor;
             model.data.userDetails.gradSchool.name = req.body.gradSchoolName;
             model.data.userDetails.gradSchool.major = req.body.gradSchoolMajor;
@@ -144,20 +147,20 @@ module.exports = function (router) {
             model.data.userDetails.secondaryReference.phone = req.body.secondaryReferencePhone;
             model.data.userDetails.secondaryReference.email = req.body.secondaryReferenceEmail;
 
-	        userLib.updateUser(model.data.userDetails , function (err, result) {
-	        	if(err){
-	        		model.messages = err;	
-	        		res.render('profile/index', model);
-	        	}else{
-	        		model.messages = 'Profile Updated';        		
-	        		res.render('profile/index', model);	        		
-	        	}
-	        });
-        }else{
+            userLib.updateUser(model.data.userDetails, function (err, result) {
+                if (err) {
+                    model.messages = err;
+                    res.render('profile/index', model);
+                } else {
+                    model.messages = 'Profile Updated';
+                    res.render('profile/index', model);
+                }
+            });
+        } else {
             logger.trace("i am here in update.......");
-        	res.redirect('/login');
+            res.redirect('/login');
         }
-		
+
     });
 
     router.get('/user', function (req, res) {
@@ -178,6 +181,6 @@ module.exports = function (router) {
     });
 
     router.get('/:name', function (req, res) {
-           res.render('profile/student', model);
+        res.render('profile/student', model);
     });
 };

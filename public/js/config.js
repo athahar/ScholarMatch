@@ -11,14 +11,36 @@
             'typeahead': 'lib/typeahead.bundle.min',
             'bootstrap': 'lib/bootstrap.min',
             'dust': 'lib/dust-full.min',
-            'dustHelpers': 'lib/dust-helpers.min'
+            'dust-helpers': 'lib/dust-helpers.min',
+            'dust-helpers-supplement': 'lib/dust-helpers-supplement',
+            'datetimepicker': 'lib/bootstrap-datetimepicker',
+            'jqueryMask': 'lib/jquery.maskedinput.js'
+
+
+            'nougat': 'core/nougat',
+            'BaseView': 'core/baseView',
+
+            // app views
+            'view': 'view',
+            'admin': 'views/admin',
+            'dashboard': 'views/dashboard',
+            'login': 'views/login',
+            'meetingInvite': 'views/meetingInvite',
+            'meetingNotes': 'views/meetingNotes',
+            'profile': 'views/profile',
+            'signup': 'views/signup',
+            'coachingHelp': 'views/coachingHelp'
+
         },
         shim: {
-            'dust-helpers': {
-                deps: ['dustjs']
+            "dust": {
+                exports: "dust"
             },
-            'dust': {
-                exports: 'Dust'
+            "dust-helpers": {
+                deps: ["dust"]
+            },
+            "dust-helpers-supplement": {
+                deps: ["dust", "dust-helpers"]
             },
             'underscore': {
                 exports: '_'
@@ -31,7 +53,13 @@
             },
             'typeahead': {
                 deps: ['jquery']
-            }
+            },
+            "view": {
+                deps: ["BaseView"]
+            },
+            "app": {
+                deps: ["jquery"]
+            },
         },
         waitSeconds: 15
     });
