@@ -10,7 +10,6 @@ MeetingNotes = mongoose.model("MeetingNotes");
 module.exports = function (router) {
 
     var model = new MeetingNotesModel();
-    
 
     router.get('/', function (req, res) {
 
@@ -146,11 +145,10 @@ module.exports = function (router) {
         } else {
             res.redirect('/login');
         }    
-        
 
     });
-     
-     // good example for joins
-     // http://luiselizondo.net/blogs/luis-elizondo/joins-mongodb-mongoose-and-nodejs
-     // https://coderwall.com/p/6v5rcw
+
+    // good example for joins
+    // http://luiselizondo.net/blogs/luis-elizondo/joins-mongodb-mongoose-and-nodejs
+    // https://coderwall.com/p/6v5rcw
 };

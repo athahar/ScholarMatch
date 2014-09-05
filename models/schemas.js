@@ -4,8 +4,7 @@
 'use strict';
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    bcrypt = require('bcrypt'),
-    crypto = require('../lib/crypto'),
+    bcrypt = require('bcryptjs'),
     uniqueValidator = require('mongoose-unique-validator'),
     mongooseHidden = require('mongoose-hidden')({
         defaultHidden: {
@@ -84,7 +83,10 @@ userSchema.pre('save', function (next) {
         return;
     }
     //Encrypt it using bCrypt. Using the Sync method instead of Async to keep the code simple.
-    var hashedPwd = bcrypt.hashSync(user.password, crypto.getCryptLevel());
+    // var hashedPwd = bcrypt.hashSync(user.password, crypto.getCryptLevel());
+
+    var salt = bcrypt.genSaltSync(10);
+    var hashedPwd = bcrypt.hashSync(user.password, salt);
 
     //Replace the plaintext pw with the Hash+Salted pw;
     user.password = hashedPwd;

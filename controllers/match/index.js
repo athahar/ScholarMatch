@@ -12,7 +12,7 @@ var email = require('../../lib/email');
 module.exports = function (router) {
 
     var model = new MatchModel();
-
+    model.viewName = 'match';
 
     router.get('/', auth.isAuthenticated('coach'), function (req, res) {
         model.messages = ''; //clear msgs
