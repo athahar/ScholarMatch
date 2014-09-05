@@ -11,7 +11,8 @@
             "renderer": {
                 "method": "js",
                 "arguments": [{
-                    "cache": true
+                    "cache": true,
+                    "helpers": ["dustjs-helpers"]
                 }, {
                     "views": "config:express.views",
                     "view engine": "config:express.view engine",
@@ -29,10 +30,6 @@
     "databaseConfig": {
         "host": "localhost",
         "database": "scholarmatch4"
-    },
-
-    "bcrypt": {
-        "difficulty": 8
     },
 
     "middleware": {
