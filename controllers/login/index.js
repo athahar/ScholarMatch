@@ -15,6 +15,7 @@ var LoginModel = require('../../models/login'),
 module.exports = function (router) {
 
     var model = new LoginModel();
+    model.viewName = 'login';
 
 
     /**
