@@ -48,6 +48,11 @@ define([
                 forms.on("submit", $.proxy(function (ev) {
                     var form = $(ev.target);
 
+                    // user form validation before submit
+                    // http://bootstrapvalidator.com/settings/
+                    // http://bootstrapvalidator.com/examples/toggle/
+                    // https://github.com/nghuuphuoc/bootstrapvalidator/blob/master/demo/ajaxSubmit.html
+
                     // trigger form post event
                     form.trigger("post");
 
