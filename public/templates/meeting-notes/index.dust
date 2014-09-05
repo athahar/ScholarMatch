@@ -5,39 +5,84 @@
 {/title}
 
 {<body}
-
-	<div class="container">
+	{#data}
+	<div class="container"  data-data2="{data|js}">
 		<h1>Add/View meeting notes</h1>		
 		<br/>
 		<form id="signup-form" method="POST" class="form-horizontal">		   		   
 		   <div class="form-group">
-		      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
+		      <label for="interactionType" class="col-sm-3 control-label">Meeting Interaction Type</label>
 		      <div class="col-sm-7">
-		      	<select name="student">
-		      		<option value="101">Diana</option>
-		      		<option value="102">Monica</option>
-		      		<option value="103">Juliana</option>
-		      		<option value="103">Ramirez</option>
-		      		<option value="103">Selena</option>
+		      	<select name="interactionType">
+		      		<option value="101">Resume and LinkedIn</option>
+		      		<option value="102">Interview Preparation</option>
+		      		<option value="103">Insider Scoop</option>
+		      		<option value="104">Internship/Job Search</option>
+		      		<option value="105">Office Visit</option>
+		      		<option value="106">Professional Etiquete</option>
+		      	</select>
+		      </div>
+		   </div>
+		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   <div class="form-group">
+		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic - 5 most appropriate </label>
+		      <div class="col-sm-7">
+		      	<select name="topicAppropriateness">
+		      		<option value="101">1</option>
+		      		<option value="102">2</option>
+		      		<option value="103">3</option>
+		      		<option value="104">4</option>
+		      		<option value="105">5</option> 		
+		      	</select>
+		      </div>
+		   </div>
+		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   <div class="form-group">
+		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material - 5 most useful </label>
+		      <div class="col-sm-7">
+		      	<select name="materialUsefulness">
+		      		<option value="101">1</option>
+		      		<option value="102">2</option>
+		      		<option value="103">3</option>
+		      		<option value="104">4</option>
+		      		<option value="105">5</option> 		
+		      	</select>
+		      </div>
+		   </div>
+		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   <div class="form-group">
+		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time - 5 most effective time utilization</label>
+		      <div class="col-sm-7">
+		      	<select name="timeUtilization">
+		      		<option value="101">1</option>
+		      		<option value="102">2</option>
+		      		<option value="103">3</option>
+		      		<option value="104">4</option>
+		      		<option value="105">5</option> 		
 		      	</select>
 		      </div>
 		   </div>
 		   <div class="form-group">
-		      <label for="meeting-date" class="col-sm-3 control-label">Date (MM/DD/YYYY)</label>
-		      <div class="col-sm-7"><input type="text" name="meeting-date" id="meeting-date" placeholder="Date(MM/DD/YYYY)" autofocus="" class="form-control"></div>
+		      <label for="collaborationDescription" class="col-sm-3 control-label">Description of collabration</label>
+		      <div class="col-sm-7"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea></div>
 		   </div>
 		   <div class="form-group">
-		      <label for="meeting-time" class="col-sm-3 control-label">Time (HH:MM)</label>
-		      <div class="col-sm-7"><input type="text" name="meeting-time" id="meeting-time" placeholder="Meeting Time(HH:MM)" autofocus="" class="form-control"></div>
+		      <label for="nextCollaborationDescription" class="col-sm-3 control-label">Description of next collabration</label>
+		      <div class="col-sm-7"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea></div>
 		   </div>
 		   <div class="form-group">
-		      <label for="topic" class="col-sm-3 control-label">Topic</label>
-		      <div class="col-sm-7"><input type="text" name="topic" id="topic" placeholder="Topic" autofocus="" class="form-control"></div>		       
+		      <label for="participationSentiment" class="col-sm-3 control-label">Description of Participent's Sentiment</label>
+		      <div class="col-sm-7"><textarea  cols="80" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea></div>
 		   </div>
+		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
 		   <div class="form-group">
-		      <label for="notes" class="col-sm-3 control-label">Notes</label>
-		      <div class="col-sm-7"><textarea  cols="80" name="notes" id="notes" placeholder="Notes" autofocus="" class="form-control"></textarea>
-		      </div>		       
+		      <label for="speakWithStaff" class="col-sm-3 control-label">Have you spoken with the staff about this meeting?</label>
+		      <div class="col-sm-7">
+		      	<select name="speakWithStaff">
+		      		<option value="101">Yes</option>
+		      		<option value="102">No</option>	
+		      	</select>
+		      </div>
 		   </div>
 		   
 		   <div class="form-group">
@@ -46,7 +91,10 @@
 
 		   	<input type="hidden" name="_csrf" value="{_csrf}" />
 			<input type="hidden" name="type" id="type" value="0" />
+			<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
+			<input type="hidden" name="userid" id="userid" value="{userid}" />
 		</form>		
 
 	</div>
+	{/data}
 {/body}
