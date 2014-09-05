@@ -9,58 +9,73 @@
 	<div class="container">
 		<h2>Setup a meeting</h2>
 		
-		<form id="signup-form" method="POST" class="form-horizontal">	
-			{?result.coachesLinked}
+		<form id="meetingInvite" method="POST" class="form-horizontal">	
+			{?data.result.coachesLinked}
 			   <div class="form-group">
 			      <label for="fullName" class="col-sm-3 control-label">Coach Name</label>
 			      <div class="col-sm-7">
 			      	<select name="invitee">
-			      		{#result.coachesLinked}
+			      		{#data.result.coachesLinked}
 			      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
-			      		{/result.coachesLinked}
+			      		{/data.result.coachesLinked}
 			      	</select>
 				  	
 			      </div>			      
 			   </div>
-		  	{/result.coachesLinked}
-		  	{?result.studentsLinked}
+		  	{/data.result.coachesLinked}
+		  	{?data.result.studentsLinked}
 			   <div class="form-group">
 			      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
 			      <div class="col-sm-7">
 			      
 			      	<select name="invitee">
-			      		{#result.studentsLinked}
+			      		{#data.result.studentsLinked}
 			      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
-			      		{/result.studentsLinked}
+			      		{/data.result.studentsLinked}
 			      	</select> 
 			      	
 			      </div>
 			   </div>
-		  	{/result.studentsLinked} 
+		  	{/data.result.studentsLinked} 
+
+		   <div class="form-group date">
+			   <label for="meetingDate" class="col-sm-3 control-label">Meeting Date / Time</label>
+				<div class="col-sm-7"> 
+					<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+				</div>				
+		   </div>		   
 		   <div class="form-group">
-		      <label for="meetingDate" class="col-sm-3 control-label">Date (MM/DD/YYYY)</label>
-		      <div class="col-sm-7"><input type="text" name="meetingDate" id="meetingDate" placeholder="Date(MM/DD/YYYY)" autofocus="" class="form-control"></div>
-		   </div>
-		   <div class="form-group">
-		      <label for="meetingTime" class="col-sm-3 control-label">Time (HH:MM)</label>
-		      <div class="col-sm-7"><input type="text" name="meetingTime" id="meetingTime" placeholder="Meeting Time(HH:MM)" autofocus="" class="form-control"></div>
-		   </div>
-		   <div class="form-group">
-		      <label for="topic" class="col-sm-3 control-label">Topic</label>
-		      <div class="col-sm-7"><input type="text" name="topic" id="topic" placeholder="Topic" autofocus="" class="form-control"></div>
-		   </div>
+	  			<label for="topic" class="col-sm-3 control-label">Topic</label>	  			
+	  			<div class="col-sm-7">
+	      			<select name="topic" class="form-control col-sm-7">	      	  			
+	      				<option value="-1">Choose a topic</option>
+			  			<option>Resume &amp; Linked In profile creation</option>
+			  			<option>Mock Interview</option>
+			  			<option>Insider Scoop</option>
+			  			<option>Office Visit</option>
+			  			<option>Internship or Job Search</option>
+			  			<option>Professional Etiquette</option>
+					</select>
+				</div>			   
+				</div>
 		   <div class="form-group">
 		      <label for="meetingType" class="col-sm-3 control-label">Meeting Type</label>
 		      <div class="col-sm-7">
 			      <select name="meetingType" class="form-control col-sm-7">
-			      	  <option value="1">In Person</option>	
-					  <option value="2">Telephonic</option>
+			      	  <option>In Person</option>	
+					  <option>Telephonic</option>
 					</select>
-				</div>			   
+				</div>
 		   </div>
+		   
 		   <div class="form-group">
 		      <label for="location" class="col-sm-3 control-label">Location</label>
-		      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="location" autofocus="" class="form-control"></div>
+		      <div class="col-sm-7"><input type="text" name="location" id="address, city" placeholder="location" autofocus="" class="form-control"></div>
+		   </div>
+
+		   <div class="form-group">
+		      <label for="landmark" class="col-sm-3 control-label">Landmark</label>
+		      <div class="col-sm-7"><input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control"></div>
 		   </div>
 		   
 		   <div class="form-group">
@@ -71,7 +86,7 @@
 			<input type="hidden" name="type" id="type" value="0" />
 
 			<!-- Some hidden stuff -->
-			<input type="hidden" name="inviteCreator" value="{result._id}">
+			<input type="hidden" name="inviteCreator" value="{data.result._id}">
 			
 		</form>		
 
