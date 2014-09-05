@@ -243,6 +243,7 @@
 							   	<input type="hidden" name="_csrf" value="{_csrf}" />
 								<input type="hidden" name="type" id="type" value="0" />
 								<input type="hidden" name="userid" id="userid" value="{userDetails.userid}" />
+								<input type="hidden" name="role" id="role" value="{userDetails.role}" />
 							</form>	                	
 	                	</div>
 	              	</div>  

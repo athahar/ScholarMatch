@@ -75,6 +75,22 @@ var userSchema = Schema({
         phone: String,
         email: String
     },
+    studentList: String,
+
+    studentId: String,
+    school: {
+        name: String,
+        major: String,
+        currentYear: String
+    },
+    industry: {
+        desired: String,
+        interestedIn: String,
+        secondary: String
+    },
+    previousJobs: String,
+    additionalPersonalInfo: String,
+    coachList: String,
     creationDate: {
         type: Date
     },
