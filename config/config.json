@@ -11,7 +11,8 @@
             "renderer": {
                 "method": "js",
                 "arguments": [{
-                    "cache": true
+                    "cache": true,
+                    "helpers": ["dustjs-helpers"]
                 }, {
                     "views": "config:express.views",
                     "view engine": "config:express.view engine",

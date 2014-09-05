@@ -1,5 +1,5 @@
 (function () {
-    "use strict";
+    'use strict';
 
     requirejs.config({
         baseURL: '/js',
@@ -11,7 +11,7 @@
             'typeahead': 'lib/typeahead.bundle.min',
             'bootstrap': 'lib/bootstrap.min',
             'dust': 'lib/dust-full.min',
-            'dustHelpers': 'lib/dust-helpers.min',
+            'dustHelpers': 'lib/dust-helpers.min'
         },
         shim: {
             'dust-helpers': {
