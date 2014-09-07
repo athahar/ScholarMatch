@@ -13,12 +13,12 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-        if (req.session.userid) {
-    	    debugger;
+      	debugger;
+        if (req.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
-            model.data.userId = req.session.userid;
-            MeetingNotes.findByUserAndMeetingId(req.session.userid, req.query.meetingId, function (err, meetingnotesrec) {
+            model.data.userId = req.user._id;
+            MeetingNotes.findByUserAndMeetingId(req.user._id, req.query.meetingId, function (err, meetingnotesrec) {
 
                 // console.log('111aaa');
                 if (err) {
@@ -89,12 +89,12 @@ module.exports = function (router) {
     router.post('/', function (req, res) {
 
         debugger;
-        if (req.session.userid) {
+        if (req.session.user._id) {
 
             var meetingnotes = new MeetingNotes({
-                notesBy: req.session.userid,
+                notesBy: req.session.user._id,
                 meetingId: req.body.meetingId,
-                interactionType: meeting.meetingTopic,
+                interactionType: req.body.interactionType,
                 materialUsefulness: req.body.materialUsefulness, // assign the _id from the person
                 topicAppropriateness: req.body.topicAppropriateness,
                 collaborationDescription: req.body.collaborationDescription,

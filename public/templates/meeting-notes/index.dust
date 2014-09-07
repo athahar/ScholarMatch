@@ -92,7 +92,6 @@
 		   	<input type="hidden" name="_csrf" value="{_csrf}" />
 			<input type="hidden" name="type" id="type" value="0" />
 			<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
-			<input type="hidden" name="userid" id="userid" value="{userid}" />
 		</form>		
 
 	</div>
