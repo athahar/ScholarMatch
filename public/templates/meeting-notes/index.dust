@@ -1,7 +1,7 @@
 {>"layouts/master" /}
 
 {<title}
-	Meeting invite - College to Career Program  - ScholarMatch
+	Meeting notes - College to Career Program  - ScholarMatch
 {/title}
 
 {<body}
@@ -28,11 +28,11 @@
 		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic - 5 most appropriate </label>
 		      <div class="col-sm-7">
 		      	<select name="topicAppropriateness">
-		      		<option value="101">1</option>
-		      		<option value="102">2</option>
-		      		<option value="103">3</option>
-		      		<option value="104">4</option>
-		      		<option value="105">5</option> 		
+		      		<option value="1">1</option>
+		      		<option value="2">2</option>
+		      		<option value="3">3</option>
+		      		<option value="4">4</option>
+		      		<option value="5">5</option> 		
 		      	</select>
 		      </div>
 		   </div>
@@ -41,11 +41,11 @@
 		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material - 5 most useful </label>
 		      <div class="col-sm-7">
 		      	<select name="materialUsefulness">
-		      		<option value="101">1</option>
-		      		<option value="102">2</option>
-		      		<option value="103">3</option>
-		      		<option value="104">4</option>
-		      		<option value="105">5</option> 		
+		      		<option value="1">1</option>
+		      		<option value="2">2</option>
+		      		<option value="3">3</option>
+		      		<option value="4">4</option>
+		      		<option value="5">5</option> 		
 		      	</select>
 		      </div>
 		   </div>
@@ -54,11 +54,11 @@
 		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time - 5 most effective time utilization</label>
 		      <div class="col-sm-7">
 		      	<select name="timeUtilization">
-		      		<option value="101">1</option>
-		      		<option value="102">2</option>
-		      		<option value="103">3</option>
-		      		<option value="104">4</option>
-		      		<option value="105">5</option> 		
+		      		<option value="1">1</option>
+		      		<option value="2">2</option>
+		      		<option value="3">3</option>
+		      		<option value="4">4</option>
+		      		<option value="5">5</option> 		
 		      	</select>
 		      </div>
 		   </div>
@@ -92,6 +92,7 @@
 		   	<input type="hidden" name="_csrf" value="{_csrf}" />
 			<input type="hidden" name="type" id="type" value="0" />
 			<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
+			<input type="hidden" name="userid" id="userid" value="{userId}" />
 		</form>		
 
 	</div>

@@ -316,8 +316,8 @@ meetingNotesSchema.statics.findAll = function(callback) {
     this.find({}, callback);
 };
 meetingNotesSchema.statics.findByUserAndMeetingId = function(userid, meetingid, callback) {
-    this.findOne({
-        _id: meetingid,
+    this.find({
+        meetingId: meetingid,
         notesBy: userid
     }, callback); 
 };

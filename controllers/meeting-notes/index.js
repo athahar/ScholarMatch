@@ -14,17 +14,18 @@ module.exports = function (router) {
     router.get('/', function (req, res) {
 
       	debugger;
-        if (req.user._id) {
+        if (req.session.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
-            model.data.userId = req.user._id;
-            MeetingNotes.findByUserAndMeetingId(req.user._id, req.query.meetingId, function (err, meetingnotesrec) {
+            model.data.userId = req.session.user._id;
+            MeetingNotes.findByUserAndMeetingId(req.session.user._id, req.query.meetingId, function (err, meetingnotesrec) {
 
                 // console.log('111aaa');
                 if (err) {
                     callback(err);
 
                 }
+                meetingnotesrec = meetingnotesrec[0].toJSON();
                 if(meetingnotesrec) {
                     model.data._id = meetingnotesrec._id;
                     model.data.interactionType = meetingnotesrec.interactionType;
@@ -59,11 +60,12 @@ module.exports = function (router) {
 
         MeetingNotes.findByUserAndMeetingId(req.session.userid, req.query.meetingId, function (err, meetingnotesrec) {
 
-                // console.log('111aaa');
+                debugger;
                 if (err) {
                     callback(err);
 
                 }
+                meetingnotesrec = meetingnotesrec[0].toJSON();
                 if(meetingnotesrec) {
                     model.data._id = meetingnotesrec._id;
                     model.data.interactionType = meetingnotesrec.interactionType;
