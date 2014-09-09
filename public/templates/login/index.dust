@@ -5,34 +5,45 @@
 {/title}
 
 {<body}
-    <div class="container">
-    	<form id="loginForm" method="post">	 
+	
+<div style="background-color:#CCCC99; margin-top:25px;">
+	<div class="container" >
+		<div class="GettingStarted">
+			<h1>Getting Started</h1>
+			<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+			
+			<br />
 
-			<div class="col-sm-10 col-sm-offset-2">
-                <h2>Login</h2>
-                {?messages}
-                    <ul class="bg-warning">
-                        {#messages}
-                            <li>{.}</li>
-                        {/messages}
-                    </ul>
-                {/messages}
-                <div class="form-group">
-			      <label for="username" class="col-sm-4 control-label">Email address</label>
-			      <div class="col-sm-6"><input type="text" name="username" id="username" placeholder="Email address" autofocus="" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="password" class="col-sm-4 control-label">Password</label>
-			      <div class="col-sm-6"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
-			   </div>
-			    <div class="form-group">
-			      <div class="col-sm-offset-1 col-sm-7"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Login</button></div>
-			   </div>
 
-			   <input type="hidden" name="_csrf" value="{_csrf}" />
-			   <input type="hidden" name="type" id="type" value="0" />
-	        
-	    	</div>
-		</form>
+	    	<form id="loginForm" method="post">	 
+				{?messages}
+					<ul class="bg-warning">
+						{#messages}
+							<li>{.}</li>
+						{/messages}
+					</ul>
+				{/messages}
+
+				<input type="text" name="username" id="username" placeholder="Email address" class="textBoxHome" >
+				&nbsp;&nbsp;&nbsp;
+				<!--<br /><br />-->
+				<input type="password" name="password" id="password" placeholder="Password" class="textBoxHome">
+
+				<br /><br />
+					   
+				<button type="submit" class="btn btn-success" id="loginButton" ><i class="fa fa-check"></i>Login</button>
+			</form>
+
+			<br /><br />
+
+			<p class="lead">Don't have an account? <a href="/signup" class="ScholarMatchFont" style="text-decoration:underline; color:blue;">Signup</a>
+
+
+				   <input type="hidden" name="_csrf" value="{_csrf}" />
+				   <input type="hidden" name="type" id="type" value="0" />
+		</div>
+		        
 	</div>
+</div>
+
 {/body}

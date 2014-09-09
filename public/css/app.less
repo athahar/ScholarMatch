@@ -8,23 +8,32 @@
 html {
   position: relative;
   min-height: 100%;
+  font-family: 'Tungsten A', 'Tungsten B'; font-weight: 400; font-style: normal;
 }
 
 body {
   padding-top: 20px;
-  margin-bottom: 25px;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+#wrapper{
+  min-height:100%;
+  position:relative;
+}
+
+
+.footer {
   width: 100%;
   height: 45px;
-  line-height: 45px;
-
+  text-align:center;
+  background-color:#CC9933;
+  position:absolute;
   p,
   ul {
-    margin-bottom: 0;
+    font-size:12px;
+    background-color:#CC9933;
+    color:black;
+    margin-top:10px;
+    padding:10px;
   }
 }
 
@@ -60,3 +69,60 @@ footer {
 [class^='ion-'] {
   margin-right: 6px;
 }
+
+
+//BRAM ADDED CSS
+
+
+.ScholarMatchFont {
+  color:#663333;
+  font-size:22px;
+}
+
+.GettingStarted{
+  text-align:center;
+  color:#663333;
+}
+
+h1{
+  font-size:32px;
+  font-weight:bolder;
+  text-transform: uppercase;
+}
+
+.textBoxHome{
+  width:250px;
+  height:35px;
+  display:inline-block;
+  border-radius: 5px;
+  padding:5px;
+  text-align:center;
+  color: #663333;
+  font-weight:bold;
+}
+
+#loginButton{
+  height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;
+}
+
+.About{
+  font-size:18px;
+  color:#663333;
+  margin-bottom:25px;
+}
+
+.AboutItem{
+  font-size:18px;
+  color:#663333;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.AboutItemAnswer{
+  padding:0px;
+  visibility:hidden;
+  height:0px;
+  cursor:default;
+  margin-left:40px;
+}
+

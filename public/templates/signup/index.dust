@@ -6,45 +6,60 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Signup</h1>
 
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
 
-		<form id="signup-form" method="POST" action="{requestURI}/signup" class="form-horizontal">		   		   
+<div style="background-color:#CCCC99; margin-top:25px;">
+	<div class="container" >
+		<div class="GettingStarted">
+			<h1>Sign Up</h1>
+			
+			<br />
 
-			<div class="col-sm-8 col-sm-offset-2">
-				
-			   <div class="form-group">
-			      <label for="username" class="col-sm-3 control-label">Email ID</label>
-			      <div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="password" class="col-sm-3 control-label">Password</label>
-			      <div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
-			      <div class="col-sm-7"><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="role" class="col-sm-3 control-label">Signing up as </label>
-			      <div class="col-sm-7"><input type="text" name="role" id="role" placeholder="Coach/Student ?" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <div class="col-sm-offset-3 col-sm-7"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Signup</button></div>
-			   </div>
 
-			   	<input type="hidden" name="_csrf" value="{_csrf}" />
-				<input type="hidden" name="type" id="type" value="0" />
-			</div>
-		</form>		
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+	                    <li>{.}</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
 
+			<form id="signup-form" method="POST" action="{requestURI}/signup" class="form-horizontal">		   		   
+
+				<div class="col-sm-8 col-sm-offset-2">
+					
+				   <div class="form-group">
+				      <label for="username" class="col-sm-3 control-label">Email ID</label>
+				      <div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control"></div>
+				   </div>
+				   <div class="form-group">
+				      <label for="password" class="col-sm-3 control-label">Password</label>
+				      <div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
+				   </div>
+				   <div class="form-group">
+				      <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+				      <div class="col-sm-7"><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"></div>
+				   </div>
+				   <div class="form-group">
+				      <label for="role" class="col-sm-3 control-label">Signing up as </label>
+				      <div class="col-sm-7"><input type="text" name="role" id="role" placeholder="Coach/Student ?" class="form-control"></div>
+
+				      <!-- Code for radio buttons
+					      <input type="radio" name="role" id="role" value="Coach"> Coach  
+					      &nbsp;&nbsp;
+						  <input type="radio" name="role" id="role" value="Student"> Student
+						  -->
+				   </div>
+				   <div class="form-group">
+				      <div class="col-sm-offset-3 col-sm-7"><button type="submit" class="btn btn-success" id="loginButton"><i class="fa fa-check"></i>Signup</button></div>
+				   </div>
+
+				   	<input type="hidden" name="_csrf" value="{_csrf}" />
+					<input type="hidden" name="type" id="type" value="0" />
+				</div>
+			</form>		
+		</div>
+		        
 	</div>
+</div>
 {/body}
