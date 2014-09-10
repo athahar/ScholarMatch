@@ -19,7 +19,7 @@ var userSchema = Schema({
         required: true,
         unique: true
     }, //Ensure logins are unique.
-    emailId: {
+    email: {
         type: String,
         required: true,
         unique: true
@@ -32,7 +32,6 @@ var userSchema = Schema({
     fullName: String,
     role: String,
     preferredName: String,
-    coachId: String,
     phone: String,
     location: String,
     underGradSchool: {
@@ -77,7 +76,6 @@ var userSchema = Schema({
     },
     studentList: String,
 
-    studentId: String,
     school: {
         name: String,
         major: String,

@@ -27,7 +27,7 @@ module.exports = function (router) {
             if (err) {
                 res.render('profile/index', model);
             } else {
-                model.data.userDetails.userid = req.user.userid;
+                model.data.userDetails.userid = req.user._id;
                 model.data.userDetails.login = req.user.login;
                 model.data.userDetails.role = result.role;
                 model.data.userDetails.fullName = result.fullName;
@@ -35,30 +35,9 @@ module.exports = function (router) {
                 model.data.userDetails.email = result.email;
                 model.data.userDetails.phone = result.phone;
                 model.data.userDetails.location = result.location;
-                if (result.underGradSchool) {
-                    model.data.userDetails.underGradSchool.name = result.underGradSchool.name;
-                    model.data.userDetails.underGradSchool.major = result.underGradSchool.major;
-                }
-                if (result.gradSchool) {
-                    model.data.userDetails.gradSchool.name = result.gradSchool.name;
-                    model.data.userDetails.gradSchool.major = result.gradSchool.major;
-                }
-                if (result.primaryIndustry) {
-                    model.data.userDetails.primaryIndustry.industryName = result.primaryIndustry.industryName;
-                    model.data.userDetails.primaryIndustry.jobTitle = result.primaryIndustry.jobTitle;
-                    model.data.userDetails.primaryIndustry.yearsOfExperience = result.primaryIndustry.yearsOfExperience;
-                    model.data.userDetails.primaryIndustry.company = result.primaryIndustry.company;
-                }
-                if (result.secondaryIndustry) {
-                    model.data.userDetails.secondaryIndustry.industryName = result.secondaryIndustry.industryName;
-                    model.data.userDetails.secondaryIndustry.jobTitle = result.secondaryIndustry.jobTitle;
-                    model.data.userDetails.secondaryIndustry.yearsOfExperience = result.secondaryIndustry.yearsOfExperience;
-                    model.data.userDetails.secondaryIndustry.company = result.secondaryIndustry.company;
-                }
-                model.data.userDetails.coachingInterest = result.coachingInterest;
-                model.data.userDetails.studentMatchPreference = result.studentMatchPreference;
                 model.data.userDetails.gender = result.gender;
                 if (result.preferredMeetingFormat) {
+                    model.data.userDetails.preferredMeetingFormat = model.data.userDetails.preferredMeetingFormat || {};
                     model.data.userDetails.preferredMeetingFormat.phone = result.preferredMeetingFormat.phone;
                     model.data.userDetails.preferredMeetingFormat.email = result.preferredMeetingFormat.email;
                     model.data.userDetails.preferredMeetingFormat.skype = result.preferredMeetingFormat.skype;
@@ -66,16 +45,6 @@ module.exports = function (router) {
                 }
 
                 model.data.userDetails.linkedinProfileUrl = result.linkedinProfileUrl;
-                if (result.primaryReference) {
-                    model.data.userDetails.primaryReference.name = result.primaryReference.name;
-                    model.data.userDetails.primaryReference.phone = result.primaryReference.phone;
-                    model.data.userDetails.primaryReference.email = result.primaryReference.email;
-                }
-                if (result.secondaryReference) {
-                    model.data.userDetails.secondaryReference.name = result.secondaryReference.name;
-                    model.data.userDetails.secondaryReference.phone = result.secondaryReference.phone;
-                    model.data.userDetails.secondaryReference.email = result.secondaryReference.email;
-                }
 
                 model.data.firstlogin = req.session.firstlogin;
                 req.session.firstlogin = false; // clear initial login flag
@@ -158,7 +127,7 @@ module.exports = function (router) {
 
         debugger;
 
-        if (req.session.userid) {
+        if (req.session.user._id) {
             model.data = model.data || {};
             model.data.userDetails = model.data.userDetails || {};
 
