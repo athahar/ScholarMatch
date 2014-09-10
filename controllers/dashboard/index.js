@@ -14,7 +14,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-        var viewname = 'dashboard/index';
+        var view = 'dashboard/index';
 
 
         model.data = model.data || {};
@@ -23,32 +23,33 @@ module.exports = function (router) {
         // debugger;
         model.data.user = JSON.parse(JSON.stringify(req.user));
         model.data.meetings = model.data.meetings || {};
+        model.viewName = 'dashboard';
 
 
         if (req.user.role === 'student') {
 
-            viewname = 'dashboard/student';
+            view = 'dashboard/student';
 
-            if ((req.user.coachesLinked && (req.user.coachesLinked.length > 0)) &&(req.user.meetings && (req.user.meetings.length > 0))) {
+            if ((req.user.coachesLinked && (req.user.coachesLinked.length > 0)) && (req.user.meetings && (req.user.meetings.length > 0))) {
 
                 User.findByIdAndMeetings(req.session.user._id, function (err, result) {
                     if (err) {
                         console.log('error')
                         // res.send(err);
-                        res.render(viewname, model);
+                        res.render(view, model);
                     } else {
                         console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        res.render(viewname, model);
+                        res.render(view, model);
                     }
                 })
 
             } else {
-                res.render(viewname, model);
+                res.render(view, model);
             }
 
         } else if (req.user.role === 'coach') {
-            viewname = 'dashboard/coach';
+            view = 'dashboard/coach';
 
             if ((req.user.studentsLinked && (req.user.studentsLinked.length > 0)) && (req.user.meetings && (req.user.meetings.length > 0))) {
 
@@ -56,37 +57,37 @@ module.exports = function (router) {
                     if (err) {
                         console.log('error')
                         // res.send(err);
-                        res.render(viewname, model);
+                        res.render(view, model);
                     } else {
                         console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        res.render(viewname, model);
+                        res.render(view, model);
                     }
                 })
 
             } else {
-                res.render(viewname, model);
+                res.render(view, model);
             }
 
         } else if (req.user.role === 'admin') {
-            viewname = 'dashboard/admin';
-            res.render(viewname, model);
+            view = 'dashboard/admin';
+            res.render(view, model);
         }
 
     });
 
     router.get('/getAllMeetings', function (req, res) {
 
-        // var viewname = 'dashboard/student';
+        // var view = 'dashboard/student';
 
         // if (req.user.role === 'student') {
-        //     viewname = 'dashboard/student';
+        //     view = 'dashboard/student';
 
         // } else if (req.user.role === 'coach') {
-        //     viewname = 'dashboard/coach';
+        //     view = 'dashboard/coach';
 
         // } else if (req.user.role === 'admin') {
-        //     viewname = 'dashboard/admin';
+        //     view = 'dashboard/admin';
         // }
 
         User.findByIdAndMeetings(req.query.userid, function (err, result) {
@@ -100,7 +101,7 @@ module.exports = function (router) {
                 // model.data.meetings = JSON.parse(JSON.stringify(result));
 
                 res.send(result);
-                // res.render(viewname, model);
+                // res.render(view, model);
                 // res.send(result);
             }
 

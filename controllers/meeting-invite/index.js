@@ -13,6 +13,8 @@ var MeetingInviteModel = require('../../models/meeting-invite'),
 module.exports = function (router) {
 
     var model = new MeetingInviteModel();
+    model.viewName = 'meetingInvite';
+    model.data = model.data || {};
 
     /**
      * Show the meeting setup page
@@ -32,10 +34,11 @@ module.exports = function (router) {
                 } else {
 
                     console.dir(result);
-                    model.result = JSON.parse(JSON.stringify(result));
+                    model.data.viewName = "MeetingInvite"
+                    model.data.result = JSON.parse(JSON.stringify(result));
 
                     // res.send(model);
-                    res.render('meeting-invite/index', model);
+                    res.render("meeting-invite/index", model);
                 }
             })
 
@@ -49,10 +52,11 @@ module.exports = function (router) {
                     // res.render('meeting-invite/index', model);
                     res.send(model);
                 } else {
+                    console.dir(result);
+                    model.data.view = "MeetingInvite"
+                    model.data.result = JSON.parse(JSON.stringify(result));
 
-                    model.result = JSON.parse(JSON.stringify(result));
-                    console.dir(model);
-                    res.render('meeting-invite/index', model);
+                    res.render("meeting-invite/index", model);
                 }
             })
         }
@@ -67,15 +71,15 @@ module.exports = function (router) {
      */
     router.post('/', function (req, res) {
 
-        var meetingType = req.body.meetingType,
-            meetingType = ((meetingType === 1) ? " In Person" : " Telephonic"),
-            meeting = {
-                meetingdate: req.body.meetingDate,
-                meetingtime: req.body.meetingTime + " (PDT) ",
-                meetinglocation: req.body.location,
-                meetingType: meetingType,
-                meetingTopic: req.body.topic
-            }
+        var meeting = {
+            meetingdate: req.body.meetingDate,
+            meetinglocation: req.body.location,
+            meetinglandmark: req.body.landmark,
+            meetingType: req.body.meetingType,
+            meetingTopic: req.body.topic
+        }
+
+        console.log("meeting : ", meeting);
 
         async.parallel({
                 inviteCreator: function (callback) {
@@ -119,6 +123,8 @@ module.exports = function (router) {
                         _creator: inviteCreator._id, // assign the _id from the person
                         meetingdate: meeting.meetingdate,
                         location: meeting.meetinglocation,
+                        meetingType: meeting.meetingType,
+                        meetinglandmark: meeting.landmark,
                         attendees: [inviteCreator._id, invitee._id],
                     });
 
