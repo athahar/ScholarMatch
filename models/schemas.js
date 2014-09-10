@@ -24,7 +24,6 @@ var userSchema = Schema({
         required: true,
         unique: true
     }, //Ensure emails are unique.
-    // email: { type: String },  //Ensure emails are unique.
     password: {
         type: String,
         required: true,
@@ -32,12 +31,64 @@ var userSchema = Schema({
     }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
     fullName: String,
     role: String,
+    preferredName: String,
     phone: String,
-    college: String,
-    industry: String,
-    experience: Number,
+    location: String,
+    underGradSchool: {
+        name: String,
+        major: String
+    },
+    gradSchool: {
+        name: String,
+        major: String
+    },
+    primaryIndustry: {
+        industryName: String,
+        jobTitle: String,
+        company: String,
+        yearsOfExperience: String
+    },
+    secondaryIndustry: {
+        industryName: String,
+        jobTitle: String,
+        company: String,
+        yearsOfExperience: String
+    },
+    coachingInterest: String,
+    studentMatchPreference: String,
     gender: String,
-    city: String,
+    preferredMeetingFormat: {
+        call: Boolean,
+        email: Boolean,
+        skype: Boolean,
+        inPerson: Boolean
+    },
+    linkedinProfileUrl: String,
+    primaryReference: {
+        name: String,
+        phone: String,
+        email: String
+    },
+    secondaryReference: {
+        name: String,
+        phone: String,
+        email: String
+    },
+    studentList: String,
+
+    school: {
+        name: String,
+        major: String,
+        currentYear: String
+    },
+    industry: {
+        desired: String,
+        interestedIn: String,
+        secondary: String
+    },
+    previousJobs: String,
+    additionalPersonalInfo: String,
+    coachList: String,
     creationDate: {
         type: Date
     },
@@ -49,21 +100,7 @@ var userSchema = Schema({
     lastModifiedDate: {
         type: Date,
         default: Date.now
-    },
-    linkedin: {},
-    // search: [String],
-    meetings: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Meeting'
-    }],
-    coachesLinked: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-    studentsLinked: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }]
+    }
 });
 
 
