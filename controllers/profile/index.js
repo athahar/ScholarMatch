@@ -138,20 +138,6 @@ module.exports = function (router) {
             model.data.userDetails.email = req.body.email;
             model.data.userDetails.phone = req.body.phone;
             model.data.userDetails.location = req.body.location;
-            model.data.userDetails.underGradSchool.name = req.body.underGradSchoolName;
-            model.data.userDetails.underGradSchool.major = req.body.underGradSchoolMajor;
-            model.data.userDetails.gradSchool.name = req.body.gradSchoolName;
-            model.data.userDetails.gradSchool.major = req.body.gradSchoolMajor;
-            model.data.userDetails.primaryIndustry.industryName = req.body.primaryIndustryName;
-            model.data.userDetails.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
-            model.data.userDetails.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
-            model.data.userDetails.primaryIndustry.company = req.body.primaryIndustryCompany;
-            model.data.userDetails.secondaryIndustry.industryName = req.body.secondaryIndustryName;
-            model.data.userDetails.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
-            model.data.userDetails.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
-            model.data.userDetails.secondaryIndustry.company = req.body.secondaryIndustryCompany;
-            model.data.userDetails.coachingInterest = req.body.coachingInterest;
-            model.data.userDetails.studentMatchPreference = req.body.studentMatchPreference;
             model.data.userDetails.gender = req.body.genderRadios;
 
             model.data.userDetails.preferredMeetingFormat = model.data.userDetails.preferredMeetingFormat || {};
@@ -161,6 +147,9 @@ module.exports = function (router) {
             model.data.userDetails.preferredMeetingFormat.inPerson = req.body.preferredMeetingFormatInPerson;
             
             model.data.userDetails.linkedinProfileUrl = req.body.linkedinProfileUrl;
+
+            model.data.firstlogin = req.session.firstlogin;
+            req.session.firstlogin = false; // clear initial login flag
 
             if(req.body.role == "coach"){
                 model.data.userDetails.underGradSchool = model.data.userDetails.underGradSchool || {};
@@ -217,10 +206,20 @@ module.exports = function (router) {
             userLib.updateUser(model.data.userDetails, function (err, result) {
                 if (err) {
                     model.messages = err;
-                    res.render('profile/index', model);
+
+                    if(model.data.userDetails.role == 'coach'){
+                        res.render('profile/coach', model);    
+                    } else {
+                        res.render('profile/student', model);
+                    }
                 } else {
                     model.messages = 'Profile Updated';
-                    res.render('profile/index', model);
+
+                    if(model.data.userDetails.role == 'coach'){
+                        res.render('profile/coach', model);    
+                    } else {
+                        res.render('profile/student', model);
+                    }
                 }
             });
         } else {
