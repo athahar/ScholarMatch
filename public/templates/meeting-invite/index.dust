@@ -70,7 +70,7 @@
 		   
 		   <div class="form-group">
 		      <label for="location" class="col-sm-3 control-label">Location</label>
-		      <div class="col-sm-7"><input type="text" name="location" id="address, city" placeholder="location" autofocus="" class="form-control"></div>
+		      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control"></div>
 		   </div>
 
 		   <div class="form-group">
