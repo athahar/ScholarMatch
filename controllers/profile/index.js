@@ -12,13 +12,15 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-        debugger;
-
-
         model.data = model.data || {};
         model.data.userDetails = model.data.userDetails || {};
 
         model.data.userDetails.userid = req.user._id;
+        if(req.query.editProfile == true){
+            model.data.editDisabled = false;
+        }else{
+            model.data.editDisabled = true;            
+        }
 
         model.messages = ''; // clear any messages
 
@@ -95,8 +97,6 @@ module.exports = function (router) {
                         model.data.userDetails.secondaryReference.email = result.secondaryReference.email;
                     }
 
-                    model.data.userDetails.studentList = result.studentList;
-
                     res.render('profile/coach', model);
                 }else if(result.role == "student"){
                     if(result.school){
@@ -114,7 +114,6 @@ module.exports = function (router) {
                     }
 
                     model.data.userDetails.previousJobs = result.previousJobs;
-                    model.data.userDetails.coachList = result.coachList;
 
                     res.render('profile/student', model);
                 }
@@ -184,8 +183,6 @@ module.exports = function (router) {
                 model.data.userDetails.secondaryReference.name = req.body.secondaryReferenceName;
                 model.data.userDetails.secondaryReference.phone = req.body.secondaryReferencePhone;
                 model.data.userDetails.secondaryReference.email = req.body.secondaryReferenceEmail;
-
-                model.data.userDetails.studentList = req.body.studentList;
             }else if(req.body.role == "student"){
                 model.data.userDetails.school = model.data.userDetails.school || {};
                 model.data.userDetails.school.name = req.body.schoolName;
@@ -199,8 +196,6 @@ module.exports = function (router) {
 
                 model.data.userDetails.previousJobs = req.body.previousJobs;
                 model.data.userDetails.additionalPersonalInfo = req.body.additionalPersonalInfo;
-                model.data.userDetails.coachList = req.body.coachList;
-
             }
 
             userLib.updateUser(model.data.userDetails, function (err, result) {
