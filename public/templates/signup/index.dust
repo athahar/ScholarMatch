@@ -1,22 +1,27 @@
 {>"layouts/master" /}
 
 {<title}
-	Signup - College to Career Program  - ScholarMatch
+	Signup - Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}
 
-	<div class="container">
-		<h1>Signup</h1>
 
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
+    <div class="container-colored" data-data={_csrf|js}>
+		<div class="center-text">
+			<h1>Signup</h1>
 
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+	                    <li>{.}</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
+
+			<br />
+
+	    	
 		<form id="signup-form" method="POST" action="{requestURI}/signup" class="form-horizontal">		   		   
 
 			<div class="col-sm-8 col-sm-offset-2">
@@ -48,8 +53,10 @@
 			      <div class="col-sm-7"><input type="text" name="role" id="role" placeholder="Coach/Student ?" class="form-control"></div>
 
 			   </div> -->
+
+			   <!-- without the positioning, it's not centered and aligned with the signup header-->
 			   <div class="form-group">
-			      <div class="col-sm-offset-3 col-sm-7"><button type="submit" class="btn btn-primary">Signup</button></div>
+			      <div class="col-sm-offset-3 col-sm-7"><button type="submit" class="btn btn-primary" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333; position:relative; right:8%;">Signup</button></div>
 			   </div>
 
 			   	<input type="hidden" name="_csrf" value="{_csrf}" />
@@ -57,5 +64,9 @@
 			</div>
 		</form>		
 
+
 	</div>
+
+
+
 {/body}
