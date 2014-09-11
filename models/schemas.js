@@ -75,6 +75,10 @@ var userSchema = Schema({
         email: String
     },
     studentList: String,
+    studentsLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
 
     school: {
         name: String,
@@ -89,6 +93,11 @@ var userSchema = Schema({
     previousJobs: String,
     additionalPersonalInfo: String,
     coachList: String,
+        coachesLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+
     creationDate: {
         type: Date
     },
