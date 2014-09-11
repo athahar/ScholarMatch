@@ -1,9 +1,42 @@
 {>"layouts/master" /}
 
 {<title}
-	College to Career Program  - ScholarMatch
+	Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}            
-     Contact@scholarmatch.org
+    <div class="container-colored" data-data={_csrf|js}>
+		<div class="center-text">
+			<h1>Contact Us</h1>
+
+			<div class="split-content-in-half">
+				For all questions, or to request general info on the organization: 
+
+				<br /><br />
+
+				<table>
+					<tr><td>Email:</td><td><a href="mailto:info@scholarmatch.org?subject=Contact Scholar Match">info@scholarmatch.org</a></td></tr>
+					<tr><td>Call:</td><td><a href="tel:4156522766">415.652.2766</a></td></tr>
+					<tr><td>Write / Visit:</td><td><a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street, San Francisco, CA 94110</a></td></tr>
+				</table>
+
+				<br />
+
+				To contact a specific staff member directly, visit our <a href="http://scholarmatch.org/about/who-we-are/#staff" target="is_blank">staff page here</a> for more info. 
+
+				<br /><br />
+
+				To keep up with student stories, get the skinny on our fun events, and read the latest college cost news, <a href="http://scholarmatch.us2.list-manage.com/subscribe?u=8f459a7efacd651e92d695534&id=a31c13ddf9" target="is_blank">sign up for our newsletter</a>!
+
+				<br /><br />
+
+				<a href="http://www.scholarmatch.org" target="is_blank">Scholar Match Website</a>
+			</div>
+
+			<div class="split-content-in-half">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3154.3082469330207!2d-122.4210619!3d37.759369899999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3c537584bb%3A0x5bdde258af95d3ee!2s849+Valencia+St%2C+San+Francisco%2C+CA+94110!5e0!3m2!1sen!2sus!4v1410458531551" width="480" height="320" frameborder="0" style="border:0"></iframe>
+			</div>
+			
+		</div>
+	</div>
 {/body}

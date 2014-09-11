@@ -135,6 +135,7 @@ if(parts.indexOf("DASHBOARD")>0){
     document.getElementById("profile").className = "";
     document.getElementById("login-or-logout").className = "";
     document.getElementById("sign-up").className = "";
+    document.getElementById("contact").className = "";
 }
 else if(parts.indexOf("PROFILE")>0){
     document.getElementById("home").className = "";
@@ -142,6 +143,7 @@ else if(parts.indexOf("PROFILE")>0){
     document.getElementById("profile").className = "active-link";
     document.getElementById("login-or-logout").className = "";
     document.getElementById("sign-up").className = "";
+    document.getElementById("contact").className = "";
 }
 else if(parts.indexOf("LOGIN")>0){
     document.getElementById("home").className = "";
@@ -149,6 +151,7 @@ else if(parts.indexOf("LOGIN")>0){
     document.getElementById("profile").className = "";
     document.getElementById("login-or-logout").className = "active-link";
     document.getElementById("sign-up").className = "";
+    document.getElementById("contact").className = "";
 }
 else if(parts.indexOf("SIGNUP")>0){
     document.getElementById("home").className = "";
@@ -156,6 +159,15 @@ else if(parts.indexOf("SIGNUP")>0){
     document.getElementById("profile").className = "";
     document.getElementById("login-or-logout").className = "";
     document.getElementById("sign-up").className = "active-link";
+    document.getElementById("contact").className = "";
+}
+else if(parts.indexOf("CONTACT")>0){
+    document.getElementById("home").className = "";
+    document.getElementById("dashboard").className = "";
+    document.getElementById("profile").className = "";
+    document.getElementById("login-or-logout").className = "";
+    document.getElementById("sign-up").className = "";
+    document.getElementById("contact").className = "active-link";
 }
 else{
     document.getElementById("home").className = "active-link";
@@ -163,4 +175,5 @@ else{
     document.getElementById("profile").className = "";
     document.getElementById("login-or-logout").className = "";
     document.getElementById("sign-up").className = "";
+    document.getElementById("contact").className = "";
 }

@@ -28,6 +28,9 @@
                 <a href="/signup" >Signup</a>
             {/user}
         </li>
+        <li id="contact">
+            <a href="/contact" >Contact</a>
+        </li>
     </ul>      
     </nav>
   </div>
