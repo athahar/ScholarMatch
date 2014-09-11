@@ -1,44 +1,49 @@
 {>"layouts/master" /}
 
 {<title}
-	Login - College to Career Program  - ScholarMatch
+	Login - Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}
-    <div class="container" data-data={_csrf|js}>
-    	<form id="loginForm" method="post">	 
+    <div class="container-colored" data-data={_csrf}>
+		<div class="center-text">
+			<h1>Getting Started</h1>
+			<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+			
+			<br />
 
-			<div class="col-sm-10 col-sm-offset-2">
-                <h2>Login</h2>
-                {?messages}
-                    <ul class="bg-warning">
-                        {#messages}
-                            <li>{.}</li>
-                        {/messages}
-                    </ul>
-                {/messages}
-                <div class="form-group">
-			      <label for="username" class="col-sm-4 control-label">Email address</label>
-			      <div class="col-sm-6"><input type="text" name="username" id="username" placeholder="Email address" autofocus="" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="password" class="col-sm-4 control-label">Password</label>
-			      <div class="col-sm-6"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
-			   </div>
-			    <div class="form-group">
-			      <div class="col-sm-offset-1 col-sm-7">
-			      	<button type="submit" class="btn btn-primary">Login</button>
-			      	<a href="/login/forgot" >Forgot Password? <a>
-			      </div>
 
-			   </div>
+	    	<form id="loginForm" method="post">	 
+				{?messages}
+					<ul class="bg-warning">
+						{#messages}
+							<li>{.}</li>
+						{/messages}
+					</ul>
+				{/messages}
 
-			   <input type="hidden" name="_csrf" value="{_csrf}" />
-			   <input type="hidden" name="type" id="type" value="0" />
-	        
-	    	</div>
-	    	
-		</form>
+				<input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
+				&nbsp;&nbsp;&nbsp;
+				<!--<br /><br />-->
+				<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
+
+				<br /><br />
+					   
+				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;">Login</button>
+				<input type="hidden" name="_csrf" value="{_csrf}" />
+				<input type="hidden" name="type" id="type" value="0" />
+			</form>
+
+			<br />
+
+			<p class="lead">
+				<a href="/login/forgot" >Forgot Password? </a> <br />
+				Don't have an account? <a href="/signup" >Signup</a>
+			</p>
+
+
+				   
+		</div>
 
 	</div>
 {/body}

@@ -52,6 +52,28 @@ module.exports = function (router) {
         // res.render('match/index', model);
     });
 
+
+    router.get('/search', function (req, res) {
+
+        var options = {};
+
+        options.role = "coach";
+
+        userLib.queryAllUsers(options, function (err, result) {
+
+            if (!err) {
+                model.data = model.data || {};
+                model.data.results = JSON.parse(JSON.stringify(result));
+                model.data.count = result.length;
+                // console.dir(model);
+                res.render('match/results', model);
+            } else {
+                res.send(err);
+            }
+
+        })
+    })
+
     router.get('/findcoach', function (req, res) {
 
         var options = {};

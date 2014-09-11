@@ -14,8 +14,7 @@
             'dust-helpers': 'lib/dust-helpers.min',
             'dust-helpers-supplement': 'lib/dust-helpers-supplement',
             'datetimepicker': 'lib/bootstrap-datetimepicker',
-            'jqueryMask': 'lib/jquery.maskedinput.js'
-
+            'jqueryMask': 'lib/jquery.maskedinput.js',
 
             'nougat': 'core/nougat',
             'BaseView': 'core/baseView',

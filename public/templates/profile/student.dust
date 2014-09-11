@@ -1,0 +1,158 @@
+{>"layouts/master" /}
+
+{<title}
+	Profile - College to Career Program  - ScholarMatch
+{/title}
+
+
+{<body}
+	{#data}
+		<div class="container"  data-data2="{data|js}">
+			<div class="panel panel-info">
+	            <div class="panel-heading">
+	              	<h3 class="panel-title">Welcome, {userDetails.login} (<em>{userDetails.role}</em>)</h3>
+	            </div>
+	            <div class="panel-body">
+	              	<div class="row">
+	                	<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+	                	<div class="col-md-9 col-lg-9">
+	                		{?data.firstlogin}
+								<p class="bg-success">
+									Welcome to Scholarmatch. Please complete your profile.
+								</p>
+							{/data.firstlogin}
+						
+							<form id="signup-form" method="POST" class="form-horizontal">		   		   
+			
+						   		<div class="form-group">
+						      		<label for="fullName" class="col-sm-3 control-label">Full Name</label>
+						      		<div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{userDetails.fullName}" class="form-control" ></div>
+						   		</div>
+
+							   	<div class="form-group">
+							      	<label for="preferredName" class="col-sm-3 control-label">Preferred Name</label>
+							      	<div class="col-sm-7"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{userDetails.preferredName}" class="form-control" ></div>
+							   	</div>
+
+						   		<div class="form-group">
+						      		<label for="email" class="col-sm-3 control-label">E-mail</label>
+						      		<div class="col-sm-7"><input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{userDetails.email}" class="form-control" ></div>
+						   		</div>
+
+							   	<div class="form-group">
+							      	<label for="phone" class="col-sm-3 control-label">Phone</label>
+							      	<div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{userDetails.phone}" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="location" class="col-sm-3 control-label">Location</label>
+							      	<div class="col-sm-7"><input type="text" name="location" id="location" placeholder="City / State" value="{userDetails.location}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="schoolName" class="col-sm-3 control-label">School</label>
+							      	<div class="col-sm-7"><input type="text" name="schoolName" id="schoolName" placeholder="School" value="{userDetails.school.name}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="schoolMajor" class="col-sm-3 control-label">Major</label>
+							      	<div class="col-sm-7"><input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{userDetails.school.major}" autofocus="" class="form-control"></div>
+							   	</div>		   
+							   
+							   	<div class="form-group">
+							      	<label for="schoolCurrentYear" class="col-sm-3 control-label">Current Year In School</label>
+							      	<div class="col-sm-7"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{userDetails.school.currentYear}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="industryDesired" class="col-sm-3 control-label">Desired Industry</label>
+							      	<div class="col-sm-7"><input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{userDetails.industry.desired}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="industryInterestedIn" class="col-sm-3 control-label">Interested In Industry</label>
+							      	<div class="col-sm-7"><input type="text" name="industryInterestedIn" id="industryInterestedIn" placeholder="Interested In Industry" value="{userDetails.industry.interestedIn}" autofocus="" class="form-control"></div>
+							   	</div>		   
+
+							   	<div class="form-group">
+							      	<label for="industrySecondary" class="col-sm-3 control-label">Secondary Industry Name</label>
+							      	<div class="col-sm-7"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{userDetails.industry.secondary}" autofocus="" class="form-control"></div>
+							   	</div>			
+						
+        						<div class="form-group">
+            						<label for="gender" class="col-sm-3 control-label">Gender</label>
+
+            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" id="genderRadios"value="male"
+                    						{#userDetails}
+                    							{@eq key=gender value="male"}
+                    								checked
+                    							{/eq}
+                    						{/userDetails}
+                    						> Male
+                						</label>
+            						</div>
+
+            						<div class="col-xs-2">
+                						<label class="radio-inline">
+                    						<input type="radio" name="genderRadios" id="genderRadios" value="female"
+                    						{#userDetails}
+                    							{@eq key=gender value="female"}
+                    								checked
+                    							{/eq}
+                    						{/userDetails}
+                    						> Female
+                						</label>
+            						</div>
+	       						</div>
+
+							   	<div class="form-group">
+							      	<label for="previousJobs" class="col-sm-3 control-label">Previous Jobs / Internships</label>
+							      	<div class="col-sm-7"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{userDetails.previousJobs}" autofocus="" class="form-control"></div>
+							   	</div>	 
+
+							   	<div class="form-group">
+							      	<label for="additionalPersonalInfo" class="col-sm-3 control-label">Additional Personal Info</label>
+							      	<div class="col-sm-7"><input type="text" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{userDetails.additionalPersonalInfo}" autofocus="" class="form-control"></div>
+							   	</div>	 
+
+							   	<div class="form-group">
+							      	<label for="preferredMeetingFormat" class="col-sm-3 control-label">Preferred Meeting Format</label>
+							        <div class="col-sm-7">
+							        	<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatCall" name="preferredMeetingFormatCall" {?userDetails.preferredMeetingFormat.call}checked{/userDetails.preferredMeetingFormat.call}/>Call 
+										</label>
+							        	<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatEmail" name="preferredMeetingFormatEmail" {?userDetails.preferredMeetingFormat.email}checked{/userDetails.preferredMeetingFormat.email}/>E-mail 
+										</label>								
+										<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatSkype" name="preferredMeetingFormatSkype" {?userDetails.preferredMeetingFormat.skype}checked{/userDetails.preferredMeetingFormat.skype}/>Skype 
+										</label>
+										<label class="checkbox-inline">
+		  									<input type="checkbox" id="preferredMeetingFormatInPerson" name="preferredMeetingFormatInPerson" {?userDetails.preferredMeetingFormat.inPerson}checked{/userDetails.preferredMeetingFormat.inPerson}/>In-Person 
+										</label>
+							   		</div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<label for="linkedinProfileUrl" class="col-sm-3 control-label">Linkedin Profile Url</label>
+							      	<div class="col-sm-7"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{userDetails.linkedinProfileUrl}" autofocus="" class="form-control"></div>
+							   	</div>
+
+							   	<div class="form-group">
+							      	<div class="col-sm-4"><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Update my profile</button></div>
+							   	</div>
+							   
+							   	<input type="hidden" name="_csrf" value="{_csrf}" />
+								<input type="hidden" name="type" id="type" value="0" />
+								<input type="hidden" name="userid" id="userid" value="{userDetails.userid}" />
+								<input type="hidden" name="role" id="role" value="{userDetails.role}" />
+							</form>	                	
+	                	</div>
+	              	</div>  
+				</div>
+			</div>
+		</div>
+	{/data}
+{/body}
