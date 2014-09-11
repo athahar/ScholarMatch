@@ -99,78 +99,68 @@ define([
 
 
 //Bram CODE BELOW
-var overviewClicked = false;
-var CandidatesClicked = false;
-var HowItWorksClicked = false;
-var StudentExpectationsClicked = false;
-var CoachExpectationsClicked = false;
-$("#Overview").click(function() {
-    if(!overviewClicked){
-        $("#OverviewAnswer").css("visibility","visible");
-        $("#OverviewAnswer").css("padding","10px");
-        $("#OverviewAnswer").css("height","100%");
-        overviewClicked = true;
-    }
-    else{
-        $("#OverviewAnswer").css("visibility","hidden");
-        $("#OverviewAnswer").css("padding","0px");
-        $("#OverviewAnswer").css("height","0px");
-        overviewClicked = false;
-    }
+
+$('#overview').on('click', function(e) {
+    $('#overview-answer').toggleClass("about-item-answer-hidden"); 
+    e.preventDefault();
 });
-$("#Candidates").click(function() {
-    if(!CandidatesClicked){
-        $("#CandidatesAnswer").css("visibility","visible");
-        $("#CandidatesAnswer").css("padding","10px");
-        $("#CandidatesAnswer").css("height","100%");
-        CandidatesClicked = true;
-    }
-    else{
-        $("#CandidatesAnswer").css("visibility","hidden");
-        $("#CandidatesAnswer").css("padding","0px");
-        $("#CandidatesAnswer").css("height","0px");
-        CandidatesClicked = false;
-    }
+$('#candidates').on('click', function(e) {
+    $('#candidates-answer').toggleClass("about-item-answer-hidden"); 
+    e.preventDefault();
 });
-$("#HowItWorks").click(function() {
-    if(!HowItWorksClicked){
-        $("#HowItWorksAnswer").css("visibility","visible");
-        $("#HowItWorksAnswer").css("padding","10px");
-        $("#HowItWorksAnswer").css("height","100%");
-        HowItWorksClicked = true;
-    }
-    else{
-        $("#HowItWorksAnswer").css("visibility","hidden");
-        $("#HowItWorksAnswer").css("padding","0px");
-        $("#HowItWorksAnswer").css("height","0px");
-        HowItWorksClicked = false;
-    }
+$('#how-it-works').on('click', function(e) {
+    $('#how-it-works-answer').toggleClass("about-item-answer-hidden"); 
+    e.preventDefault();
 });
-$("#StudentExpectations").click(function() {
-    if(!StudentExpectationsClicked){
-        $("#StudentExpectationsAnswer").css("visibility","visible");
-        $("#StudentExpectationsAnswer").css("padding","10px");
-        $("#StudentExpectationsAnswer").css("height","100%");
-        StudentExpectationsClicked = true;
-    }
-    else{
-        $("#StudentExpectationsAnswer").css("visibility","hidden");
-        $("#StudentExpectationsAnswer").css("padding","0px");
-        $("#StudentExpectationsAnswer").css("height","0px");
-        StudentExpectationsAnswerClicked = false;
-    }
+$('#student-expectations').on('click', function(e) {
+    $('#student-expectations-answer').toggleClass("about-item-answer-hidden"); 
+    e.preventDefault();
 });
-$("#CoachExpectations").click(function() {
-    if(!CoachExpectationsClicked){
-        $("#CoachExpectationsAnswer").css("visibility","visible");
-        $("#CoachExpectationsAnswer").css("padding","10px");
-        $("#CoachExpectationsAnswer").css("height","100%");
-        CoachExpectationsClicked = true;
-    }
-    else{
-        $("#CoachExpectationsAnswer").css("visibility","hidden");
-        $("#CoachExpectationsAnswer").css("padding","0px");
-        $("#CoachExpectationsAnswer").css("height","0px");
-        CoachExpectationsClicked = false;
-    }
+$('#coach-expectations').on('click', function(e) {
+    $('#coach-expectations-answer').toggleClass("about-item-answer-hidden"); 
+    e.preventDefault();
 });
+
+
+
+//change the active tag in header based on which page it's on
+var parts = window.location.href.split("/");
+for(var i = 0; i < parts.length; i++){
+    parts[i] = parts[i].toUpperCase();
+}
+
+if(parts.indexOf("DASHBOARD")>0){
+    document.getElementById("home").className = "";
+    document.getElementById("dashboard").className = "active-link";
+    document.getElementById("profile").className = "";
+    document.getElementById("login-or-logout").className = "";
+    document.getElementById("sign-up").className = "";
+}
+else if(parts.indexOf("PROFILE")>0){
+    document.getElementById("home").className = "";
+    document.getElementById("dashboard").className = "";
+    document.getElementById("profile").className = "active-link";
+    document.getElementById("login-or-logout").className = "";
+    document.getElementById("sign-up").className = "";
+}
+else if(parts.indexOf("LOGIN")>0){
+    document.getElementById("home").className = "";
+    document.getElementById("dashboard").className = "";
+    document.getElementById("profile").className = "";
+    document.getElementById("login-or-logout").className = "active-link";
+    document.getElementById("sign-up").className = "";
+}
+else if(parts.indexOf("SIGNUP")>0){
+    document.getElementById("home").className = "";
+    document.getElementById("dashboard").className = "";
+    document.getElementById("profile").className = "";
+    document.getElementById("login-or-logout").className = "";
+    document.getElementById("sign-up").className = "active-link";
+}
+else{
+    document.getElementById("home").className = "active-link";
+    document.getElementById("dashboard").className = "";
+    document.getElementById("profile").className = "";
+    document.getElementById("login-or-logout").className = "";
+    document.getElementById("sign-up").className = "";
+}

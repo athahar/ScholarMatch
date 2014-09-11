@@ -9,19 +9,23 @@
 
 html {
   position: relative;
-  min-height: 100%;
   font-family: 'Tungsten A', 'Tungsten B'; font-weight: 400; font-style: normal;
   color:#663333;
   font-size:22px;
+  height: 100%;
+  margin: 0;
 }
 
 body {
-  padding-top: 20px;
+  min-height: 100%;
 }
 
 #wrapper{
-  min-height:100%;
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
   position:relative;
+  margin: 0 auto -45px; /* the bottom margin is the negative value of the footer's height */
 }
 
 
@@ -30,30 +34,33 @@ body {
   height: 45px;
   text-align:center;
   background-color:#CC9933;
-  position:absolute;
-  //bottom:0;   <- need to fix a bug on some pages before live
   p,
   ul {
     font-size:12px;
     background-color:#CC9933;
     color:black;
-    margin-top:10px;
     padding:10px;
   }
+  clear: both;
+  z-index: 10;
+  margin-top:10px;
+}
+
+.container{
+  height:100%;
+  padding-top:25px;
+}
+
+.container-colored{
+  height:100%;
+  padding-top:25px;
+  background-color:#CCCC99;
 }
 
 .header{
-	margin-bottom:30px;
+  padding-bottom:15px;
 }
 
-// Navbar
-// -------------------------
-
-.navbar-nav img {
-  width: 30px;
-  height: 30px;
-  margin: -15px 15px -15px;
-}
 
 // Alerts
 // -------------------------
@@ -82,7 +89,7 @@ body {
 
 //BRAM ADDED CSS
 
-.CenterText{
+.center-text{
   text-align:center;
   color:#663333;
 }
@@ -94,7 +101,7 @@ h1{
   text-align:center;
 }
 
-.textBoxHome{
+.text-box-home{
   width:250px;
   height:35px;
   display:inline-block;
@@ -105,61 +112,59 @@ h1{
   font-weight:bold;
 }
 
-#loginButton{
+#login-button{
   height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;
 }
 
-.About{
+.about{
   font-size:18px;
   color:#663333;
   margin-bottom:25px;
   text-align:left;
 }
 
-.AboutItem{
+.about-item{
   font-size:18px;
   color:#663333;
   margin-bottom:10px;
   cursor:pointer;
 }
 
-.AboutItemAnswer{
-  padding:0px;
-  visibility:hidden;
-  height:0px;
-  cursor:default;
-  margin-left:40px;
+.about-item-answer-hidden{
+  visibility: hidden;
+  padding:0;
+  height: 0;
+  margin-left:45px;
 }
 
-
 //header menu
-.HeaderNav {
+.header-nav {
 	float:right;
 	position:relative; 
 	top:25px;
 }
-.HeaderNav li{
+.header-nav li{
 	display: inline-block;
 	padding:15px;
 	padding-bottom:1px;
 	font-size:22px;
 }
-.HeaderNav li a{
+.header-nav li a{
 	color:#663333;
 }
 /*only if we want to
-.HeaderNav li:hover{
+.header-nav li:hover{
 	color:green;
 	text-decoration:none;
 	background-color:#663333;
 	color:white;
 }
 */
-.HeaderNav li a:hover{
+.header-nav li a:hover{
 	text-decoration:none;
 	color:#CCCC99;
 }
-.ActiveLink{
+.active-link{
 	border-bottom: 2px solid #CC9933;
 	padding-bottom:1px;
 }

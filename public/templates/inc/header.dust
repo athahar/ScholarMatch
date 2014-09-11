@@ -5,17 +5,17 @@
       <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogo2.PNG"  /></a>      
     </div>
     <nav role="navigation">
-      <ul class="HeaderNav" >
-        <li class="ActiveLink">
+      <ul class="header-nav" >
+        <li class="active-link" id="home">
           <a href="/" class="ScholarMatchFont">Home</a>
         </li>
-        <li>
+        <li id="dashboard">
           <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
         </li>        
-        <li>
+        <li id="profile">
           <a href="/profile" class="ScholarMatchFont">Profile</a>
         </li>  
-        <li>
+        <li id="login-or-logout">
             {#user}
                  <a href="/logout" class="ScholarMatchFont">Logout</a>
             {:else}
@@ -23,9 +23,9 @@
             {/user}
         </li>       
 
-        <li>
+        <li id="sign-up">
             {^user}
-                <a href="/signup" class="ScholarMatchFont">Signup</a>
+                <a href="/signup" >Signup</a>
             {/user}
         </li>
     </ul>      
