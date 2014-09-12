@@ -233,6 +233,8 @@ module.exports = function (router) {
                 res.send(err);
             } else {
                 console.log(result)
+                model.data = model.data || {};
+                model.data.result = model.data.result || {};
                 model.data.result = JSON.parse(JSON.stringify(result));
 
                 // res.render(result);
