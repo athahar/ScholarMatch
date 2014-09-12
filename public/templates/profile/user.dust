@@ -10,45 +10,103 @@
 		<h1>Profile : {fullName}</h1>
 		<br/>
 		<div class="row">
+			<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
 			<div id="connections" class="col-md-6">
 				<div class="panel panel-default">
-				    
+<!--
+{@contextDump/}				    
+-->
+				<form id="view-profile" method="POST" class="form-horizontal" action="/profile/edit"/edit>		   		   
 				  <!-- List group -->
 				  	<ul class="list-group">
 						<li class="list-group-item"> Full Name: <strong>{fullName}</strong> ({role})</li>
-						<li class="list-group-item"> Contact: <strong>{phone}</strong></li>
+						<li class="list-group-item"> Preferred Name: <strong>{preferredName}</strong></li>
 						<li class="list-group-item"> Email: <strong>{email}</strong></li>
-						<li class="list-group-item"> School: <strong>{college}</strong></li>
-						<li class="list-group-item"> City: <strong>{city}</strong></li>
+						<li class="list-group-item"> Phone: <strong>{phone}</strong></li>
+						<li class="list-group-item"> Location: <strong>{location}</strong></li>
 						<li class="list-group-item"> Gender: <strong>{gender}</strong></li>
-						<li class="list-group-item"> Industry: <strong>{industry}</strong></li>
-							{?data.result.studentsLinked}
-				   			<li class="list-group-item">	
-				   				Student(s) Linked:  
-				   					{#data.result.studentsLinked}
-				   						<br/> {email} 
-				   					{/data.result.studentsLinked}	
-				   			</li>		
-				   			{/data.result.studentsLinked}
+						<li class="list-group-item">
+							Preffered Meeting Format:
+								<strong><br/>
+								{?preferredMeetingFormat.call}Call{/preferredMeetingFormat.call}
+								<br/>
+								{?preferredMeetingFormat.email}E-mail{/preferredMeetingFormat.email}
+								<br/>
+								{?preferredMeetingFormat.skype}Skype{/preferredMeetingFormat.skype}
+								<br/>
+								{?preferredMeetingFormat.inPerson}In-Person{/preferredMeetingFormat.inPerson}
+								</strong>
+						</li>
+						{@eq key=role value="student"}
+							<li class="list-group-item"> School: <strong>{school.name}</strong></li>
+							<li class="list-group-item"> Major: <strong>{school.major}</strong></li>
+							<li class="list-group-item"> Current Year In School: <strong>{school.currentYear}</strong></li>
+
+							<li class="list-group-item"> Desired Industry: <strong>{industry.desired}</strong></li>
+							<li class="list-group-item"> Interested In Industry: <strong>{industry.interestedIn}</strong></li>
+							<li class="list-group-item"> Secondary Industry: <strong>{industry.secondary}</strong></li>
+
+							<li class="list-group-item"> Previous Jobs: <strong>{previousJobs}</strong></li>	
+							<li class="list-group-item"> Additional Personal Info: <strong>{additionalPersonalInfo}</strong></li>	
 
 				   			{?data.result.coachesLinked}
-				   			<li class="list-group-item">
-				   				Coach(s) Linked:  
-				   					{#data.result.coachesLinked}
-				   						<br/> {email}
-				   					{/data.result.coachesLinked}	
-				   			</li>		
+				   				<li class="list-group-item">
+				   					Coach(s) Linked:  
+				   						{#data.result.coachesLinked}
+				   							<br/> {email}
+				   						{/data.result.coachesLinked}	
+				   				</li>		
 				   			{/data.result.coachesLinked}
+				   		{:else}
+				   			<li class="list-group-item"> Under Grad School: <strong>{underGradSchool.name}</strong></li>	
+				   			<li class="list-group-item"> Under Grad Major: <strong>{underGradSchool.major}</strong></li>	
+
+				   			<li class="list-group-item"> Grad School: <strong>{gradSchool.name}</strong></li>	
+				   			<li class="list-group-item"> Grad Major: <strong>{gradSchool.major}</strong></li>	
+
+				   			<li class="list-group-item"> Primary Industry: <strong>{primaryIndustry.industryName}</strong></li>
+				   			<li class="list-group-item"> Primary Job Title: <strong>{primaryIndustry.jobTitle}</strong></li>
+				   			<li class="list-group-item"> Primary Company: <strong>{primaryIndustry.company}</strong></li>
+				   			<li class="list-group-item"> Primary Years Of Experience: <strong>{primaryIndustry.yearsOfExperience}</strong></li>
+
+				   			<li class="list-group-item"> Secondary Industry: <strong>{secondaryIndustry.industryName}</strong></li>
+				   			<li class="list-group-item"> Secondary Job Title: <strong>{secondaryIndustry.jobTitle}</strong></li>
+				   			<li class="list-group-item"> Secondary Company: <strong>{secondaryIndustry.company}</strong></li>
+				   			<li class="list-group-item"> Secondary Years Of Experience: <strong>{secondaryIndustry.yearsOfExperience}</strong></li>
+
+				   			<li class="list-group-item"> Coaching Interest: <strong>{coachingInterest}</strong></li>
+				   			<li class="list-group-item"> Student Match Preference: <strong>{studentMatchPreference}</strong></li>
+
+				   			<li class="list-group-item"> Primary Reference: <strong>{primaryReference.name}</strong></li>
+				   			<li class="list-group-item"> Primary Reference Phone: <strong>{primaryReference.phone}</strong></li>
+				   			<li class="list-group-item"> Primary Reference E-Mail: <strong>{primaryReference.email}</strong></li>
+
+				   			<li class="list-group-item"> Secondary Reference: <strong>{secondaryReference.name}</strong></li>
+				   			<li class="list-group-item"> Secondary Reference Phone: <strong>{secondaryReference.phone}</strong></li>
+				   			<li class="list-group-item"> Secondary Reference E-Mail: <strong>{secondaryReference.email}</strong></li>
+
+							{?data.result.studentsLinked}
+				   				<li class="list-group-item">	
+				   					Student(s) Linked:  
+				   						{#data.result.studentsLinked}
+				   							<br/> {email} 
+			   							{/data.result.studentsLinked}	
+			   					</li>		
+				   			{/data.result.studentsLinked}
+						{/eq}	
 					</ul>
 				</div>			   			    
-		   </div>			
+			   	<input type="hidden" name="_csrf" value="{_csrf}" />
+				<input type="hidden" name="editProfile" id="editProfile" value="true" />
+				<input type="hidden" name="userid" id="userid" value="{userid}" />
+				<input type="hidden" name="role" id="role" value="{role}" />
+				
+				{?ownProfile}
+					<button type="submit" class="btn btn-primary offset">Edit My Profile</button>
+				{/ownProfile}
+		   </div>	
 		   
 		</div>
-		<!-- <form id="signup-form" method="POST" class="form-horizontal">		   		   
-
-		   	<input type="hidden" name="_csrf" value="{_csrf}" />
-			<input type="hidden" name="type" id="type" value="0" />
-		</form>		 -->
 
 	</div>
 {:else}
