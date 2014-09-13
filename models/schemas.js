@@ -93,7 +93,7 @@ var userSchema = Schema({
     previousJobs: String,
     additionalPersonalInfo: String,
     coachList: String,
-        coachesLinked: [{
+    coachesLinked: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
@@ -109,7 +109,11 @@ var userSchema = Schema({
     lastModifiedDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    meetings: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Meeting'
+    }],
 });
 
 

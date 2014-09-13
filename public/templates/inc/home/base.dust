@@ -1,3 +1,5 @@
+
+{^user}
 	<div class="container-colored" >
 		<div class="center-text">
 			<h1>Getting Started</h1>
@@ -21,6 +23,8 @@
 				<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
 
 				<br /><br />
+				<input type="hidden" name="_csrf" value="{_csrf}" />
+				 <input type="hidden" name="type" id="type" value="0" />
 					   
 				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Login</button>
 			</form>
@@ -30,12 +34,11 @@
 			<p class="lead">Don't have an account? <a href="/signup" >Signup</a>
 
 
-				   <input type="hidden" name="_csrf" value="{_csrf}" />
-				   <input type="hidden" name="type" id="type" value="0" />
+				   
 		</div>
 		        
 	</div>
-
+{/user}
 
 	<div class="container" >
 		<div class="center-text">
