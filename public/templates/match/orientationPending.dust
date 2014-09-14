@@ -1,0 +1,101 @@
+{>"layouts/master" /}
+
+{<title}
+	Match Coach 2 Students  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<h1>Pending Orientation</h1>
+		
+		{?messages}
+            <ul class="bg-warning">
+                {#messages}
+                    <li>{.}</li>
+                {/messages}
+            </ul>
+        {/messages}
+       		
+		<div class="results clearfix" data-results="{data.results|s}"> 						
+
+			<table class="table table-striped">
+				<thead>
+					<th>Student</th>
+					<th>Coach</th>					
+					<th>Action</th>					
+				</thead>
+				<tbody>
+					{#data.result}
+					<tr data-studentname="{student.fullName}" data-studentemail="{student.email}" data-studentid="{student._id}" data-coachname="{coach.fullName}" data-coachemail="{coach.email}"  data-coachid="{coach._id}" data-relationshipid="{_id}">
+						<td>
+							{student.fullName}; {student.email} {student.phone} 
+							<a class="button" href="/profile/user?userId={student._id}">Details</a>		
+						</td>
+						<td>
+							{coach.fullName}; {coach.email}  {coach.phone} 
+							<a class="button" href="/profile/user?userId={coach._id}">Details</a>		
+						</td>						
+						<td> 
+						<a class="setupMeeting" href="#" data-toggle="modal" data-target="#orientationModal">Set up Meeting</a>
+						
+						<!-- <a class="button" href="/match/setupOrientation?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Setup Meeting</a> -->
+						</td>
+					</tr>
+					{/data.result}
+				</tbody>
+			</table>
+
+			{! <p>Found: {data.count} record(s).</p> !}
+
+		 </div>
+		
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="orientationModal" tabindex="-1" role="dialog" aria-labelledby="orientationLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="orientationLabel">Setup Orientation Meeting</h4>
+	      </div>
+	      <div class="modal-body">
+	        	<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/setupOrientation">	
+		        	<div class="form-group">
+				       <label for="coachName" class="col-sm-3 control-label"> Coach: </label>
+				        <div class="col-sm-6" id="coachName" > 
+				            
+				        </div>              
+				   </div>  
+				   <div class="form-group">
+				       <label for="studentName" class="col-sm-3 control-label"> Student: </label>
+				        <div class="col-sm-6" id="studentName" > 
+				            
+				        </div>              
+				   </div> 
+		        	<div class="form-group date">
+				       <label for="meetingDate" class="col-sm-3 control-label"> Date / Time:</label>
+				        <div class="col-sm-6"> 
+				            <input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+				        </div>              
+				   </div>   	            
+				
+				    <input type="hidden" name="_csrf" value="{_csrf}" />    
+
+				    <!-- Some hidden stuff -->
+				    <input type="hidden" id="studentId" name="studentId" value="">
+				    <input type="hidden" id="coachId" name="coachId" value="">
+				    <input type="hidden" id="studentEmail" name="studentEmail" value="">
+				    <input type="hidden" id="coachEmail" name="coachEmail" value="">
+				    <input type="hidden" id="relationshipId" name="relationshipId" value="">
+			   </form>			
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary setupOrientation">Create Meeting</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- end: Modal -->
+{/body}

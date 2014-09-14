@@ -5,7 +5,7 @@ var MatchModel = require('../../models/match');
 var userLib = require('../../lib/user')();
 var auth = require('../../lib/auth');
 var async = require('async');
-var matchRequest = require('../../lib/matchRequest')();
+var relationship = require('../../lib/matchRequest')();
 var emailContent = require('../../lib/emailContent');
 var email = require('../../lib/email');
 
@@ -116,7 +116,7 @@ module.exports = function (router) {
         var studentId = req.query.studentId;
         var coachId = req.query.coachId;
 
-        matchRequest.requestConnection(studentId, coachId, function (err, result) {
+        relationship.requestConnection(studentId, coachId, function (err, result) {
 
             if (err) {
                 model.messages = err;
@@ -139,14 +139,14 @@ module.exports = function (router) {
 
         model.messages = null;
 
-        matchRequest.showPendingConnections(function (err, result) {
+        relationship.showConnectionPending(function (err, result) {
 
             if (err) {
                 model.messages = err;
                 res.render('match/index', model)
             } else {
 
-                debugger;
+                // debugger;
                 model.data = model.data || {};
                 console.dir(result);
                 model.data.result = JSON.parse(JSON.stringify(result));
@@ -158,17 +158,161 @@ module.exports = function (router) {
 
         })
 
+    });
+
+    router.get('/pendingOrientation', function (req, res) {
+
+        model.messages = null;
+
+        relationship.showOrientationPending(function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+
+                // debugger;
+                model.data = model.data || {};
+                console.dir(result);
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/orientationPending', model);
+            }
+
+        })
+
+    });
+
+
+
+    router.get('/setupOrientation', function (req, res) {
+
+        // debugger;
+        model.messages = null;
+
+        var relationshipId = req.query.relationshipId;
+        var meetingDate = req.query.meetingDate;
+
+        var student = {
+                name: req.query.studentName,
+                email: req.query.studentEmail,
+            },
+            coach = {
+                name: req.query.coachName,
+                email: req.query.coachEmail,
+            };
+
+        relationship.setupOrientation(relationshipId, function (err, result) {
+
+            // debugger;
+            if (err) {
+                model.messages = err;
+                res.render('match/orientationPending', model)
+            } else {
+
+                var emailList = new Array();
+                emailList.push(student.email);
+                emailList.push(coach.email);
+
+                var options = {
+                    to: emailList.toString(),
+                    subject: 'Coach/Student - Your orientation meeting', // Subject line
+                    // text: emailContent.orientationMeetingText(student, coach), // plaintext body
+                    html: emailContent.orientationMeeting(student, coach, meetingDate) // html body
+                }
+
+
+                // users were succesfully connected, now send an email
+                email.sendEmail(options, function (err, result) {
+                    // debugger;
+                    if (err) {
+                        console.log(err);
+                        model.messages = err;
+                        res.render('errors/500', model);
+                    } else {
+
+                        console.dir(model);
+                        // model.messages = 'sucessfully connected';
+                        model.data = model.data || {};
+                        model.data.result = JSON.parse(JSON.stringify(result));
+
+                        //TODO: response handling shoudl be better
+                        // AJAX call - hence send a JSON response.
+                        res.send('match/orientationPending', model);
+                        // res.render('meeting-invite/emailSent', model);
+                    }
+                })
+
+
+            }
+        });
+
+
     })
 
+    router.get('/orientationInProgress', function (req, res) {
+
+        model.messages = null;
+
+        relationship.showOrientationProgress(function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+
+                // debugger;
+                model.data = model.data || {};
+                console.dir(result);
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/orientationProgress', model);
+            }
+
+        })
+
+    })
+
+    router.get('/completeOrientation', function (req, res) {
+
+        // debugger;
+        model.messages = null;
+        var relationshipId = req.query.relationshipId;
+
+        relationship.completeOrientation(relationshipId, function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/orientationProgress', model)
+            } else {
+
+                // debugger;
+                model.data = model.data || {};
+                console.dir(result);
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                // res.render('admin', model);
+                res.redirect('/admin')
+            }
+
+        })
+
+    })
     router.get('/approve', function (req, res) {
 
         // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
 
         var studentId = req.query.studentId;
         var coachId = req.query.coachId;
-        var matchingRequestId = req.query.matchRequest;
+        var relationshipId = req.query.relationshipId;
 
-        debugger;
+        // debugger;
         async.parallel({
 
                 connectStudentWithCoach: function (callback) {
@@ -195,7 +339,7 @@ module.exports = function (router) {
                 },
                 approveConnection: function (callback) {
 
-                    matchRequest.approveConnection(matchingRequestId, function (err, result) {
+                    relationship.approveConnection(relationshipId, function (err, result) {
                         if (err) {
                             model.messages = err;
                             callback(err);
@@ -214,7 +358,7 @@ module.exports = function (router) {
                 } else {
 
                     console.dir(result.approveConnection);
-                    debugger;
+                // debugger;
 
                     var student = result.approveConnection.student,
                         coach = result.approveConnection.coach;
@@ -259,4 +403,67 @@ module.exports = function (router) {
         );
 
     })
-};
+
+
+
+    /**
+     * Manually search and connect
+     * @param  {[type]} req [description]
+     * @param  {[type]} res [description]
+     * @return {[type]}     [description]
+     */
+    router.get('/manualconnection', function (req, res) {
+
+        async.parallel({
+                coaches: function (callback) {
+
+                    var options = {};
+
+                    options.role = "coach";
+                    userLib.queryAllUsers(options, function (err, result) {
+                    // debugger;
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    })
+                },
+                students: function (callback) {
+
+                    var options = {};
+
+                    options.role = "student";
+                    userLib.queryAllUsers(options, function (err, result) {
+                    // debugger;
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    })
+
+                }
+            },
+            function (err, results) {
+
+                if (err) {
+                    model.messages = err;
+                    // res.render('meeting-invite/index', model)
+                } else {
+
+                    model.data = model.data || {};
+                    // model.data.results = JSON.stringify(results);
+                    model.data.results = JSON.parse(JSON.stringify(results));
+
+                    // console.log(model.data.results);
+
+                    res.render('match/manualconnection', model);
+                }
+            }
+        )
+    });
+
+}

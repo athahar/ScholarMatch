@@ -1,0 +1,57 @@
+{>"layouts/master" /}
+
+{<title}
+	Match Coach 2 Students  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container">
+		<h1>Manually Match Coach 2 Students</h1>
+		
+		{?messages}
+            <ul class="bg-warning">
+                {#messages}
+                    <li>{.}</li>
+                {/messages}
+            </ul>
+        {/messages}
+       
+		<hr/>
+
+			<div class="results clearfix" data-results="{data.results}"> 						
+
+				<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/setupOrientation">	
+		        	<div class="form-group">
+				       <label for="coach" class="col-sm-3 control-label"> Coach: </label>
+				        <div class="col-sm-6" id="coach" > 
+				            <select name="role" class="form-control col-sm-7">				      	  {#data.results.coaches}
+							  	<option value="{_id}">{fullName} ({email})</option>
+							  {/data.results.coaches}
+							</select>
+				        </div>              
+				   </div>  
+				   <div class="form-group">
+				      <label for="student" class="col-sm-3 control-label">Student</label>
+				      <div class="col-sm-7">
+					      <select name="student" class="form-control col-sm-7">
+							  {#data.results.students}
+							  {.}
+							  	<option value="{_id}">{fullName} ({email})</option>
+							  {/data.results.students}								  
+							</select>
+						</div>			   
+				   </div>				   
+				
+				    <input type="hidden" name="_csrf" value="{_csrf}" />    
+					<div class="form-group">
+				      <div class="col-sm-6"><button type="submit" class="btn btn-success">Connect</button></div>
+				   </div>
+
+				    
+			   </form>	
+			 </div>
+		
+		
+	</div>
+{/body}
