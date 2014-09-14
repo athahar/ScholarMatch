@@ -31,6 +31,7 @@ module.exports = function (router) {
 
                 // res.render(result);
                 model.data.result.ownProfile = true;
+                model.data.result.isConnected = true;
                 res.render('profile/user', model);
             }
         });
@@ -58,6 +59,7 @@ module.exports = function (router) {
                 } else {
                     console.log(result)
                     model.data.result = JSON.parse(JSON.stringify(result));
+                    model.data.result.isConnected = true;
 
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
@@ -149,21 +151,44 @@ module.exports = function (router) {
             }
 
             userLib.updateUser(model.data.result, function (err, result) {
+
+                model.data.result.ownProfile = true;
+                model.data.result.isConnected = true;
+
                 if (err) {
                     model.messages = err;
-                    model.data.result.ownProfile = true;
                     res.render('profile/user', model);
-              } else {
+                } else {
                     model.messages = 'Profile Updated';
-                    model.data.result.ownProfile = true;
                     res.render('profile/user', model);
-              }
+                }
             });
         } else {
             logger.trace("i am here in update.......");
             res.redirect('/login');
         }
 
+    });
+
+    router.get('/otherProfile', function (req, res) {
+
+        User.findByIdAndMeetings(req.query.userId, function (err, result) {
+            if (err) {
+                console.log('error')
+                // model.messages = err;
+                res.send(err);
+            } else {
+                console.log(result)
+                model.data = model.data || {};
+                model.data.result = model.data.result || {};
+                model.data.result = JSON.parse(JSON.stringify(result));
+                model.data.result.ownProfile = false;
+                model.data.result.isConnected = false;
+
+                // res.render(result);
+                res.render('profile/user', model);
+            }
+        })
     });
 
     router.get('/user', function (req, res) {
@@ -179,6 +204,7 @@ module.exports = function (router) {
                 model.data.result = model.data.result || {};
                 model.data.result = JSON.parse(JSON.stringify(result));
                 model.data.result.ownProfile = false;
+                model.data.result.isConnected = true;
 
                 // res.render(result);
                 res.render('profile/user', model);
