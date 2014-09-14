@@ -21,20 +21,19 @@
 						<ul class="list-group">
 								<li class="list-group-item"> Full Name: <strong>{fullName}</strong> ({role})</li>
 								<li class="list-group-item"> Preferred Name: <strong>{preferredName}</strong></li>
-								<li class="list-group-item"> Email: <strong>{email}</strong></li>
-								<li class="list-group-item"> Phone: <strong>{phone}</strong></li>
-								<li class="list-group-item"> Location: <strong>{location}</strong></li>
+								{?isConnected}
+									<li class="list-group-item"> Email: <strong>{email}</strong></li>
+									<li class="list-group-item"> Phone: <strong>{phone}</strong></li>
+									<li class="list-group-item"> Location: <strong>{location}</strong></li>
+								{/isConnected}
 								<li class="list-group-item"> Gender: <strong>{gender}</strong></li>
 								<li class="list-group-item">
 									Preffered Meeting Format:
-									<strong><br/>
-									{?preferredMeetingFormat.call}Call{/preferredMeetingFormat.call}
-									<br/>
-									{?preferredMeetingFormat.email}E-mail{/preferredMeetingFormat.email}
-									<br/>
-									{?preferredMeetingFormat.skype}Skype{/preferredMeetingFormat.skype}
-									<br/>
-									{?preferredMeetingFormat.inPerson}In-Person{/preferredMeetingFormat.inPerson}
+									<strong>
+									{?preferredMeetingFormat.call}<br/>Call{/preferredMeetingFormat.call}
+									{?preferredMeetingFormat.email}<br/>E-mail{/preferredMeetingFormat.email}
+									{?preferredMeetingFormat.skype}<br/>Skype{/preferredMeetingFormat.skype}
+									{?preferredMeetingFormat.inPerson}<br/>In-Person{/preferredMeetingFormat.inPerson}
 									</strong>
 								</li>
 								{@eq key=role value="student"}
@@ -75,24 +74,27 @@
 									<li class="list-group-item"> Secondary Years Of Experience: <strong>{secondaryIndustry.yearsOfExperience}</strong></li>
 
 									<li class="list-group-item"> Coaching Interest: <strong>{coachingInterest}</strong></li>
-									<li class="list-group-item"> Student Match Preference: <strong>{studentMatchPreference}</strong></li>
+									{?isConnected}
+										<li class="list-group-item"> Student Match Preference: <strong>{studentMatchPreference}</strong></li>
 
-									<li class="list-group-item"> Primary Reference: <strong>{primaryReference.name}</strong></li>
-									<li class="list-group-item"> Primary Reference Phone: <strong>{primaryReference.phone}</strong></li>
-									<li class="list-group-item"> Primary Reference E-Mail: <strong>{primaryReference.email}</strong></li>
+										<li class="list-group-item"> Primary Reference: <strong>{primaryReference.name}</strong></li>
+										<li class="list-group-item"> Primary Reference Phone: <strong>{primaryReference.phone}</strong></li>
+										<li class="list-group-item"> Primary Reference E-Mail: <strong>{primaryReference.email}</strong></li>
 
-									<li class="list-group-item"> Secondary Reference: <strong>{secondaryReference.name}</strong></li>
-									<li class="list-group-item"> Secondary Reference Phone: <strong>{secondaryReference.phone}</strong></li>
-									<li class="list-group-item"> Secondary Reference E-Mail: <strong>{secondaryReference.email}</strong></li>
+										<li class="list-group-item"> Secondary Reference: <strong>{secondaryReference.name}</strong></li>
+										<li class="list-group-item"> Secondary Reference Phone: <strong>{secondaryReference.phone}</strong></li>
+										<li class="list-group-item"> Secondary Reference E-Mail: <strong>{secondaryReference.email}</strong></li>
 
-									{?data.result.studentsLinked}
-										<li class="list-group-item">	
-											Student(s) Linked:  
-												{#data.result.studentsLinked}
-													<br/> {email} 
-												{/data.result.studentsLinked}	
-										</li>		
-									{/data.result.studentsLinked}
+
+										{?data.result.studentsLinked}
+											<li class="list-group-item">	
+												Student(s) Linked:  
+													{#data.result.studentsLinked}
+														<br/> {email} 
+													{/data.result.studentsLinked}	
+											</li>		
+										{/data.result.studentsLinked}
+									{/isConnected}
 								{/eq}	
 							</ul>
 						</div>			   			    
