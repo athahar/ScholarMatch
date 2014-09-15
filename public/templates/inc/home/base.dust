@@ -1,3 +1,5 @@
+
+{^user}
 	<div class="container-colored" >
 		<div class="center-text">
 			<h1>Getting Started</h1>
@@ -36,7 +38,7 @@
 		</div>
 		        
 	</div>
-
+{/user}
 
 	<div class="container" >
 		<div class="center-text">
