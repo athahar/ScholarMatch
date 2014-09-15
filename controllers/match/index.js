@@ -54,6 +54,7 @@ module.exports = function (router) {
 
 
     router.get('/search', function (req, res) {
+        model.messages = ''; //clear msgs
 
         var options = {};
 
@@ -76,6 +77,7 @@ module.exports = function (router) {
 
     router.get('/findcoach', function (req, res) {
 
+        model.messages = ''; //clear msgs
         var options = {};
 
         options.role = "coach";
@@ -94,8 +96,10 @@ module.exports = function (router) {
 
         })
     })
+
     router.get('/findstudent', function (req, res) {
 
+        model.messages = ''; //clear msgs
         var options = {};
 
         options.role = "student";
@@ -112,6 +116,7 @@ module.exports = function (router) {
 
 
     router.get('/connect', function (req, res) {
+        model.messages = ''; //clear msgs
 
         var studentId = req.query.studentId;
         var coachId = req.query.coachId;
@@ -358,7 +363,7 @@ module.exports = function (router) {
                 } else {
 
                     console.dir(result.approveConnection);
-                // debugger;
+                    // debugger;
 
                     var student = result.approveConnection.student,
                         coach = result.approveConnection.coach;
@@ -421,7 +426,7 @@ module.exports = function (router) {
 
                     options.role = "coach";
                     userLib.queryAllUsers(options, function (err, result) {
-                    // debugger;
+                        // debugger;
                         if (err) {
                             model.messages = err;
                             callback(err);
@@ -436,7 +441,7 @@ module.exports = function (router) {
 
                     options.role = "student";
                     userLib.queryAllUsers(options, function (err, result) {
-                    // debugger;
+                        // debugger;
                         if (err) {
                             model.messages = err;
                             callback(err);
@@ -465,5 +470,33 @@ module.exports = function (router) {
             }
         )
     });
+
+
+    router.post('/manualconnection', function (req, res) {
+        model.messages = ''; //clear msgs
+
+        debugger;
+        var studentId = req.body.student;
+        var coachId = req.body.coach;
+
+        relationship.requestConnection(studentId, coachId, function (err, result) {
+
+            if (err) {
+                model.messages = err;
+                res.render('match/index', model)
+            } else {
+                model.messages = 'Requested for getting connected';
+                model.data = model.data || {};
+                model.data.result = JSON.parse(JSON.stringify(result));
+
+                //TODO: response handling shoudl be better
+
+                res.render('match/success', model);
+            }
+
+        })
+
+    })
+
 
 }
