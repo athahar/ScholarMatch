@@ -24,7 +24,6 @@ var userSchema = Schema({
         required: true,
         unique: true
     }, //Ensure emails are unique.
-    // email: { type: String },  //Ensure emails are unique.
     password: {
         type: String,
         required: true,
@@ -32,12 +31,73 @@ var userSchema = Schema({
     }, //We'll store bCrypt hashed passwords.  Just say no to plaintext!
     fullName: String,
     role: String,
+    preferredName: String,
     phone: String,
-    college: String,
-    industry: String,
-    experience: Number,
+    location: String,
+    underGradSchool: {
+        name: String,
+        major: String
+    },
+    gradSchool: {
+        name: String,
+        major: String
+    },
+    primaryIndustry: {
+        industryName: String,
+        jobTitle: String,
+        company: String,
+        yearsOfExperience: String
+    },
+    secondaryIndustry: {
+        industryName: String,
+        jobTitle: String,
+        company: String,
+        yearsOfExperience: String
+    },
+    coachingInterest: String,
+    studentMatchPreference: String,
     gender: String,
-    city: String,
+    preferredMeetingFormat: {
+        call: Boolean,
+        email: Boolean,
+        skype: Boolean,
+        inPerson: Boolean
+    },
+    linkedinProfileUrl: String,
+    primaryReference: {
+        name: String,
+        phone: String,
+        email: String
+    },
+    secondaryReference: {
+        name: String,
+        phone: String,
+        email: String
+    },
+    studentList: String,
+    studentsLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+
+    school: {
+        name: String,
+        major: String,
+        currentYear: String
+    },
+    industry: {
+        desired: String,
+        interestedIn: String,
+        secondary: String
+    },
+    previousJobs: String,
+    additionalPersonalInfo: String,
+    coachList: String,
+    coachesLinked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+
     creationDate: {
         type: Date
     },
@@ -50,19 +110,13 @@ var userSchema = Schema({
         type: Date,
         default: Date.now
     },
-    linkedin: {},
-    // search: [String],
     meetings: [{
         type: Schema.Types.ObjectId,
         ref: 'Meeting'
     }],
-    coachesLinked: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }],
-    studentsLinked: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    relationships: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Relationship'
     }]
 });
 
@@ -239,7 +293,7 @@ meetingSchema.statics.findAll = function (callback) {
         .exec(callback);
 };
 
-var matchRequestSchema = Schema({
+var relationshipSchema = Schema({
     student: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -248,10 +302,6 @@ var matchRequestSchema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    status: {
-        type: String,
-        default: 'pending'
-    },
     lastModifiedDate: {
         type: Date,
         default: Date.now
@@ -259,13 +309,29 @@ var matchRequestSchema = Schema({
     requestedDate: {
         type: Date,
         default: Date.now
+    },
+    connectStatus: {
+        type: String,
+        default: 'pending'
+    },
+    orientationStatus: {
+        type: String,
+        default: 'pending'
+    },
+    // meetings: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Meeting'
+    // }], // can be updated with meeting details in this collection
+    completionStatus: {
+        type: String,
+        default: 'pending'
     }
 });
 
-matchRequestSchema.statics.findPending = function (callback) {
-    console.log("---- findPending ----- ");
+relationshipSchema.statics.findConnectionPending = function (callback) {
+    console.log("---- findConnectionPending ----- ");
     this.find({
-        status: 'pending'
+        connectStatus: 'pending'
     }).populate({
         path: 'student',
         select: 'fullName email phone college industry role gender experience city'
@@ -277,7 +343,67 @@ matchRequestSchema.statics.findPending = function (callback) {
 
 };
 
-matchRequestSchema.statics.findById = function (id, callback) {
+relationshipSchema.statics.findOrientationPending = function (callback) {
+    console.log("---- findOrientationPending ----- ");
+    this.find({
+        connectStatus: 'complete',
+        orientationStatus: 'pending'
+    }).populate({
+        path: 'student',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'coach',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+
+};
+
+relationshipSchema.statics.findOrientationProgress = function (callback) {
+    console.log("---- findOrientationProgress ----- ");
+    this.find({
+        orientationStatus: 'progress'
+    }).populate({
+        path: 'student',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'coach',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+
+};
+
+relationshipSchema.statics.findOrientationComplete = function (callback) {
+    console.log("---- findOrientationComplete ----- ");
+    this.find({
+        orientationStatus: 'complete'
+    }).populate({
+        path: 'student',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'coach',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+
+};
+
+relationshipSchema.statics.findCompletionPending = function (callback) {
+    console.log("---- findCompletionPending ----- ");
+    this.find({
+        completionStatus: 'pending'
+    }).populate({
+        path: 'student',
+        select: 'fullName email phone college industry role gender experience city'
+    }).populate({
+        path: 'coach',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+
+};
+relationshipSchema.statics.findById = function (id, callback) {
     this.findOne({
         _id: id
     }, callback);
@@ -297,7 +423,7 @@ var attendeeSchema = Schema({
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
 var Attendee = mongoose.model('Attendee', attendeeSchema);
-var MatchRequest = mongoose.model('MatchRequest', matchRequestSchema);
+var Relationship = mongoose.model('Relationship', relationshipSchema);
 
 
 module.exports.Meeting = Meeting;
