@@ -7,7 +7,7 @@
 {<body}
 
 	<div class="container" data-model="{data|js}">
-		Email Sent successfully!
+		The meeting has been setup. An email has beeen sent to both coach and student with the details!
 
 	</div>
 {/body}

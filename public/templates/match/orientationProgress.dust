@@ -7,7 +7,7 @@
 {<body}
 
 	<div class="container">
-		<h1>Pending requests</h1>
+		<h1>Orientation in progress</h1>
 		
 		{?messages}
             <ul class="bg-warning">
@@ -22,7 +22,7 @@
 			<table class="table table-striped">
 				<thead>
 					<th>Student</th>
-					<th>Coach</th>
+					<th>Coach</th>					
 					<th>Action</th>					
 				</thead>
 				<tbody>
@@ -36,7 +36,9 @@
 							{coach.fullName}; {coach.email}  {coach.phone} 
 							<a class="button" href="/profile/user?userId={coach._id}">Details</a>		
 						</td>						
-						<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
+						<td> 						
+						<a class="button" href="/match/completeOrientation?relationshipId={_id}">Mark as complete</a>
+						</td>
 					</tr>
 					{/data.result}
 				</tbody>
@@ -46,6 +48,5 @@
 
 		 </div>
 		
-
-	</div>
+	</div>	
 {/body}

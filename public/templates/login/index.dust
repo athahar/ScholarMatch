@@ -5,7 +5,7 @@
 {/title}
 
 {<body}
-    <div class="container-colored" data-data={_csrf|js}>
+    <div class="container-colored" data-data={_csrf}>
 		<div class="center-text">
 			<h1>Getting Started</h1>
 			<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
@@ -29,7 +29,9 @@
 
 				<br /><br />
 					   
-				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Login</button>
+				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;">Login</button>
+				<input type="hidden" name="_csrf" value="{_csrf}" />
+				<input type="hidden" name="type" id="type" value="0" />
 			</form>
 
 			<br />
@@ -40,8 +42,7 @@
 			</p>
 
 
-				   <input type="hidden" name="_csrf" value="{_csrf}" />
-				   <input type="hidden" name="type" id="type" value="0" />
+				   
 		</div>
 
 	</div>
