@@ -1,4 +1,5 @@
 
+<!--if no one has logged in, give the login option & the about-->
 {^user}
 	<div class="container-colored" >
 		<div class="center-text">
@@ -12,12 +13,12 @@
 				{?messages}
 					<ul class="bg-warning">
 						{#messages}
-							<li>{.}</li>
+							<li>ERROR: {.}</li>
 						{/messages}
 					</ul>
 				{/messages}
 
-				<input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
+				<input type="text" name="username" id="username" placeholder="Email" class="text-box-home" >
 				&nbsp;&nbsp;&nbsp;
 				<!--<br /><br />-->
 				<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
@@ -38,7 +39,6 @@
 		</div>
 		        
 	</div>
-{/user}
 
 	<div class="container" >
 		<div class="center-text">
@@ -108,4 +108,10 @@
 			</div>
 			<p class="lead">Still have questions? <a href="mailto:info@scholarmatch.org?subject=Career Connections Question">Email us</a> for more information.
 		</div>
-	</div>    
+	</div>   
+<!--else, user has logged in, send him/her to the dashboard--> 
+{:else}
+	<script type="text/javascript">
+		window.location.href = "/dashboard";
+	</script>
+{/user}

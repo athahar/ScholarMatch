@@ -1,3 +1,31 @@
+{^user}
+  <div class="container" style="padding:0px; ">
+    <div class="float-right">
+      <a href="/dashboard">{user} "userId"</a>
+      &nbsp; 
+      <img src="/images/Settings.png" id="settings-icon" style="vertical-align:middle; cursor:pointer; width:14px; height:14px;" title="Settings" />
+      
+      <div class="dropdown-settings-hidden" id="dropdown-settings-id">
+          <div class="item-in-dropdown-settings">
+              <a href="/logout" >Logout</a>
+                <br />
+              <a href="mailto:c2c@scholarmatch.org?subject=Problem on Career Connection Site">Report a Problem</a>
+                <br />
+              <a href="mailto:c2c@scholarmatch.org?subject=Career Connection">Contact ScholarMatch</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+{:else}
+  <div class="container" style="padding:0px; ">
+    <div class="float-right">
+      <a href="/login">Login!</a>
+    </div>
+  </div>
+
+{/user}
+
 
 <header class="header" role="banner" >
   <div class="container">
@@ -9,25 +37,49 @@
         <li class="active-link" id="home">
           <a href="/" class="ScholarMatchFont">Home</a>
         </li>
+
         <li id="dashboard">
           <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
-        </li>        
+        </li>    
+
         <li id="profile">
           <a href="/profile" class="ScholarMatchFont">Profile</a>
         </li>  
+
+
+
+        <!--Login option added to top of header if no user & is on home page
+          <!--only show login if the user has not logged in--
+          {^user}
+            <li id="login-or-logout">
+              <a href="/login" class="ScholarMatchFont">Login</a>
+            </li> 
+          {/user}
+        -->
+
+
+
+
+        <!--old login/logout (old because moving logout to top)
         <li id="login-or-logout">
             {#user}
                  <a href="/logout" class="ScholarMatchFont">Logout</a>
             {:else}
                  <a href="/login" class="ScholarMatchFont">Login</a>
             {/user}
-        </li>       
+        </li>    
+        -->   
 
-        <li id="sign-up">
-            {^user}
-                <a href="/signup" >Signup</a>
-            {/user}
-        </li>
+
+
+
+        <!--don't show the signup if the user has logged in already-->
+        {^user}
+          <li id="sign-up">
+                  <a href="/signup" >Signup</a>
+          </li>
+        {/user}
+
         <li id="contact">
             <a href="/contact" >Contact</a>
         </li>

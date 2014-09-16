@@ -123,6 +123,42 @@ $('#coach-expectations').on('click', function(e) {
 
 
 
+//move cursor to left when someone tries to login & clicks on the appropriate text field
+$('#username').on('click',function(e){
+    $('#username').css("text-align","left")
+});
+$('#password').on('click',function(e){
+    $('#password').css("text-align","left")
+});
+
+//INSTEAD OF ABOVE, OPTION: moves cursor to left only if someone types in the field and clicks off of it
+/*$('#username').change(function(e){
+    $('#username').css("text-align","left")
+});
+$('#password').change(function(e){
+    $('#password').css("text-align","left")
+});
+*/
+
+
+//if menu is open and someone clicks off the menu, it should close
+
+//settings on click (log out, report bug, contact SM, etc)
+$('#settings-icon').on('click', function(e) {
+    $('#dropdown-settings-id').toggleClass("dropdown-settings-hidden"); 
+    e.preventDefault();
+});
+
+/*if user clicks outside of the menu, it should go away
+$('body').click(function(e){
+    if(e.target.className != "dropdown-settings-hidden" || e.target.className!= "dropdown-settings"){
+        $('#dropdown-settings-id').toggleClass("dropdown-settings-hidden"); 
+        e.preventDefault();
+    }
+});
+*/
+
+
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
 for(var i = 0; i < parts.length; i++){

@@ -11,7 +11,6 @@ html {
   position: relative;
   //font-family: 'Tungsten A', 'Tungsten B'; font-weight: 400; font-style: normal;
   color:#663333;
-  font-size:22px;
   height: 100%;
   margin: 0;
 }
@@ -31,24 +30,25 @@ body {
 
 .footer {
   width: 100%;
-  height: 45px;
   text-align:center;
-  background-color:#CC9933;
+  //background-color:#CC9933;
   p,
   ul {
     font-size:12px;
     background-color:#CC9933;
     color:black;
     padding:10px;
+    height:100%;
   }
-  clear: both;
-  z-index: 10;
+  //work around to make the footer extend all the way down to the bottom
+  box-shadow: 0px 500px 0px 500px #CC9933;
 }
 
 .container{
   height:100%;
   padding-top:25px;
   padding-bottom:10px;
+  font-size:16px;
 }
 
 .container-colored{
@@ -56,6 +56,7 @@ body {
   padding-top:25px;
   background-color:#CCCC99;
   padding-bottom:10px;
+  font-size:16px;
 }
 
 .header{
@@ -97,8 +98,8 @@ body {
 }
 
 h1{
-  font-size:32px;
-  font-weight:bolder;
+  font-size:28px;
+  font-weight:bold;
   text-transform: uppercase;
   text-align:center;
 }
@@ -119,14 +120,12 @@ h1{
 }
 
 .about{
-  font-size:18px;
   color:#663333;
   margin-bottom:25px;
   text-align:left;
 }
 
 .about-item{
-  font-size:18px;
   color:#663333;
   margin-bottom:10px;
   cursor:pointer;
@@ -149,19 +148,11 @@ h1{
 	display: inline-block;
 	padding:10px;
 	padding-bottom:1px;
-	font-size:20px;
+	font-size:18px;
 }
 .header-nav li a{
 	color:#663333;
 }
-/*only if we want to
-.header-nav li:hover{
-	color:green;
-	text-decoration:none;
-	background-color:#663333;
-	color:white;
-}
-*/
 .header-nav li a:hover{
 	text-decoration:none;
 	color:#CCCC99;
@@ -179,3 +170,73 @@ h1{
     margin-right:10px;
     margin-left: 10px;
 }
+
+.lead{
+  font-size:18px;
+}
+
+#signup-form{
+  width:45%;
+  text-align:center;
+}
+.float-right{
+  float:right;
+  vertical-align:middle;
+  text-align:right;
+}
+
+.dropdown-settings{
+  text-align:left;
+  padding:5px;
+  background-color:#CC9933;
+  visibility:visible;
+  max-height:0;
+  float:right;
+}
+.dropdown-settings-hidden{
+  text-align:left;
+  padding:5px;
+  background-color:#CC9933;
+  visibility: hidden;
+  max-height: 0;
+}
+.item-in-dropdown-settings{
+  width:200px;
+  text-align:left;
+  padding:10px;
+  background-color:#CC9933;
+  z-index:1;
+  position:absolute;
+}
+.item-in-dropdown-settings a{
+  color:black;
+}
+.item-in-dropdown-settings a:hover{
+  color:#CCCC99;
+  text-decoration:none;
+}
+
+.bg-warning{
+  margin-left: auto;
+  margin-right: auto;  
+  list-style-type: none;
+  text-align:center;
+  padding: 0;
+  background-color:inherit;
+  color:red;
+  font-size:16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
