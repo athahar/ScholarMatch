@@ -4,12 +4,14 @@
 var MeetingNotesModel = require('../../models/meeting-notes'),
 mongoose = require('mongoose'),   
 async = require('async'),
-MeetingNotes = mongoose.model("MeetingNotes");
-
+MeetingNotes = mongoose.model("MeetingNotes"),
+User = mongoose.model("User");
 
 module.exports = function (router) {
 
     var model = new MeetingNotesModel();
+    var userrole = '';
+    var notesExists = 0;
 
     router.get('/', function (req, res) {
 
@@ -18,34 +20,43 @@ module.exports = function (router) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
             model.data.userId = req.session.user._id;
+            //Find the role of user, if admin show all notes by all users else show only that user's notes
+            User.findById(req.session.user._id, function(err, userrecresult) {
+                debugger;
+                if(err) {
+                    callback(err);
+                }
+                console.log(userrecresult)
+                var userrec = JSON.parse(JSON.stringify(userrecresult));
+                userrole = userrec.role;
+            }
+            );
+            
             MeetingNotes.findByUserAndMeetingId(req.session.user._id, req.query.meetingId, function (err, meetingnotesrec) {
 
-                // console.log('111aaa');
                 if (err) {
                     callback(err);
 
-                }
-                meetingnotesrec = meetingnotesrec[0].toJSON();
+                   }
+                console.log(meetingnotesrec)
                 if(meetingnotesrec) {
-                    model.data._id = meetingnotesrec._id;
-                    model.data.interactionType = meetingnotesrec.interactionType;
-                    model.data.materialUsefulness = meetingnotesrec.materialUsefulness;
-                    model.data.topicAppropriateness = meetingnotesrec.topicAppropriateness;
-                    model.data.collaborationDescription = meetingnotesrec.collaborationDescription;
-                    model.data.nextCollaborationDescription = meetingnotesrec.nextCollaborationDescription;
-                    model.data.participationSentiment = meetingnotesrec.participationSentiment;
-                    model.data.speakWithStaff = meetingnotesrec.speakWithStaff; 
+                    model.data = model.data || {};
+                    model.data.meetingnotes = model.data.meetingnotes || {};
+                    model.data.meetingnotes = JSON.parse(JSON.stringify(meetingnotesrec));
+                    notesExists = 1;
                 }
-               } 
+            } 
             );
             
-            if(model.data.interactionType) {
-        
+            if(notesExists == 1) {
+                console.log(notesExists)
                 res.render('meeting-notes/existing', model);   
             }
             else {
+                console.log(notesExists)
                 res.render('meeting-notes/index', model);
             }
+        
         }
         else {
           res.redirect('/login');  
@@ -109,48 +120,17 @@ module.exports = function (router) {
             meetingnotes.save(function (err, result) {
                 if (err) {
                     model.messages = err;
-                    // model.messages.status = 'error';  - Need to add this later
                     res.render('profile/index', model);
                 } else {
-                    // console.log('result '  + result);
-                    // model.messages.status = 'success';
                     model.messages = 'Meeting notes Updated';
                     res.render('profile/index', model);
                 }
              });  
-             //TODO: update the meeting schema too? 
-            /*model.data = model.data || {};
-            model.data.interactionType = model.data.interactionType || {}
-            model.data.materialUsefulness = req.body.materialUsefulness;
-            model.data.topicAppropriateness = req.body.topicAppropriateness;
-            model.data.collaborationDescription = req.body.collaborationDescription;
-            model.data.nextCollaborationDescription = req.body.nextCollaborationDescription;
-            model.data.participationSentiment = req.body.participationSentiment;
-            model.data.speakWithStaff = req.body.speakWithStaff;*/
-
-            // console.dir(model.data.userDetails);
-
-            /*meetingNotesLib.addMeetingNotes(model.data.meeting-notes, function (err, result) {
-
-                if (err) {
-                    model.messages = err;
-                    // model.messages.status = 'error';  - Need to add this later
-                    res.render('profile/index', model);
-                } else {
-                    // console.log('result '  + result);
-                    // model.messages.status = 'success';
-                    model.messages = 'Meeting notes Updated';
-                    res.render('profile/index', model);
-                }
-
-            });*/
+             
         } else {
             res.redirect('/login');
         }    
 
     });
 
-    // good example for joins
-    // http://luiselizondo.net/blogs/luis-elizondo/joins-mongodb-mongoose-and-nodejs
-    // https://coderwall.com/p/6v5rcw
 };

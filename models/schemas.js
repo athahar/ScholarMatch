@@ -366,11 +366,21 @@ meetingNotesSchema.statics.findAll = function(callback) {
     this.find({}, callback);
 };
 meetingNotesSchema.statics.findByUserAndMeetingId = function(userid, meetingid, callback) {
-    this.find({
+    this.findOne({
         meetingId: meetingid,
         notesBy: userid
     }, callback); 
 };
+
+meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
+    this.find({
+        meetingId: meetingid
+    }).populate({
+        path: 'notesBy',
+        select: 'login email fullName role preferredName'
+    }).exec(callback);
+
+}
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);

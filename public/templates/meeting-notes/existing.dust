@@ -5,9 +5,38 @@
 {/title}
 
 {<body}
+	{#data}
+	
+	<div class="container"  data-data2="{data|js}">
+		<br/>
 
-	<div class="container" data-model="{data|js}">
-		A note was submitted for this meeting already!
+		A note was submitted for this meeting already as follows:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {meetingnotes.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {meetingnotes.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {meetingnotes.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {meetingnotes.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {meetingnotes.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {meetingnotes.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {meetingnotes.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {meetingnotes.speakWithStaff}
+		<br/>
 
 	</div>
+	{/data}
 {/body}

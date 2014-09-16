@@ -23,7 +23,7 @@
 		      	</select>
 		      </div>
 		   </div>
-		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		  		   		   
 		   <div class="form-group">
 		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic - 5 most appropriate </label>
 		      <div class="col-sm-7">
@@ -36,7 +36,7 @@
 		      	</select>
 		      </div>
 		   </div>
-		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   		   		   
 		   <div class="form-group">
 		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material - 5 most useful </label>
 		      <div class="col-sm-7">
@@ -49,7 +49,7 @@
 		      	</select>
 		      </div>
 		   </div>
-		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   		   		   
 		   <div class="form-group">
 		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time - 5 most effective time utilization</label>
 		      <div class="col-sm-7">

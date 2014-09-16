@@ -3,6 +3,7 @@
 
 module.exports = function MeetingNotesModel() {
     return {
-        name: 'meeting-notes'
+        name: 'meeting-notes',
+        data: {}
     };
 };
