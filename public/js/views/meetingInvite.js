@@ -16,12 +16,8 @@ define([
 
                 this.initGooglePlaces();
 
-                // init datetimepicker
-                $("#meetingDate").datetimepicker({
-                    format: "dd MM yyyy - HH:ii P",
-                    showMeridian: true,
-                    autoclose: true
-                });
+                this.initDateTimePicker();
+
 
                 // user form validation before submit
                 // http://bootstrapvalidator.com/settings/
@@ -36,6 +32,21 @@ define([
                     (document.getElementById('location')), {
                         types: ['geocode']
                     });
+
+            },
+            initDateTimePicker: function () {
+
+                var date = new Date();
+                date.setDate(date.getDate() - 1);
+
+                // init datetimepicker
+                $("#meetingDate").datetimepicker({
+                    format: "dd MM yyyy - HH:ii P",
+                    showMeridian: true,
+                    autoclose: true,
+                    startDate: date
+                });
+
 
             }
         });
