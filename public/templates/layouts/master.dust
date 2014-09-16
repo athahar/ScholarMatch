@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/css/app.css" />
-    <!--css for the Tungsten & Sentinel font used by ScholarMatch-->
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6033892/688244/css/fonts.css" />
+    <!--css for the Tungsten & Sentinel font used by ScholarMatch
+        <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6033892/688244/css/fonts.css" />
+    -->
     <!--JQuery libraris-->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
