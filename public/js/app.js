@@ -129,38 +129,35 @@ for(var i = 0; i < parts.length; i++){
     parts[i] = parts[i].toUpperCase();
 }
 
+var linkIds = ["home","dashboard","profile","login-or-logout","sign-up","contact"];
+
 if(parts.indexOf("DASHBOARD")>0){
-    document.getElementById("home").className = "";
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
-    document.getElementById("profile").className = "";
-    document.getElementById("login-or-logout").className = "";
-    document.getElementById("sign-up").className = "";
 }
 else if(parts.indexOf("PROFILE")>0){
-    document.getElementById("home").className = "";
-    document.getElementById("dashboard").className = "";
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
     document.getElementById("profile").className = "active-link";
-    document.getElementById("login-or-logout").className = "";
-    document.getElementById("sign-up").className = "";
 }
 else if(parts.indexOf("LOGIN")>0){
-    document.getElementById("home").className = "";
-    document.getElementById("dashboard").className = "";
-    document.getElementById("profile").className = "";
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
     document.getElementById("login-or-logout").className = "active-link";
-    document.getElementById("sign-up").className = "";
 }
 else if(parts.indexOf("SIGNUP")>0){
-    document.getElementById("home").className = "";
-    document.getElementById("dashboard").className = "";
-    document.getElementById("profile").className = "";
-    document.getElementById("login-or-logout").className = "";
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
     document.getElementById("sign-up").className = "active-link";
 }
-else{
+else if(parts.indexOf("CONTACT")>0){
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
+    document.getElementById("contact").className = "active-link";
+}
+else{ //if anything else is selected, underline home for now
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
     document.getElementById("home").className = "active-link";
-    document.getElementById("dashboard").className = "";
-    document.getElementById("profile").className = "";
-    document.getElementById("login-or-logout").className = "";
-    document.getElementById("sign-up").className = "";
 }

@@ -2,7 +2,7 @@
 <header class="header" role="banner" >
   <div class="container">
     <div class="navbar-header">
-      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogo2.PNG"  /></a>      
+      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogo.PNG"  /></a>      
     </div>
     <nav role="navigation">
       <ul class="header-nav" >
@@ -27,6 +27,9 @@
             {^user}
                 <a href="/signup" >Signup</a>
             {/user}
+        </li>
+        <li id="contact">
+            <a href="/contact" >Contact</a>
         </li>
     </ul>      
     </nav>
