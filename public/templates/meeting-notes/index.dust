@@ -14,16 +14,16 @@
 		      <label for="interactionType" class="col-sm-3 control-label">Meeting Interaction Type</label>
 		      <div class="col-sm-7">
 		      	<select name="interactionType">
-		      		<option value="101">Resume and LinkedIn</option>
-		      		<option value="102">Interview Preparation</option>
-		      		<option value="103">Insider Scoop</option>
-		      		<option value="104">Internship/Job Search</option>
-		      		<option value="105">Office Visit</option>
-		      		<option value="106">Professional Etiquete</option>
+		      		<option value="Resume and Linked In profile creation">Resume and Linked In profile creation</option>
+		      		<option value="Mock Interview">Mock Interview</option>
+		      		<option value="Insider Scoop">Insider Scoop</option>
+		      		<option value="Internship or Job Search">Internship or Job Search</option>
+		      		<option value="Office Visit">Office Visit</option>
+		      		<option value="Professional Etiquete">Professional Etiquete</option>
 		      	</select>
 		      </div>
 		   </div>
-		  		   		   
+		  	
 		   <div class="form-group">
 		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic - 5 most appropriate </label>
 		      <div class="col-sm-7">
@@ -79,8 +79,8 @@
 		      <label for="speakWithStaff" class="col-sm-3 control-label">Have you spoken with the staff about this meeting?</label>
 		      <div class="col-sm-7">
 		      	<select name="speakWithStaff">
-		      		<option value="101">Yes</option>
-		      		<option value="102">No</option>	
+		      		<option value="Yes">Yes</option>
+		      		<option value="No">No</option>	
 		      	</select>
 		      </div>
 		   </div>
