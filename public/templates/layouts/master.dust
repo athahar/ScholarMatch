@@ -1,16 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/css/app.css" />
-    <title>{+title /}</title>
+    <!--css for the Tungsten & Sentinel font used by ScholarMatch
+        <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6033892/688244/css/fonts.css" />
+    -->
+    <!--JQuery libraris-->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <title>Career Connections</title>
 </head>
 <body data-view-name="{viewName}">
-<div id="wrapper">
-	{>"inc/header" /} 
-    {+body /}
-</div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places"></script>
-<script data-main="/js/main" src="/components/requirejs/require.js"></script>
+    <div id="wrapper">
+    	{>"inc/header" /} 
+        {+body /}
+        {>"inc/footer" /}
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places"></script>
+    <script data-main="/js/main" src="/components/requirejs/require.js"></script>
 </body>
 </html>

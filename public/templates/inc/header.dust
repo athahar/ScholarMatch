@@ -1,47 +1,38 @@
 
-<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+<header class="header" role="banner" >
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">ScholarMatch</a>
+      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogo.PNG"  /></a>      
     </div>
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="/">Home</a>
+    <nav role="navigation">
+      <ul class="header-nav" >
+        <li class="active-link" id="home">
+          <a href="/" class="ScholarMatchFont">Home</a>
         </li>
-        <li>
-          <a href="/dashboard">Dashboard</a>
+        <li id="dashboard">
+          <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
         </li>        
-        <li>
-          <a href="/profile">Profile</a>
-        </li>        
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li id="profile">
+          <a href="/profile" class="ScholarMatchFont">Profile</a>
+        </li>  
+        <li id="login-or-logout">
             {#user}
-              <p style="padding-top: 15px;padding-bottom: 15px;">{user.email} ({user.role}) <p>
-            {/user}
-        </li>
-        <li>
-            {#user}              
-                 <a href="/logout">Logout</a>
+                 <a href="/logout" class="ScholarMatchFont">Logout</a>
             {:else}
-                 <a href="/login">Login</a>
+                 <a href="/login" class="ScholarMatchFont">Login</a>
             {/user}
         </li>       
 
-        <li>
+        <li id="sign-up">
             {^user}
-                <a href="/signup">Signup</a>
+                <a href="/signup" >Signup</a>
             {/user}
+        </li>
+        <li id="contact">
+            <a href="/contact" >Contact</a>
         </li>
     </ul>      
     </nav>
   </div>
 </header>
+<!--nav navbar-nav navbar-right-->

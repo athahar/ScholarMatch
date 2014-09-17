@@ -2,38 +2,39 @@
 
 
 var IndexModel = require('../models/index'),
-    ProfileModel = require('../models/profile'),
-    AdminModel = require('../models/admin'),
-    auth = require('../lib/auth');
+    passport = require('passport');
 
 
 module.exports = function (router) {
 
     var indexmodel = new IndexModel();
-    var profilemodel = new ProfileModel();
-    var adminmodel = new AdminModel();
 
-
+    /**
+     * Render the home page
+     *
+     */
     router.get('/', function (req, res) {
         indexmodel.viewName = "home";
         res.render('index', indexmodel);
     });
 
 
-    // router.get('/profile', function(req, res) {
+    /**
+     * Receive the login credentials and authenticate.
+     * Successful authentications will go to /profile or if the user was trying to access a secured resource, the URL
+     * that was originally requested.
+     *
+     * Failed authentications will go back to the login page with a helpful error message to be displayed.
+     */
+    router.post('/', function (req, res) {
 
-    //     profilemodel.data = profilemodel.data || {};
+        passport.authenticate('local', {
+            successRedirect: req.session.goingTo || '/dashboard',
+            failureRedirect: '/login',
+            failureFlash: true
+        })(req, res);
 
-    //     profilemodel.data.userDetails = profilemodel.data.userDetails || {}
-    //     profilemodel.data.userDetails.name = req.user.name;
-    //     profilemodel.data.userDetails.role = req.user.role;
-    //     profilemodel.data.userDetails.userid = req.user._id
-
-    //     console.dir(profilemodel);
-
-    //     res.render('profile/index', profilemodel);
-    // });
-
+    });
 
 
     /**
