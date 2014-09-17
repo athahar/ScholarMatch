@@ -108,7 +108,8 @@ module.exports = function (router) {
                 notesBy: req.session.user._id,
                 meetingId: req.body.meetingId,
                 interactionType: req.body.interactionType,
-                materialUsefulness: req.body.materialUsefulness, // assign the _id from the person
+                materialUsefulness: req.body.materialUsefulness,
+                timeUtilization: req.body.timeUtilization,
                 topicAppropriateness: req.body.topicAppropriateness,
                 collaborationDescription: req.body.collaborationDescription,
                 nextCollaborationDescription: req.body.nextCollaborationDescription,
@@ -120,10 +121,10 @@ module.exports = function (router) {
             meetingnotes.save(function (err, result) {
                 if (err) {
                     model.messages = err;
-                    res.render('profile/index', model);
+                    res.redirect('/dashboard');
                 } else {
                     model.messages = 'Meeting notes Updated';
-                    res.render('profile/index', model);
+                    res.redirect('/dashboard');
                 }
              });  
              
