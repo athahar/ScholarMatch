@@ -1,9 +1,8 @@
 define([
         "jquery",
-        "view",
-        "jqueryMask"
+        "view"
     ],
-    function ($, View, jqueryMask) {
+    function ($, View) {
 
         "use strict";
 
@@ -15,6 +14,7 @@ define([
                 console.log("ProfileView");
 
                 // $(".phone").mask("(999) 999-9999");
+
             }
         });
 

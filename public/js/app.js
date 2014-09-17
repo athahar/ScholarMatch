@@ -13,8 +13,10 @@ define([
 
                 var body = $("body"),
                     initialContext = {
-                        "viewName": body.data("viewName")
+                        "viewName": body.data("viewName"),
+                        "response": body.data("response")
                     };
+
 
                 // ajaxify links with "xhr" class
                 $("body").on("click", ".xhr", $.proxy(function (event) {
@@ -47,7 +49,7 @@ define([
                         Backbone.history.start({
                             pushState: true, // Use HTML5 Push State
                             hashChange: false, // Do full page refresh if Push State isn't supported
-                            root: "/businessexp/" //Initial path for app
+                            root: "/" //Initial path for app
                         });
 
                     }, this));
@@ -55,6 +57,8 @@ define([
 
                 body.data("viewName", null);
                 body[0].removeAttribute("data-view-name");
+                body.data("response", null);
+                body[0].removeAttribute("data-response");
 
             },
 
@@ -100,24 +104,24 @@ define([
 
 //Bram CODE BELOW
 
-$('#overview').on('click', function(e) {
-    $('#overview-answer').toggleClass("about-item-answer-hidden"); 
+$('#overview').on('click', function (e) {
+    $('#overview-answer').toggleClass("about-item-answer-hidden");
     e.preventDefault();
 });
-$('#candidates').on('click', function(e) {
-    $('#candidates-answer').toggleClass("about-item-answer-hidden"); 
+$('#candidates').on('click', function (e) {
+    $('#candidates-answer').toggleClass("about-item-answer-hidden");
     e.preventDefault();
 });
-$('#how-it-works').on('click', function(e) {
-    $('#how-it-works-answer').toggleClass("about-item-answer-hidden"); 
+$('#how-it-works').on('click', function (e) {
+    $('#how-it-works-answer').toggleClass("about-item-answer-hidden");
     e.preventDefault();
 });
-$('#student-expectations').on('click', function(e) {
-    $('#student-expectations-answer').toggleClass("about-item-answer-hidden"); 
+$('#student-expectations').on('click', function (e) {
+    $('#student-expectations-answer').toggleClass("about-item-answer-hidden");
     e.preventDefault();
 });
-$('#coach-expectations').on('click', function(e) {
-    $('#coach-expectations-answer').toggleClass("about-item-answer-hidden"); 
+$('#coach-expectations').on('click', function (e) {
+    $('#coach-expectations-answer').toggleClass("about-item-answer-hidden");
     e.preventDefault();
 });
 
@@ -125,39 +129,34 @@ $('#coach-expectations').on('click', function(e) {
 
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
-for(var i = 0; i < parts.length; i++){
+for (var i = 0; i < parts.length; i++) {
     parts[i] = parts[i].toUpperCase();
 }
 
-var linkIds = ["home","dashboard","profile","login-or-logout","sign-up","contact"];
+var linkIds = ["home", "dashboard", "profile", "login-or-logout", "sign-up", "contact"];
 
-if(parts.indexOf("DASHBOARD")>0){
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+if (parts.indexOf("DASHBOARD") > 0) {
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
-}
-else if(parts.indexOf("PROFILE")>0){
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+} else if (parts.indexOf("PROFILE") > 0) {
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("profile").className = "active-link";
-}
-else if(parts.indexOf("LOGIN")>0){
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+} else if (parts.indexOf("LOGIN") > 0) {
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("login-or-logout").className = "active-link";
-}
-else if(parts.indexOf("SIGNUP")>0){
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+} else if (parts.indexOf("SIGNUP") > 0) {
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("sign-up").className = "active-link";
-}
-else if(parts.indexOf("CONTACT")>0){
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+} else if (parts.indexOf("CONTACT") > 0) {
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("contact").className = "active-link";
-}
-else{ //if anything else is selected, underline home for now
-    for(var i = 0; i < linkIds.length; i++)
-        $("#"+linkIds[i]).removeClass();
+} else { //if anything else is selected, underline home for now
+    for (var i = 0; i < linkIds.length; i++)
+        $("#" + linkIds[i]).removeClass();
     document.getElementById("home").className = "active-link";
 }

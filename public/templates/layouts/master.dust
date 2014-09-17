@@ -13,8 +13,8 @@
 
     <title>Career Connections</title>
 </head>
-<body data-view-name="{viewName}">
-    <div id="wrapper">
+<body data-view-name="{viewName}" data-response="{data|js}">
+    <div id="wrapper" >
     	{>"inc/header" /} 
         {+body /}
         {>"inc/footer" /}

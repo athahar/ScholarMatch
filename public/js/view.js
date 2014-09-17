@@ -14,6 +14,7 @@ define([
         var View = BaseView.extend({
 
             el: $("#wrapper"),
+            events: {},
             trimInput: function (ev) {
                 var input = $(ev.target);
                 input.val($.trim(input.val()));
@@ -40,6 +41,47 @@ define([
                 }
 
                 console.log("Base View");
+
+                // form submission tracking
+                $("form button").on("click", function (e) {
+                    var form = $(e.target).parents("form").attr("id"),
+                        data = form.serialize();
+
+                    window.mixpanel.track(form + "submitted", {
+                        "data": data
+                    })
+                })
+
+
+                // window.mixpanel.identify("13487");
+                // window.mixpanel.people.set({
+                //     "$first_name": "Joe",
+                //     "$last_name": "Doe",
+                //     "$created": "2013-04-01T09:02:00",
+                //     "$email": "joe.doe@example.com"
+                // });
+
+                // track user profile
+                // 
+                if (this.context && this.context.response && this.context.response.user) {
+                    debugger;
+                    mixpanel.identify(this.context.response.user._id);
+
+                    mixpanel.register({
+                        "$email": this.context.response.user.email,
+                        "$account_type": this.context.response.user.role,
+                        "$city": this.context.response.user.city,
+                        "$isConnected": this.context.response.user.isConnected
+                    });
+                }
+
+                if (this.context && this.context.viewName) {
+                    // track every page
+                    mixpanel.track(this.context.viewName);
+                    debugger;
+                }
+
+
             },
             // handle form submissions with ajax
             _handleForms: function () {
