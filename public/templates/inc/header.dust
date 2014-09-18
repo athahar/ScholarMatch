@@ -1,4 +1,4 @@
-{^user}
+{#user}
   <div class="container" style="padding:0px; ">
     <div class="float-right">
       <a href="/dashboard">{user} "userId"</a>
@@ -38,15 +38,20 @@
           <a href="/" class="ScholarMatchFont">Home</a>
         </li>
 
-        <li id="dashboard">
-          <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
-        </li>    
+        <!--only show if user has logged in-->
+        {#user}
+          <li id="dashboard">
+            <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
+          </li>    
 
-        <li id="profile">
-          <a href="/profile" class="ScholarMatchFont">Profile</a>
-        </li>  
+          <li id="profile">
+            <a href="/profile" class="ScholarMatchFont">Profile</a>
+          </li>  
+        {/user}
 
-
+        <li class="active-link" id="about">
+          <a href="/about" class="ScholarMatchFont">About</a>
+        </li>
 
         <!--Login option added to top of header if no user & is on home page
           <!--only show login if the user has not logged in--

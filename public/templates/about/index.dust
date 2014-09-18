@@ -1,0 +1,88 @@
+{>"layouts/master" /}
+
+{<title}
+	About Career Connections  - ScholarMatch
+{/title}
+
+
+{<body}   
+	<div class="container-colored">
+		<div class="container-colored-extra">
+			<div class="center-text">
+				<h1>General</h1>
+				<p class="lead">At ScholarMatch, we believe that our work does not stop until our students begin their own work. Saint Joseph’s University Professor Maria Kefalas stated "Networking is one of the most important, but neglected elements of the college experience." To combat our college students' lack of professional resources, ScholarMatch is bridging the gap between college life and the professional world by matching students with a Career Coach in their field of study who will support the student in gaining essential professional and networking skills.</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container" >
+		<div class="center-text" >
+			<h1>About</h1>
+			<p class="lead">Our scholars are preparing to join the workforce and our supporters want to help!</p>
+
+			<!-- lightbox or jquery? -->
+				<div class="about">
+					<div class="about-item" id="overview">
+						<img src="/images/GoldShield.PNG" />&nbsp;
+						<b>What is the Career Connections Program?</b>
+						<div class ="about-item-answer-hidden" id="overview-answer" style="margin-left:45px; color:#CC9933;">
+							At ScholarMatch, we believe that our work does not stop until our scholars start their own work. ScholarMatch is joining forces with the community to bridge the gap between college life and the professional world. Through the Career Connections program, each student will be matched with an expert in their field who will support our students in pursuing their professional dreams and gaining valuable professional and networking skills.
+						</div>
+					</div>
+
+					<div class="about-item" id="candidates">
+						<img src="/images/GoldShield.PNG" />&nbsp;
+						<b>Who can participate and how do I sign up?</b>
+						<div class ="about-item-answer-hidden" id="candidates-answer" style="margin-left:45px; color:#CC9933;">
+							All ScholarMatch students and supporters are invited to participate. <br />
+							<b>Eligble scholars</b> are ScholarMatch college students residing in the Bay Area for the summer and are interested in making connections in their field of study. <a href="/signup" class="">Register here</a>.<br />
+							<b>Eligible career coaches</b> are professionals in the Bay Area who are interested in supporting eager college students and sharing information about their career industry. <a href="/signup" class="">Register here</a>.
+						</div>
+					</div>
+					<div class="about-item" id="how-it-works">
+						<img src="/images/GoldShield.PNG" />&nbsp;
+						<b>How does the program work?</b>
+						<div class ="about-item-answer-hidden" id="how-it-works-answer" style="margin-left:45px; color:#CC9933;">
+							Professionals from the community volunteer to be a career coach for a college student throughout the summer. ScholarMatch will connect scholars with career coaches based on career interests and expertise, then facilitat an introduction call between the scholar and the career coach. <br /><br />
+							During the introduction call, ScholarMatch staff, the scholar and the career coach will discuss career objectives for the student and map out 3 specific professional goals or skills for the scholar and coach to work on throughout the summer. Examples include: resume review, internship guidance, interview preparation, etc <br /><br />
+							After the introduction, the career coach and scholar will begin the collaborations via email, phone or in-person to accomplish the three goals throughout the summer program. The career coach not only helps the scholar master specific professional skills, but also provides tips on how to navigate and become a successful professional in the field. ScholarMatch staff will help structure and guide the collaborations between career coach and scholar and act as a resource throughout the entire program duration.
+						</div>
+					</div>
+					<div class="about-item" id="student-expectations">
+						<img src="/images/GoldShield.PNG" />&nbsp;
+						<b>What are the expectations of participating students?</b>
+						<div class ="about-item-answer-hidden" id="student-expectations-answer" style="margin-left:45px; color:#CC9933;">
+							Participating students are required to:
+							<ul>
+								<li>Have a career interest and desire to receive guidance from a profession in their field</li>
+								<li>Complete the <a href="/signup" class="">sign up & registration</a> process</li>
+								<li>Complete a 1-hour training facilitated by ScholarMatch staff and submit one follow up writing assignment</li>
+								<li>Participate in a 20-minute introductory call to meet their career coach and set goals</li>
+								<li>Collaborate with their career coach to accomplish three professional goals</li>
+								<li>Submit information through an online form after each interaction with their career coach</li>
+								<li>Complete an exit survey at the conclusion of the program</li>
+							</ul>
+						</div>
+					</div>
+					<div class="about-item" id="coach-expectations">
+						<img src="/images/GoldShield.PNG" />&nbsp;
+						<b>What are the expectations of partipating volunteers?</b>
+						<div class ="about-item-answer-hidden" id="coach-expectations-answer" style="margin-left:45px; color:#CC9933;">
+							Participating volunteers are required to:
+							<ul>
+								<li>Have a professional background or expertise and desire to provide guidance to a college student aspiring to enter their field</li>
+								<li>Complete the <a href="/signup" class="">sign up & registration</a> process</li>
+								<li>Attend a 30-minute interview and, if selected as a career coach, complete a 1-hour training facilitated by ScholarMatch staff</li>
+								<li>Participate in a 20-minute introductory call to meet their scholar and set goals</li>
+								<li>Collaborate with their scholar to accomplish three professional goals</li>
+								<li>Submit information through an online form after each interaction with their scholar</li>
+								<li>Complete an exit survey at the conclusion of the program</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			<p class="lead">Still have questions? <a href="mailto:info@scholarmatch.org?subject=Career Connections Question">Email us</a> for more information.
+		</div>
+	</div>   
+{/body}

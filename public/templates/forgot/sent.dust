@@ -6,9 +6,13 @@
 
 {<body}
 
-	<div class="container" data-model="{data.result|js}">
-		
-		An e-mail has been sent : 
-		<br/> {data.result.messages}
+	<div class="container-colored" data-model="{data.result|js}">
+		<div class="center-text" >	
+			<p class="lead">An e-mail has been sent to reset your password!</p>
+
+			<br/><br /> 
+
+			{data.result.messages}
+		</div>
 	</div>
 {/body}

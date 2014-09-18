@@ -21,6 +21,21 @@
   }
 }
 
+//this is so the colored css doesn't extend to 100% width. If there's a lot of text in a color container & it's wide, put this right after container-colored
+.container-colored-extra {
+  .container-fixed();
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
 
 // Fluid container
 //
