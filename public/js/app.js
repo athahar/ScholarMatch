@@ -185,8 +185,7 @@ else if(parts.indexOf("PROFILE")>0){
 else if(parts.indexOf("LOGIN")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
-    //document.getElementById("login-or-logout").className = "active-link";
-    document.getElementById("home").className = "active-link";
+    document.getElementById("login-or-logout").className = "active-link";
 }
 else if(parts.indexOf("SIGNUP")>0){
     for(var i = 0; i < linkIds.length; i++)

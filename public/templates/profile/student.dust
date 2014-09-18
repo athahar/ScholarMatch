@@ -7,7 +7,16 @@
 
 {<body}
 	{#data.result}
-		<div class="container"  data-data2="{data|js}">
+		<div class="container-colored" data-data2="{data|js}">
+			<h1>Profile: {fullName}</h1>
+			<br/>
+						<center>
+							{?ownProfile}
+								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
+							{/ownProfile}
+						</center>
+
+			<br />
 		<!--{@contextDump/}-->
 			<div class="panel panel-info">
 	            <div class="panel-heading">
