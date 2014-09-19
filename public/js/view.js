@@ -53,34 +53,47 @@ define([
                 })
 
 
-                // window.mixpanel.identify("13487");
-                // window.mixpanel.people.set({
-                //     "$first_name": "Joe",
-                //     "$last_name": "Doe",
-                //     "$created": "2013-04-01T09:02:00",
-                //     "$email": "joe.doe@example.com"
-                // });
+                window.mixpanel.identify("13487");
+                window.mixpanel.people.set({
+                    "$first_name": "Joe",
+                    "$last_name": "Doe",
+                    "$created": "2013-04-01T09:02:00",
+                    "$email": "joe.doe@example.com"
+                });
 
+                mixpanel.track(this.context.viewName);
+                
                 // track user profile
                 // 
-                if (this.context && this.context.response && this.context.response.user) {
-                    debugger;
-                    mixpanel.identify(this.context.response.user._id);
+                // if (this.context && this.context.response && this.context.response.user) {
+                //     debugger;
+                //     mixpanel.identify(this.context.response.user.email);
 
-                    mixpanel.register({
-                        "$email": this.context.response.user.email,
-                        "$account_type": this.context.response.user.role,
-                        "$city": this.context.response.user.city,
-                        "$isConnected": this.context.response.user.isConnected
-                    });
-                }
+                //     mixpanel.register({
+                //         "$email": this.context.response.user.email,
+                //         "account type": this.context.response.user.role,
+                //         "city": this.context.response.user.city,
+                //         "isConnected": this.context.response.user.isConnected
+                //     });
+                // }
 
-                if (this.context && this.context.viewName) {
-                    // track every page
-                    mixpanel.track(this.context.viewName);
-                    debugger;
-                }
+                // if (this.context && this.context.viewName) {
+                //     // track every page
+                //     mixpanel.track(this.context.viewName);
+                //     debugger;
+                // }
 
+
+                mixpanel.identify("athahar@email.com");
+
+                mixpanel.register({
+                    "$email": "athahar@email.com",
+                    "account type": "student",
+                    "city": "San Francisco",
+                    "isConnected": true
+                });
+
+                mixpanel.track("Dashboard page");
 
             },
             // handle form submissions with ajax
