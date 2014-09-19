@@ -419,12 +419,52 @@ var attendeeSchema = Schema({
     }
 })
 
+var meetingNotesSchema = Schema({
+    notesBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    meetingId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Meeting'
+    },
+    interactionType: String,
+    materialUsefulness:Number,
+    topicAppropriateness:Number,
+    timeUtilization: Number,
+    collaborationDescription: String,
+    nextCollaborationDescription: String,
+    participationSentiment: String,
+    speakWithStaff: String
+});
+
+meetingNotesSchema.statics.findAll = function(callback) {
+    this.find({}, callback);
+};
+meetingNotesSchema.statics.findByUserAndMeetingId = function(userid, meetingid, callback) {
+    this.findOne({
+        meetingId: meetingid,
+        notesBy: userid
+    }, callback); 
+};
+
+meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
+    this.find({
+        meetingId: meetingid
+    }).populate({
+        path: 'notesBy',
+        select: 'login email fullName role preferredName'
+    }).exec(callback);
+
+}
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
 var Attendee = mongoose.model('Attendee', attendeeSchema);
+var MeetingNotes = mongoose.model('MeetingNotes', meetingNotesSchema);
 var Relationship = mongoose.model('Relationship', relationshipSchema);
 
 
 module.exports.Meeting = Meeting;
 module.exports.User = User;
+module.exports.MeetingNotes = MeetingNotes;
