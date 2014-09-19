@@ -1,44 +1,53 @@
 
-{^user}
-	<div class="container-colored" >
-		<div class="center-text">
-			<h1>Getting Started</h1>
-			<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
-			
-			<br />
+<!--if user has logged in, redirect to dashboard-->
+{#user}
+	<script type="text/javascript">
+		window.location.href = "/dashboard";
+	</script>
+
+<!--else, user has not logged in, send to home/login page--> 
+{:else}
+
+	<div class="container-colored">
+		<div class="container-colored-extra">
+			<div class="center-text">
+				<h1>Getting Started</h1>
+				<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+				
+				<br />
 
 
-	    	<form id="loginForm" method="post">	 
-				{?messages}
-					<ul class="bg-warning">
-						{#messages}
-							<li>{.}</li>
-						{/messages}
-					</ul>
-				{/messages}
+		    	<form id="loginForm" method="post">	 
+					{?messages}
+						<ul class="bg-warning">
+							{#messages}
+								<li>ERROR: {.}</li>
+							{/messages}
+						</ul>
+					{/messages}
 
-				<input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
-				&nbsp;&nbsp;&nbsp;
-				<!--<br /><br />-->
-				<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
+					<input type="text" name="username" id="username" placeholder="Email" class="text-box-home" >
+					&nbsp;&nbsp;&nbsp;
+					<!--<br /><br />-->
+					<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
 
-				<br /><br />
-				<input type="hidden" name="_csrf" value="{_csrf}" />
-				 <input type="hidden" name="type" id="type" value="0" />
+					<br /><br />
+					<input type="hidden" name="_csrf" value="{_csrf}" />
+					 <input type="hidden" name="type" id="type" value="0" />
+						   
+					<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Login</button>
+				</form>
+
+				<br />
+
+				<p class="lead">
+					<a href="/login/forgot" >Forgot Password? </a> <br />
+					Don't have an account? <a href="/signup" >Signup</a>
+				</p>
 					   
-				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Login</button>
-			</form>
-
-			<br /><br />
-
-			<p class="lead">Don't have an account? <a href="/signup" >Signup</a>
-
-
-				   
-		</div>
-		        
+			</div>
+		</div>   
 	</div>
-{/user}
 
 	<div class="container" >
 		<div class="center-text">
@@ -108,4 +117,5 @@
 			</div>
 			<p class="lead">Still have questions? <a href="mailto:info@scholarmatch.org?subject=Career Connections Question">Email us</a> for more information.
 		</div>
-	</div>    
+	</div>   
+{/user}
