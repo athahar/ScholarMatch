@@ -1,14 +1,21 @@
 {>"layouts/master" /}
 
 {<title}
-	Profile - College to Career Program  - ScholarMatch
+	Profile - Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}
 	{#data.result}
-		<div class="container">
-			<h1>Profile : {fullName}</h1>
+		<div class="container-colored" data-data2="{data|js}">
+			<h1>Profile: {fullName}</h1>
 			<br/>
+						<center>
+							{?ownProfile}
+								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
+							{/ownProfile}
+						</center>
+
+			<br />
 			<div class="row">
 				<form id="view-profile" method="POST" class="form-horizontal" action="/profile/edit"/edit>		   		   
 					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
@@ -103,9 +110,11 @@
 						<input type="hidden" name="userid" id="userid" value="{userid}" />
 						<input type="hidden" name="role" id="role" value="{role}" />
 						
-						{?ownProfile}
-							<button type="submit" class="btn btn-primary offset">Edit My Profile</button>
-						{/ownProfile}
+						<center>
+							{?ownProfile}
+								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
+							{/ownProfile}
+						</center>
 					</div>	
 				</div>
 			</form>

@@ -1,9 +1,18 @@
 <div class="footer" >
-      <p>
-        Thank you for participating in our Career Connection program! <br />
-        If you have any questions, please <a href="mailto:c2c@scholarmatch.org?subject=Career Connection">email us</a> or <a href="tel:4156522766">call us</a>. 
-      <br /><br />
-      &copy; 2010-2012 ScholarMatch, <a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street</a>, All Rights Reserved</p>
+	<div class="container">
+		<hr />
+
+		<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank"><img src="/images/Linkedin.PNG" style="height:28px; width:28px;" /></a>&nbsp;
+		<a href="https://twitter.com/ScholarMatch" target="_blank"><img src="/images/Twitter.PNG" style="height:28px; width:28px;" /></a>&nbsp;
+		<a href="https://www.facebook.com/ScholarMatch" target="_blank"><img src="/images/Facebook.PNG" style="height:32px; width:32px;" /></a>&nbsp;
+		<a href="https://www.youtube.com/user/ScholarMatch" target="_blank"><img src="/images/Youtube.PNG" style="height:32px; width:32px;" ></a>&nbsp;
+<br />
+	      <p>
+	        Thank you for participating in our Career Connection program! <br />
+	        If you have any questions, please <a href="mailto:c2c@scholarmatch.org?subject=Career Connection">email us</a> or <a href="tel:4156522766">call us</a>. 
+	      <br /><br />
+	      &copy; 2010-2012 ScholarMatch, 849 Valencia Street, All Rights Reserved</p>
+    </div>
 
 </div>
 
