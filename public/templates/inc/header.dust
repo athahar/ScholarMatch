@@ -1,7 +1,7 @@
 {#user}
   <div class="container" style="padding:0px; ">
     <div class="float-right">
-      <a href="/dashboard">{user} "userId"</a>
+      {user.fullName} ({user.role})
       &nbsp; 
       <img src="/images/Settings.png" id="settings-icon" style="vertical-align:middle; cursor:pointer; width:14px; height:14px;" title="Settings" />
       

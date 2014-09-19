@@ -9,9 +9,9 @@
 	<div class="container"  data-data2="{data|js}">
 		<h1>Add/View meeting notes</h1>		
 		<br/>
-		<form id="signup-form" method="POST" class="form-horizontal">		   		   
+		<form id="meeting-feedback-form" method="POST" class="form-horizontal">		   		   
 		   <div class="form-group">
-		      <label for="interactionType" class="col-sm-3 control-label">Meeting Interaction Type</label>
+		      <label for="interactionType" class="col-sm-3 control-label">Meeting Topic</label>
 		      <div class="col-sm-7">
 		      	<select name="interactionType">
 		      		<option value="Resume and Linked In profile creation">Resume and Linked In profile creation</option>
@@ -25,7 +25,7 @@
 		   </div>
 		  	
 		   <div class="form-group">
-		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic - 5 most appropriate </label>
+		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic  </label>
 		      <div class="col-sm-7">
 		      	<select name="topicAppropriateness">
 		      		<option value="1">1</option>
@@ -34,11 +34,12 @@
 		      		<option value="4">4</option>
 		      		<option value="5">5</option> 		
 		      	</select>
+		      	<span>  &nbsp; 5 being most appropriate</span>
 		      </div>
 		   </div>
 		   		   		   
 		   <div class="form-group">
-		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material - 5 most useful </label>
+		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material </label>
 		      <div class="col-sm-7">
 		      	<select name="materialUsefulness">
 		      		<option value="1">1</option>
@@ -47,11 +48,12 @@
 		      		<option value="4">4</option>
 		      		<option value="5">5</option> 		
 		      	</select>
+		      	<span>  &nbsp; 5 being most useful</span>
 		      </div>
 		   </div>
 		   		   		   
 		   <div class="form-group">
-		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time - 5 most effective time utilization</label>
+		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time </label>
 		      <div class="col-sm-7">
 		      	<select name="timeUtilization">
 		      		<option value="1">1</option>
@@ -60,21 +62,22 @@
 		      		<option value="4">4</option>
 		      		<option value="5">5</option> 		
 		      	</select>
+		      	<span>  &nbsp; 5 being most effective time utilization</span>
 		      </div>
 		   </div>
 		   <div class="form-group">
-		      <label for="collaborationDescription" class="col-sm-3 control-label">Description of collabration</label>
+		      <label for="collaborationDescription" class="col-sm-3 control-label">Description of collaboration</label>
 		      <div class="col-sm-7"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea></div>
 		   </div>
 		   <div class="form-group">
-		      <label for="nextCollaborationDescription" class="col-sm-3 control-label">Description of next collabration</label>
+		      <label for="nextCollaborationDescription" class="col-sm-3 control-label">Description of next collaboration</label>
 		      <div class="col-sm-7"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea></div>
 		   </div>
 		   <div class="form-group">
 		      <label for="participationSentiment" class="col-sm-3 control-label">Description of Participent's Sentiment</label>
-		      <div class="col-sm-7"><textarea  cols="80" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea></div>
+		      <div class="col-sm-7"><textarea  cols="50" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea></div>
 		   </div>
-		   <form id="signup-form" method="POST" class="form-horizontal">		   		   
+		   
 		   <div class="form-group">
 		      <label for="speakWithStaff" class="col-sm-3 control-label">Have you spoken with the staff about this meeting?</label>
 		      <div class="col-sm-7">

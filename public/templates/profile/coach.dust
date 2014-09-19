@@ -22,7 +22,7 @@
 								</p>
 							{/data.firstlogin}
 						
-							<form id="signup-form" method="POST" class="form-horizontal" action="/profile">		   		   
+							<form id="profile-form" method="POST" class="form-horizontal" action="/profile">		   		   
 			
 						   		<div class="form-group">
 						      		<label for="fullName" class="col-sm-3 control-label">Full Name</label>
