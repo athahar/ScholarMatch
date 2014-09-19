@@ -1,13 +1,13 @@
 {>"layouts/master" /}
 
 {<title}
-	Profile - College to Career Program  - ScholarMatch
+	Profile - Career Connections Program  - ScholarMatch
 {/title}
 
 
 {<body}
 	{#data.result}
-		<div class="container"  data-data2="{data|js}">
+		<div class="container-colored" data-data2="{data|js}">
 			<div class="panel panel-info">
 	            <div class="panel-heading">
 	              	<h3 class="panel-title">Welcome, {login} (<em>{role}</em>)</h3>
