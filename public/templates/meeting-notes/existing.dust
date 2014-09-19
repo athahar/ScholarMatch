@@ -1,45 +1,42 @@
 {>"layouts/master" /}
 
 {<title}
-	Meeting invite - College to Career Program  - ScholarMatch
+	Meeting notes - College to Career Program  - ScholarMatch
 {/title}
 
 {<body}
-
-	<div class="container">
-		<h1>View meeting notes</h1>		
+	{#data}
+	
+	<div class="container"  data-data2="{data|js}">
 		<br/>
-		<form id="signup-form" method="POST" class="form-horizontal">		   		   
-		   <div class="form-group">
-		      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
-		      <div class="col-sm-7"> Selena Golmes		      	
-		      </div>
-		   </div>
-		   <div class="form-group">
-		      <label for="meeting-date" class="col-sm-3 control-label">Date (MM/DD/YYYY)</label>
-		      <div class="col-sm-7">08/22/2014</div>
-		   </div>
-		   <div class="form-group">
-		      <label for="meeting-time" class="col-sm-3 control-label">Time (HH:MM)</label>
-		      <div class="col-sm-7">03:00PM</div>
-		   </div>
-		   <div class="form-group">
-		      <label for="topic" class="col-sm-3 control-label">Topic</label>
-		      <div class="col-sm-7">Insider Scoop</div>		       
-		   </div>
-		   <div class="form-group">
-		      <label for="notes" class="col-sm-3 control-label">Notes</label>
-		      <div class="col-sm-7">InsiderScore is the world's leading insider trading, institutional ownership and stock buyback research and analytics firm. The company's platform helps investors generate investment ideas and monitor existing holdings. InsiderScore serves hundreds of the world's most important institutional money managers.
-		      </div>		       
-		   </div>
-		   
-		   <div class="form-group">
-		      <div class="col-sm-7"><button type="submit" class="btn btn-success">Edit notes</button></div>
-		   </div>
 
-		   	<input type="hidden" name="_csrf" value="{_csrf}" />
-			<input type="hidden" name="type" id="type" value="0" />
-		</form>		
+		A note was submitted for this meeting already as follows:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {meetingnotes.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {meetingnotes.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {meetingnotes.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {meetingnotes.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {meetingnotes.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {meetingnotes.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {meetingnotes.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {meetingnotes.speakWithStaff}
+		<br/>
 
 	</div>
+	{/data}
 {/body}
