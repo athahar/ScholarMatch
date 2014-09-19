@@ -5,6 +5,8 @@ var SignupModel = require('../../models/signup');
 var userLib = require('../../lib/user')();
 var passport = require('passport');
 var expressValidator = require('express-validator');
+var email = require('../../lib/email');
+var emailContent = require('../../lib/emailContent');
 
 module.exports = function (router) {
 
@@ -40,6 +42,7 @@ module.exports = function (router) {
 
         var options = {};
 
+        options.fullName = req.body.fullName;
         options.username = req.body.username;
         // options.login = req.body.username;
         options.password = req.body.password;
@@ -52,6 +55,38 @@ module.exports = function (router) {
                 model.messages = err;
                 res.render('signup/index', model);
             } else {
+
+                var emailList = new Array();
+                emailList.push(options.username);
+
+                var emailOptions = {
+                    to: emailList.toString(),
+                    subject: 'Welcome to Career Connections', // Subject line
+                    text: emailContent.welcomeUser(options.fullName, options.role), // plaintext body
+                    html: emailContent.welcomeUser(options.fullName, options.role) // html body
+                };
+
+                email.sendEmail(emailOptions, function (err, result) {
+
+                    if (err) {
+                        console.log(err);
+//                        model.messages = err;
+//                        res.render('meeting-invite/index', model);
+                    } else {
+                        // console.log(result);
+                        /*model.emailSent = model.emailSent || {};
+                        model.emailSent = {
+                            "inviteCreator": inviteCreator,
+                            "invited": invitee,
+                            "meeting": meeting
+                        };
+
+                        console.dir(model);
+                        res.render('meeting-invite/emailSent', model);
+                        */
+                    }
+                });
+
                 console.log('result ' + result);
 
                 req.session.firstlogin = true;
