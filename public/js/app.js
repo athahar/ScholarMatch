@@ -141,23 +141,6 @@ $('#password').change(function(e){
 */
 
 
-//if menu is open and someone clicks off the menu, it should close
-
-//settings on click (log out, report bug, contact SM, etc)
-$('#settings-icon').on('click', function(e) {
-    $('#dropdown-settings-id').toggleClass("dropdown-settings-hidden"); 
-    e.preventDefault();
-});
-
-/*if user clicks outside of the menu, it should go away
-$('body').click(function(e){
-    if(e.target.className != "dropdown-settings-hidden" || e.target.className!= "dropdown-settings"){
-        $('#dropdown-settings-id').toggleClass("dropdown-settings-hidden"); 
-        e.preventDefault();
-    }
-});
-*/
-
 
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
@@ -185,8 +168,7 @@ else if(parts.indexOf("PROFILE")>0){
 else if(parts.indexOf("LOGIN")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
-    //document.getElementById("login-or-logout").className = "active-link";
-    document.getElementById("home").className = "active-link";
+    document.getElementById("login-or-logout").className = "active-link";
 }
 else if(parts.indexOf("SIGNUP")>0){
     for(var i = 0; i < linkIds.length; i++)
@@ -202,4 +184,10 @@ else{ //if anything else is selected, underline home for now
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("home").className = "active-link";
+}
+
+if ($(window).width() < 960) {
+   $('.fixed-header').css("height","175px");
+   $('body').css("top","175px");
+   $('.center-if-small-width').css("text-align","center");
 }
