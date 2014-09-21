@@ -1,9 +1,10 @@
 define([
         "jquery",
         "view",
-        "datetimepicker"
+        "datetimepicker",
+        "chosen"
     ],
-    function ($, View, datetimepicker) {
+    function ($, View, datetimepicker, chosen) {
 
         "use strict";
 
@@ -17,6 +18,8 @@ define([
                 this.initGooglePlaces();
 
                 this.initDateTimePicker();
+
+                $(".form-control.topic").chosen();
 
 
                 // user form validation before submit
