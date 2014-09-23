@@ -82,7 +82,8 @@ module.exports = function (router) {
 
         options.role = "coach";
 
-        userLib.queryAllUsers(options, function (err, result) {
+        userLib.queryAllCoaches(options, function(err, result) {
+        //userLib.queryAllUsers(options, function (err, result) {
 
             if (!err) {
                 model.data = model.data || {};

@@ -270,6 +270,14 @@ userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
 };
 
 
+userSchema.statics.findAllCoaches = function(callback) {
+    console.log("----findAllCoaches - unmatched -------");
+    this.find({
+        role: 'coach',
+        studentsLinked: {$size: 0}
+    }).exec(callback);
+}
+
 
 var meetingSchema = Schema({
     _creator: {
@@ -457,6 +465,12 @@ meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
     }).exec(callback);
 
 }
+
+var industrySchema = Schema({
+    _id: false,
+    field: String,
+    specialty: [String]
+})
 
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
