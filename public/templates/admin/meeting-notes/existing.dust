@@ -1,0 +1,72 @@
+{>"layouts/master" /}
+
+{<title}
+	Meeting notes - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	{#data}
+	
+	<div class="container"  data-data2="{data|js}">
+		<br/>
+
+		Coach's notes:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {meetingnotes.coach.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {meetingnotes.coach.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {meetingnotes.coach.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {meetingnotes.coach.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {meetingnotes.coach.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {meetingnotes.coach.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {meetingnotes.coach.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {meetingnotes.coach.speakWithStaff}
+		<br/>
+		<br/>
+		<br/>
+		Student's notes:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {meetingnotes.coach.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {meetingnotes.student.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {meetingnotes.student.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {meetingnotes.student.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {meetingnotes.student.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {meetingnotes.student.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {meetingnotes.student.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {meetingnotes.student.speakWithStaff}
+		<br/>
+		<br/>
+		<br/>
+
+	</div>
+	{/data}
+{/body}

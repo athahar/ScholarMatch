@@ -29,7 +29,7 @@
 			           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
 			           <td>{location}</td>
 			           <td>{topic}</td>
-			           <td><a href="/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
+			           <td><a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
 			           <td><a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a></td>
 			        </tr>     
 			        {/data.meetingDetails}      
