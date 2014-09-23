@@ -270,6 +270,14 @@ userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
 };
 
 
+userSchema.statics.findAllCoaches = function(callback) {
+    console.log("----findAllCoaches - unmatched -------");
+    this.find({
+        role: 'coach',
+        studentsLinked: {$size: 0}
+    }).exec(callback);
+}
+
 
 var meetingSchema = Schema({
     _creator: {
