@@ -466,6 +466,12 @@ meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
 
 }
 
+var industrySchema = Schema({
+    _id: false,
+    field: String,
+    specialty: [String]
+})
+
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
 var Attendee = mongoose.model('Attendee', attendeeSchema);
