@@ -29,6 +29,7 @@ module.exports = function (router) {
         options.college = req.body.college;
         options.gender = req.body.gender;
         options.role = req.body.role || 'coach';
+        options.industry = req.body.industry;
 
         model.messages = ''; //clear msgs
 
