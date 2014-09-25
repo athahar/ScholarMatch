@@ -22,7 +22,7 @@ module.exports = function (router) {
             model.data.userId = req.session.user._id;
             
             MeetingNotes.findAllByMeetingId(req.query.meetingId, function (err, meetingnotesrec) {
-
+            	debugger;
                 if (err) {
                     console.log('Error looking up meeting notes');
                     callback(err);
@@ -39,8 +39,10 @@ module.exports = function (router) {
             );
  
             if(notesExists == 1) {
+            	debugger
             	for(var i=0; i < model.data.meetingnotes.length; i++) {
             		if(model.data.meetingnotes[i].notesBy.role == 'coach') {
+            			model.data.coach = {};
             			model.data.coach.notesWriter = model.data.meetingnotes[i].notesBy.fullName;
             			model.data.coach.interactionType = model.data.meetingnotes[i].interactionType;
             			model.data.coach.materialUsefulness = model.data.meetingnotes[i].materialUsefulness;

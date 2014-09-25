@@ -13,56 +13,56 @@
 		Coach's notes:
 		<br/>
 		<br/>
-		Meeting Interaction Type - {meetingnotes.coach.interactionType}
+		Meeting Interaction Type - {coach.interactionType}
 		<br/>
 		<br/>
-		Appropriateness of topic (5 most appropriate) - {meetingnotes.coach.topicAppropriateness}
+		Appropriateness of topic (5 most appropriate) - {coach.topicAppropriateness}
 		<br/>
 		<br/>
-		Usefulness of material (5 most useful) - {meetingnotes.coach.materialUsefulness}
+		Usefulness of material (5 most useful) - {coach.materialUsefulness}
 		<br/>
 		<br/>
-		Utilization of time (5 most effective time utilization) - {meetingnotes.coach.timeUtilization}
+		Utilization of time (5 most effective time utilization) - {coach.timeUtilization}
 		<br/>
 		<br/>
-		Description of collabration - {meetingnotes.coach.collaborationDescription}
+		Description of collabration - {coach.collaborationDescription}
 		<br/>
 		<br/>
-		Description of next collabration - {meetingnotes.coach.nextCollaborationDescription}
+		Description of next collabration - {coach.nextCollaborationDescription}
 		<br/>
 		<br/>
-		Description of Participent's Sentiment - {meetingnotes.coach.participationSentiment}
+		Description of Participent's Sentiment - {coach.participationSentiment}
 		<br/>
 		<br/>
-		Have you spoken with the staff about this meeting? - {meetingnotes.coach.speakWithStaff}
+		Have you spoken with the staff about this meeting? - {coach.speakWithStaff}
 		<br/>
 		<br/>
 		<br/>
 		Student's notes:
 		<br/>
 		<br/>
-		Meeting Interaction Type - {meetingnotes.coach.interactionType}
+		Meeting Interaction Type - {student.interactionType}
 		<br/>
 		<br/>
-		Appropriateness of topic (5 most appropriate) - {meetingnotes.student.topicAppropriateness}
+		Appropriateness of topic (5 most appropriate) - {student.topicAppropriateness}
 		<br/>
 		<br/>
-		Usefulness of material (5 most useful) - {meetingnotes.student.materialUsefulness}
+		Usefulness of material (5 most useful) - {student.materialUsefulness}
 		<br/>
 		<br/>
-		Utilization of time (5 most effective time utilization) - {meetingnotes.student.timeUtilization}
+		Utilization of time (5 most effective time utilization) - {student.timeUtilization}
 		<br/>
 		<br/>
-		Description of collabration - {meetingnotes.student.collaborationDescription}
+		Description of collabration - {student.collaborationDescription}
 		<br/>
 		<br/>
-		Description of next collabration - {meetingnotes.student.nextCollaborationDescription}
+		Description of next collabration - {student.nextCollaborationDescription}
 		<br/>
 		<br/>
-		Description of Participent's Sentiment - {meetingnotes.student.participationSentiment}
+		Description of Participent's Sentiment - {student.participationSentiment}
 		<br/>
 		<br/>
-		Have you spoken with the staff about this meeting? - {meetingnotes.student.speakWithStaff}
+		Have you spoken with the staff about this meeting? - {student.speakWithStaff}
 		<br/>
 		<br/>
 		<br/>

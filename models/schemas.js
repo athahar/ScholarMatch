@@ -467,7 +467,7 @@ meetingNotesSchema.statics.findByUserAndMeetingId = function(userid, meetingid, 
     }, callback); 
 };
 
-meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
+meetingNotesSchema.statics.findAllByMeetingId = function(meetingid, callback) {
     this.find({
         meetingId: meetingid
     }).populate({
