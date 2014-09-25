@@ -70,7 +70,14 @@
 
 							   	<div class="form-group">
 							      	<label for="primaryIndustryName" class="col-sm-3 control-label">Primary Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+      									<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
+      										<option value="-1">Choose an Industry...</option>
+      										{#data.industry}  
+	      										<option value="{field}">{field}</option>
+	      									{/data.industry}
+	      								</select>
+	      							</div>							      	
 							   	</div>		   
 
 							   	<div class="form-group">
@@ -90,7 +97,14 @@
 
 							   	<div class="form-group">
 							      	<label for="secondaryIndustryName" class="col-sm-3 control-label">Secondary Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+      									<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
+      										<option value="-1">Choose an Industry...</option>
+      										{#data.industry}  
+	      										<option value="{field}">{field}</option>
+	      									{/data.industry}
+	      								</select>
+	      							</div>								      	
 							   	</div>		   
 
 							   	<div class="form-group">
