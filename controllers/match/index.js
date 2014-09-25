@@ -29,6 +29,7 @@ module.exports = function (router) {
         options.college = req.body.college;
         options.gender = req.body.gender;
         options.role = req.body.role || 'coach';
+        options.industry = req.body.industry;
 
         model.messages = ''; //clear msgs
 
@@ -82,7 +83,8 @@ module.exports = function (router) {
 
         options.role = "coach";
 
-        userLib.queryAllUsers(options, function (err, result) {
+        userLib.queryAllCoaches(options, function(err, result) {
+        //userLib.queryAllUsers(options, function (err, result) {
 
             if (!err) {
                 model.data = model.data || {};

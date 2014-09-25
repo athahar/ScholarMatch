@@ -8,13 +8,14 @@
             'backbone': 'lib/backbone',
             'underscore': 'lib/underscore',
             'jquery': 'lib/jquery-1.11.1.min', //for IEx compatibility
-            'typeahead': 'lib/typeahead.bundle.min',
+            // 'typeahead': 'lib/typeahead.bundle.min',
             'bootstrap': 'lib/bootstrap.min',
             'dust': 'lib/dust-full.min',
             'dust-helpers': 'lib/dust-helpers.min',
             'dust-helpers-supplement': 'lib/dust-helpers-supplement',
             'datetimepicker': 'lib/bootstrap-datetimepicker',
             'jqueryMask': 'lib/jquery.maskedinput.js',
+            'chosen': 'lib/chosen.jquery',
 
             'nougat': 'core/nougat',
             'BaseView': 'core/baseView',
@@ -29,6 +30,7 @@
             'profile': 'views/profile',
             'signup': 'views/signup',
             'coachingHelp': 'views/coachingHelp'
+
 
         },
         shim: {
@@ -50,7 +52,7 @@
             'bootstrap': {
                 deps: ['jquery']
             },
-            'typeahead': {
+            'chosen': {
                 deps: ['jquery']
             },
             "view": {
@@ -58,7 +60,7 @@
             },
             "app": {
                 deps: ["jquery"]
-            },
+            }            
         },
         waitSeconds: 15
     });
