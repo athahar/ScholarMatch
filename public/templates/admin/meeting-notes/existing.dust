@@ -1,0 +1,72 @@
+{>"layouts/master" /}
+
+{<title}
+	Meeting notes - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+	{#data}
+	
+	<div class="container"  data-data2="{data|js}">
+		<br/>
+
+		Coach's notes:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {coach.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {coach.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {coach.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {coach.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {coach.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {coach.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {coach.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {coach.speakWithStaff}
+		<br/>
+		<br/>
+		<br/>
+		Student's notes:
+		<br/>
+		<br/>
+		Meeting Interaction Type - {student.interactionType}
+		<br/>
+		<br/>
+		Appropriateness of topic (5 most appropriate) - {student.topicAppropriateness}
+		<br/>
+		<br/>
+		Usefulness of material (5 most useful) - {student.materialUsefulness}
+		<br/>
+		<br/>
+		Utilization of time (5 most effective time utilization) - {student.timeUtilization}
+		<br/>
+		<br/>
+		Description of collabration - {student.collaborationDescription}
+		<br/>
+		<br/>
+		Description of next collabration - {student.nextCollaborationDescription}
+		<br/>
+		<br/>
+		Description of Participent's Sentiment - {student.participationSentiment}
+		<br/>
+		<br/>
+		Have you spoken with the staff about this meeting? - {student.speakWithStaff}
+		<br/>
+		<br/>
+		<br/>
+
+	</div>
+	{/data}
+{/body}
