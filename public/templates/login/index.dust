@@ -6,44 +6,42 @@
 
 {<body}
     <div class="container-colored" data-data={_csrf}>
-		<div class="center-text">
-			<h1>Getting Started</h1>
-			<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
-			
-			<br />
+		<div class="container-colored-extra">
+			<div class="center-text">
+				<h1>Getting Started</h1>
+				<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+				
+				<br />
 
 
-	    	<form id="loginForm" method="post">	 
-				{?messages}
-					<ul class="bg-warning">
-						{#messages}
-							<li>{.}</li>
-						{/messages}
-					</ul>
-				{/messages}
+		    	<form id="loginForm" method="post">	 
+					{?messages}
+						<ul class="bg-warning">
+							{#messages}
+								<li>ERROR: {.}</li>
+							{/messages}
+						</ul>
+					{/messages}
 
-				<input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
-				&nbsp;&nbsp;&nbsp;
-				<!--<br /><br />-->
-				<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
+					<input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
+					&nbsp;&nbsp;&nbsp;
+					<!--<br /><br />-->
+					<input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
 
-				<br /><br />
-					   
-				<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;">Login</button>
-				<input type="hidden" name="_csrf" value="{_csrf}" />
-				<input type="hidden" name="type" id="type" value="0" />
-			</form>
+					<br /><br />
+						   
+					<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333;">Login</button>
+					<input type="hidden" name="_csrf" value="{_csrf}" />
+					<input type="hidden" name="type" id="type" value="0" />
+				</form>
 
-			<br />
+				<br />
 
-			<p class="lead">
-				<a href="/login/forgot" >Forgot Password? </a> <br />
-				Don't have an account? <a href="/signup" >Signup</a>
-			</p>
-
-
-				   
+				<p class="lead-standard">
+					<a href="/login/forgot" >Forgot Password? </a> <br />
+					Don't have an account? <a href="/signup" >Signup</a>
+				</p>		   
+			</div>
 		</div>
-
 	</div>
 {/body}

@@ -6,9 +6,52 @@
 
 {<body}
 
-	<div class="container" data-model="{data.result|js}">
-		
-		An e-mail has been sent : 
-		<br/> {data.result.messages}
+	<div class="container-colored" data-model="{data.result|js}">
+		<div class="center-text" >	
+			<p class="lead-standard">An e-mail has been sent to reset your password!</p>
+
+			<br/>
+
+			<div class="container-colored">
+				<div class="container-colored-extra">
+					<div class="center-text">
+						<h1>Getting Started</h1>
+						<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+						
+						<br />
+
+				    	<form id="loginForm" method="post">	 
+							{?messages}
+								<ul class="bg-warning">
+									{#messages}
+										<li>ERROR: {.}</li>
+									{/messages}
+								</ul>
+							{/messages}
+
+							<input type="text" class="text-box-home" name="username" id="username" placeholder="Email" >
+							&nbsp;&nbsp;&nbsp;
+							<!--<br /><br />-->
+							<input type="password" class="text-box-home"  name="password" id="password" placeholder="Password" >
+
+							<br /><br />
+							<input type="hidden" name="_csrf" value="{_csrf}" />
+							 <input type="hidden" name="type" id="type" value="0" />
+								   
+							<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);"><i class="fa fa-check"></i>Login</button>
+						</form>
+
+						<br />
+
+						<p class="lead-standard">
+							<a href="/login/forgot" >Forgot Password? </a> <br />
+							Don't have an account? <a href="/signup" >Signup</a>
+						</p>
+					</div>	  
+				</div> 
+			</div>  
+
+			{data.result.messages}
+		</div>
 	</div>
 {/body}

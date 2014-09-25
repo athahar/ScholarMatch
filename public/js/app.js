@@ -123,18 +123,42 @@ $('#coach-expectations').on('click', function(e) {
 
 
 
+//move cursor to left when someone tries to login & clicks on the appropriate text field
+$('#username').on('click',function(e){
+    $('#username').css("text-align","left")
+});
+$('#password').on('click',function(e){
+    $('#password').css("text-align","left")
+});
+
+//INSTEAD OF ABOVE, OPTION: moves cursor to left only if someone types in the field and clicks off of it
+/*$('#username').change(function(e){
+    $('#username').css("text-align","left")
+});
+$('#password').change(function(e){
+    $('#password').css("text-align","left")
+});
+*/
+
+
+
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
 for(var i = 0; i < parts.length; i++){
     parts[i] = parts[i].toUpperCase();
 }
 
-var linkIds = ["home","dashboard","profile","login-or-logout","sign-up","contact"];
+var linkIds = ["home","about","dashboard","profile","login-or-logout","sign-up","contact"];
 
 if(parts.indexOf("DASHBOARD")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
+}
+else if(parts.indexOf("ABOUT")>0){
+    for(var i = 0; i < linkIds.length; i++)
+        $("#"+linkIds[i]).removeClass();
+    document.getElementById("about").className = "active-link";
 }
 else if(parts.indexOf("PROFILE")>0){
     for(var i = 0; i < linkIds.length; i++)
@@ -160,4 +184,10 @@ else{ //if anything else is selected, underline home for now
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("home").className = "active-link";
+}
+
+if ($(window).width() < 960) {
+   $('.fixed-header').css("height","175px");
+   $('body').css("top","175px");
+   $('.center-if-small-width').css("text-align","center");
 }

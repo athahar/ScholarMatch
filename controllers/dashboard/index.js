@@ -5,6 +5,7 @@ var DashboardModel = require('../../models/dashboard'),
     mongoose = require('mongoose'),
     User = mongoose.model("User"),
     Meeting = mongoose.model("Meeting"),
+    Industry = mongoose.model("Industry"),
     async = require("async");
 
 module.exports = function (router) {
@@ -22,6 +23,7 @@ module.exports = function (router) {
         // console.log(req.user);
         // debugger;
         model.data.user = JSON.parse(JSON.stringify(req.user));
+        model.data.industry = model.data.industry || {};
         model.data.meetings = model.data.meetings || {};
         model.viewName = 'dashboard';
 
@@ -29,6 +31,17 @@ module.exports = function (router) {
         if (req.user.role === 'student') {
 
             view = 'dashboard/student';
+
+            Industry.findAll(function(err, result){
+                if(err) {
+                    console.log('error in reading the industries from DB');
+                }
+                else
+                {
+                    console.log(result);
+                    model.data.industry = JSON.parse(JSON.stringify(result));
+                }
+            })
 
             if ((req.user.coachesLinked && (req.user.coachesLinked.length > 0)) && (req.user.meetings && (req.user.meetings.length > 0))) {
 
