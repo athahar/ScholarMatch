@@ -269,6 +269,11 @@ userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
     // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1}).
 };
 
+userSchema.statics.removeMeetingFromSchemaById = function(id, meetingid, callback) {
+    this.update(
+    { _id: id},
+    { $pull: { meetings: {_id: meetingid} } }, callback);
+};
 
 userSchema.statics.findAllCoaches = function(callback) {
     console.log("----findAllCoaches - unmatched -------");
@@ -277,7 +282,6 @@ userSchema.statics.findAllCoaches = function(callback) {
         studentsLinked: {$size: 0}
     }).exec(callback);
 }
-
 
 var meetingSchema = Schema({
     _creator: {
@@ -299,6 +303,20 @@ meetingSchema.statics.findAll = function (callback) {
         select: 'fullName email phone college industry role gender experience city'
     })
         .exec(callback);
+};
+meetingSchema.statics.findById = function (id, callback) {
+    // this.find({}, callback);
+    this.findOne({_id: id}).populate({
+        path: 'attendees',
+        model: 'User',
+        select: 'fullName email phone college industry role gender experience city'
+    })
+        .exec(callback);
+};
+
+meetingSchema.statics.removeMeetingById = function (id, callback) {
+
+    this.findOne({_id: id}).remove(callback);
 };
 
 var relationshipSchema = Schema({
@@ -456,7 +474,7 @@ meetingNotesSchema.statics.findByUserAndMeetingId = function(userid, meetingid, 
     }, callback); 
 };
 
-meetingNotesSchema.statics.findAllByMeetingID = function(meetingid, callback) {
+meetingNotesSchema.statics.findAllByMeetingId = function(meetingid, callback) {
     this.find({
         meetingId: meetingid
     }).populate({

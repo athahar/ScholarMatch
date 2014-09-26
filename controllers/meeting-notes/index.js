@@ -15,21 +15,11 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
+      	debugger;
         if (req.session.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
             model.data.userId = req.session.user._id;
-            //Find the role of user, if admin show all notes by all users else show only that user's notes
-            User.findById(req.session.user._id, function(err, userrecresult) {
-                if(err) {
-                    console.log('Error looking up user data');
-                    callback(err);
-                }
-                console.log(userrecresult)
-                var userrec = JSON.parse(JSON.stringify(userrecresult));
-                userrole = userrec.role;
-            }
-            );
             
             MeetingNotes.findByUserAndMeetingId(req.session.user._id, req.query.meetingId, function (err, meetingnotesrec) {
 
@@ -71,6 +61,7 @@ module.exports = function (router) {
 
         MeetingNotes.findByUserAndMeetingId(req.session.userid, req.query.meetingId, function (err, meetingnotesrec) {
 
+                debugger;
                 if (err) {
                     callback(err);
 
@@ -100,6 +91,7 @@ module.exports = function (router) {
     
     router.post('/', function (req, res) {
 
+        debugger;
         if (req.session.user._id) {
 
             var meetingnotes = new MeetingNotes({
