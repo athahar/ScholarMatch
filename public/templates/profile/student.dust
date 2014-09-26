@@ -71,22 +71,52 @@
 							   
 							   	<div class="form-group">
 							      	<label for="schoolCurrentYear" class="col-sm-3 control-label">Current Year In School</label>
-							      	<div class="col-sm-7"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+			      						<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7">
+			      	  						<option value="-1">Select Current Year in School...</option>	
+					  						<option value="College Sophmore">College Sophmore</option>
+					  						<option value="College Junior">College Junior</option>
+					  						<option value="College Senior">College Senior</option>
+					  						<option value="Recent Graduate">Recent Graduate</option>
+										</select>
+									</div>	
 							   	</div>		   
 
 							   	<div class="form-group">
 							      	<label for="industryDesired" class="col-sm-3 control-label">Desired Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+      									<select name="industryDesired" id="industryDesired" class="form-control col-sm-7">
+      										<option value="-1">Choose an Industry...</option>
+      										{#data.industry}  
+	      										<option value="{field}">{field}</option>
+	      									{/data.industry}
+	      								</select>
+	      							</div>
+
 							   	</div>		   
 
 							   	<div class="form-group">
 							      	<label for="industryInterestedIn" class="col-sm-3 control-label">Interested In Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="industryInterestedIn" id="industryInterestedIn" placeholder="Interested In Industry" value="{industry.interestedIn}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+      									<select name="industryInterestedIn" id="industryInterestedIn" class="form-control col-sm-7">
+      										<option value="-1">Choose an Industry...</option>
+      										{#data.industry}  
+	      										<option value="{field}">{field}</option>
+	      									{/data.industry}
+	      								</select>
+	      							</div>							      	
 							   	</div>		   
 
 							   	<div class="form-group">
 							      	<label for="industrySecondary" class="col-sm-3 control-label">Secondary Industry Name</label>
-							      	<div class="col-sm-7"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control"></div>
+							      	<div class="col-sm-7">
+      									<select name="industrySecondary" id="industrySecondary" class="form-control col-sm-7">
+      										<option value="-1">Choose an Industry...</option>
+      										{#data.industry}  
+	      										<option value="{field}">{field}</option>
+	      									{/data.industry}
+	      								</select>
+	      							</div>							      	
 							   	</div>			
 						
         						<div class="form-group">

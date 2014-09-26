@@ -4,6 +4,8 @@ var userLib = require('../../lib/user')();
 var mongoose = require('mongoose');
 var User = mongoose.model("User");
 var logger = require('tracer').colorConsole();
+var mongoose = require('mongoose');
+var Industry = mongoose.model("Industry");
 
 module.exports = function (router) {
 
@@ -46,6 +48,7 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
+            model.data.industry = model.data.industry || {};
 
             model.data.result.userid = req.user._id;
  
@@ -60,6 +63,17 @@ module.exports = function (router) {
                     console.log(result)
                     model.data.result = JSON.parse(JSON.stringify(result));
                     model.data.result.isConnected = true;
+
+                    Industry.findAll(function(err, result){
+                        if(err) {
+                            console.log('error in reading the industries from DB');
+                        }
+                        else
+                        {
+                            console.log(result);
+                            model.data.industry = JSON.parse(JSON.stringify(result));
+                        } 
+                    })
 
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
