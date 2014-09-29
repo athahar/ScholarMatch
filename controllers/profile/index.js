@@ -125,14 +125,19 @@ module.exports = function (router) {
                 model.data.result.gradSchool.name = req.body.gradSchoolName;
                 model.data.result.gradSchool.major = req.body.gradSchoolMajor;
                 
+                
                 model.data.result.primaryIndustry = model.data.result.primaryIndustry || {};
-                model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                if(req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) {                
+                    model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                }
                 model.data.result.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
                 model.data.result.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
                 model.data.result.primaryIndustry.company = req.body.primaryIndustryCompany;
 
                 model.data.result.secondaryIndustry = model.data.result.secondaryIndustry || {};
-                model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                if(req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) {
+                    model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                }
                 model.data.result.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
                 model.data.result.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
                 model.data.result.secondaryIndustry.company = req.body.secondaryIndustryCompany;
@@ -153,12 +158,20 @@ module.exports = function (router) {
                 model.data.result.school = model.data.result.school || {};
                 model.data.result.school.name = req.body.schoolName;
                 model.data.result.school.major = req.body.schoolMajor;
-                model.data.result.school.currentYear = req.body.schoolCurrentYear;
+                if(req.body.schoolCurrentYear && (req.body.schoolCurrentYear != "-1")) {
+                    model.data.result.school.currentYear = req.body.schoolCurrentYear;
+                }
 
                 model.data.result.industry = model.data.result.industry || {};
-                model.data.result.industry.desired = req.body.industryDesired;
-                model.data.result.industry.interestedIn = req.body.industryInterestedIn;
-                model.data.result.industry.secondary = req.body.industrySecondary;
+                if(req.body.industryDesired && (req.body.industryDesired != "-1")) {
+                    model.data.result.industry.desired = req.body.industryDesired;
+                }
+                if(req.body.industryInterestedIn && (req.body.industryInterestedIn != "-1")) {
+                    model.data.result.industry.interestedIn = req.body.industryInterestedIn;
+                }
+                if(req.body.industrySecondary && (req.body.industrySecondary != "-1")) {
+                    model.data.result.industry.secondary = req.body.industrySecondary;
+                }
 
                 model.data.result.previousJobs = req.body.previousJobs;
                 model.data.result.additionalPersonalInfo = req.body.additionalPersonalInfo;
