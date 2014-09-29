@@ -248,7 +248,13 @@
 								<input type="hidden" name="type" id="type" value="0" />
 								<input type="hidden" name="userid" id="userid" value="{userid}" />
 								<input type="hidden" name="role" id="role" value="{role}" />
-							</form>	                	
+							</form>	  
+
+							<br />
+
+							<p class="lead-standard">
+								<a href="/changePassword/"><b>Click her to change  the password...</b></a>
+							</p>
 	                	</div>
 	              	</div>  
 				</div>
