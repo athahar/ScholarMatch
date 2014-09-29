@@ -1,7 +1,6 @@
 'use strict';
 
-var require('newrelic'),
-	kraken = require('kraken-js'),
+var kraken = require('kraken-js'),
     app = require('express')(),
     options = require('./lib/spec')(app),
     userLib = require('./lib/user')(),
