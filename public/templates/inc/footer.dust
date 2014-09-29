@@ -11,17 +11,7 @@
 	        Thank you for participating in our Career Connection program! <br />
 	        If you have any questions, please <a href="mailto:c2c@scholarmatch.org?subject=Career Connection">email us</a> or <a href="tel:4156522766">call us</a>. 
 	      <br /><br />
-
-	      <script type = "text/javscript">
-		  	var d = new Date();
-			var n = d.getFullYear();
-			document.getElementById('footerTM').innerHTML = '';
-			$('#footerTM').html('&copy; 2012-'+ n +' ScholarMatch, 849 Valencia Street, All Rights Reserved');
-	      </script>
-
-	      <span id="footerTM">
-	      	&copy; 2012-2014 ScholarMatch, 849 Valencia Street, All Rights Reserved
-	      </span>
+	      &copy; 2010-2012 ScholarMatch, 849 Valencia Street, All Rights Reserved</p>
     </div>
 
 </div>
