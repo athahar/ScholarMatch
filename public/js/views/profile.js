@@ -1,8 +1,9 @@
 define([
         "jquery",
         "view",
+        "jqueryMask"
     ],
-    function ($, View) {
+    function ($, View, jqueryMask) {
 
         "use strict";
 
