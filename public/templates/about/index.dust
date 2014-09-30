@@ -22,24 +22,39 @@
 				<h1 >Testimonials</h1>
 				<p class="lead" >See what our students and coaches are saying about Career Connections</p>
 				<div class="testimonial">
-					"I gained a lot of confidence about where my career path may be headed"
-					<br /><br /><br />
-					<p class="testimonial-person">Jewelea - Student</p>
+					<div class="testimonial-text">
+						"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
+					</div>
+					<div class="testimonial-person">
+						Eddie - Student<br />
+						<img src="/images/EddieAshley.gif" class="testimonial-picture" />
+					</div>
 				</div>
 				<div class="testimonial">
-					"My career coach <!--taught me who and how to reach out to for recommendation letters and--> connected me to many people in the field who might offer help and advice"
-					<br /><br />
-					<p class="testimonial-person">Jessica - Student</p>
+					<div class="testimonial-text">
+						"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+					</div>
+					<div class="testimonial-person">
+						Jessica - Student<br />
+						<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+					</div>
 				</div>
 				<div class="testimonial">
-					"Career Connections <!--was a great experience to be a part of &--> lets me reflect on my own journey and be of help to someone else"
-					<br /><br />
-					<p class="testimonial-person">Christine - Coach</p>					
+					<div class="testimonial-text">
+						"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+					</div>
+					<div class="testimonial-person">
+						Kathryn - Coach
+					</div>				
 				</div>
 				<div class="testimonial">
-					"This was a great experience & I really enjoyed working with my student. We are even going to continue to connect."
-					<br /><br />
-					<p class="testimonial-person">Kathryn - Coach</p>	
+					<div class="testimonial-text">
+						"As a Career Coach, I learned that I had a lot of experience in my field that I could share with another like-minded peer."
+					</div>
+					<div class="testimonial-person">
+						Christine - Coach<br />
+						<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
+					</div>		
 				</div>
 			</div>
 		</div>
