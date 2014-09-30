@@ -8,12 +8,15 @@ var kraken = require('kraken-js'),
 
 app.use(kraken(options));
 
+//added nodetime
+
 if(process.env.NODETIME_ACCOUNT_KEY) {
   require('nodetime').profile({
     accountKey: process.env.NODETIME_ACCOUNT_KEY,
     appName: 'Scholarmatch Career Connections' // optional
   });
 }
+
 
 
 app.listen(port, function(err) {
