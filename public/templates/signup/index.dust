@@ -10,7 +10,6 @@
     <div class="container-colored" data-data={_csrf|js}>
 		<div class="container-colored-extra">
 			<div class="center-text">
-				<h1>Signup</h1>
 
 				{?messages}
 		            <ul class="bg-warning">

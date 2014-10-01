@@ -19,6 +19,53 @@
 	</a>
 </div>
 
+<div class="container-widest-white" id="click-to-open" style="cursor:pointer;">
+	<div class="container-wide">
+		<div id="open-text" >
+			Get started with Career Connections by Signing Up or Logging In &nbsp;&nbsp;
+			<img src="/images/Expand.png"  />	
+		</div>
+		<div id="opened-text">
+			<div class="container-colored-extra-no-style">
+				<div class="center-text">
+					<h1>Getting Started</h1>
+					<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
+					
+					<br />
+
+			    	<form id="loginForm" method="post">	 
+						{?messages}
+							<ul class="bg-warning">
+								{#messages}
+									<li>ERROR: {.}</li>
+								{/messages}
+							</ul>
+						{/messages}
+
+						<input type="text" class="text-box-home" name="username" id="username" placeholder="Email" >
+						&nbsp;&nbsp;&nbsp;
+						<!--<br /><br />-->
+						<input type="password" class="text-box-home"  name="password" id="password" placeholder="Password" >
+
+						<br /><br />
+						<input type="hidden" name="_csrf" value="{_csrf}" />
+						 <input type="hidden" name="type" id="type" value="0" />
+							   
+						<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);"><i class="fa fa-check"></i>Login</button>
+					</form>
+
+					<br />
+
+					<p class="lead-standard">
+						<a href="/login/forgot" >Forgot Password? </a> <br />
+						Don't have an account? <a href="/signup" >Signup</a>
+					</p>
+				</div>	  
+			</div>   
+		</div>
+	</div>
+</div>
+
 <div class="container-widest-gray" style="padding-bottom:50px;">
 	<div class="container-colored-extra-no-style">
 		<h1 >Testimonials</h1>
@@ -41,6 +88,7 @@
 				<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
 			</div>
 		</div>
+		<!--
 		<div class="testimonial">
 			<div class="testimonial-text">
 				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
@@ -49,12 +97,13 @@
 				Kathryn - Coach
 			</div>				
 		</div>
+		-->
 		<div class="testimonial">
 			<div class="testimonial-text">
-				"As a Career Coach, I learned that I had a lot of experience in my field that I could share with another like-minded peer."
+				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
 			</div>
 			<div class="testimonial-person">
-				Christine - Coach<br />
+				Kathryn - Coach<br />
 				<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
 			</div>		
 		</div>
@@ -64,7 +113,7 @@
 <div class="container-widest-red" style="padding-bottom:5px;">
 	<div class="container-colored-extra-no-style">
 		<div class="split-content-in-half" >
-			<div class ="container-widest-gold" style="text-align:left; position:relative; top:-50px; padding:15px; box-shadow: 0 0 5px 0 #fff; display:inline-block;">
+			<div class ="container-widest-gold" style="text-align:left; position:relative; top:-75px; padding:15px; box-shadow: 0 0 5px 0 #fff; display:inline-block; width:90%;">
 				<h1 style="color:black;">
 					Overview
 				</h1>
@@ -101,49 +150,4 @@
 	</div>
 </div>
 
-	<div class="container-colored">
-		<div class="container-colored-extra">
-			<div class="center-text">
-				<h1>Getting Started</h1>
-				<p class="lead">Please login to get started with ScholarMatch's Career Connections program</p>
-				
-				<br />
-
-		    	<form id="loginForm" method="post">	 
-					{?messages}
-						<ul class="bg-warning">
-							{#messages}
-								<li>ERROR: {.}</li>
-							{/messages}
-						</ul>
-					{/messages}
-
-					<input type="text" class="text-box-home" name="username" id="username" placeholder="Email" >
-					&nbsp;&nbsp;&nbsp;
-					<!--<br /><br />-->
-					<input type="password" class="text-box-home"  name="password" id="password" placeholder="Password" >
-
-					<br /><br />
-					<input type="hidden" name="_csrf" value="{_csrf}" />
-					 <input type="hidden" name="type" id="type" value="0" />
-						   
-					<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);"><i class="fa fa-check"></i>Login</button>
-				</form>
-
-				<br />
-
-				<p class="lead-standard">
-					<a href="/login/forgot" >Forgot Password? </a> <br />
-					Don't have an account? <a href="/signup" >Signup</a>
-				</p>
-			</div>	  
-		</div>   
-
-		<br />
-
-		<div class="container-colored-extra" style="background:transparent; box-shadow: 0px 0px 0px 0px #888888;">
-			<div class="center-text">
-		</div>
-  
-	</div>
 {/user}
