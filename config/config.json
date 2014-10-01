@@ -55,6 +55,21 @@
                 "name": "engine-munger/lib/expressView"
             }
         },
+        "appsec": {
+             "enabled": true,
+             "priority": 110,
+             "module": {
+                 "name": "lusca",
+                 "arguments": [
+                     {
+                         "csrf": false,
+                         "xframe": "SAMEORIGIN",
+                         "p3p": false,
+                         "csp": false
+                     }
+                 ]
+             }
+         },
 
         "fileNotFound": {
             "enabled": true,

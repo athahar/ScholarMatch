@@ -8,8 +8,14 @@
     <!--ie 9 and less does not do gradients-->
     <!--[if lt IE 10]>
         <style type="text/css">
-          .container-colored{
+          .container-widest-gray{
              background-color:#CEC5A7;
+          }
+          .container-widest-gold{
+             background-color:#EFA91F;
+          }
+          .container-widest-red{
+             background-color:#8C1D41;
           }
         </style>
     <![endif]-->
