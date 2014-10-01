@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="/css/app.css" />
+    <!--scholarmatch font sheet-->
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6033892/688244/css/fonts.css" />
 
     <!--ie 9 and less does not do gradients-->
     <!--[if lt IE 10]>

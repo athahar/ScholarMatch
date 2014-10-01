@@ -8,8 +8,6 @@
     <div class="container-colored" data-data={_csrf|js}>
 		<div class="container-colored-extra">
 			<div class="center-text">
-				<h1>Contact Us</h1>
-
 				<div class="split-content-in-half">
 					For all questions, bug reporting or to request general info on the organization: 
 
