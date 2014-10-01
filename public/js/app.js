@@ -165,7 +165,7 @@ else if(parts.indexOf("PROFILE")>0){
         $("#"+linkIds[i]).removeClass();
     document.getElementById("profile").className = "active-link";
 }
-else if(parts.indexOf("LOGIN")>0){
+else if(parts.indexOf("LOGIN")>0 || parts.indexOf("LOGIN#")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("login-or-logout").className = "active-link";
@@ -199,5 +199,22 @@ if ($(window).width() < 1027) {
    //centers the menu
    $('.fixed-header').css("text-align","center");
    //make testimonials names/pictures stay level
-   $('.testimonial-text').css("height","160px");
+   $('.testimonial-text').css("height","175px");
 }
+
+$('#click-to-open').on('click',function(e){
+    $( "#open-text" ).fadeOut( 100, function() {
+        $( "#opened-text" ).slideDown( "slow", function() {  
+            $('#home-page-login-signup').css("cursor","default");
+        });
+    });
+});
+
+$('#login-or-logout').on('click',function(e){
+    $('#login-section').slideDown("fast",function(){
+    //for(var i = 0; i < linkIds.length; i++)
+        //$("#"+linkIds[i]).removeClass();
+    //document.getElementById("login-or-logout").className = "active-link";
+    });
+
+});

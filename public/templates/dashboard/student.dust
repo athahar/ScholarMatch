@@ -5,7 +5,7 @@
 {/title}
 
 {<body}
-	<div class="container-colored">
+	<div class="container">
 
 		<div class="row">
 		   <div id="connections" class="col-md-3">	   					  
