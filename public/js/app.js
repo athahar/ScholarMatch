@@ -186,9 +186,8 @@ else{ //if anything else is selected, underline home for now
     document.getElementById("home").className = "active-link";
 }
 
-
 //if window is really narrow or on mobile
-if ($(window).width() < 975) {
+if ($(window).width() < 1027) {
     //increase the height so the menu doesn't fall under the header
    $('.fixed-header').css("height","200px");
    //move the body start to match above

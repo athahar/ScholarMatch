@@ -1,6 +1,6 @@
 
 <div class="fixed-header">
-  <div class="container" style="padding-top:0;">
+  <div class="container-wide">
      {#user}
           <div class="float-right">
             <a href="/dashboard">{user.fullName}</a> ({user.role})
@@ -9,48 +9,46 @@
           </div>
       {/user}
 
-        <div class="navbar-header">
-          <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogoBigger.PNG"  /></a>      
-        </div>
+      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogoBigger.PNG"  /></a>      
 
-        <ul class="header-nav" >
-            <li class="active-link" id="home">
-              <a href="/" class="ScholarMatchFont">Home</a>
-            </li>
+      <ul class="header-nav" >
+        <li class="active-link" id="home">
+          <a href="/" class="ScholarMatchFont">Home</a>
+        </li>
 
-          <!--only show if user has logged in-->
-          {#user}
-            <li id="dashboard">
-              <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
-            </li>    
+        <!--only show if user has logged in-->
+        {#user}
+          <li id="dashboard">
+            <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
+          </li>    
 
-            <li id="profile">
-              <a href="/profile" class="ScholarMatchFont">Profile</a>
-            </li>  
-          {/user}
+          <li id="profile">
+            <a href="/profile" class="ScholarMatchFont">Profile</a>
+          </li>  
+        {/user}
 
-          <li id="about">
-            <a href="/about" class="ScholarMatchFont">About</a>
+        <li id="about">
+          <a href="/about" class="ScholarMatchFont">About</a>
+        </li>
+
+        <!--only show login if the user has not logged in-->
+        {^user}
+          <li id="login-or-logout">
+            <a href="/login" class="ScholarMatchFont">Login</a>
+          </li> 
+        {/user}
+
+
+        <!--don't show the signup if the user has logged in already-->
+        {^user}
+          <li id="sign-up">                    
+            <a href="/signup" >Signup</a>
           </li>
+        {/user}
 
-            <!--only show login if the user has not logged in-->
-            {^user}
-              <li id="login-or-logout">
-                <a href="/login" class="ScholarMatchFont">Login</a>
-              </li> 
-            {/user}
-
-
-          <!--don't show the signup if the user has logged in already-->
-          {^user}
-            <li id="sign-up">
-                    <a href="/signup" >Signup</a>
-            </li>
-          {/user}
-
-          <li id="contact">
-              <a href="/contact" >Contact</a>
-          </li>
-        </ul> 
+        <li id="contact">
+          <a href="/contact" >Contact</a>
+        </li>
+      </ul> 
   </div>
 </div>
