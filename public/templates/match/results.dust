@@ -19,7 +19,7 @@
        
 		<hr/>
 		<div class="clearfix">
-			<a href="/match/findcoach"> List all Coaches</a> | <a href="/match/findstudent"> List all students </a> 
+			<a href="/match/findcoach"> List all Coaches</a> {@eq key=forStudent value=false} | <a href="/match/findstudent"> List all students </a> {/eq}
 		</div>
 		<hr/>
 		<div class="results clearfix" data-results="{data.results|s}"> 						

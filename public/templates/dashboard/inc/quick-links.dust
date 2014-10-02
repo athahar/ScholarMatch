@@ -12,7 +12,9 @@
 		<li> <a href="/meeting-invite">Set up a meeting</a></li>
 		{/data.user.coachesLinked}
 		{! <li> <a href="/dashboard/getAllMeetings?userid={user._id}">View my meetings</a></li> !}
-		<li> <a href="/coaching-help">Coaching Help</a></li>
+		{@eq key=data.user.role value="coach"}
+			<li> <a href="/coaching-help">Coaching Help</a></li>
+		{/eq}
 		<li> <a href="/contact">Contact ScholarMatch</a></li>
 	</ul>
 </div>
