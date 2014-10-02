@@ -462,7 +462,7 @@ module.exports = function (router) {
                     var options = {};
 
                     options.role = "coach";
-                    userLib.queryAllUsers(options, function (err, result) {
+                    userLib.queryEveryCoach(options, function (err, result) {
                         // debugger;
                         if (err) {
                             model.messages = err;
@@ -477,7 +477,7 @@ module.exports = function (router) {
                     var options = {};
 
                     options.role = "student";
-                    userLib.queryAllUsers(options, function (err, result) {
+                    userLib.queryEveryStudent(options, function (err, result) {
                         // debugger;
                         if (err) {
                             model.messages = err;
