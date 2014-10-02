@@ -15,7 +15,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-      	debugger;
+      	// debugger;
         if (req.session.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
@@ -28,7 +28,7 @@ module.exports = function (router) {
                     callback(err);
 
                    }
-                console.log(meetingnotesrec)
+                // console.log(meetingnotesrec)
                 if(meetingnotesrec) {
                     model.data = model.data || {};
                     model.data.meetingnotes = model.data.meetingnotes || {};
@@ -51,13 +51,13 @@ module.exports = function (router) {
     });
 
     router.get('/meeting-notes', function (req, res) {
-        debugger;
+        // debugger;
         model.data = model.data || {};
         model.data.meetingId = req.query.meetingId; 
 
         MeetingNotes.findByUserAndMeetingId(req.session.userid, req.query.meetingId, function (err, meetingnotesrec) {
 
-                debugger;
+                // debugger;
                 if (err) {
                     callback(err);
 
@@ -84,7 +84,7 @@ module.exports = function (router) {
     
     router.post('/', function (req, res) {
 
-        debugger;
+        // debugger;
         if (req.session.user._id) {
 
             var meetingnotes = new MeetingNotes({
