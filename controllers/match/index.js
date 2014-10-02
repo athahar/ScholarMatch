@@ -67,6 +67,7 @@ module.exports = function (router) {
                     } 
                 })               
 
+                model.data.forStudent = true;
                 model.messages = err;
                 res.render('match/index', model)
             } else {
@@ -74,6 +75,7 @@ module.exports = function (router) {
                 // model.messages = 'sucessfully connected';
                 model.data.results = JSON.parse(JSON.stringify(result));
                 model.data.count = result.length;
+                model.data.forStudent = true;
 
                 res.render('match/results', model);
             }
@@ -98,6 +100,7 @@ module.exports = function (router) {
                 model.data.results = JSON.parse(JSON.stringify(result));
                 model.data.count = result.length;
                 // console.dir(model);
+                model.data.forStudent = true;
                 res.render('match/results', model);
             } else {
                 res.send(err);
@@ -120,6 +123,7 @@ module.exports = function (router) {
                 model.data = model.data || {};
                 model.data.results = JSON.parse(JSON.stringify(result));
                 model.data.count = result.length;
+                model.data.forStudent = true; // search done by student for coach
                 // console.dir(model);
                 res.render('match/results', model);
             } else {
@@ -140,6 +144,7 @@ module.exports = function (router) {
             model.data = model.data || {};
             model.data.results = JSON.parse(JSON.stringify(result));
             model.data.count = result.length;
+            model.data.forStudent = false;  // search done by coach for student
             // console.dir(model);
             res.render('match/results', model);
         })
