@@ -8,6 +8,8 @@ var async = require('async');
 var relationship = require('../../lib/matchRequest')();
 var emailContent = require('../../lib/emailContent');
 var email = require('../../lib/email');
+var mongoose = require('mongoose');
+var Industry = mongoose.model("Industry");
 
 module.exports = function (router) {
 
@@ -16,6 +18,20 @@ module.exports = function (router) {
 
     router.get('/', auth.isAuthenticated('coach'), function (req, res) {
         model.messages = ''; //clear msgs
+        model.data = model.data || {};
+        model.data.industry = model.data.industry || {};
+
+        Industry.findAll(function(err, result){
+            if(err) {
+                console.log('error in reading the industries from DB');
+            }
+            else
+            {
+                console.log(result);
+                model.data.industry = JSON.parse(JSON.stringify(result));
+            }
+        })
+
         res.render('match/index', model);
     });
 
@@ -35,13 +51,27 @@ module.exports = function (router) {
 
         userLib.queryMatchingAlgorithm(options, function (err, result) {
 
+            model.data = model.data || {};
             if (err) {
+
+                model.data.industry = model.data.industry || {};
+
+                Industry.findAll(function(err, result){
+                    if(err) {
+                        console.log('error in reading the industries from DB');
+                    }
+                    else
+                    {
+                        console.log(result);
+                        model.data.industry = JSON.parse(JSON.stringify(result));
+                    } 
+                })               
+
                 model.messages = err;
                 res.render('match/index', model)
             } else {
 
                 // model.messages = 'sucessfully connected';
-                model.data = model.data || {};
                 model.data.results = JSON.parse(JSON.stringify(result));
                 model.data.count = result.length;
 

@@ -6,118 +6,260 @@
 
 {<body}
 	{#data.result}
-		<div class="container-colored" data-data2="{data|js}">
-			<h1>Profile: {fullName}</h1>
-			<br/>
-						<center>
-							{?ownProfile}
-								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
-							{/ownProfile}
-						</center>
-
-			<br />
-			<div class="row">
-				<form id="view-profile" method="POST" class="form-horizontal" action="/profile/edit"/edit>		   		   
-					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-					<div id="connections" class="col-md-6">
-						<div class="panel panel-default">
-<!--
-{@contextDump/}				    
--->
-
-						<ul class="list-group">
-								<li class="list-group-item"> Full Name: <strong>{fullName}</strong> ({role})</li>
-								<li class="list-group-item"> Preferred Name: <strong>{preferredName}</strong></li>
-								{?isConnected}
-									<li class="list-group-item"> Email: <strong>{email}</strong></li>
-									<li class="list-group-item"> Phone: <strong>{phone}</strong></li>
-									<li class="list-group-item"> Location: <strong>{location}</strong></li>
-								{/isConnected}
-								<li class="list-group-item"> Gender: <strong>{gender}</strong></li>
-								<li class="list-group-item">
-									Preffered Meeting Format:
-									<strong>
-									{?preferredMeetingFormat.call}<br/>Call{/preferredMeetingFormat.call}
-									{?preferredMeetingFormat.email}<br/>E-mail{/preferredMeetingFormat.email}
-									{?preferredMeetingFormat.skype}<br/>Skype{/preferredMeetingFormat.skype}
-									{?preferredMeetingFormat.inPerson}<br/>In-Person{/preferredMeetingFormat.inPerson}
-									</strong>
-								</li>
-								{@eq key=role value="student"}
-									<li class="list-group-item"> School: <strong>{school.name}</strong></li>
-									<li class="list-group-item"> Major: <strong>{school.major}</strong></li>
-									<li class="list-group-item"> Current Year In School: <strong>{school.currentYear}</strong></li>
-
-									<li class="list-group-item"> Desired Industry: <strong>{industry.desired}</strong></li>
-									<li class="list-group-item"> Interested In Industry: <strong>{industry.interestedIn}</strong></li>
-									<li class="list-group-item"> Secondary Industry: <strong>{industry.secondary}</strong></li>
-
-									<li class="list-group-item"> Previous Jobs: <strong>{previousJobs}</strong></li>	
-									<li class="list-group-item"> Additional Personal Info: <strong>{additionalPersonalInfo}</strong></li>	
-
-									{?data.result.coachesLinked}
-										<li class="list-group-item">
-											Coach(s) Linked:  
-												{#data.result.coachesLinked}
-													<br/> {email}
-												{/data.result.coachesLinked}	
-										</li>		
-									{/data.result.coachesLinked}
-								{:else}
-									<li class="list-group-item"> Under Grad School: <strong>{underGradSchool.name}</strong></li>	
-									<li class="list-group-item"> Under Grad Major: <strong>{underGradSchool.major}</strong></li>	
-
-									<li class="list-group-item"> Grad School: <strong>{gradSchool.name}</strong></li>	
-									<li class="list-group-item"> Grad Major: <strong>{gradSchool.major}</strong></li>	
-
-									<li class="list-group-item"> Primary Industry: <strong>{primaryIndustry.industryName}</strong></li>
-									<li class="list-group-item"> Primary Job Title: <strong>{primaryIndustry.jobTitle}</strong></li>
-									<li class="list-group-item"> Primary Company: <strong>{primaryIndustry.company}</strong></li>
-									<li class="list-group-item"> Primary Years Of Experience: <strong>{primaryIndustry.yearsOfExperience}</strong></li>
-
-									<li class="list-group-item"> Secondary Industry: <strong>{secondaryIndustry.industryName}</strong></li>
-									<li class="list-group-item"> Secondary Job Title: <strong>{secondaryIndustry.jobTitle}</strong></li>
-									<li class="list-group-item"> Secondary Company: <strong>{secondaryIndustry.company}</strong></li>
-									<li class="list-group-item"> Secondary Years Of Experience: <strong>{secondaryIndustry.yearsOfExperience}</strong></li>
-
-									<li class="list-group-item"> Coaching Interest: <strong>{coachingInterest}</strong></li>
-									{?isConnected}
-										<li class="list-group-item"> Student Match Preference: <strong>{studentMatchPreference}</strong></li>
-
-										<li class="list-group-item"> Primary Reference: <strong>{primaryReference.name}</strong></li>
-										<li class="list-group-item"> Primary Reference Phone: <strong>{primaryReference.phone}</strong></li>
-										<li class="list-group-item"> Primary Reference E-Mail: <strong>{primaryReference.email}</strong></li>
-
-										<li class="list-group-item"> Secondary Reference: <strong>{secondaryReference.name}</strong></li>
-										<li class="list-group-item"> Secondary Reference Phone: <strong>{secondaryReference.phone}</strong></li>
-										<li class="list-group-item"> Secondary Reference E-Mail: <strong>{secondaryReference.email}</strong></li>
-
-
-										{?data.result.studentsLinked}
-											<li class="list-group-item">	
-												Student(s) Linked:  
-													{#data.result.studentsLinked}
-														<br/> {email} 
-													{/data.result.studentsLinked}	
-											</li>		
-										{/data.result.studentsLinked}
-									{/isConnected}
-								{/eq}	
-							</ul>
-						</div>			   			    
-						<input type="hidden" name="_csrf" value="{_csrf}" />
-						<input type="hidden" name="editProfile" id="editProfile" value="true" />
-						<input type="hidden" name="userid" id="userid" value="{userid}" />
-						<input type="hidden" name="role" id="role" value="{role}" />
-						
-						<center>
-							{?ownProfile}
-								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
-							{/ownProfile}
-						</center>
-					</div>	
+		<div class="container-colored" data-data2="{data|js}" style="position:relative;top:-25px;">
+			<div class="container-colored-extra-no-style">
+				<div class="profile-header">
+					<div class="profile-header-picture">
+						<img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle" >
+					</div>
+					<div class="profile-header-information">
+						<h2 style="display:inline-block; margin-right:20px;">{fullName}</h2>
+						<a href="/profile/edit#About">Edit</a>
+					</div>
 				</div>
-			</form>
+
+				<br />
+
+				<div class="split-content-in-half" style="vertical-align:top;">
+					<div class="profile-content-box">
+						<div class="profile-content-box-header">About {fullName}</div>					
+						<div class="profile-content-box-edit">
+							<a href="/profile/edit#About">Edit</a>
+						</div>
+						<hr />
+						<table class="profile-content-box-table">
+							{#preferredName}
+								<tr><td>Call me: &nbsp; {preferredName}</td></tr>
+							{:else}
+								<tr><td>Call me: &nbsp; {fullName}</td></tr>
+							{/preferredName}
+							{#gender}
+								<tr><td>Gender: &nbsp; {gender}</td></tr>
+							{/gender}
+							{#linkedinProfileUrl}
+								<tr><td>LinkedIn: &nbsp; <a href="{linkedinProfileUrl}" target="_blank">Click to View</a></td></tr>
+							{:else}
+								<tr><td>LinkedIn: &nbsp; <a href="/profile/edit#About">+ Add Profile Link</a></td></tr>
+							{/linkedinProfileUrl}
+							{@eq key=role value="coach"}
+								<tr><td><h4>Why I want to coach</h4></td></tr>
+								{#coachingInterest}
+									<tr><td>{coachingInterest}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#About">+ Why do you want to be a coach?</a></td></tr>
+								{/coachingInterest}
+							{/eq}
+								<tr><td><h4>About me</h4></td></tr>
+							{#additionalPersonalInfo}
+								<tr><td>{additionalPersonalInfo}</td></tr>
+							{:else}
+								<tr><td><a href="/profile/edit#About">+ Add About Me (hobbies, family, etc)</a></td></tr>
+							{/additionalPersonalInfo}
+						</table>
+					</div>
+
+					<br />
+
+					<div class="profile-content-box">
+						<div class="profile-content-box-header">Contact</div>
+						<div class="profile-content-box-edit">
+							<a href="/profile/edit#Contact">Edit</a>
+						</div>
+						<hr />
+						<table class="profile-content-box-table">
+							{#email}
+								<tr><td><a href="mailto:{email}">{email}</a></td></tr>
+							{:else}
+								<tr><td><a href="/profile/edit#Contact">+ Add Email</a></td></tr>
+							{/email}
+							{#phone}
+								<tr><td>{phone}</td></tr>
+							{:else}
+								<tr><td><a href="/profile/edit#Contact">+ Add Phone</a></td></tr>
+							{/phone}
+							{#location}
+								<tr><td>{location}</td></tr>
+							{:else}
+								<tr><td><a href="/profile/edit#Contact">+ Add Location</a></td></tr>
+							{/location}	
+						</table>
+					</div>
+
+				</div>
+
+				&nbsp;&nbsp;
+
+				<div class="split-content-in-half" style="vertical-align:top;">
+					<div class="profile-content-box">
+						<div class="profile-content-box-header">Education</div>
+						<div class="profile-content-box-edit">
+							<a href="/profile/edit#Education">Edit</a>
+						</div>
+						<hr />
+
+						{@eq key=role value="student"}
+							<table class="profile-content-box-table">
+								{#school.name}
+									<tr><td>{school.name}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add School</a></td></tr>
+								{/school.name}
+								{#school.major}
+									<tr><td>{school.major}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Major</a></td></tr>
+								{/school.major}
+								{#school.currentYear}
+									<tr><td>{school.currentYear} year(s) in school</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Current Year</a></td></tr>
+								{/school.currentYear}
+							</table>
+						{:else}
+							<table class="profile-content-box-table">
+								{#underGradSchool.name}
+									<tr><td>{underGradSchool.name}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Undergrad School</a></td></tr>
+								{/underGradSchool.name}
+								{#underGradSchool.major}
+									<tr><td>{underGradSchool.major}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Undergrad Major</a></td></tr>
+								{/underGradSchool.major}
+								{#gradSchool.name}
+									<tr><td>{gradSchool.name}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Grad School</a></td></tr>
+								{/gradSchool.name}
+								{#gradSchool.major}
+									<tr><td>{gradSchool.major}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Education">+ Add Grad Major</a></td></tr>
+								{/gradSchool.major}
+							</table>
+						{/eq}
+					</div>
+
+					<br />
+
+					<div class="profile-content-box">
+						<div class="profile-content-box-header">Industry</div>
+						<div class="profile-content-box-edit">
+							<a href="/profile/edit#Industry">Edit</a>
+						</div>
+						<hr />
+						{@eq key=role value="student"}
+							<table class="profile-content-box-table">
+								{#industry.desired}
+									<tr><td>Desired:</td><td>{industry.desired}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Desired Industry</a></td></tr>
+								{/industry.desired}
+								{#industry.secondary}
+									<tr><td>Secondary:</td><td>{industry.secondary}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Secondary Industry</a></td></tr>
+								{/industry.secondary}
+								{#previousJobs}
+									<tr><td>Previous Jobs:</td><td>{previousJobs}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Previous Jobs</a></td></tr>							
+								{/previousJobs}
+							</table>
+						{:else}
+							<table class="profile-content-box-table">
+								{#primaryIndustry.industryName}
+									<tr><td>{primaryIndustry.industryName}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Primary Industry</a></td></tr>
+								{/primaryIndustry.industryName}
+								{#primaryIndustry.jobTitle}
+									<tr><td>{primaryIndustry.jobTitle}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Job Title</a></td></tr>
+								{/primaryIndustry.jobTitle}
+								{#primaryIndustry.company}
+									<tr><td>{primaryIndustry.company}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Company</a></td></tr>
+								{/primaryIndustry.company}
+								{#primaryIndustry.yearsOfExperience}
+									<tr><td>{primaryIndustry.yearsOfExperience}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Years of Experience</a></td></tr>
+								{/primaryIndustry.yearsOfExperience}
+								{#secondaryIndustry.industryName}
+									<tr><td>{secondaryIndustry.industryName}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Secondary Industry</a></td></tr>
+								{/secondaryIndustry.industryName}
+								{#secondaryIndustry.jobTitle}
+									<tr><td>{secondaryIndustry.jobTitle}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Secondary Job Title</a></td></tr>
+								{/secondaryIndustry.jobTitle}
+								{#secondaryIndustry.company}
+									<tr><td>{secondaryIndustry.company}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Secondary Company</a></td></tr>
+								{/secondaryIndustry.company}
+								{#secondaryIndustry.yearsOfExperience}
+									<tr><td>{secondaryIndustry.yearsOfExperience}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Industry">+ Add Secondary Years of Experience</a></td></tr>
+								{/secondaryIndustry.yearsOfExperience}
+							</table>
+						{/eq}
+					</div>
+
+
+					{@eq key=role value="coach"}
+						<br />
+						<div class="profile-content-box">
+							<div class="profile-content-box-header">References</div>
+							<div class="profile-content-box-edit">
+								<a href="/profile/edit#References">Edit</a>
+							</div>
+							<hr />
+
+							<table class="profile-content-box-table">
+								{#primaryReference.name}
+									<tr><td>{primaryReference.name}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Primary Reference</a></td></tr>
+								{/primaryReference.name}
+								{#primaryReference.phone}
+									<tr><td>{primaryReference.phone}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Primary Reference Phone</a></td></tr>
+								{/primaryReference.phone}
+								{#primaryReference.email}
+									<tr><td>{primaryReference.email}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Primary Reference Email</a></td></tr>
+								{/primaryReference.email}
+								{#secondaryReference.name}
+									<tr><td>{primaryReference.name}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Secondary Reference</a></td></tr>
+								{/secondaryReference.name}
+								{#secondaryReference.phone}
+									<tr><td>{primaryReference.phone}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Phone</a></td></tr>
+								{/secondaryReference.phone}
+								{#secondaryReference.email}
+									<tr><td>{primaryReference.email}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Email</a></td></tr>
+								{/secondaryReference.email}
+							</table>
+						</div>
+					{/eq}
+
+				</div>
+			</div>
 		</div>
 	{:else}
 		<div class="lead"> Sorry, the user profile doesnt exist </div>

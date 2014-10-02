@@ -1,0 +1,82 @@
+{>"layouts/master" /}
+
+{<title}
+	Profile - College to Career Program  - ScholarMatch
+{/title}
+
+
+{<body}
+	{#data.result}
+		<div class="container-colored" data-data2="{data|js}">
+			<h1>Profile: {fullName}</h1>
+			
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+                    <li>ERROR: {.}</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
+
+			<!--{@contextDump/}-->
+			<br/>
+			<center>
+				{?ownProfile}
+					<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Change My Password</button>
+				{/ownProfile}
+			</center>
+
+			<br />
+
+			<div class="panel panel-info">
+		            <div class="panel-heading">
+		              	<h3 class="panel-title">Welcome, {login} (<em>{role}</em>)</h3>
+		            </div>
+		            <div class="panel-body">
+		              	<div class="row">
+		                	<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> 
+	                	</div>
+	                	<div class="col-md-9 col-lg-9">
+	                		{?data.firstlogin}
+	                			<p class="bg-success">
+							Welcome to Scholarmatch. Please change your password.
+						</p>
+					{/data.firstlogin}
+						
+					<form id="change-password-form" method="POST" class="form-horizontal" action="/changePassword">		   		   
+				
+						<div class="form-group">
+							<label for="currentPassword" class="col-sm-3 control-label">Current Password</label>
+							<div class="col-sm-7">
+								<input type="password" name="currentPassword" id="currentPassword" placeholder="Current Password" autofocus="" class="form-control" >
+							</div>
+						</div>
+	
+						<div class="form-group">
+							<label for="newPassword" class="col-sm-3 control-label">New Password</label>
+							<div class="col-sm-7">
+								<input type="password" name="newPassword" id="newPassword" placeholder="New Password" autofocus="" class="form-control" >
+							</div>
+						</div>
+		
+						<div class="form-group">
+							<label for="newPasswordRepeat" class="col-sm-3 control-label">Re-Enter New Password</label>
+							 <div class="col-sm-7">
+							 	<input type="password" name="newPasswordRepeat" id="newPasswordRepeat" placeholder="Re-Enter New Password" autofocus="" class="form-control" >
+							 </div>
+						</div>
+						
+					   	<div class="form-group">
+					      	<div class="col-sm-4"><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Change my Password</button></div>
+					   	</div>
+	
+					   	<input type="hidden" name="_csrf" value="{_csrf}" />
+						<input type="hidden" name="type" id="type" value="0" />
+						<input type="hidden" name="userid" id="userid" value="{userid}" />
+						<input type="hidden" name="role" id="role" value="{role}" />
+						<input type="hidden" name="login" id="login" value="{login}" />
+					</form>	                	
+		     	</div>  
+		</div>
+	{/data.result}
+{/body}

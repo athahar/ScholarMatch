@@ -1,6 +1,6 @@
 
 <div class="fixed-header">
-  <div class="container" style="padding-top:0;">
+  <div style="position:relative; right:5%;">
      {#user}
           <div class="float-right">
             <a href="/dashboard">{user.fullName}</a> ({user.role})
@@ -8,49 +8,83 @@
             <a href="/logout">Logout</a>
           </div>
       {/user}
+  </div>
+  <div class="container-wide">
 
-        <div class="navbar-header">
-          <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogoBigger.PNG"  /></a>      
-        </div>
+      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogoBigger.PNG"  /></a>      
 
-        <ul class="header-nav" >
-            <li class="active-link" id="home">
-              <a href="/" class="ScholarMatchFont">Home</a>
-            </li>
+      <ul class="header-nav" >
+        <li class="active-link" id="home">
+          <a href="/" >Home</a>
+        </li>
 
-          <!--only show if user has logged in-->
-          {#user}
-            <li id="dashboard">
-              <a href="/dashboard" class="ScholarMatchFont">Dashboard</a>
-            </li>    
+        <!--only show if user has logged in-->
+        {#user}
+          <li id="dashboard">
+            <a href="/dashboard" >Dashboard</a>
+          </li>    
 
-            <li id="profile">
-              <a href="/profile" class="ScholarMatchFont">Profile</a>
-            </li>  
-          {/user}
+          <li id="profile">
+            <a href="/profile" >Profile</a>
+          </li>  
+        {/user}
 
-          <li id="about">
-            <a href="/about" class="ScholarMatchFont">About</a>
+        <li id="about">
+          <a href="/about" >About</a>
+        </li>
+
+        <!--only show login if the user has not logged in-->
+        {^user}
+          <li id="login-or-logout">
+            <a href="#" >Login</a>
+          </li> 
+        {/user}
+
+
+        <!--don't show the signup if the user has logged in already-->
+        {^user}
+          <li id="sign-up">                    
+            <a href="/signup" >Signup</a>
           </li>
+        {/user}
 
-            <!--only show login if the user has not logged in-->
-            {^user}
-              <li id="login-or-logout">
-                <a href="/login" class="ScholarMatchFont">Login</a>
-              </li> 
-            {/user}
-
-
-          <!--don't show the signup if the user has logged in already-->
-          {^user}
-            <li id="sign-up">
-                    <a href="/signup" >Signup</a>
-            </li>
-          {/user}
-
-          <li id="contact">
-              <a href="/contact" >Contact</a>
-          </li>
-        </ul> 
+        <li id="contact">
+          <a href="/contact" >Contact</a>
+        </li>
+      </ul> 
   </div>
 </div>
+
+<div class="container-widest-white" id="login-section" style="border-bottom:thin groove black; background-color:#CEC5A7;">
+  <div class="container-wide">
+      <form id="loginForm" method="post">  
+          {?messages}
+            <ul class="bg-warning">
+              {#messages}
+                <li>ERROR: {.}</li>
+              {/messages}
+            </ul>
+          {/messages}
+
+          <input type="text" name="username" id="username" placeholder="Email address" class="text-box-home" >
+          &nbsp;&nbsp;&nbsp;
+          <input type="password" name="password" id="password" placeholder="Password" class="text-box-home">
+
+          <input type="hidden" name="_csrf" value="{_csrf}" />
+          <input type="hidden" name="type" id="type" value="0" />
+
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-success" id="login-button" style="height:35px; width:100px; font-size:16px; background-color:#663333; border-color:#663333;">Login</button>
+
+      </form>
+
+  </div>
+</div>  
+
+
+
+
+
+
+
+

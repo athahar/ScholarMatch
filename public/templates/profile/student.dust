@@ -5,160 +5,187 @@
 {/title}
 
 
+
 {<body}
 	{#data.result}
-		<div class="container-colored" data-data2="{data|js}">
-			<h1>Profile: {fullName}</h1>
-			<br/>
-						<center>
-							{?ownProfile}
-								<button type="submit" class="btn btn-primary offset" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit My Profile</button>
-							{/ownProfile}
-						</center>
+		<form  method="POST" action="/profile">	
+			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
+				{?data.firstlogin}
+					<center>
+						<p class="lead" style="margin-top:15px;">
+							Welcome to Career Connections. Please complete your profile. Edit sections by clicking the areas below.
+						</p>
+					</center>
+				{/data.firstlogin}
+				<div class="container-colored-extra">
+					<div class="edit-settings-nav">
+						<div class="edit-settings-nav-items-student" id="edit-settings-header-about">
+							About
+						</div>
+						<div class="edit-settings-nav-items-student" id="edit-settings-header-contact">
+							Contact
+						</div>
+						<div class="edit-settings-nav-items-student" id="edit-settings-header-education">
+							Education
+						</div>
+						<div class="edit-settings-nav-items-student" id="edit-settings-header-industry">
+							Industry
+						</div>
+					</div>
 
-			<br />
-		<!--{@contextDump/}-->
-			<div class="panel panel-info">
-	            <div class="panel-heading">
-	              	<h3 class="panel-title">Welcome, {login} (<em>{role}</em>)</h3>
-	            </div>
-	            <div class="panel-body">
-	              	<div class="row">
-	                	<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-	                	<div class="col-md-9 col-lg-9">
-	                		{?data.firstlogin}
-								<p class="bg-success">
-									Welcome to Scholarmatch. Please complete your profile.
-								</p>
-							{/data.firstlogin}
-						
-							<form id="profile-form" method="POST" class="form-horizontal" action="/profile">		   		   
+					<div class="edit-settings-content">
+						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
+							<h3>About Settings</h3>
+							<hr />
+							<center>
+								<table class="edit-settings-content-table">
+									<tr>
+										<td class="edit-settings-content-table-left">Profile Picture</td>
+										<td class="edit-settings-content-table-right">
+											<img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle" >
+											&nbsp;&nbsp;
+											<a href="#">Edit photo</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Full Name</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control" ></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Preferred Name</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control" ></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Gender</td>
+										<td class="edit-settings-content-table-right">
+			            					<div style="display:inline;">
+			                					<label class="radio-inline">
+			                    					<input type="radio" name="genderRadios" id="genderRadios"value="male"
+			                   						{@eq key=gender value="male"}
+			                   							checked
+			                   						{/eq}
+			                    					> Male
+			                					</label>
+			            					</div>
+			            					&nbsp;&nbsp;
+				            				<div style="display:inline;">
+				                				<label class="radio-inline">
+					                				<input type="radio" name="genderRadios" id="genderRadios" value="female"
+				                   					{@eq key=gender value="female"}
+				                   						checked
+				                   					{/eq}
+				                    				> Female
+				                				</label>
+				            				</div>
+				            			</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">About Me</td>
+										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" ></textarea></td>
+									</tr>
+								</table>
 			
-						   		<div class="form-group">
-						      		<label for="fullName" class="col-sm-3 control-label">Full Name</label>
-						      		<div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control" ></div>
-						   		</div>
+								<p class="lead-standard">
+									<a href="/changePassword/"><b>Click here to change your password...</b></a>
+								</p>
+								<br />
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+							</center>
+						</div>
 
-							   	<div class="form-group">
-							      	<label for="preferredName" class="col-sm-3 control-label">Preferred Name</label>
-							      	<div class="col-sm-7"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control" ></div>
-							   	</div>
 
-						   		<div class="form-group">
-						      		<label for="email" class="col-sm-3 control-label">E-mail</label>
-						      		<div class="col-sm-7"><input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{email}" class="form-control" ></div>
-						   		</div>
+						<div class="edit-settings-content-items-hidden" id="edit-settings-content-contact">
+							<h3>Contact Settings</h3>
+							<hr />
+							<center>
+								<table class="edit-settings-content-table">
+									<tr>
+										<td class="edit-settings-content-table-left">Email</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{email}" class="form-control" >
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Phone</td>
+										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Location</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+									</tr>
+								</table>
+								<br />
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+							</center>
+						</div>
 
-							   	<div class="form-group">
-							      	<label for="phone" class="col-sm-3 control-label">Phone</label>
-							      	<div class="col-sm-7"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></div>
-							   	</div>
 
-							   	<div class="form-group">
-							      	<label for="location" class="col-sm-3 control-label">Location</label>
-							      	<div class="col-sm-7"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></div>
-							   	</div>		   
+						<div class="edit-settings-content-items-hidden" id="edit-settings-content-education">
+							<h3>Education Settings</h3>
+							<hr />
+							<center>
+								<table class="edit-settings-content-table">
+									<tr>
+										<td class="edit-settings-content-table-left">School Name</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Major</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Year in School</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"></td>
+									</tr>
+								</table>
+								<br />
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+							</center>
+						</div>
 
-							   	<div class="form-group">
-							      	<label for="schoolName" class="col-sm-3 control-label">School</label>
-							      	<div class="col-sm-7"><input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control"></div>
-							   	</div>		   
 
-							   	<div class="form-group">
-							      	<label for="schoolMajor" class="col-sm-3 control-label">Major</label>
-							      	<div class="col-sm-7"><input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control"></div>
-							   	</div>		   
-							   
-							   	<div class="form-group">
-							      	<label for="schoolCurrentYear" class="col-sm-3 control-label">Current Year In School</label>
-							      	<div class="col-sm-7"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"></div>
-							   	</div>		   
-
-							   	<div class="form-group">
-							      	<label for="industryDesired" class="col-sm-3 control-label">Desired Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control"></div>
-							   	</div>		   
-
-							   	<div class="form-group">
-							      	<label for="industryInterestedIn" class="col-sm-3 control-label">Interested In Industry</label>
-							      	<div class="col-sm-7"><input type="text" name="industryInterestedIn" id="industryInterestedIn" placeholder="Interested In Industry" value="{industry.interestedIn}" autofocus="" class="form-control"></div>
-							   	</div>		   
-
-							   	<div class="form-group">
-							      	<label for="industrySecondary" class="col-sm-3 control-label">Secondary Industry Name</label>
-							      	<div class="col-sm-7"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control"></div>
-							   	</div>			
-						
-        						<div class="form-group">
-            						<label for="gender" class="col-sm-3 control-label">Gender</label>
-
-            						<div class="col-xs-2">
-                						<label class="radio-inline">
-                    						<input type="radio" name="genderRadios" id="genderRadios"value="male"
-                   							{@eq key=gender value="male"}
-                   								checked
-                   							{/eq}
-                       						> Male
-                						</label>
-            						</div>
-
-            						<div class="col-xs-2">
-                						<label class="radio-inline">
-	                   						<input type="radio" name="genderRadios" id="genderRadios" value="female"
-                   							{@eq key=gender value="female"}
-                   								checked
-                   							{/eq}
-                       						> Female
-                						</label>
-            						</div>
-	       						</div>
-
-							   	<div class="form-group">
-							      	<label for="previousJobs" class="col-sm-3 control-label">Previous Jobs / Internships</label>
-							      	<div class="col-sm-7"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></div>
-							   	</div>	 
-
-							   	<div class="form-group">
-							      	<label for="additionalPersonalInfo" class="col-sm-3 control-label">Additional Personal Info</label>
-							      	<div class="col-sm-7"><input type="text" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" class="form-control"></div>
-							   	</div>	 
-
-							   	<div class="form-group">
-							      	<label for="preferredMeetingFormat" class="col-sm-3 control-label">Preferred Meeting Format</label>
-							        <div class="col-sm-7">
-							        	<label class="checkbox-inline">
-		  									<input type="checkbox" id="preferredMeetingFormatCall" name="preferredMeetingFormatCall" {?preferredMeetingFormat.call}checked{/preferredMeetingFormat.call}/>Call 
-										</label>
-							        	<label class="checkbox-inline">
-		  									<input type="checkbox" id="preferredMeetingFormatEmail" name="preferredMeetingFormatEmail" {?preferredMeetingFormat.email}checked{/preferredMeetingFormat.email}/>E-mail 
-										</label>								
-										<label class="checkbox-inline">
-		  									<input type="checkbox" id="preferredMeetingFormatSkype" name="preferredMeetingFormatSkype" {?preferredMeetingFormat.skype}checked{/preferredMeetingFormat.skype}/>Skype 
-										</label>
-										<label class="checkbox-inline">
-		  									<input type="checkbox" id="preferredMeetingFormatInPerson" name="preferredMeetingFormatInPerson" {?preferredMeetingFormat.inPerson}checked{/preferredMeetingFormat.inPerson}/>In-Person 
-										</label>
-							   		</div>
-							   	</div>
-
-							   	<div class="form-group">
-							      	<label for="linkedinProfileUrl" class="col-sm-3 control-label">Linkedin Profile Url</label>
-							      	<div class="col-sm-7"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></div>
-							   	</div>
-
-							   	<div class="form-group">
-							      	<div class="col-sm-4"><button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Update my profile</button></div>
-							   	</div>
-							   
-							   	<input type="hidden" name="_csrf" value="{_csrf}" />
-								<input type="hidden" name="type" id="type" value="0" />
-								<input type="hidden" name="userid" id="userid" value="{userid}" />
-								<input type="hidden" name="role" id="role" value="{role}" />
-							</form>	                	
-	                	</div>
-	              	</div>  
+						<div class="edit-settings-content-items-hidden" id="edit-settings-content-industry">
+							<h3>Industry Settings</h3>
+							<hr />
+							<center>
+								<table class="edit-settings-content-table">
+									<tr>
+										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control"></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>
+									</tr>
+								</table>
+								<br />
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+							</center>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		   	<input type="hidden" name="_csrf" value="{_csrf}" />
+			<input type="hidden" name="type" id="type" value="0" />
+			<input type="hidden" name="userid" id="userid" value="{userid}" />
+			<input type="hidden" name="role" id="role" value="{role}" />
+		</form>
 	{/data.result}
 {/body}
+
+
+
+
+
