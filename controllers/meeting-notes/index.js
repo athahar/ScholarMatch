@@ -33,20 +33,16 @@ module.exports = function (router) {
                     model.data = model.data || {};
                     model.data.meetingnotes = model.data.meetingnotes || {};
                     model.data.meetingnotes = JSON.parse(JSON.stringify(meetingnotesrec));
-                    notesExists = 1;
+           
+                    console.log('note exists')
+                    res.render('meeting-notes/existing', model);   
                 }
-            } 
-            );
-            
-            if(notesExists == 1) {
-                console.log('note exists')
-                res.render('meeting-notes/existing', model);   
-            }
-            else {
-                console.log('new note')
-                res.render('meeting-notes/index', model);
-            }
-        
+                else {
+                    console.log('new note')
+                    res.render('meeting-notes/index', model);
+                }
+            }); 
+
         }
         else {
           res.redirect('/login');  
@@ -76,17 +72,14 @@ module.exports = function (router) {
                     model.data.nextCollaborationDescription = meetingnotesrec.nextCollaborationDescription;
                     model.data.participationSentiment = meetingnotesrec.participationSentiment;
                     model.data.speakWithStaff = meetingnotesrec.speakWithStaff; 
+                
+                    res.render('meeting-notes/index', model);   
                 }
-               } 
-              );
-            
-            if(model.data.interactionType) {
-        
-                res.render('meeting-notes/index', model);   
-            }
-            else {
-                res.render('meeting-notes/existing', model);
-            }
+                else {
+                    res.render('meeting-notes/existing', model);
+                }
+            }); 
+     
     });
     
     router.post('/', function (req, res) {
