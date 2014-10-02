@@ -16,6 +16,7 @@
 					<li> <a href="/match/orientationInProgress">Orientation(s) in Progress</a></li>
 					<li> <a href="/match/manualconnection">Manually match student / Coach</a></li>
 					<li> <a href="/admin/allmeetings">View all meetings</a></li>
+					<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
 					
 				</ul>
 			</div>			  
