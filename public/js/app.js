@@ -186,21 +186,7 @@ else{ //if anything else is selected, underline home for now
     document.getElementById("home").className = "active-link";
 }
 
-//if window is really narrow or on mobile
-if ($(window).width() < 1027) {
-    //increase the height so the menu doesn't fall under the header
-   $('.fixed-header').css("height","200px");
-   //move the body start to match above
-   $('body').css("top","200px");
-   //let the menu be centered, under the career connections banner
-   $('.header-nav').css("float","none");
-   //set the banner to 100% width so that it shows in the middle
-   $('.navbar-header').css("width","100%");
-   //centers the menu
-   $('.fixed-header').css("text-align","center");
-   //make testimonials names/pictures stay level
-   $('.testimonial-text').css("height","175px");
-}
+//alert($(window).width());
 
 $('#click-to-open').on('click',function(e){
     $( "#open-text" ).fadeOut( 100, function() {
@@ -211,10 +197,21 @@ $('#click-to-open').on('click',function(e){
 });
 
 $('#login-or-logout').on('click',function(e){
+    window.location.href = "/login";
+    /* commented out until we can fix - nice to have
     $('#login-section').slideDown("fast",function(){
     //for(var i = 0; i < linkIds.length; i++)
         //$("#"+linkIds[i]).removeClass();
     //document.getElementById("login-or-logout").className = "active-link";
     });
-
+    */
 });
+
+function redirectPage(page){
+    window.location.href = "/signup";
+}
+
+function scrollTo(element){
+    var heightHeader = $('.fixed-header').height();
+    $("html, body").animate({ scrollTop: $('#'+element).offset().top  - heightHeader}, 1000);
+}

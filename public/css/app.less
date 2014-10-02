@@ -32,6 +32,22 @@ html {
   border-bottom: 1px groove #EFECE0;
 }
 
+@media screen and (max-width: 1182px){
+    .fixed-header{
+      height:175px;
+    }
+}
+@media screen and (min-width: 1182px){
+    .fixed-header{
+      height:110px;
+    }
+}
+@media screen and (max-width: 580px){
+    .fixed-header{
+      height:225px;
+    }
+}
+
 body {
   position:relative;
   top:110px;
@@ -177,8 +193,6 @@ body {
 .signup-button{
   text-align:center; 
   cursor:pointer; 
-  position:relative; 
-  top:75px; 
   padding:15px; 
   width:250px; 
   margin:auto;
@@ -281,7 +295,7 @@ h1{
   display:inline-block;
   border-radius: 5px;
   padding:5px;
-  text-align:center;
+  text-align:left;
   color:rgb(153,51,51);
   font-weight:bold;
 }
@@ -522,4 +536,22 @@ h1{
   font-size:20px;
   cursor:pointer;
   background-color:white;
+}
+
+.curved-box{
+  background-color:#EFEFEF;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;  
+  padding:3px;
+  width:75%;
+  min-width:450px;
+}
+
+.curved-box-inside{
+  background-color:white;
+  border: 1px groove;
+  border-radius: 5px;  
+  padding:15px;
+  padding-left:50px;
+  padding-right:50px;
 }
