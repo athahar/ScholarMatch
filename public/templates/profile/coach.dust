@@ -95,6 +95,10 @@
 										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="coachingInterest" id="coachingInterest" placeholder="Why do you want to coach?" value="{coachingInterest}" autofocus="" ></textarea></td>
 									</tr>
 								</table>
+			
+								<p class="lead-standard">
+									<a href="/changePassword/"><b>Click here to change your password...</b></a>
+								</p>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -274,10 +278,7 @@
 			<input type="hidden" name="type" id="type" value="0" />
 			<input type="hidden" name="userid" id="userid" value="{userid}" />
 			<input type="hidden" name="role" id="role" value="{role}" />
-		</form>
-							<p class="lead-standard">
-								<a href="/changePassword/"><b>Click here to change your password...</b></a>
-							</p>		
+		</form>		
 	{/data.result}
 {/body}
 
