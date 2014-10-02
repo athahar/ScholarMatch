@@ -190,7 +190,7 @@ module.exports = function (router) {
 
                 // debugger;
                 model.data = model.data || {};
-                console.dir(result);
+                // console.dir(result);
                 model.data.result = JSON.parse(JSON.stringify(result));
 
                 //TODO: response handling shoudl be better
@@ -215,7 +215,7 @@ module.exports = function (router) {
 
                 // debugger;
                 model.data = model.data || {};
-                console.dir(result);
+                // console.dir(result);
                 model.data.result = JSON.parse(JSON.stringify(result));
 
                 //TODO: response handling shoudl be better
@@ -275,7 +275,7 @@ module.exports = function (router) {
                         res.render('errors/500', model);
                     } else {
 
-                        console.dir(model);
+                        // console.dir(model);
                         // model.messages = 'sucessfully connected';
                         model.data = model.data || {};
                         model.data.result = JSON.parse(JSON.stringify(result));
@@ -307,7 +307,7 @@ module.exports = function (router) {
 
                 // debugger;
                 model.data = model.data || {};
-                console.dir(result);
+                // console.dir(result);
                 model.data.result = JSON.parse(JSON.stringify(result));
 
                 //TODO: response handling shoudl be better
@@ -334,7 +334,7 @@ module.exports = function (router) {
 
                 // debugger;
                 model.data = model.data || {};
-                console.dir(result);
+                // console.dir(result);
                 model.data.result = JSON.parse(JSON.stringify(result));
 
                 //TODO: response handling shoudl be better
@@ -399,7 +399,7 @@ module.exports = function (router) {
                     res.render('match/index', model)
                 } else {
 
-                    console.dir(result.approveConnection);
+                    // console.dir(result.approveConnection);
                     // debugger;
 
                     var student = result.approveConnection.student,

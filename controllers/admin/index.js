@@ -24,16 +24,16 @@ module.exports = function (router) {
     });
 
     router.get('/allmeetings', function (req, res) {
-        debugger;
+        // debugger;
         MeetingRequest.findAll(function (err, result) {
-            debugger;
+            // debugger;
             if (err) {
                 console.log(err);
                 model.messages = err;
                 // res.render('meeting-invite/index', model);
                 res.send(model);
             } else {
-                console.dir(result);
+                // console.dir(result);
                 model.data = model.data || {};
                 model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                 for(var i = 0; i < model.data.meetingDetails.length; i++) {
@@ -76,7 +76,7 @@ module.exports = function (router) {
     });
 
     router.get('/meeting-setup', function (req, res) {
-        //debugger;
+        // debugger;
         var options = { role: 'coach'};
         userLib.queryEveryCoach(options, function (err, result) {
             if (err) {
@@ -85,8 +85,8 @@ module.exports = function (router) {
                 // res.render('meeting-invite/index', model);
                 res.send(model);
             } else {
-                //debugger;
-                console.dir(result);
+                // debugger;
+                // console.dir(result);
                 model.data = model.data || {};
                 //model.data.view = "MeetingInvite"
                 model.data.coaches = JSON.parse(JSON.stringify(result));
@@ -103,8 +103,8 @@ module.exports = function (router) {
                 // res.render('meeting-invite/index', model);
                 res.send(model);
             } else {
-                //debugger;
-                console.dir(result);
+                // debugger;
+                // console.dir(result);
                 //model.data = model.data || {};
                 //model.data.view = "MeetingInvite"
                 model.data.students = JSON.parse(JSON.stringify(result));
@@ -117,7 +117,7 @@ module.exports = function (router) {
     });
 
     router.post('/meeting-setup', function (req, res) {
-        debugger;
+        // debugger;
         var meeting = {
             meetingdate: req.body.meetingDate,
             meetinglocation: req.body.location,
@@ -130,7 +130,7 @@ module.exports = function (router) {
 
         async.parallel({
                 inviteCreator: function (callback) {
-                    debugger;
+                    // debugger;
                     User.findById(req.body.invitee_coach, function (err, inviteCreator) {
                         if (err) {
                             model.messages = err;
