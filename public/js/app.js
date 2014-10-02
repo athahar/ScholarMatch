@@ -164,7 +164,7 @@ $('#login-or-logout').on('click',function(e){
 });
 
 function redirectPage(page){
-    window.location.href = "/signup";
+    window.location.href = "/" + page;
 }
 
 function scrollTo(element){
