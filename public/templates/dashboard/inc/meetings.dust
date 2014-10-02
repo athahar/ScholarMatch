@@ -32,8 +32,11 @@ You have not met anyone yet!
            <td>{attendee.name}</td>
            <td>{location}</td>
            <td>{topic}</td>
+           {isMeetingCompleted}
            <td><a href="/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
+           {^isMeetingCompleted}
            <td><a href="/meetings/cancel?meetingId={_id}">Cancel</a></td>
+           {/isMeetingCompleted}
         </tr>     
         {/data.meetingDetails.meetings}      
      </tbody>

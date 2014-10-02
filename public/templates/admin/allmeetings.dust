@@ -23,15 +23,23 @@
 			        </tr>
 			     </thead>
 			     <tbody>
-			        {#data.meetingDetails}    
+			        {#data.meetingDetails}  
 			        <tr>
 			           <td>{meetingdate}</td>
 			           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
 			           <td>{location}</td>
 			           <td>{topic}</td>
-			           <td><a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
-			           <td><a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a></td>
-			        </tr>     
+           				<td>
+           				{?isMeetingCompleted}
+           					<a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a>
+           				{/isMeetingCompleted}
+           				</td>
+           				<td>
+           			    {^isMeetingCompleted}
+           			    	<a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a>
+           			    {/isMeetingCompleted}
+           			    </td>
+			           </tr>     
 			        {/data.meetingDetails}      
 			     </tbody>
 			  </table>
