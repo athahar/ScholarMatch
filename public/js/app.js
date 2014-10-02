@@ -100,48 +100,6 @@ define([
 
 //Bram CODE BELOW
 
-$('#overview').on('click', function(e) {
-    $('#overview-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#candidates').on('click', function(e) {
-    $('#candidates-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#how-it-works').on('click', function(e) {
-    $('#how-it-works-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#student-expectations').on('click', function(e) {
-    $('#student-expectations-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#coach-expectations').on('click', function(e) {
-    $('#coach-expectations-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-
-
-
-//move cursor to left when someone tries to login & clicks on the appropriate text field
-$('#username').on('click',function(e){
-    $('#username').css("text-align","left")
-});
-$('#password').on('click',function(e){
-    $('#password').css("text-align","left")
-});
-
-//INSTEAD OF ABOVE, OPTION: moves cursor to left only if someone types in the field and clicks off of it
-/*$('#username').change(function(e){
-    $('#username').css("text-align","left")
-});
-$('#password').change(function(e){
-    $('#password').css("text-align","left")
-});
-*/
-
-
-
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
 for(var i = 0; i < parts.length; i++){
@@ -185,8 +143,6 @@ else{ //if anything else is selected, underline home for now
         $("#"+linkIds[i]).removeClass();
     document.getElementById("home").className = "active-link";
 }
-
-//alert($(window).width());
 
 $('#click-to-open').on('click',function(e){
     $( "#open-text" ).fadeOut( 100, function() {

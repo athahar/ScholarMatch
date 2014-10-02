@@ -5,44 +5,70 @@
 {/title}
 
 {<body}            
-    <div class="container-colored" data-data={_csrf|js}>
-		<div class="container-colored-extra">
-			<div class="center-text">
-				<div class="split-content-in-half">
-					For all questions, bug reporting or to request general info on the organization: 
-
-					<br /><br />
-
-					<table>
-						<tr><td style="padding-right:15px;">Email:</td><td><a href="mailto:info@scholarmatch.org?subject=Contact Scholar Match">info@scholarmatch.org</a></td></tr>
-						<tr><td>Call:</td><td><a href="tel:4156522766">415.652.2766</a></td></tr>
-						<tr><td>Write:</td><td><a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street, San Francisco, CA 94110</a></td></tr>
-					</table>
-
-					<br />
-
-					To contact a specific staff member directly, visit our <a href="http://scholarmatch.org/about/who-we-are/#staff" target="is_blank">staff page here</a> for more info. 
-
-					<br /><br />
-
-					To keep up with student stories, get the skinny on our fun events, and read the latest college cost news, <a href="http://scholarmatch.us2.list-manage.com/subscribe?u=8f459a7efacd651e92d695534&id=a31c13ddf9" target="is_blank">sign up for our newsletter!</a>
-
-					<br /><br />
-
-					<center>
-						<a href="http://www.scholarmatch.org" target="is_blank">
-							<img src="/images/ScholarMatchLogoContactUs.PNG" />
-						</a>
-					</center>
+	<div class="container-widest-white" data-data={_csrf|js}>
+		<div class="container-wide" style="text-align:left;">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Contact Us
+			</div>
+			<hr />
+			<div class="split-content-in-half"  >
+				<div style="margin-left:10%; margin-top:5%; ">
+						<div class="contact-table">
+							<div class="contact-table-image">
+								<a href=mailto:info@scholarmatch.org?subject=Contact Scholar Match"><img src="/images/email.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
+							</div>
+							<div class="contact-table-text">
+								<a href="mailto:info@scholarmatch.org?subject=Contact Scholar Match">info [at] scholarmatch.org</a>
+							</div>
+							<br /><br />
+							<div class="contact-table-image">
+								<a href="tel:4156522766"><img src="/images/call.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
+							</div>
+							<div class="contact-table-text">
+								<a href="tel:4156522766">415.652.2766</a>
+							</div>
+							<br /><br />
+							<div class="contact-table-image">
+								<a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank"><img src="/images/location.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
+							</div>
+							<div class="contact-table-text">
+								<a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street, San Francisco</a>
+							</div>
+						</div>
 				</div>
-
-				<div class="split-content-in-half">
+				<br /><br />
+				<center>
+					<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
+						<div id="linkedin-image"></div>
+					</a>&nbsp;
+					<a href="https://twitter.com/ScholarMatch" target="_blank">
+						<div id="twitter-image"></div>
+					</a>&nbsp;
+					<a href="https://www.facebook.com/ScholarMatch" target="_blank">
+						<div id="facebook-image"></div>
+					</a>&nbsp;
+					<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
+						<div id="youtube-image"></div>
+					</a>&nbsp;
+				</center>
+				<br />
+				To keep up with student stories, get the skinny on our fun events, and read the latest college cost news, <a href="http://scholarmatch.us2.list-manage.com/subscribe?u=8f459a7efacd651e92d695534&id=a31c13ddf9" target="is_blank">sign up for our newsletter!</a>
+				<br /><br />
+			</div>
+			<div class="split-content-in-half"  >	
 					<center>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3154.3082469330207!2d-122.4210619!3d37.759369899999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3c537584bb%3A0x5bdde258af95d3ee!2s849+Valencia+St%2C+San+Francisco%2C+CA+94110!5e0!3m2!1sen!2sus!4v1410458531551" width="480" height="320" frameborder="0" style="border:0"></iframe>
 					</center>
-				</div>
-				
 			</div>
+
+				<center>
+					<a href="http://www.scholarmatch.org" target="is_blank">
+						<img src="/images/ScholarMatchLogoContactUs.PNG" />
+					</a>
+				</center>
 		</div>
 	</div>
+    
 {/body}

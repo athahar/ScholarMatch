@@ -60,7 +60,7 @@
 		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
-			Who can participate?
+			Who can Participate?
 		</div>
 		<hr />
 		<div class="split-content-in-half-top-align" id="click-to-open" >
@@ -124,46 +124,53 @@
 
 <a id="testimonials" name="testimonials"></a>
 <div class="container-widest-white" style="padding-bottom:50px; ">
-	<div class="container-colored-extra-no-style">
-		<h1 >Testimonials</h1>
-		<p class="lead" >See what our students and coaches are saying about Career Connections</p>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
-			</div>
-			<div class="testimonial-person">
-				Eddie - Student<br />
-				<img src="/images/EddieAshley.gif" class="testimonial-picture" />
-			</div>
+	<div class="container-wide" style="text-align:left;">
+		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		&nbsp;&nbsp;
+		<div class="about-title">
+			Testimonials
 		</div>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+		<hr />
+		<center>
+		<p >See what our students and coaches are saying about Career Connections</p>
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
+				</div>
+				<div class="testimonial-person">
+					Eddie - Student<br />
+					<img src="/images/EddieAshley.gif" class="testimonial-picture" />
+				</div>
 			</div>
-			<div class="testimonial-person">
-				Jessica - Student<br />
-				<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+				</div>
+				<div class="testimonial-person">
+					Jessica - Student<br />
+					<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+				</div>
 			</div>
-		</div>
-		<!--
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+			<!--
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+				</div>
+				<div class="testimonial-person">
+					Kathryn - Coach
+				</div>				
 			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach
-			</div>				
-		</div>
-		-->
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+			-->
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+				</div>
+				<div class="testimonial-person">
+					Kathryn - Coach<br />
+					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
+				</div>		
 			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach<br />
-				<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
-			</div>		
-		</div>
+		</center>
 	</div>
 </div>
 

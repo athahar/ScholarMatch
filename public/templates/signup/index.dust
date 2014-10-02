@@ -21,13 +21,13 @@
 						<h3>Get started</h3>
 						Please fill out the form below to sign up for Career Connections
 						<br />
-			{?messages}
-			    <ul class="bg-warning">
-			        {#messages}
-			            <li>ERROR: {.}</li>
-			        {/messages}
-			    </ul>
-			{/messages}
+						{?messages}
+						    <ul class="bg-warning">
+						        {#messages}
+						            <li>ERROR: {.}</li>
+						        {/messages}
+						    </ul>
+						{/messages}
 		    
 						<form id="signup-form" method="POST" action="{requestURI}/signup" >		
 							<br />
