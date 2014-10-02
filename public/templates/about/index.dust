@@ -139,7 +139,7 @@
 				</div>
 				<div class="testimonial-person">
 					Eddie - Student<br />
-					<img src="/images/EddieAshley.gif" class="testimonial-picture" />
+					<img src="/images/EddieAshley.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
 			<div class="testimonial">
@@ -148,7 +148,7 @@
 				</div>
 				<div class="testimonial-person">
 					Jessica - Student<br />
-					<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+					<img src="/images/JessicaCheung.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
 			<!--
@@ -167,7 +167,7 @@
 				</div>
 				<div class="testimonial-person">
 					Kathryn - Coach<br />
-					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
+					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>		
 			</div>
 		</center>

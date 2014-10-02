@@ -147,7 +147,7 @@ else{ //if anything else is selected, underline home for now
 $('#click-to-open').on('click',function(e){
     $( "#open-text" ).fadeOut( 100, function() {
         $( "#opened-text" ).slideDown( "slow", function() {  
-            $('#home-page-login-signup').css("cursor","default");
+            $('#opened-text').css("cursor","default");
         });
     });
 });
