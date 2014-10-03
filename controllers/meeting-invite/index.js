@@ -33,7 +33,7 @@ module.exports = function (router) {
                     res.send(model);
                 } else {
 
-                    console.dir(result);
+                    // console.dir(result);
                     model.data.viewName = "MeetingInvite"
                     model.data.result = JSON.parse(JSON.stringify(result));
 
@@ -52,7 +52,7 @@ module.exports = function (router) {
                     // res.render('meeting-invite/index', model);
                     res.send(model);
                 } else {
-                    console.dir(result);
+                    // console.dir(result);
                     model.data.view = "MeetingInvite"
                     model.data.result = JSON.parse(JSON.stringify(result));
 
@@ -199,7 +199,7 @@ module.exports = function (router) {
                                                 "meeting": meeting
                                             };
 
-                                            console.dir(model);
+                                            // console.dir(model);
                                             res.render('meeting-invite/emailSent', model);
                                         }
                                     })

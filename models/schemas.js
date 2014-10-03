@@ -178,7 +178,10 @@ userSchema.statics.findById = function (id, callback) {
 
 };
 
+userSchema.statics.findAll = function (callback) {
+    this.find({}, callback);
 
+};
 
 // userSchema.statics.findByIdAndMeetings = function (id, callback) {
 
@@ -281,6 +284,16 @@ userSchema.statics.findAllCoaches = function(callback) {
         role: 'coach',
         studentsLinked: {$size: 0}
     }).exec(callback);
+}
+userSchema.statics.findEveryCoach = function(callback) {
+   this.find({
+        role: 'coach',
+    }).exec(callback);
+}
+userSchema.statics.findEveryStudent = function(callback) {
+    this.find({
+        role: 'student',
+        }).exec(callback);
 }
 
 var meetingSchema = Schema({
@@ -494,7 +507,7 @@ industrySchema.statics.findAll = function(callback) {
     this.find({},
             function(err, docs) {
                 if (!err){ 
-                    console.log(docs);
+                    // console.log(docs);
                 }
                 else { throw err;}
 

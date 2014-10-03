@@ -30,49 +30,43 @@ module.exports = function (router) {
                     callback(err);
 
                    }
-                console.log(meetingrec)
+                // console.log(meetingrec)
                 if(meetingrec) {
                     //debugger;
                     model.data = model.data || {};
                     model.data.meeting = model.data.meeting || {};
                     model.data.meeting = JSON.parse(JSON.stringify(meetingrec));
                 }
-            } 
-            );
-            //Send cancellation notice
-            //debugger;
-            var emailList = new Array();
-            for(var i = 0; i < model.data.meeting.attendees.length ; i++){
-                emailList.push(model.data.meeting.attendees[i].email);
-                User.removeMeetingFromSchemaById(model.data.meeting.attendees[i]._id, req.query.meetingId, function(err) {
+                //Send cancellation notice
+                //debugger;
+                var emailList = new Array();
+                for(var i = 0; i < model.data.meeting.attendees.length ; i++){
+                    emailList.push(model.data.meeting.attendees[i].email);
+                    User.removeMeetingFromSchemaById(model.data.meeting.attendees[i]._id, req.query.meetingId, function(err) {
+                        if(err) {
+                            console.log("Error removing meeting from user");
+                            res.redirect('/dashboard'); 
+                        }
+                    });
+                }
+                //Remove meeting from db
+                Meeting.removeMeetingById(req.query.meetingId, function(err) {
                     if(err) {
-                        console.log("Error removing meeting from user");
+                        console.log("error removing meeting from meeting schema");
                         res.redirect('/dashboard'); 
                     }
 
                 });
-            }
-            //emailList.push(model.data.meeting.attendee[0].email);
-            //Remove meeting from db
-            Meeting.removeMeetingById(req.query.meetingId, function(err) {
-                if(err) {
-                    console.log("error removing meeting from meeting schema");
-                    res.redirect('/dashboard'); 
+                var sub = 'Coach/Student meeting - ' + model.data.meeting.topic + " on " + model.data.meeting.meetingdate + " cancellation notice"; // Subject line
+                var txt =  emailContent.createMeetingCancelledText(model.data.meeting);
+                var htmlContent = emailContent.createMeetingCancelled(model.data.meeting);
+                var options = {
+                    to: emailList.toString(),
+                    subject: sub,
+                    text: txt, // plaintext body
+                    html: htmlContent // html body
                 }
-
-            });
-            
-            debugger;
-            var sub = 'Coach/Student meeting - ' + model.data.meeting.topic + " on " + model.data.meeting.meetingdate + " cancellation notice"; // Subject line
-            var txt =  emailContent.createMeetingCancelledText(model.data.meeting);
-            var htmlContent = emailContent.createMeetingCancelled(model.data.meeting);
-            var options = {
-                to: emailList.toString(),
-                subject: sub,
-                text: txt, // plaintext body
-                html: htmlContent // html body
-            }
-            email.sendEmail(options, function (err, result) {
+                email.sendEmail(options, function (err, result) {
 
                             if (err) {
                                 console.log(err);
@@ -89,7 +83,8 @@ module.exports = function (router) {
                                 res.render('meeting-cancelled/emailSent', model);
                            }
             })
-              
+        }); 
+                
         }
         else {
           res.redirect('/login');  
