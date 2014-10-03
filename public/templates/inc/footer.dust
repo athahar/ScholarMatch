@@ -2,6 +2,23 @@
 	<div class="container">
 		<hr />
 		<center>
+			<div class="footer-images">
+				<a href="https://www.facebook.com/ScholarMatch" target="_blank">
+					<div id="facebook-image"></div>
+				</a>&nbsp;
+				<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
+					<div id="linkedin-image"></div>
+				</a>&nbsp;
+				<a href="https://twitter.com/ScholarMatch" target="_blank">
+					<div id="twitter-image"></div>
+				</a>&nbsp;
+				<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
+					<div id="youtube-image"></div>
+				</a>&nbsp;
+			</div>
+
+
+<!--before sprite
 			<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
 				<div id="linkedin-image"></div>
 			</a>&nbsp;
@@ -14,6 +31,7 @@
 			<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
 				<div id="youtube-image"></div>
 			</a>&nbsp;
+-->			
 		</center>
 	<br />
 	      <p>

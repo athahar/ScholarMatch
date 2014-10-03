@@ -40,6 +40,23 @@
 				</div>
 				<br /><br />
 				<center>
+					<div class="footer-images">
+						<a href="https://www.facebook.com/ScholarMatch" target="_blank">
+							<div id="facebook-image"></div>
+						</a>&nbsp;
+						<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
+							<div id="linkedin-image"></div>
+						</a>&nbsp;
+						<a href="https://twitter.com/ScholarMatch" target="_blank">
+							<div id="twitter-image"></div>
+						</a>&nbsp;
+						<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
+							<div id="youtube-image"></div>
+						</a>&nbsp;
+					</div>
+
+
+		<!--before sprite
 					<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
 						<div id="linkedin-image"></div>
 					</a>&nbsp;
@@ -52,6 +69,7 @@
 					<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
 						<div id="youtube-image"></div>
 					</a>&nbsp;
+		-->			
 				</center>
 				<br />
 				To keep up with student stories, get the skinny on our fun events, and read the latest college cost news, <a href="http://scholarmatch.us2.list-manage.com/subscribe?u=8f459a7efacd651e92d695534&id=a31c13ddf9" target="is_blank">sign up for our newsletter!</a>
