@@ -1,9 +1,13 @@
 {>"layouts/master" /}
 
 {<title}
-	College to Career Program  - ScholarMatch
+	Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}            
-     Coaching help static help links     
+	<div class="container-widest-white">
+		<div class="container-wide">
+			stuff needs to go in here
+		</div>
+	</div>
 {/body}

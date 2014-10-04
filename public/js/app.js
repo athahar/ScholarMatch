@@ -100,48 +100,6 @@ define([
 
 //Bram CODE BELOW
 
-$('#overview').on('click', function(e) {
-    $('#overview-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#candidates').on('click', function(e) {
-    $('#candidates-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#how-it-works').on('click', function(e) {
-    $('#how-it-works-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#student-expectations').on('click', function(e) {
-    $('#student-expectations-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-$('#coach-expectations').on('click', function(e) {
-    $('#coach-expectations-answer').toggleClass("about-item-answer-hidden"); 
-    e.preventDefault();
-});
-
-
-
-//move cursor to left when someone tries to login & clicks on the appropriate text field
-$('#username').on('click',function(e){
-    $('#username').css("text-align","left")
-});
-$('#password').on('click',function(e){
-    $('#password').css("text-align","left")
-});
-
-//INSTEAD OF ABOVE, OPTION: moves cursor to left only if someone types in the field and clicks off of it
-/*$('#username').change(function(e){
-    $('#username').css("text-align","left")
-});
-$('#password').change(function(e){
-    $('#password').css("text-align","left")
-});
-*/
-
-
-
 //change the active tag in header based on which page it's on
 var parts = window.location.href.split("/");
 for(var i = 0; i < parts.length; i++){
@@ -186,35 +144,30 @@ else{ //if anything else is selected, underline home for now
     document.getElementById("home").className = "active-link";
 }
 
-//if window is really narrow or on mobile
-if ($(window).width() < 1027) {
-    //increase the height so the menu doesn't fall under the header
-   $('.fixed-header').css("height","200px");
-   //move the body start to match above
-   $('body').css("top","200px");
-   //let the menu be centered, under the career connections banner
-   $('.header-nav').css("float","none");
-   //set the banner to 100% width so that it shows in the middle
-   $('.navbar-header').css("width","100%");
-   //centers the menu
-   $('.fixed-header').css("text-align","center");
-   //make testimonials names/pictures stay level
-   $('.testimonial-text').css("height","175px");
-}
-
 $('#click-to-open').on('click',function(e){
     $( "#open-text" ).fadeOut( 100, function() {
         $( "#opened-text" ).slideDown( "slow", function() {  
-            $('#home-page-login-signup').css("cursor","default");
+            $('#opened-text').css("cursor","default");
         });
     });
 });
 
 $('#login-or-logout').on('click',function(e){
+    window.location.href = "/login";
+    /* commented out until we can fix - nice to have
     $('#login-section').slideDown("fast",function(){
     //for(var i = 0; i < linkIds.length; i++)
         //$("#"+linkIds[i]).removeClass();
     //document.getElementById("login-or-logout").className = "active-link";
     });
-
+    */
 });
+
+function redirectPage(page){
+    window.location.href = "/" + page;
+}
+
+function scrollTo(element){
+    var heightHeader = $('.fixed-header').height();
+    $("html, body").animate({ scrollTop: $('#'+element).offset().top  - heightHeader}, 1000);
+}

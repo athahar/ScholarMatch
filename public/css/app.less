@@ -14,9 +14,7 @@ html {
   height: 100%;
   margin: 0;
   background-color:white;
-  font-family: 'Tungsten A', 'Tungsten B'; 
-  font-weight: 400; 
-  font-style: normal;
+  font-family: 'Sentinel SSm A', 'Sentinel SSm B'; font-weight: 400; font-style: normal;
   background-color:#CEC5A7;
 }
 
@@ -32,12 +30,26 @@ html {
   border-bottom: 1px groove #EFECE0;
 }
 
+@media screen and (max-width: 1182px){
+    .fixed-header{
+      height:175px;
+    }
+}
+@media screen and (min-width: 1182px){
+    .fixed-header{
+      height:110px;
+    }
+}
+@media screen and (max-width: 580px){
+    .fixed-header{
+      height:225px;
+    }
+}
+
 body {
   position:relative;
   top:110px;
-  font-family: 'Tungsten A', 'Tungsten B'; 
-  font-weight: 400; 
-  font-style: normal;
+  font-family: 'Sentinel SSm A', 'Sentinel SSm B'; font-weight: 400; font-style: normal;
 }
 
 #wrapper{
@@ -90,7 +102,10 @@ body {
   margin:auto;
   margin-top:25px;
   width:400px;
-  text-align:center;
+  text-align:center;  
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;
 }
 .learn-more:hover{
   border:2px groove white;
@@ -165,6 +180,9 @@ body {
   font-size:20px;
   padding:10px;
   cursor:pointer;
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;
 }
 #opened-text{
   display:none;
@@ -177,8 +195,6 @@ body {
 .signup-button{
   text-align:center; 
   cursor:pointer; 
-  position:relative; 
-  top:75px; 
   padding:15px; 
   width:250px; 
   margin:auto;
@@ -201,6 +217,9 @@ body {
   display:inline-block;
   color:#8C1D41;
   font-weight:bold;
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;
 }
 
 .container{
@@ -273,6 +292,9 @@ h1{
   text-align:center;
   font-weight:bold;
   color:#8C1D41;
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;
 }
 
 .text-box-home{
@@ -281,9 +303,8 @@ h1{
   display:inline-block;
   border-radius: 5px;
   padding:5px;
-  text-align:center;
-  color:rgb(153,51,51);
-  font-weight:bold;
+  text-align:left;
+  color:black;
 }
 
 #login-button{
@@ -334,6 +355,39 @@ h1{
 }
 
 
+#facebook-image{
+  background-position: 0px 0px;
+  cursore:pointer;
+}
+#linkedin-image{
+  background-position: -37px 0px;
+  cursore:pointer;
+}
+
+#youtube-image{
+  background-position: -111px 0px;
+  cursore:pointer;
+  
+}
+#twitter-image{
+  /*before sprite, same for all, except image
+  background-image: url('../images/Twitter.png');
+  height:32px; 
+  width:32px;
+  display:inline-block;
+  margin-left:5px;
+  */
+  background-position: -74px 0px;
+  cursore:pointer;
+
+}
+.footer-images{
+  background-image: url('../images/FooterSpriteSocialMedia.png');
+  background-repeat:no-repeat;
+  height:55px;
+  margin-left:44%;
+}
+
 .lead{
   font-size:16px;
   font-style:italic;
@@ -365,22 +419,6 @@ h1{
   font-size:16px;
 }
 
-.testimonial{
-  width:30%;
-  text-align:center;
-  font-size:14px;
-  display:inline-block;
-  margin:5px;
-  vertical-align:top;
-  color:black;
-  font-style:italic;
-  padding:15px;
-}
-.testimonial-person{
-  font-weight:bold;
-  font-style:normal;
-}
-
 .profile-header{
   height:100%;
 }
@@ -405,22 +443,22 @@ h1{
   vertical-align:top;
 }
 
-.profile-content-box-header{
-  font-size:26px;
-  display: inline-block;
-  vertical-align:middle;  
-  width:90%;
+.contact-table-image{
+    display:inline-block;
+    vertical-align:middle;
 }
-.profile-content-box-edit{
-  float:right;
-  cursor:pointer;
-  display:inline-block;
-  width:10%;
+.contact-table-text{
+    display:inline-block;
+    vertical-align:middle;
+    font-weight:bold;
+    padding-left:25px;
+    font-size:24px;
 }
+
 
 
 .testimonial{
-  width:23%;
+  width:30%;
   text-align:center;
   font-size:14px;
   display:inline-block;
@@ -428,6 +466,7 @@ h1{
   vertical-align:top;
   color:black;
   font-style:italic;
+  padding:15px;
 }
 
 .testimonial-text{
@@ -444,6 +483,28 @@ h1{
   width:90px;
   margin-top:10px;
 }
+
+
+
+
+
+.profile-content-box-header{
+  font-size:26px;
+  display: inline-block;
+  vertical-align:middle;  
+  width:90%;
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;
+}
+
+.profile-content-box-edit{
+  float:right;
+  cursor:pointer;
+  display:inline-block;
+  width:10%;
+}
+
 
 .edit-settings-nav{
   width:100%;
@@ -523,3 +584,27 @@ h1{
   cursor:pointer;
   background-color:white;
 }
+
+.curved-box{
+  background-color:#EFEFEF;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;  
+  padding:3px;
+  width:75%;
+  min-width:450px;
+}
+
+.curved-box-inside{
+  background-color:white;
+  border: 1px groove;
+  border-radius: 5px;  
+  padding:15px;
+  padding-left:50px;
+  padding-right:50px;
+}
+
+input{
+  color:black;
+}
+
+

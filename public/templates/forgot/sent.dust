@@ -8,9 +8,6 @@
 
 	<div class="container-colored" data-model="{data.result|js}">
 		<div class="center-text" >	
-			<p class="lead-standard">An e-mail has been sent to reset your password!</p>
-
-			<br/>
 
 			<div class="container-colored">
 				<div class="container-colored-extra">
@@ -24,7 +21,7 @@
 							{?messages}
 								<ul class="bg-warning">
 									{#messages}
-										<li>ERROR: {.}</li>
+										<li>{.}</li>
 									{/messages}
 								</ul>
 							{/messages}

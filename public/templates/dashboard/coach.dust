@@ -1,28 +1,29 @@
 {>"layouts/master" /}
 
 {<title}
-	Dashboard Coach - College to Career Program  - ScholarMatch
+	Dashboard Coach - Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}
-	<div class="container-colored">
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
+				  {>"dashboard/inc/progress" role="{data.user.role}" /}  
+		   		</div>
 
-		<div class="row">
-		   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-			  {! >"dashboard/inc/upcoming-meetings" / !}  
-			  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
-			  {>"dashboard/inc/progress" role="{data.user.role}" /}  
-	   		</div>
+			   <div class="col-md-8">
 
-		   <div class="col-md-8">
-
-		   		{?data.user.studentsLinked}
-		   			{>"dashboard/inc/meetings" /}
-		   		{:else}	
-		   			<div class="lead"> You do not have any students assigned yet. </div>
-		   		{/data.user.studentsLinked}
-		   		
-		   </div>
-		</div>		
+			   		{?data.user.studentsLinked}
+			   			{>"dashboard/inc/meetings" /}
+			   		{:else}	
+			   			<div style="font-size:20px;"> Sorry, you do not have any students assigned yet. </div>
+			   		{/data.user.studentsLinked}
+			   		
+			   </div>
+			</div>	
+		</div>	
 	</div>
 {/body}

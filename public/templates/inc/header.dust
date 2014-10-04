@@ -54,7 +54,7 @@
       </ul> 
   </div>
 </div>
-
+<!--commented out as nice to have
 <div class="container-widest-white" id="login-section" style="border-bottom:thin groove black; background-color:#CEC5A7;">
   <div class="container-wide">
       <form id="loginForm" method="post">  
@@ -82,7 +82,7 @@
 </div>  
 
 
-
+-->
 
 
 

@@ -5,9 +5,10 @@ define([
         "jquery",
         "backbone",
         "BaseView",
-        "app"
+        "app",
+        "placeholder"
     ],
-    function ($, Backbone, BaseView, App) {
+    function ($, Backbone, BaseView, App, placeholder) {
 
         "use strict";
 
@@ -25,6 +26,8 @@ define([
                 $('input[type=text]').on('blur', function (ev) {
                     this.trimInput(ev);
                 }.bind(this));
+
+                $('input, textarea').placeholder();
 
 
                 // commented this temporarily            
