@@ -101,40 +101,35 @@ define([
 //Bram CODE BELOW
 
 //change the active tag in header based on which page it's on
-var parts = window.location.href.split("/");
-for(var i = 0; i < parts.length; i++){
-    parts[i] = parts[i].toUpperCase();
-}
-
 var linkIds = ["home","about","dashboard","profile","login-or-logout","sign-up","contact"];
 
-if(parts.indexOf("DASHBOARD")>0){
+if(window.location.href.indexOf("DASHBOARD")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
 }
 //not getting all cases of about
-else if(parts.indexOf("ABOUT")>0){
+else if(window.location.href.indexOf("ABOUT")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("about").className = "active-link";
 }
-else if(parts.indexOf("PROFILE")>0){
+else if(window.location.href.indexOf("PROFILE")>0 || window.location.href.indexOf("changePassword")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("profile").className = "active-link";
 }
-else if(parts.indexOf("LOGIN")>0 || parts.indexOf("LOGIN#")>0){
+else if(window.location.href.indexOf("LOGIN")>0 ){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("login-or-logout").className = "active-link";
 }
-else if(parts.indexOf("SIGNUP")>0){
+else if(window.location.href.indexOf("SIGNUP")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("sign-up").className = "active-link";
 }
-else if(parts.indexOf("CONTACT")>0){
+else if(window.location.href.indexOf("CONTACT")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("contact").className = "active-link";
