@@ -16,6 +16,7 @@
             'datetimepicker': 'lib/bootstrap-datetimepicker',
             'jqueryMask': 'lib/jquery.maskedinput.js',
             'chosen': 'lib/chosen.jquery',
+            'placeholder': 'lib/jquery.placeholder',
 
             'nougat': 'core/nougat',
             'BaseView': 'core/baseView',
