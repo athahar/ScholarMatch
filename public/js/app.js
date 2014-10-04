@@ -113,6 +113,7 @@ if(parts.indexOf("DASHBOARD")>0){
         $("#"+linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
 }
+//not getting all cases of about
 else if(parts.indexOf("ABOUT")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
@@ -146,6 +147,9 @@ else{ //if anything else is selected, underline home for now
 
 $('#click-to-open').on('click',function(e){
     $( "#open-text" ).fadeOut( 100, function() {
+        //if home page login
+        if(document.getElementById("home").className == "active-link")
+            scrollTo('login-main');
         $( "#opened-text" ).slideDown( "slow", function() {  
             $('#opened-text').css("cursor","default");
         });
@@ -169,5 +173,6 @@ function redirectPage(page){
 
 function scrollTo(element){
     var heightHeader = $('.fixed-header').height();
-    $("html, body").animate({ scrollTop: $('#'+element).offset().top  - heightHeader}, 1000);
+    var subMenuHeader = $('.sub-menu').height();
+    $("html, body").animate({ scrollTop: $('#'+element).offset().top  - heightHeader - subMenuHeader}, 750);
 }

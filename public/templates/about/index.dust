@@ -8,7 +8,7 @@
 {<body}   
 
 <div class="sub-menu">
-	<ul class="header-nav" style="position:relative; top:-25px;">
+	<ul class="header-nav-about" >
         <li onclick="scrollTo('overview')">
           <a href="#overview">Overview</a>
         </li>
