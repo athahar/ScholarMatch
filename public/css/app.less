@@ -30,21 +30,6 @@ html {
   border-bottom: 1px groove #EFECE0;
 }
 
-@media screen and (max-width: 1182px){
-    .fixed-header{
-      height:175px;
-    }
-}
-@media screen and (min-width: 1182px){
-    .fixed-header{
-      height:110px;
-    }
-}
-@media screen and (max-width: 580px){
-    .fixed-header{
-      height:225px;
-    }
-}
 
 body {
   position:relative;
@@ -112,6 +97,45 @@ body {
   cursor:pointer;
 }
 
+.testimonial{
+  width:30%;
+  text-align:center;
+  font-size:14px;
+  display:inline-block;
+  margin:5px;
+  vertical-align:top;
+  color:black;
+  font-style:italic;
+  padding:15px;
+}
+
+.testimonial-text{
+  min-height:100px;
+}
+
+.testimonial-person{
+  font-weight:bold;
+  font-style:normal;
+}
+
+.testimonial-picture{
+  height:110px;
+  width:90px;
+  margin-top:10px;
+}
+
+.contact-table-image{
+    display:inline-block;
+    vertical-align:middle;
+}
+.contact-table-text{
+    display:inline-block;
+    vertical-align:middle;
+    font-weight:bold;
+    padding-left:25px;
+    font-size:24px;
+}
+
 .container-widest-gray{
   background: -webkit-linear-gradient(#CEC5A7, #EFECE0); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#CEC5A7, #EFECE0); /* For Opera 11.1 to 12.0 */
@@ -164,16 +188,6 @@ body {
   font-size:18px;
 }
 
-.sub-menu{
-  background-color:white;
-  height:100%;
-  width:100%;
-  text-align:center;
-  margin:auto;
-  padding-top:25px;
-  padding-bottom:25px;
-  font-size:16px;  
-}
 
 .home-page-login-signup{
   text-align:center;
@@ -311,23 +325,37 @@ h1{
   height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);
 }
 
+.sub-menu{
+  background-color:white;
+  height:50px;
+  width:100%;
+  text-align:center;
+  margin:auto;
+  font-size:16px; 
+  position:fixed;
+  top:110px; 
+  border-bottom: 1px groove #EFECE0;
+}
 
-.header-nav {
+.header-nav{
   float:right;
   position:relative; 
   top:25px;
 }
-.header-nav li{
+.header-nav-about{
+  float:right;
+}
+.header-nav li, .header-nav-about li{
   display: inline-block;
   padding:15px;
   padding-top:10px;
   padding-bottom:1px;
   font-size:20px;
 }
-.header-nav li a{
+.header-nav li a, .header-nav-about li a{
   color:rgb(153,51,51);
 }
-.header-nav li a:hover{
+.header-nav li a:hover, .header-nav-about li a:hover{
   text-decoration:none;
   color:rgb(204,204,153);
 }
@@ -442,50 +470,6 @@ h1{
   padding:10px;
   vertical-align:top;
 }
-
-.contact-table-image{
-    display:inline-block;
-    vertical-align:middle;
-}
-.contact-table-text{
-    display:inline-block;
-    vertical-align:middle;
-    font-weight:bold;
-    padding-left:25px;
-    font-size:24px;
-}
-
-
-
-.testimonial{
-  width:30%;
-  text-align:center;
-  font-size:14px;
-  display:inline-block;
-  margin:5px;
-  vertical-align:top;
-  color:black;
-  font-style:italic;
-  padding:15px;
-}
-
-.testimonial-text{
-  min-height:100px;
-}
-
-.testimonial-person{
-  font-weight:bold;
-  font-style:normal;
-}
-
-.testimonial-picture{
-  height:110px;
-  width:90px;
-  margin-top:10px;
-}
-
-
-
 
 
 .profile-content-box-header{
@@ -608,3 +592,31 @@ input{
 }
 
 
+
+@media screen and (max-width: 1182px){
+    .fixed-header{
+      height:175px;
+    }
+    .sub-menu{
+      top:175px;
+      z-index:10000000;
+    }
+    .container-about-picture{
+      top:175px;
+    }
+}
+@media screen and (min-width: 1182px){
+    .fixed-header{
+      height:110px;
+    }
+}
+@media screen and (max-width: 580px){
+    .fixed-header{
+      height:225px;
+    }
+    .sub-menu{
+      top:225px;
+      height:100px;
+      z-index:10000000;
+    }
+}
