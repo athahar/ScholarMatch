@@ -17,10 +17,10 @@
 				<div style="margin-left:10%; margin-top:5%; ">
 						<div class="contact-table">
 							<div class="contact-table-image">
-								<a href=mailto:info@scholarmatch.org?subject=Contact Scholar Match"><img src="/images/email.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
+								<a href=mailto:c2c@scholarmatch.org?subject=Contact Scholar Match"><img src="/images/email.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
 							</div>
 							<div class="contact-table-text">
-								<a href="mailto:info@scholarmatch.org?subject=Contact Scholar Match">info [at] scholarmatch.org</a>
+								<a href="mailto:info@scholarmatch.org?subject=Contact Scholar Match">c2c [at] scholarmatch.org</a>
 							</div>
 							<br /><br />
 							<div class="contact-table-image">
@@ -34,7 +34,7 @@
 								<a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank"><img src="/images/location.png"  style=" height:65px; width:65px; vertical-align:middle;"/></a>
 							</div>
 							<div class="contact-table-text">
-								<a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street, San Francisco</a>
+								<a href="https://www.google.com/maps/place/849+Valencia+St,+San+Francisco,+CA+94110/@37.7593699,-122.4210619,17z/data=!3m1!4b1!4m2!3m1!1s0x808f7e3c537584bb:0x5bdde258af95d3ee" target="is_blank">849 Valencia Street, San Francisco, CA</a>
 							</div>
 						</div>
 				</div>
