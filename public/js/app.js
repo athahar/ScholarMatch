@@ -103,33 +103,33 @@ define([
 //change the active tag in header based on which page it's on
 var linkIds = ["home","about","dashboard","profile","login-or-logout","sign-up","contact"];
 
-if(window.location.href.indexOf("DASHBOARD")>0){
+if(window.location.href.indexOf("dashboard")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("dashboard").className = "active-link";
 }
 //not getting all cases of about
-else if(window.location.href.indexOf("ABOUT")>0){
+else if(window.location.href.indexOf("about")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("about").className = "active-link";
 }
-else if(window.location.href.indexOf("PROFILE")>0 || window.location.href.indexOf("changePassword")>0){
+else if(window.location.href.indexOf("profile")>0 || window.location.href.indexOf("changePassword")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("profile").className = "active-link";
 }
-else if(window.location.href.indexOf("LOGIN")>0 ){
+else if(window.location.href.indexOf("login")>0 ){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("login-or-logout").className = "active-link";
 }
-else if(window.location.href.indexOf("SIGNUP")>0){
+else if(window.location.href.indexOf("signup")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("sign-up").className = "active-link";
 }
-else if(window.location.href.indexOf("CONTACT")>0){
+else if(window.location.href.indexOf("contact")>0){
     for(var i = 0; i < linkIds.length; i++)
         $("#"+linkIds[i]).removeClass();
     document.getElementById("contact").className = "active-link";
@@ -165,6 +165,7 @@ $('#login-or-logout').on('click',function(e){
 function redirectPage(page){
     window.location.href = "/" + page;
 }
+
 
 function scrollTo(element){
     var heightHeader = $('.fixed-header').height();

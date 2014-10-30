@@ -6,60 +6,68 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Match Coach 2 Students</h1>
-		
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
-       
-		<hr/>
-		<div class="clearfix">
+
+
+	<div class="container-widest-white">
+		<div class="container-wide" style="text-align:left;">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Match Coach to Students
+			</div>
+			<hr />
+
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+	                    <li>Sorry, no coaches are currently available in this industry. Please select a new industry or <a href="mailto:c2c@scholarmatch.org?subject=No one in my industry :(">contact ScholarMatch<</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
+
 			<a href="/match/findcoach"> List all Coaches</a> {@eq key=forStudent value=false} | <a href="/match/findstudent"> List all students </a> {/eq}
-		</div>
-		<hr/>
-		<div class="results clearfix" data-results="{data.results|s}"> 						
 
-			<table class="table table-striped">
-				<thead>
-					
-					<th>Full name</th>
-					<th>College</th>
-					<th>Industry</th>
-					<th>City</th>					
-					<th>Gender</th>
-					<th>Profile</th>
-					<th>connect</th>
-				</thead>
-				<tbody>
-					{#data.results}
-					<tr>
+
+			<hr/>
+			<div class="results clearfix" data-results="{data.results|s}"> 						
+
+				<table class="table table-striped">
+					<thead>
 						
-						<td>{fullName}</td>
-						<td>{college}</td>
-						<td>{industry}</td>
-						<td>{city}</td>
-						<td>{gender}</td>
-						<td><a class="button" href="/profile/otherProfile?userId={_id}"> View</a></td>
-						<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Request to connect</a></td>
-					</tr>
-					{/data.results}
-				</tbody>
-			</table>
+						<th>Full name</th>
+						<th>College</th>
+						<th>Industry</th>
+						<th>City</th>					
+						<th>Gender</th>
+						<th>Profile</th>
+						<th>connect</th>
+					</thead>
+					<tbody>
+						{#data.results}
+						<tr>
+							
+							<td>{fullName}</td>
+							<td>{college}</td>
+							<td>{industry}</td>
+							<td>{city}</td>
+							<td>{gender}</td>
+							<td><a class="button" href="/profile/otherProfile?userId={_id}"> View</a></td>
+							<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Request to connect</a></td>
+						</tr>
+						{/data.results}
+					</tbody>
+				</table>
 
-			<p>Found: {data.count} record(s).</p>
+				<p>Found: {data.count} record(s).</p>
 
-<!-- 			<ul>
-			{#data.results}
-				<li>{fullName} - {city} - {industry} </li>
-			{/data.results}
-			</ul> -->
-		 </div>
+			 </div>
 		
 
+	       <!-- {>"match/inc/custom-match" /}-->
+
+		</div>
 	</div>
+
+
+
 {/body}

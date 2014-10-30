@@ -6,28 +6,36 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Match Coach 2 Students</h1>
-		
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
 
-		<br/>
-        <div class="clearfix">
-			<a href="/match/findcoach"> List all Coaches</a> {@eq key=forStudent value=false}| <a href="/match/findstudent"> List all students </a>{/eq}
+	<div class="container-widest-white">
+		<div class="container-wide" style="text-align:left;">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Match Coach to Students
+			</div>
+			<hr />
+
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+	                    <li>Sorry, no coaches are currently available in this industry. Please select a new industry or <a href="mailto:c2c@scholarmatch.org?subject=No one in my industry :(">contact ScholarMatch<</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
+
+			<br/>
+	        <div class="clearfix">
+				<a href="/match/findcoach"> List all Coaches</a> {@eq key=forStudent value=false}| <a href="/match/findstudent"> List all students </a>{/eq}
+			</div>
+
+			<hr/>
+
+	        {>"match/inc/custom-match" /}
+
+	        <br /><br /><br /><br />
+
 		</div>
-
-		<hr/>
-
-        {>"match/inc/custom-match" /}
-
-		
-		
-		
 	</div>
+
 {/body}

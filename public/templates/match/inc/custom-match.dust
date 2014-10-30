@@ -1,8 +1,8 @@
-<p> Search for a coach </p>
+<h3> Search for a coach </h3>
 
 <form id="match-form" method="POST" action="{requestURI}/match" class="form-horizontal">		   	
-	<div class="col-md-12">
-		<div class="form-group">
+
+
 	    	<label for="industry" class="col-sm-3 control-label">Industry</label>
 	      	<div class="col-sm-7">
       			<select name="industry" class="form-control col-sm-7">
@@ -11,9 +11,9 @@
 	      				<option value="{field}">{field}</option>
 	      			{/data.industry}
 	      		</select>
-	      	</div>
-	   	</div>
-	  	<button type="submit" class="btn btn-primary offset">Search</button>
+	      <br /><br />
+	      <button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Search</button>
+
 		<input type="hidden" name="_csrf" value="{_csrf}" />
 	</div>
 </form>
