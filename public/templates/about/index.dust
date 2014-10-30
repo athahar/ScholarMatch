@@ -68,9 +68,9 @@
 		</div>
 		<div class="split-content-in-half-top-align" >
 			<div style="margin-right:75px;">
-				All ScholarMatch students and supporters are invited to participate <br /><br />
-				Eligble scholars are ScholarMatch college students residing in the Bay Area for the summer and are interested in making connections in their field of study.  <br /><br />
-				Eligible career coaches are professionals in the Bay Area who are interested in supporting eager college students and sharing information about their career industry.  <br /><br />
+				All ScholarMatch students and supporters are invited to participate. <br /><br />
+				Eligble scholars are ScholarMatch students who are interested in making connections in their field.  <br /><br />
+				Eligible career coaches are professionals who are interested in supporting eager college students and sharing information about their industry. Career Coaches will be paired with a student based on geographical location and expertise match.  <br /><br />
 				<div class="signup-button" onclick="redirectPage('signup')"">
 					Click here to sign up &nbsp;&nbsp;
 					<img src="/images/Expand.png"  />	
@@ -154,19 +154,19 @@
 			<!--
 			<div class="testimonial">
 				<div class="testimonial-text">
-					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
 				</div>
 				<div class="testimonial-person">
-					Kathryn - Coach
+					Christine - Coach
 				</div>				
 			</div>
 			-->
 			<div class="testimonial">
 				<div class="testimonial-text">
-					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
 				</div>
 				<div class="testimonial-person">
-					Kathryn - Coach<br />
+					Christine - Coach<br />
 					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>		
 			</div>

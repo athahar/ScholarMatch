@@ -166,6 +166,7 @@ function redirectPage(page){
     window.location.href = "/" + page;
 }
 
+
 function scrollTo(element){
     var heightHeader = $('.fixed-header').height();
     var subMenuHeader = $('.sub-menu').height();
