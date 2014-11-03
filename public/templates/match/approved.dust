@@ -6,13 +6,17 @@
 
 {<body}
 
-	<div class="container" data-model="{data.result|js}">
-		Request Approved!
-
-		<br/>
-
-		Respective coach and student have been emailed about the new connection.
-		
-
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide" data-model="{data.result|js}">
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h2>Request Approved! <br /><br />Respective coach and student have been emailed about the new connection. </h2>
+							<br />
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
 	</div>
 {/body}
