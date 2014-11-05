@@ -6,8 +6,14 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Manually Match Coach 2 Students</h1>
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide">
+
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Manually Match Coach 2 Students
+			</div>
 		
 		{?messages}
             <ul class="bg-warning">
@@ -19,37 +25,51 @@
        
 		<hr/>
 
-			<div class="results clearfix" data-results="{data.results}"> 						
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<div class="results clearfix" data-results="{data.results}"> 						
 
-				<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/manualconnection">	
-		        	<div class="form-group">
-				       <label for="coach" class="col-sm-3 control-label"> Coach: </label>
-				        <div class="col-sm-6" id="coach" > 
-				            <select name="coach" class="form-control col-sm-7">
-				            {#data.results.coaches}
-							  	<option value="{_id}">{fullName} ({email})</option>
-							  {/data.results.coaches}
-							</select>
-				        </div>              
-				   </div>  
-				   <div class="form-group">
-				      <label for="student" class="col-sm-3 control-label">Student</label>
-				      <div class="col-sm-7">
-					      <select name="student" class="form-control col-sm-7">
-					      {#data.results.students}
-							  {.}
-							  	<option value="{_id}">{fullName} ({email})</option>
-							  {/data.results.students}								  
-							</select>
-						</div>			   
-				   </div>				   
-				
-				    <input type="hidden" name="_csrf" value="{_csrf}" />    
-					<div class="form-group">
-				      <div class="col-sm-6"><button type="submit" class="btn btn-success">Connect</button></div>
-				   </div>
-				    
-			   </form>	
-			 </div>		
+								<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/manualconnection">	
+
+									<table class="edit-settings-content-table">
+							        	<tr>
+											 <td class="edit-settings-content-table-left">Coach:</td>
+											<td class="edit-settings-content-table-right"> 
+									            <select name="coach" class="form-control col-sm-7">
+									            {#data.results.coaches}
+												  	<option value="{_id}">{fullName} ({email})</option>
+												  {/data.results.coaches}
+												</select>
+									        </td>              
+									   </tr>  
+									   <tr>
+											 <td class="edit-settings-content-table-left">Student:</td>
+											<td class="edit-settings-content-table-right"> 
+										      <select name="student" class="form-control col-sm-7">
+										      {#data.results.students}
+												  {.}
+												  	<option value="{_id}">{fullName} ({email})</option>
+												  {/data.results.students}								  
+												</select>
+											</td>			   
+									   </tr>		
+		   
+								
+									    <input type="hidden" name="_csrf" value="{_csrf}" />    
+										<tr>
+											<td colspan = "2" style="text-align:center;">
+												<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Connect</button>
+											</td>
+										</tr>
+									</table>
+								    
+							   </form>	
+							 </div>		
+						</div>
+					</div>
+				</center>
+
+		</div>
 	</div>
 {/body}
