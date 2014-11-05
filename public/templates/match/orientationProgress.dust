@@ -6,8 +6,15 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Orientation in progress</h1>
+	<div class="container-widest-white">
+		<div class="container-wide" style="text-align:left;">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Orientation in progress
+			</div>
+			<hr />
+
 		
 		{?messages}
             <ul class="bg-warning">
@@ -47,6 +54,6 @@
 			{! <p>Found: {data.count} record(s).</p> !}
 
 		 </div>
-		
+		</div>
 	</div>	
 {/body}
