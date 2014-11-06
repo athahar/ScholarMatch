@@ -7,36 +7,48 @@
 {<body}
 	{#data}
 	
-	<div class="container"  data-data2="{data|js}">
-		<br/>
+	<div class="container-widest-white">
+		<div class="container-wide"  style="text-align:left;" data-data2="{data|js}">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				View Meeting Notes
+			</div>
+			<hr />
 
-		A note was submitted for this meeting already as follows:
-		<br/>
-		<br/>
-		Meeting Interaction Type - {meetingnotes.interactionType}
-		<br/>
-		<br/>
-		How appropriate was the covered topic? - {meetingnotes.topicAppropriateness}
-		<br/>
-		<br/>
-		How useful was the learnt material? - {meetingnotes.materialUsefulness}
-		<br/>
-		<br/>
-		How useful was the time spent? - {meetingnotes.timeUtilization}
-		<br/>
-		<br/>
-		How was the collaboration of this session? - {meetingnotes.collaborationDescription}
-		<br/>
-		<br/>
-		What are your plans for next session? - {meetingnotes.nextCollaborationDescription}
-		<br/>
-		<br/>
-		How was the level of engagement of the session? - {meetingnotes.participationSentiment}
-		<br/>
-		<br/>
-		Have you spoken to ScholarMatch staff about this meeting? - {meetingnotes.speakWithStaff}
-		<br/>
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h3>A note was submitted for this meeting already as follows:</h3>
+							<hr />
 
+							Meeting Interaction Type - {meetingnotes.interactionType}
+							<br/>
+							<br/>
+							How appropriate was the covered topic? - {meetingnotes.topicAppropriateness}
+							<br/>
+							<br/>
+							How useful was the learnt material? - {meetingnotes.materialUsefulness}
+							<br/>
+							<br/>
+							How useful was the time spent? - {meetingnotes.timeUtilization}
+							<br/>
+							<br/>
+							How was the collaboration of this session? - {meetingnotes.collaborationDescription}
+							<br/>
+							<br/>
+							What are your plans for next session? - {meetingnotes.nextCollaborationDescription}
+							<br/>
+							<br/>
+							How was the level of engagement of the session? - {meetingnotes.participationSentiment}
+							<br/>
+							<br/>
+							Have you spoken to ScholarMatch staff about this meeting? - {meetingnotes.speakWithStaff}
+							<br/>
+						</div>
+					</div>
+				</center>
+		</div>
 	</div>
 	{/data}
 {/body}

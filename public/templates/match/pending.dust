@@ -6,16 +6,22 @@
 
 {<body}
 
-	<div class="container">
-		<h1>Pending requests</h1>
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Pending Requests
+			</div>
+			<hr />
 		
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
+			{?messages}
+	            <ul class="bg-warning">
+	                {#messages}
+	                    <li>{.}</li>
+	                {/messages}
+	            </ul>
+	        {/messages}
        		
 		<div class="results clearfix" data-results="{data.results|s}"> 						
 
@@ -45,7 +51,7 @@
 			{! <p>Found: {data.count} record(s).</p> !}
 
 		 </div>
-		
+	</div>
 
 	</div>
 {/body}

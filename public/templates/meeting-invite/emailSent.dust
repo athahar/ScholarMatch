@@ -6,8 +6,18 @@
 
 {<body}
 
-	<div class="container" data-model="{data|js}">
-		The meeting has been setup. An email has beeen sent to both coach and student with the details!
 
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide" data-model="{data|js}">
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h3>Congratulations! The meeting has been set up. An email will be sent to both coach and student. </h3>
+							<br />
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
 	</div>
 {/body}

@@ -6,8 +6,17 @@
 
 {<body}
 
-	<div class="container" data-model="{data|js}">
-		The meeting has been cancelled. An email has beeen sent to all the attendees!
-
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide" data-model="{data|js}">
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h3>The meeting has been cancelled. <br /><br />An email has beeen sent to all the attendees!</h3>
+							<br />
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
 	</div>
 {/body}
