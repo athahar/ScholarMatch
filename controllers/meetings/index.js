@@ -30,7 +30,7 @@ module.exports = function (router) {
                     callback(err);
 
                    }
-                console.log(meetingrec)
+                // console.log(meetingrec)
                 if(meetingrec) {
                     //debugger;
                     model.data = model.data || {};

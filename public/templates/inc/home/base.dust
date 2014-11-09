@@ -9,8 +9,15 @@
 {:else}
 
 <div class="container-home-picture">
+<!--
 	<span class="banner-key">Only 27%</span> 
 	<br /> of college grads have a job closely related to their major
+-->
+"<span class="banner-key">Networking</span> is one of the most important, <br />but neglected elements of the college experience" - Maria Kefalas
+
+<br /><br />
+"Research tells us between <span class="banner-key">60 to 80 percent</span> <br />of jobs are found through personal relationships" - John Bennett
+
 
 	<a href="/about" style="color:white; text-decoration:none;">
 		<div class="learn-more">
@@ -19,6 +26,7 @@
 	</a>
 </div>
 
+<a id="login-main"></a>
 <div class="container-widest-white" id="click-to-open" style="cursor:pointer;">
 	<div class="container-wide">
 		<div id="open-text" >
@@ -69,46 +77,49 @@
 <div class="container-widest-gray" style="padding-bottom:50px;">
 	<div class="container-colored-extra-no-style">
 		<h1 >Testimonials</h1>
-		<p class="lead" >See what our students and coaches are saying about Career Connections</p>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
+		<center>
+		<p >See what our students and coaches are saying about Career Connections</p>
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
+				</div>
+				<div class="testimonial-person">
+					Eddie - Student<br />
+					<img src="/images/EddieAshley.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>
 			</div>
-			<div class="testimonial-person">
-				Eddie - Student<br />
-				<img src="/images/EddieAshley.gif" class="testimonial-picture" />
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+				</div>
+				<div class="testimonial-person">
+					Jessica - Student<br />
+					<img src="/images/JessicaCheung.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>
 			</div>
-		</div>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+			<!--
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+				</div>
+				<div class="testimonial-person">
+					Kathryn - Coach
+				</div>				
 			</div>
-			<div class="testimonial-person">
-				Jessica - Student<br />
-				<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+			-->
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
+				</div>
+				<div class="testimonial-person">
+					Christine - Coach<br />
+					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>		
 			</div>
-		</div>
-		<!--
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
-			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach
-			</div>				
-		</div>
-		-->
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
-			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach<br />
-				<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
-			</div>		
-		</div>
+		</center>
 	</div>
 </div>
+
 
 <div class="container-widest-red" style="padding-bottom:5px;">
 	<div class="container-colored-extra-no-style">

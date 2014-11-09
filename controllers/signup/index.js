@@ -94,7 +94,7 @@ module.exports = function (router) {
                 // After signup, do a user login & send to profile page
 
                 passport.authenticate('local', {
-                    successRedirect: '/profile',
+                    successRedirect: '/profile/edit',
                     failureRedirect: '/login',
                     failureFlash: true
                 })(req, res);

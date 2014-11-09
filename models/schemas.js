@@ -507,7 +507,7 @@ industrySchema.statics.findAll = function(callback) {
     this.find({},
             function(err, docs) {
                 if (!err){ 
-                    console.log(docs);
+                    // console.log(docs);
                 }
                 else { throw err;}
 

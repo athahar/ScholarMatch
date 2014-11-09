@@ -8,17 +8,17 @@
 {<body}   
 
 <div class="sub-menu">
-	<ul class="header-nav" style="position:relative; top:-25px;">
-        <li>
+	<ul class="header-nav-about" >
+        <li onclick="scrollTo('overview')">
           <a href="#overview">Overview</a>
         </li>
-        <li >
+        <li onclick="scrollTo('who')">
           <a href="#who">Participants</a>
         </li>
-        <li>
+        <li onclick="scrollTo('expectations')">
           <a href="#expectations">Expectations</a>
         </li>
-        <li >
+        <li onclick="scrollTo('testimonials')">
           <a href="#testimonials">Testimonials</a>
         </li>
     </ul>
@@ -29,7 +29,7 @@
 </div>
 
 
-<a name="overview"></a>
+<a name="overview" id="overview"></a>
 <div class="container-widest-white">
 	<div class="container-wide" style="text-align:left;">
 		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
@@ -54,65 +54,37 @@
 </div>
 
 
-<a name="who"></a>
+<a id="who" name="who"></a>
 <div class="container-widest-gray">
 	<div class="container-wide" style="text-align:left;">
 		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
-			Who can participate?
+			Who can Participate?
 		</div>
 		<hr />
 		<div class="split-content-in-half-top-align" id="click-to-open" >
-			<div id="open-text" class="signup-button">
-				Click here to sign up &nbsp;&nbsp;
-				<img src="/images/Expand.png"  />	
-			</div>
-			<div id="opened-text">
-				<form id="signup-form" method="POST" action="{requestURI}/signup" style="text-align:left; width:90%; padding:20px; padding-top:0px;">	
-				<center>
-					<input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" "class="form-control>
-
-				    <br />
-					<input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control">
-							   
-				    <br />
-				    <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-
-				    <br />
-				    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control">
-
-				    <br />
-				    <select name="role" class="form-control">				      	  
-						<option value="select">Select Student or Coach</option>			      	  
-						<option value="student">Student</option>
-						<option value="coach">Coach</option>								  
-					</select>   
-
-					<br />
-				    <button type="submit" class="btn btn-primary" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333; ">Signup</button>
-
-				    <input type="hidden" name="_csrf" value="{_csrf}" />
-					<input type="hidden" name="type" id="type" value="0" />
-				</center>
-				</form>	
-			</div>	
+			<img src="/images/Participants.jpg" style="width:90%; height:350px;" />				
 		</div>
 		<div class="split-content-in-half-top-align" >
 			<div style="margin-right:75px;">
-				All ScholarMatch students and supporters are invited to participate <br /><br />
-				Eligble scholars are ScholarMatch college students residing in the Bay Area for the summer and are interested in making connections in their field of study.  <br /><br />
-				Eligible career coaches are professionals in the Bay Area who are interested in supporting eager college students and sharing information about their career industry.  <br /><br />
+				All ScholarMatch students and supporters are invited to participate. <br /><br />
+				Eligble scholars are ScholarMatch students who are interested in making connections in their field.  <br /><br />
+				Eligible career coaches are professionals who are interested in supporting eager college students and sharing information about their industry. Career Coaches will be paired with a student based on geographical location and expertise match.  <br /><br />
+				<div class="signup-button" onclick="redirectPage('signup')"">
+					Click here to sign up &nbsp;&nbsp;
+					<img src="/images/Expand.png"  />	
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 
-<a name="expectations"></a>
+<a id="expectations" name="expectations"></a>
 <div class="container-widest-gold">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/RedShieldGoldBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/RedShieldGoldBG.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			Expectations
@@ -150,48 +122,55 @@
 </div>
 
 
-<a name="testimonials"></a>
+<a id="testimonials" name="testimonials"></a>
 <div class="container-widest-white" style="padding-bottom:50px; ">
-	<div class="container-colored-extra-no-style">
-		<h1 >Testimonials</h1>
-		<p class="lead" >See what our students and coaches are saying about Career Connections</p>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
-			</div>
-			<div class="testimonial-person">
-				Eddie - Student<br />
-				<img src="/images/EddieAshley.gif" class="testimonial-picture" />
-			</div>
+	<div class="container-wide" style="text-align:left;">
+		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		&nbsp;&nbsp;
+		<div class="about-title">
+			Testimonials
 		</div>
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+		<hr />
+		<center>
+		<p >See what our students and coaches are saying about Career Connections</p>
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"My Career Coach helped me create the right connections I needed to gain employment in my field and assisted me with building important skills."
+				</div>
+				<div class="testimonial-person">
+					Eddie - Student<br />
+					<img src="/images/EddieAshley.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>
 			</div>
-			<div class="testimonial-person">
-				Jessica - Student<br />
-				<img src="/images/JessicaCheung.gif" class="testimonial-picture" />
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"It's a direct result of my interaction with my Career Coach that I am now hosting my college's news radio show!"
+				</div>
+				<div class="testimonial-person">
+					Jessica - Student<br />
+					<img src="/images/JessicaCheung.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>
 			</div>
-		</div>
-		<!--
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+			<!--
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
+				</div>
+				<div class="testimonial-person">
+					Christine - Coach
+				</div>				
 			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach
-			</div>				
-		</div>
-		-->
-		<div class="testimonial">
-			<div class="testimonial-text">
-				"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
+			-->
+			<div class="testimonial">
+				<div class="testimonial-text">
+					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
+				</div>
+				<div class="testimonial-person">
+					Christine - Coach<br />
+					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+				</div>		
 			</div>
-			<div class="testimonial-person">
-				Kathryn - Coach<br />
-				<img src="/images/ChristineCatabay.gif" class="testimonial-picture" />
-			</div>		
-		</div>
+		</center>
 	</div>
 </div>
 

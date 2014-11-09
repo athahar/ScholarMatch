@@ -21,13 +21,13 @@ module.exports = function (router) {
             model.data.userId = req.session.user._id;
             
             MeetingNotes.findAllByMeetingId(req.query.meetingId, function (err, meetingnotesrec) {
-            	debugger;
+            	// debugger;
                 if (err) {
                     console.log('Error looking up meeting notes');
                     callback(err);
 
                    }
-                console.log(meetingnotesrec)
+                // console.log(meetingnotesrec)
                 if(meetingnotesrec) {
                     model.data = model.data || {};
                     model.data.meetingnotes = model.data.meetingnotes || {};

@@ -1,43 +1,53 @@
 {>"layouts/master" /}
 
 {<title}
-	Password Reset  - College to Career Program  - ScholarMatch
+	Password Reset  - Career Connections Program  - ScholarMatch
 {/title}
 
 {<body}
-    <div class="container" data-data={_csrf|js}>
-    	<form id="resetPassword" method="post">	 
+    <div class="container-widest-white" data-data={_csrf|js}>
+    	<div class="container-wide" style="text-align:left;">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Reset Password
+			</div>
+			<hr />
+			<center>
+				<div class="curved-box"  style="margin-left:5%;">
+					<div class="curved-box-inside">
+						<p class="lead">Please reset your password</p>
 
-			<div class="col-sm-10 col-sm-offset-2">
-                <h2>Reset Password</h2>
-                {?messages}
-                    <ul class="bg-warning">
-                        {#messages}
-                            <li>{.}</li>
-                        {/messages}
-                    </ul>
-                {/messages}
-                
-			   <div class="form-group">
-			      <label for="password" class="col-sm-3 control-label">Password</label>
-			      <div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
-			   </div>
-			   <div class="form-group">
-			      <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password</label>
-			      <div class="col-sm-7"><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"></div>
-			   </div>
-			    <div class="form-group">
-			      <div class="col-sm-offset-1 col-sm-7">
-			      	<button type="submit" class="btn btn-primary">Reset Password</button>
-			      </div>
-			   </div>
+				    	<form id="resetPassword" method="post">	 
+			                {?messages}
+			                    <ul class="bg-warning">
+			                        {#messages}
+			                            <li>{.}</li>
+			                        {/messages}
+			                    </ul>
+			                {/messages}
 
-			   <input type="hidden" name="_csrf" value="{_csrf}" />
-			   <input type="hidden" name="type" id="type" value="0" />
-	        
-	    	</div>
-	    	
-		</form>
+							<input type="password" class="text-box-home" name="password" id="password" placeholder="New Password" >
+							
+							<br /><br />
+							<input type="password" class="text-box-home"  name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" >
+							<br /><br />
 
+						   <input type="hidden" name="_csrf" value="{_csrf}" />
+						   <input type="hidden" name="type" id="type" value="0" />
+									   
+							<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);"><i class="fa fa-check"></i>Reset Password</button>
+						</form>
+
+						<br />
+
+						<p class="lead-standard">
+							<a href="/login/forgot" >Forgot Password? </a> <br />
+							Don't have an account? <a href="/signup" >Signup</a>
+						</p>
+					</div>
+				</div>
+			</center>
+		</div>
 	</div>
 {/body}

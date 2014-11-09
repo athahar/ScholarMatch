@@ -38,7 +38,7 @@ module.exports = function (router) {
                 }
                 else
                 {
-                    console.log(result);
+                    // console.log(result);
                     model.data.industry = JSON.parse(JSON.stringify(result));
                 }
             })
@@ -51,7 +51,7 @@ module.exports = function (router) {
                         // res.send(err);
                         res.render(view, model);
                     } else {
-                        console.dir(result);
+                        // console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                         res.render(view, model);
                     }
@@ -72,7 +72,7 @@ module.exports = function (router) {
                         // res.send(err);
                         res.render(view, model);
                     } else {
-                        console.dir(result);
+                        // console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                         for(var i = 0; i < model.data.meetingDetails.length; i++) {
                             console.log("Meeting date from DB " + model.data.meetingDetails[i].meetingdate);
