@@ -158,6 +158,7 @@ module.exports = function (router) {
             model.data.result.preferredMeetingFormat.inPerson = req.body.preferredMeetingFormatInPerson;
             
             model.data.result.linkedinProfileUrl = req.body.linkedinProfileUrl;
+            model.data.result.additionalPersonalInfo = req.body.additionalPersonalInfo;
 
             model.data.firstlogin = req.session.firstlogin;
             req.session.firstlogin = false; // clear initial login flag
@@ -175,18 +176,18 @@ module.exports = function (router) {
                 model.data.result.primaryIndustry = model.data.result.primaryIndustry || {};
                 if(req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) {                
                     model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                    model.data.result.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
+                    model.data.result.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
+                    model.data.result.primaryIndustry.company = req.body.primaryIndustryCompany;
                 }
-                model.data.result.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
-                model.data.result.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
-                model.data.result.primaryIndustry.company = req.body.primaryIndustryCompany;
 
                 model.data.result.secondaryIndustry = model.data.result.secondaryIndustry || {};
                 if(req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) {
                     model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                    model.data.result.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
+                    model.data.result.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
+                    model.data.result.secondaryIndustry.company = req.body.secondaryIndustryCompany;
                 }
-                model.data.result.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
-                model.data.result.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
-                model.data.result.secondaryIndustry.company = req.body.secondaryIndustryCompany;
                 
                 model.data.result.coachingInterest = req.body.coachingInterest;
                 model.data.result.studentMatchPreference = req.body.studentMatchPreference;
@@ -220,7 +221,6 @@ module.exports = function (router) {
                 }
 
                 model.data.result.previousJobs = req.body.previousJobs;
-                model.data.result.additionalPersonalInfo = req.body.additionalPersonalInfo;
             }
 
             userLib.updateUser(model.data.result, function (err, result) {

@@ -49,7 +49,7 @@
 								<tr><td>Gender: &nbsp; {gender}</td></tr>
 							{/gender}
 							{#linkedinProfileUrl}
-								<tr><td>LinkedIn: &nbsp; <a href="{linkedinProfileUrl}" target="_blank">Click to View</a></td></tr>
+								<tr><td>LinkedIn: &nbsp; <a href="http://{linkedinProfileUrl}" target="_blank">Click to View</a></td></tr>
 							{:else}
 								{?ownProfile}
 									<tr><td>LinkedIn: &nbsp; <a href="/profile/edit#About">+ Add Profile Link</a></td></tr>
