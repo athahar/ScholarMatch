@@ -107,6 +107,7 @@ module.exports = function (router) {
                 // console.dir(result);
                 //model.data = model.data || {};
                 //model.data.view = "MeetingInvite"
+                model.data.students = model.data.students || {};
                 model.data.students = JSON.parse(JSON.stringify(result));
                 model.data._id = req.session.user._id;
                 res.render("admin/meeting-invite/index", model);
