@@ -50,7 +50,7 @@
 											<a href="#">Edit photo</a>
 										</td>
 									</tr>
-									{@contextDump/}
+									<!-- {@contextDump/} -->
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name</td>
 										<td class="edit-settings-content-table-right">

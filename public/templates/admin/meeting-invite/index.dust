@@ -1,94 +1,114 @@
 {>"layouts/master" /}
 
 {<title}
-	Meeting invite - College to Career Program  - ScholarMatch
+	Admin - Career Connections Program  - ScholarMatch
 {/title}
 
+
 {<body}
-	{#data}
-	<div class="container">
-		<h2>Setup a meeting</h2>
-		
-		<form id="meetingInviteAdmin" method="POST" class="form-horizontal">	
-			
-			   <div class="form-group">
-			      <label for="fullName" class="col-sm-3 control-label">Coach Name</label>
-			      <div class="col-sm-7">
-			      	<select name="invitee_coach" id="invitee_coach">
-			      		{#data.coaches}
-			      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
-			      		{/data.coaches}
-			      	</select>
-				  	
-			      </div>			      
-			   </div>
-		  	
-		  	
-			   <div class="form-group">
-			      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
-			      <div class="col-sm-7">
-			      
-			      	<select name="invitee_student" id="invitee_student">
-			      		{#data.students}
-			      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
-			      		{/data.students}
-			      	</select> 
-			      	
-			      </div>
-			   </div>
-		  	
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
 
-		   <div class="form-group date">
-			   <label for="meetingDate" class="col-sm-3 control-label">Meeting Date / Time</label>
-				<div class="col-sm-7"> 
-					<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
-				</div>				
-		   </div>		   
-		   <div class="form-group">
-	  			<label for="topic" class="col-sm-3 control-label">Topic</label>	  			
-	  			<div class="col-sm-7">
-	      			<select name="topic" class="form-control topic col-sm-7"  data-placeholder="Choose a topic">
-			  			<option>Resume &amp; Linked In profile creation</option>
-			  			<option>Mock Interview</option>
-			  			<option>Insider Scoop</option>
-			  			<option>Office Visit</option>
-			  			<option>Internship or Job Search</option>
-			  			<option>Professional Etiquette</option>
-					</select>
-				</div>			   
-			</div>			
-		   <div class="form-group">
-		      <label for="meetingType" class="col-sm-3 control-label">Meeting Type</label>
-		      <div class="col-sm-7">
-			      <select name="meetingType" class="form-control col-sm-7">
-			      	  <option>In Person</option>	
-					  <option>Telephonic</option>
-					</select>
-				</div>
-		   </div>
-		   
-		   <div class="form-group">
-		      <label for="location" class="col-sm-3 control-label">Location</label>
-		      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control"></div>
-		   </div>
+			   <div class="col-md-9">
+			   		<div class="container-widest-white" style="text-align:left;">
+						{#data}
+							<div class="container">
+								<h2>Setup a meeting</h2>
+								
+								<form id="meetingInviteAdmin" method="POST" class="form-horizontal">	
+									
+									   <div class="form-group">
+									      <label for="fullName" class="col-sm-3 control-label">Coach Name</label>
+									      <div class="col-sm-7">
+									      	<select name="invitee_coach" id="invitee_coach">
+									      		{#data.coaches}
+									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
+									      		{/data.coaches}
+									      	</select>
+										  	
+									      </div>			      
+									   </div>
+								  	
+								  	
+									   <div class="form-group">
+									      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
+									      <div class="col-sm-7">
+									      
+									      	<select name="invitee_student" id="invitee_student">
+									      		{#data.students}
+									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
+									      		{/data.students}
+									      	</select> 
+									      	
+									      </div>
+									   </div>
+								  	
 
-		   <div class="form-group">
-		      <label for="landmark" class="col-sm-3 control-label">Landmark</label>
-		      <div class="col-sm-7"><input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control"></div>
-		   </div>
-		   
-		   <div class="form-group">
-		      <div class="col-sm-7"><button type="submit" class="btn btn-success">Create a meeting</button></div>
-		   </div>
+								   <div class="form-group date">
+									   <label for="meetingDate" class="col-sm-3 control-label">Meeting Date / Time</label>
+										<div class="col-sm-7"> 
+											<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+										</div>				
+								   </div>		   
+								   <div class="form-group">
+							  			<label for="topic" class="col-sm-3 control-label">Topic</label>	  			
+							  			<div class="col-sm-7">
+							      			<select name="topic" class="form-control topic col-sm-7"  data-placeholder="Choose a topic">
+									  			<option>Resume &amp; Linked In profile creation</option>
+									  			<option>Mock Interview</option>
+									  			<option>Insider Scoop</option>
+									  			<option>Office Visit</option>
+									  			<option>Internship or Job Search</option>
+									  			<option>Professional Etiquette</option>
+											</select>
+										</div>			   
+									</div>			
+								   <div class="form-group">
+								      <label for="meetingType" class="col-sm-3 control-label">Meeting Type</label>
+								      <div class="col-sm-7">
+									      <select name="meetingType" class="form-control col-sm-7">
+									      	  <option>In Person</option>	
+											  <option>Telephonic</option>
+											</select>
+										</div>
+								   </div>
+								   
+								   <div class="form-group">
+								      <label for="location" class="col-sm-3 control-label">Location</label>
+								      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control"></div>
+								   </div>
 
-		   	<input type="hidden" name="_csrf" value="{_csrf}" />
-			<input type="hidden" name="type" id="type" value="0" />
+								   <div class="form-group">
+								      <label for="landmark" class="col-sm-3 control-label">Landmark</label>
+								      <div class="col-sm-7"><input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control"></div>
+								   </div>
+								   
+								   <div class="form-group">
+								      <div class="col-sm-7"><button type="submit" class="btn btn-success">Create a meeting</button></div>
+								   </div>
 
-			<!-- Some hidden stuff -->
-			<input type="hidden" name="inviteCreator" value="{data._id}">
-			
-		</form>		
+								   	<input type="hidden" name="_csrf" value="{_csrf}" />
+									<input type="hidden" name="type" id="type" value="0" />
 
+									<!-- Some hidden stuff -->
+									<input type="hidden" name="inviteCreator" value="{data._id}">
+									
+								</form>		
+
+							</div>
+							{/data}
+					</div>
+			</div>	
+		</div>	
 	</div>
-	{/data}
 {/body}
+
+
+
+
+
