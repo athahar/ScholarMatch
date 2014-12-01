@@ -625,7 +625,7 @@
 					$.inArray(prevMonth.getUTCDay(), this.daysOfWeekDisabled) !== -1) {
 					clsName += ' disabled';
 				}
-				html.push('<td class="day' + clsName + '">' + prevMonth.getUTCDate() + '</td>');
+				html.push('<td class="day' + clsName + '" + style="cursor:pointer; text-align:center;">' + prevMonth.getUTCDate() + '</td>');
 				if (prevMonth.getUTCDay() == this.weekEnd) {
 					html.push('</tr>');
 				}
@@ -650,13 +650,13 @@
 					meridian = (i < 12 ? dates[this.language].meridiem[0] : dates[this.language].meridiem[1]);
 					if (meridian != meridianOld) {
 						if (meridianOld != '') {
-							html.push('</fieldset>');
+							html.push('</fieldset><br />');
 						}
-						html.push('<fieldset class="hour"><legend>' + meridian.toUpperCase() + '</legend>');
+						html.push('<fieldset class="hour" ><legend style="font-size:14px;">' + meridian.toUpperCase() + '</legend>');
 					}
 					meridianOld = meridian;
 					txt = (i % 12 ? i % 12 : 12);
-					html.push('<span class="hour' + clsName + ' hour_' + (i < 12 ? 'am' : 'pm') + '">' + txt + '</span>');
+					html.push('<span class="hour' + clsName + ' hour_' + (i < 12 ? 'am' : 'pm') + '" style="font-size:16px; cursor:pointer;">' + txt + ',</span>&nbsp;&nbsp;');
 					if (i == 23) {
 						html.push('</fieldset>');
 					}
@@ -690,7 +690,7 @@
 					meridianOld = meridian;
 					txt = (hours % 12 ? hours % 12 : 12);
 					//html.push('<span class="minute'+clsName+' minute_'+(hours<12?'am':'pm')+'">'+txt+'</span>');
-					html.push('<span class="minute' + clsName + '">' + txt + ':' + (i < 10 ? '0' + i : i) + '</span>');
+					html.push('<span class="minute' + clsName + '" + style="cursor:pointer;">' + txt + ':' + (i < 10 ? '0' + i : i) + ',</span>&nbsp;&nbsp;');
 					if (i == 59) {
 						html.push('</fieldset>');
 					}
