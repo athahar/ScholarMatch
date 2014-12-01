@@ -33,7 +33,7 @@
 							<br />
 							<div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" class="form-control"></div>
 							<br /><br />
-							<div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control"></div>
+							<div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email Address" autofocus="" class="form-control"></div>
 							<br />  <br />
 							<div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
 							<br /> <br />
