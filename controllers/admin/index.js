@@ -19,11 +19,11 @@ module.exports = function (router) {
 
     model.viewName = 'admin';
 
-    router.get('/', auth.isAuthenticated('admin'), auth.injectUser(), function (req, res) {
+    router.get('/', auth.isAuthenticated('admin'), auth.injectUser(), auth.isAdmin(), function (req, res) {
         res.render('admin/index', model);
     });
 
-    router.get('/allmeetings', function (req, res) {
+    router.get('/allmeetings', auth.isAdmin(), function (req, res) {
         // debugger;
         MeetingRequest.findAll(function (err, result) {
             // debugger;
@@ -36,7 +36,7 @@ module.exports = function (router) {
                 // console.dir(result);
                 model.data = model.data || {};
                 model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                for(var i = 0; i < model.data.meetingDetails.length; i++) {
+                for (var i = 0; i < model.data.meetingDetails.length; i++) {
                     console.log("Meeting date from DB " + model.data.meetingDetails[i].meetingdate);
                     var now = new Date();
                     var nowMoment = moment(now);
@@ -44,29 +44,28 @@ module.exports = function (router) {
                     //16 September 2014 - 06:30 PM
                     var meetingtimeNew = model.data.meetingDetails[i].meetingdate;
                     var arr = meetingtimeNew.split(" ");
-                    if(arr.length > 4) {
-                    var hour = arr[4].split(":");
-                    var hr = hour[0];
-                    var min = hour[1];
-                    if(arr[5] == "PM") {
-                        hr = hr + 12;
-                    }
-                    meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
+                    if (arr.length > 4) {
+                        var hour = arr[4].split(":");
+                        var hr = hour[0];
+                        var min = hour[1];
+                        if (arr[5] == "PM") {
+                            hr = hr + 12;
+                        }
+                        meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
                     }
                     console.log("New meeting time = " + meetingtimeNew);
                     var meetDate = moment(model.data.meetingDetails[i].meetingdate, "D MMM YYYY - HH:mm");
                     console.log("now " + nowMoment);
-                
+
 
                     //var meetDate = moment("");
                     console.log("Meeting Date " + meetDate);
-                    if(now > meetDate) {
+                    if (now > meetDate) {
                         model.data.meetingDetails[i].isMeetingCompleted = true;
-                        console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);          
-                    }
-                    else {
+                        console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
+                    } else {
                         model.data.meetingDetails[i].isMeetingCompleted = false;
-                        console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted); 
+                        console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
                     }
                 }
                 res.render('admin/allmeetings', model);
@@ -77,7 +76,9 @@ module.exports = function (router) {
 
     router.get('/meeting-setup', function (req, res) {
         // debugger;
-        var options = { role: 'coach'};
+        var options = {
+            role: 'coach'
+        };
         userLib.queryEveryCoach(options, function (err, result) {
             if (err) {
                 console.log(err);
@@ -94,9 +95,11 @@ module.exports = function (router) {
                 //res.render("admin/meeting-invite/index", model);
             }
         })
-        options = { role: 'student'};
+        options = {
+            role: 'student'
+        };
         userLib.queryEveryStudent(options, function (err, result) {
-            
+
             if (err) {
                 console.log(err);
                 model.messages = err;
@@ -160,7 +163,7 @@ module.exports = function (router) {
                 if (err) {
                     model.messages = err;
                     res.render("admin/meeting-invite/index", model);
-                    } else {
+                } else {
 
                     // now create a meeting invite
 
