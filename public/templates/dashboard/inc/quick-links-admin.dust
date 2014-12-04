@@ -8,6 +8,7 @@
 		<li> <a href="/match/manualconnection">Manually match student / Coach</a></li>
 		<li> <a href="/admin/allmeetings">View all meetings</a></li>
 		<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+		<li> <a href="/admin/user/createAdmin">New Admin Creation</a></li>
 	</ul>    
 </div>
 
