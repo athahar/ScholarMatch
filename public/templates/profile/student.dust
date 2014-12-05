@@ -121,7 +121,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
@@ -222,8 +222,3 @@
 		</form>
 	{/data.result}
 {/body}
-
-
-
-
-
