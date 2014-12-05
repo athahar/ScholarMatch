@@ -85,7 +85,13 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">About Me</td>
-										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" ></textarea></td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" >
+												{#additionalPersonalInfo}
+													{additionalPersonalInfo}
+												{/additionalPersonalInfo}
+											</textarea>
+										</td>
 									</tr>
 								</table>
 			
@@ -141,7 +147,15 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Year in School</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--	<input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"> -->
+											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7">
+												<option value="-1">Select one...</option>
+  												<option value="College Junior">College Junior</option>
+  												<option value="College Senior">College Senior</option>
+  												<option value="Recent College GraduaTE">Recent College Graduate</option> 
+   											</select>
+										</td>
 									</tr>
 								</table>
 								<br />
@@ -158,12 +172,36 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">
+											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
+											<select name="industryDesired" id="industryDesired" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=industry.desired} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.industry}
+   											</select>
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+										<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control">-->
+											<select name="industrySecondary" id="industrySecondary" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=industry.secondary} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.industry}
+   											</select>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>

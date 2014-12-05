@@ -3,9 +3,9 @@
 {<body}
 
 	<div class="container-widest-white">
-		<div class="container-wide">
-			<div style="font-size:20px;"> Welcome to the Administrators private club. No users allowed here. </div>
+		<div class="container-wide">			
 				<div class="row">
+<<<<<<< HEAD
 				   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
 					  {! >"dashboard/inc/upcoming-meetings" / !}  
 					  <div class="panel panel-info">
@@ -22,6 +22,11 @@
 						</ul>
 					</div>			  
 			   		</div>
+=======
+				   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  				  
+				  	{>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
+>>>>>>> upstream/develop
 				</div>	
 			</div>	
 		</div>

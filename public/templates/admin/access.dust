@@ -1,0 +1,31 @@
+{>"layouts/master" /}
+
+{<title}
+	Admin - Career Connections Program  - ScholarMatch
+{/title}
+
+
+{<body}
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
+
+			   <div class="col-md-9">
+			   		<div class="container-widest-white" style="text-align:left;">
+						<p class="lead">
+							Access Granted!
+						</p>
+			   </div>
+			</div>	
+		</div>	
+	</div>
+{/body}
+
+
+
+
+

@@ -9,17 +9,19 @@ define([
         "use strict";
 
         var AdminView = View.extend({
-            events: {},
+            events: {
+                'click .setupOrientation': setupOrientation
+            },
             afterRender: function () {
                 // call super method first
                 View.prototype.afterRender.call(this);
                 console.log("AdminView");
 
-                 this.initDateTimePicker();
-                 this.initGooglePlaces();
-                 $(".form-control.topic").chosen();
+                this.initDateTimePicker();
+                this.initGooglePlaces();
+                $(".form-control.topic").chosen();
             },
-             initDateTimePicker: function () {
+            initDateTimePicker: function () {
 
                 var date = new Date();
                 date.setDate(date.getDate() - 1);
@@ -45,6 +47,10 @@ define([
                     });
 
             },
+            setupOrientation: function (ev) {
+                // ev.preventDefault();
+                $(".setupOrientation").addClass("disabled").text('Creating');
+            }
         });
 
         return AdminView;
