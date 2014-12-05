@@ -5,9 +5,28 @@
 	<div class="container-widest-white">
 		<div class="container-wide">			
 				<div class="row">
+<<<<<<< HEAD
+				   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+					  {! >"dashboard/inc/upcoming-meetings" / !}  
+					  <div class="panel panel-info">
+					  	<div class="panel-heading">Quick Links</div>
+					    <ul class="nav nav-pills nav-stacked">
+					    	
+							<li> <a href="/match/pending">Pending Match Request(s)</a></li>
+							<li> <a href="/match/manualconnection">Manually match student / Coach</a></li>
+							<li> <a href="/match/pendingOrientation">Pending Orientation(s)</a></li>
+							<li> <a href="/match/orientationInProgress">Orientation(s) in Progress</a></li>
+							<li> <a href="/admin/allmeetings">View all meetings</a></li>
+							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+							
+						</ul>
+					</div>			  
+			   		</div>
+=======
 				   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  				  
 				  	{>"dashboard/inc/quick-links-admin" /} 
 		   		</div>
+>>>>>>> upstream/develop
 				</div>	
 			</div>	
 		</div>

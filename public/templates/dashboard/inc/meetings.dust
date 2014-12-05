@@ -18,7 +18,7 @@ You have not met anyone yet!
      <thead>
         <tr>
            <td>Date/Time</td>           
-           <td>Name</td>
+           <td>Meeting With</td>
            <td>Address</td>
            <td>Topic</td>
            <td>Meeting Feedback</td>

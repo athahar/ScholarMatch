@@ -9,15 +9,10 @@
 {:else}
 
 <div class="container-home-picture">
-<!--
-	<span class="banner-key">Only 27%</span> 
-	<br /> of college grads have a job closely related to their major
--->
+
 "<span class="banner-key">Networking</span> is one of the most important, but neglected elements of the college experience" - Maria Kefalas
 
 <br />
-"Research tells us between <span class="banner-key">60 to 80 percent</span> of jobs are found through personal relationships" - John Bennett
-
 
 	<a href="/about" style="color:white; text-decoration:none;">
 		<div class="learn-more"  style="width:150px; ">

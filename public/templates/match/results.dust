@@ -40,7 +40,7 @@
 						<th>City</th>					
 						<th>Gender</th>
 						<th>Profile</th>
-						<th>connect</th>
+						<th>Connect</th>
 					</thead>
 					<tbody>
 						{#data.results}
