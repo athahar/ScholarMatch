@@ -41,7 +41,7 @@
 							<br />   <br />
 							<div class="col-sm-7">
 							    <select name="role" class="form-control col-sm-7">				      	  
-								    <option value="student">Select an option below</option>				      	  
+								    <option value="student">Select your role below</option>				      	  
 								    <option value="student">Student</option>
 								    <option value="coach">Coach</option>								  
 								</select>
@@ -64,7 +64,7 @@
 					<h1>Who can participate</h1>
 					<br />
 
-					All ScholarMatch students and supporters are invited to participate <br /><br />
+					All ScholarMatch students and supporters are invited to participate. <br /><br />
 					Eligble scholars are ScholarMatch college students residing in the Bay Area for the summer and are interested in making connections in their field of study.  <br /><br />
 					Eligible career coaches are professionals in the Bay Area who are interested in supporting eager college students and sharing information about their career industry.  <br /><br />
 					<div class="signup-button" onclick="redirectPage('about')"">
