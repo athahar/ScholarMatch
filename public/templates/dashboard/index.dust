@@ -39,7 +39,7 @@
 		         <thead>
 		            <tr>
 		               <td>Date/Time</td>
-		               <td>Name</td>
+		               <td>Meeting With</td>
 		               <td>Topic</td>
 		               <td>Meeting Notes</td>
 		            </tr>

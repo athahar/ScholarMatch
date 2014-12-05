@@ -13,9 +13,9 @@
 					    <ul class="nav nav-pills nav-stacked">
 					    	
 							<li> <a href="/match/pending">Pending Match Request(s)</a></li>
+							<li> <a href="/match/manualconnection">Manually match student / Coach</a></li>
 							<li> <a href="/match/pendingOrientation">Pending Orientation(s)</a></li>
 							<li> <a href="/match/orientationInProgress">Orientation(s) in Progress</a></li>
-							<li> <a href="/match/manualconnection">Manually match student / Coach</a></li>
 							<li> <a href="/admin/allmeetings">View all meetings</a></li>
 							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
 							

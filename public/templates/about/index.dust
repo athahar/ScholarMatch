@@ -30,9 +30,9 @@
 
 
 <a name="overview" id="overview"></a>
-<div class="container-widest-white-prior-login">
+<div class="container-widest-gray">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			What is Career Connections?
@@ -55,9 +55,9 @@
 
 
 <a id="who" name="who"></a>
-<div class="container-widest-gray">
+<div class="container-widest-white">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			Who can Participate?
@@ -82,9 +82,9 @@
 
 
 <a id="expectations" name="expectations"></a>
-<div class="container-widest-gold">
+<div class="container-widest-gray">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/RedShieldGoldBG.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			Expectations
