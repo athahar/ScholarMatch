@@ -9,6 +9,7 @@
 {<body}
 	{#data.result}
 		<form  method="POST" action="/profile">	
+			
 			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
 				{?data.firstlogin}
 					<center>
@@ -35,6 +36,7 @@
 							References
 						</div>
 					</div>
+
 
 					<div class="edit-settings-content">
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
@@ -94,9 +96,9 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">About Me</td>
+										<td class="edit-settings-content-table-left">One Interesting Fact</td>
 										<td class="edit-settings-content-table-right">
-											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" autofocus="" >
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting face a student would want to know" autofocus="" >
 												{#additionalPersonalInfo}
 													{additionalPersonalInfo}
 												{/additionalPersonalInfo}
