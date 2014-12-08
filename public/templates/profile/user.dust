@@ -1,4 +1,3 @@
-
 {>"layouts/master" /}
 
 {<title}
@@ -42,22 +41,22 @@
 						<hr />
 						<table class="profile-content-box-table">
 							{#preferredName}
-								<tr><td>Call me: &nbsp; {preferredName}</td></tr>
+								<tr><td><b>Call me:</b> &nbsp; <span style="text-transform:capitalize;">{preferredName}</span></td></tr>
 							{:else}
-								<tr><td>Call me: &nbsp; {fullName}</td></tr>
+								<tr><td><b>Call me:</b> &nbsp; <span style="text-transform:capitalize;">{fullName}</span></td></tr>
 							{/preferredName}
 							{#gender}
-								<tr><td>Gender: &nbsp; {gender}</td></tr>
+								<tr><td><b>Gender:</b> &nbsp; <span style="text-transform:capitalize;">{gender}</span></td></tr>
 							{/gender}
 							{#linkedinProfileUrl}
-								<tr><td>LinkedIn: &nbsp; <a href="http://{linkedinProfileUrl}" target="_blank">Click to View</a></td></tr>
+								<tr><td><b>LinkedIn:</b> &nbsp; <a href="{linkedinProfileUrl}" target="_blank">Click to View</a></td></tr>
 							{:else}
 								{?ownProfile}
-									<tr><td>LinkedIn: &nbsp; <a href="/profile/edit#About">+ Add Profile Link</a></td></tr>
+									<tr><td><b>LinkedIn:</b> &nbsp; <a href="/profile/edit#About">+ Add Profile Link</a></td></tr>
 								{/ownProfile}
 							{/linkedinProfileUrl}
 							{@eq key=role value="coach"}
-								<tr><td><h4>Why I want to coach</h4></td></tr>
+								<tr><td><h4><b>Why I want to coach</b></h4></td></tr>
 								{#coachingInterest}
 									<tr><td>{coachingInterest}</td></tr>
 								{:else}
@@ -66,12 +65,12 @@
 									{/ownProfile}
 								{/coachingInterest}
 							{/eq}
-								<tr><td><h4>About me</h4></td></tr>
+								<tr><td><h4><b>One interesting fact about me...</b></h4></td></tr>
 							{#additionalPersonalInfo}
 								<tr><td>{additionalPersonalInfo}</td></tr>
 							{:else}
 								{?ownProfile}
-									<tr><td><a href="/profile/edit#About">+ Add About Me (hobbies, family, etc)</a></td></tr>
+									<tr><td><a href="/profile/edit#About">+ Add an interesting fact</a></td></tr>
 								{/ownProfile}
 							{/additionalPersonalInfo}
 						</table>
@@ -89,21 +88,21 @@
 						<hr />
 						<table class="profile-content-box-table">
 							{#email}
-								<tr><td><a href="mailto:{email}">{email}</a></td></tr>
+								<tr><td><b>Email:</b> &nbsp;<a href="mailto:{email}">{email}</a></td></tr>
 							{:else}
 								{?ownProfile}
 									<tr><td><a href="/profile/edit#Contact">+ Add Email</a></td></tr>
 								{/ownProfile}
 							{/email}
 							{#phone}
-								<tr><td>{phone}</td></tr>
+								<tr><td><b>Phone:</b> &nbsp;{phone}</td></tr>
 							{:else}
 								{?ownProfile}
 									<tr><td><a href="/profile/edit#Contact">+ Add Phone</a></td></tr>
 								{/ownProfile}
 							{/phone}
 							{#location}
-								<tr><td>{location}</td></tr>
+								<tr><td><b>Location:</b> &nbsp;{location}</td></tr>
 							{:else}
 								{?ownProfile}
 									<tr><td><a href="/profile/edit#Contact">+ Add Location</a></td></tr>
@@ -129,21 +128,21 @@
 						{@eq key=role value="student"}
 							<table class="profile-content-box-table">
 								{#school.name}
-									<tr><td>{school.name}</td></tr>
+									<tr><td><b>Undergrad School:</b> &nbsp; <span style="text-transform:capitalize;">{school.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add School</a></td></tr>
 									{/ownProfile}
 								{/school.name}
 								{#school.major}
-									<tr><td>{school.major}</td></tr>
+									<tr><td><b>Undergrad School:</b> &nbsp; <span style="text-transform:capitalize;">{school.major}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Major</a></td></tr>
 									{/ownProfile}
 								{/school.major}
 								{#school.currentYear}
-									<tr><td>{school.currentYear} year(s) in school</td></tr>
+									<tr><td><b>{school.currentYear} year(s) in school</b></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Current Year</a></td></tr>
@@ -153,28 +152,28 @@
 						{:else}
 							<table class="profile-content-box-table">
 								{#underGradSchool.name}
-									<tr><td>{underGradSchool.name}</td></tr>
+									<tr><td><b>Undergrad School:</b> &nbsp; <span style="text-transform:capitalize;">{underGradSchool.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Undergrad School</a></td></tr>
 									{/ownProfile}
 								{/underGradSchool.name}
 								{#underGradSchool.major}
-									<tr><td>{underGradSchool.major}</td></tr>
+									<tr><td><b>Undergrad Major:</b> &nbsp; <span style="text-transform:capitalize;">{underGradSchool.major}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Undergrad Major</a></td></tr>
 									{/ownProfile}
 								{/underGradSchool.major}
 								{#gradSchool.name}
-									<tr><td>{gradSchool.name}</td></tr>
+									<tr><td><b>Grad School:</b> &nbsp; <span style="text-transform:capitalize;">{gradSchool.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Grad School</a></td></tr>
 									{/ownProfile}
 								{/gradSchool.name}
 								{#gradSchool.major}
-									<tr><td>{gradSchool.major}</td></tr>
+									<tr><td><b>Grad Major:</b> &nbsp; <span style="text-transform:capitalize;">{gradSchool.major}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Grad Major</a></td></tr>
@@ -197,21 +196,21 @@
 						{@eq key=role value="student"}
 							<table class="profile-content-box-table">
 								{#industry.desired}
-									<tr><td>Desired:</td><td>{industry.desired}</td></tr>
+									<tr><td><b>Desired:</b></td><td>{industry.desired}</td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Desired Industry</a></td></tr>
 									{/ownProfile}
 								{/industry.desired}
 								{#industry.secondary}
-									<tr><td>Secondary:</td><td>{industry.secondary}</td></tr>
+									<tr><td><b>Secondary:</b></td><td>{industry.secondary}</td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Industry</a></td></tr>
 									{/ownProfile}
 								{/industry.secondary}
 								{#previousJobs}
-									<tr><td>Previous Jobs:</td><td>{previousJobs}</td></tr>
+									<tr><td><b>Previous Jobs:</b></td><td>{previousJobs}</td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Previous Jobs</a></td></tr>		
@@ -219,58 +218,60 @@
 								{/previousJobs}
 							</table>
 						{:else}
+
+
 							<table class="profile-content-box-table">
 								{#primaryIndustry.industryName}
-									<tr><td>{primaryIndustry.industryName}</td></tr>
+									<tr><td><b> Primary Industry:</b> &nbsp; <span style="text-transform:capitalize;">{primaryIndustry.industryName}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Primary Industry</a></td></tr>
 									{/ownProfile}
 								{/primaryIndustry.industryName}
 								{#primaryIndustry.jobTitle}
-									<tr><td>{primaryIndustry.jobTitle}</td></tr>
+									<tr><td><b> Job Title:</b> &nbsp; <span style="text-transform:capitalize;">{primaryIndustry.jobTitle}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Job Title</a></td></tr>
 									{/ownProfile}
 								{/primaryIndustry.jobTitle}
 								{#primaryIndustry.company}
-									<tr><td>{primaryIndustry.company}</td></tr>
+									<tr><td><b> Company:</b> &nbsp; <span style="text-transform:capitalize;">{primaryIndustry.company}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Company</a></td></tr>
 									{/ownProfile}
 								{/primaryIndustry.company}
 								{#primaryIndustry.yearsOfExperience}
-									<tr><td>{primaryIndustry.yearsOfExperience}</td></tr>
+									<tr><td><b> Years in Job:</b> &nbsp; <span style="text-transform:capitalize;">{primaryIndustry.yearsOfExperience}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Years of Experience</a></td></tr>
 									{/ownProfile}
 								{/primaryIndustry.yearsOfExperience}
 								{#secondaryIndustry.industryName}
-									<tr><td>{secondaryIndustry.industryName}</td></tr>
+									<tr><td><b> Secondary Industry:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryIndustry.industryName}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Industry</a></td></tr>
 									{/ownProfile}
 								{/secondaryIndustry.industryName}
 								{#secondaryIndustry.jobTitle}
-									<tr><td>{secondaryIndustry.jobTitle}</td></tr>
+									<tr><td><b> Job Title:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryIndustry.jobTitle}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Job Title</a></td></tr>
 									{/ownProfile}
 								{/secondaryIndustry.jobTitle}
 								{#secondaryIndustry.company}
-									<tr><td>{secondaryIndustry.company}</td></tr>
+									<tr><td><b> Company:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryIndustry.company}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Company</a></td></tr>
 									{/ownProfile}
 								{/secondaryIndustry.company}
 								{#secondaryIndustry.yearsOfExperience}
-									<tr><td>{secondaryIndustry.yearsOfExperience}</td></tr>
+									<tr><td><b> Years in Job:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryIndustry.yearsOfExperience}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Years of Experience</a></td></tr>
@@ -294,42 +295,42 @@
 
 							<table class="profile-content-box-table">
 								{#primaryReference.name}
-									<tr><td>{primaryReference.name}</td></tr>
+									<tr><td><b> Primary:</b> &nbsp; <span style="text-transform:capitalize;">{primaryReference.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Primary Reference</a></td></tr>
 									{/ownProfile}
 								{/primaryReference.name}
 								{#primaryReference.phone}
-									<tr><td>{primaryReference.phone}</td></tr>
+									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;">{primaryReference.phone}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Phone</a></td></tr>
 									{/ownProfile}
 								{/primaryReference.phone}
 								{#primaryReference.email}
-									<tr><td>{primaryReference.email}</td></tr>
+									<tr><td><b> Email:</b> &nbsp; <a href="mailto:{secondaryReference.email}">{primaryReference.email}</a></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Email</a></td></tr>
 									{/ownProfile}
 								{/primaryReference.email}
 								{#secondaryReference.name}
-									<tr><td>{primaryReference.name}</td></tr>
+									<tr><td><b> Secondary:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference</a></td></tr>
 									{/ownProfile}
 								{/secondaryReference.name}
 								{#secondaryReference.phone}
-									<tr><td>{primaryReference.phone}</td></tr>
+									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.phone}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Phone</a></td></tr>
 									{/ownProfile}
 								{/secondaryReference.phone}
 								{#secondaryReference.email}
-									<tr><td>{primaryReference.email}</td></tr>
+									<tr><td><b> Email:</b> &nbsp; <a href="mailto:{secondaryReference.email}">{secondaryReference.email}</a></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Email</a></td></tr>
