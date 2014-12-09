@@ -118,9 +118,6 @@
 									</tr>
 								</table>
 			
-								<p class="lead-standard">
-									<a href="/changePassword/"><b>Click here to change your password...</b></a>
-								</p>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -144,7 +141,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
@@ -161,12 +158,12 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Under Grad School" value="{underGradSchool.name}" autofocus="" class="form-control">
+											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Under Grad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
@@ -272,6 +269,9 @@
 							<h3>References Settings</h3>
 							<hr />
 							<center>
+								<p class="lead">
+									Note: Scholarmatch will contact your references as part of your application to coach
+								</p>
 								<table class="edit-settings-content-table">
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Reference</td>
@@ -313,6 +313,7 @@
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+
 							</center>
 						</div>
 					</div>

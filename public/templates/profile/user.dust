@@ -13,7 +13,7 @@
 						<img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle" >
 					</div>
 					<div class="profile-header-information">
-						<h2 style="display:inline-block; margin-right:20px;">{fullName}</h2>
+						<h2 style="display:inline-block; margin-right:20px;"><span style="text-transform:capitalize;">{fullName}</span></h2>
 						{?ownProfile}
 							<a href="/profile/edit#About">Edit</a>
 						{/ownProfile}
@@ -32,7 +32,7 @@
 
 				<div class="split-content-in-half" style="vertical-align:top;">
 					<div class="profile-content-box">
-						<div class="profile-content-box-header">About {fullName}</div>					
+						<div class="profile-content-box-header">About <span style="text-transform:capitalize;">{fullName}</span></div>					
 						<div class="profile-content-box-edit">
 							{?ownProfile}
 								<a href="/profile/edit#About">Edit</a>
