@@ -39,7 +39,8 @@
 						<th>Industry</th>
 						<th>City</th>					
 						<th>Gender</th>
-						<th>Profile</th>
+						<th>Interesting Fact</th>
+						<th>Why (s)he wants to coach</th>
 						<th>Connect</th>
 					</thead>
 					<tbody>
@@ -51,7 +52,8 @@
 							<td>{industry}</td>
 							<td>{city}</td>
 							<td>{gender}</td>
-							<td><a class="button" href="/profile/otherProfile?userId={_id}"> View</a></td>
+							<td>{additionalPersonalInfo}</td>
+							<td>{coachingInterest}</td>
 							<td> <a class="button" href="/match/connect?coachId={_id}&amp;studentId={user._id}">Request to connect</a></td>
 						</tr>
 						{/data.results}
