@@ -100,3 +100,10 @@ define([
                 $("#" + menuIDs[4]).css("background-color","white");
                 $("#" + contentIDs[4]).toggleClass("edit-settings-content-items-hidden");
             });
+
+    $(".phone").text(function(i, text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        return text;
+    });
