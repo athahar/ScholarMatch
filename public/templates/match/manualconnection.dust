@@ -19,7 +19,7 @@
 							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 							&nbsp;&nbsp;
 							<div class="about-title">
-								Manually Match Coach 2 Students
+								Manually Find a Coach for Student
 							</div>
 						
 						{?messages}

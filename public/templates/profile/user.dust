@@ -20,15 +20,24 @@
 					</div>
 				</div>
 
+
 				<br />
 				{?ownProfile}
 					<center>
+						<h3 id="changed-password"></h3>
 						<p class="lead-standard">
 							<a href="/changePassword/"><b>Click here to change your password.</b></a>
 						</p>
 						<br />
 					</center>
+						<script type="text/javascript">
+							if (window.location.href.indexOf("changePassword") > -1) {
+								$('#changed-password').append("Your password has been successfully changed!");
+								
+							}
+						</script>
 				{/ownProfile}
+
 
 				<div class="split-content-in-half" style="vertical-align:top;">
 					<div class="profile-content-box">
@@ -95,7 +104,7 @@
 								{/ownProfile}
 							{/email}
 							{#phone}
-								<tr><td><b>Phone:</b> &nbsp;{phone}</td></tr>
+								<tr><td><b>Phone:</b> &nbsp; <span class="phone">{phone}</span></td></tr>
 							{:else}
 								{?ownProfile}
 									<tr><td><a href="/profile/edit#Contact">+ Add Phone</a></td></tr>
@@ -302,7 +311,7 @@
 									{/ownProfile}
 								{/primaryReference.name}
 								{#primaryReference.phone}
-									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;">{primaryReference.phone}</span></td></tr>
+									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;" class="phone">{primaryReference.phone}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Phone</a></td></tr>
@@ -323,7 +332,7 @@
 									{/ownProfile}
 								{/secondaryReference.name}
 								{#secondaryReference.phone}
-									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.phone}</span></td></tr>
+									<tr><td><b> Phone:</b> &nbsp; <span style="text-transform:capitalize;" class="phone">{secondaryReference.phone}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Phone</a></td></tr>
