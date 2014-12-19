@@ -4,6 +4,7 @@ var userLib = require('../../lib/user')();
 var mongoose = require('mongoose');
 var User = mongoose.model("User");
 var logger = require('tracer').colorConsole();
+var validator = require('express-validator');
 var Industry = mongoose.model("Industry");
 
 module.exports = function (router) {
@@ -164,6 +165,20 @@ module.exports = function (router) {
             req.session.firstlogin = false; // clear initial login flag
 
             if(req.body.role == "coach"){
+
+                // validate mandatory fields
+                req.checkBody('linkedinProfileUrl', 'Linkedin profile url is required').notEmpty();
+
+                var errors = req.validationErrors();
+                console.log(errors);
+
+                if(errors) {
+                    req.flash(errors[0].msg);
+                    model.messages = errors[0].msg;
+                    res.render('profile/coach', model);
+                    return;
+                } 
+
                 model.data.result.underGradSchool = model.data.result.underGradSchool || {};
                 model.data.result.underGradSchool.name = req.body.underGradSchoolName;
                 model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
@@ -201,7 +216,7 @@ module.exports = function (router) {
                 model.data.result.secondaryReference.name = req.body.secondaryReferenceName;
                 model.data.result.secondaryReference.phone = req.body.secondaryReferencePhone;
                 model.data.result.secondaryReference.email = req.body.secondaryReferenceEmail;
-            }else if(req.body.role == "student"){
+            } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
                 model.data.result.school.name = req.body.schoolName;
                 model.data.result.school.major = req.body.schoolMajor;
