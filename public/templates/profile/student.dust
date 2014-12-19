@@ -84,9 +84,9 @@
 										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">About Me</td>
+										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
 										<td class="edit-settings-content-table-right">
-											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" >
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus="" >
 												{#additionalPersonalInfo}
 													{additionalPersonalInfo}
 												{/additionalPersonalInfo}
@@ -95,9 +95,6 @@
 									</tr>
 								</table>
 			
-								<p class="lead-standard">
-									<a href="/changePassword/"><b>Click here to change your password...</b></a>
-								</p>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -121,7 +118,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
@@ -209,7 +206,7 @@
 									</tr>
 								</table>
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button> 
 							</center>
 						</div>
 					</div>
@@ -222,8 +219,3 @@
 		</form>
 	{/data.result}
 {/body}
-
-
-
-
-

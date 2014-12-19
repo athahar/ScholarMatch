@@ -9,6 +9,7 @@
 {<body}
 	{#data.result}
 		<form  method="POST" action="/profile">	
+			
 			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
 				{?data.firstlogin}
 					<center>
@@ -36,6 +37,7 @@
 						</div>
 					</div>
 
+
 					<div class="edit-settings-content">
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 							<h3>About Settings</h3>
@@ -50,7 +52,7 @@
 											<a href="#">Edit photo</a>
 										</td>
 									</tr>
-									{@contextDump/}
+									<!-- {@contextDump/} -->
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name</td>
 										<td class="edit-settings-content-table-right">
@@ -94,9 +96,9 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">About Me</td>
+										<td class="edit-settings-content-table-left">One Interesting Fact</td>
 										<td class="edit-settings-content-table-right">
-											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" autofocus="" >
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting face a student would want to know" autofocus="" >
 												{#additionalPersonalInfo}
 													{additionalPersonalInfo}
 												{/additionalPersonalInfo}
@@ -116,9 +118,6 @@
 									</tr>
 								</table>
 			
-								<p class="lead-standard">
-									<a href="/changePassword/"><b>Click here to change your password...</b></a>
-								</p>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -142,7 +141,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
@@ -159,12 +158,12 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Under Grad School" value="{underGradSchool.name}" autofocus="" class="form-control">
+											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Under Grad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
@@ -270,6 +269,9 @@
 							<h3>References Settings</h3>
 							<hr />
 							<center>
+								<p class="lead">
+									Note: Scholarmatch will contact your references as part of your application to coach
+								</p>
 								<table class="edit-settings-content-table">
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Reference</td>
@@ -311,6 +313,7 @@
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+
 							</center>
 						</div>
 					</div>
@@ -323,12 +326,3 @@
 		</form>		
 	{/data.result}
 {/body}
-
-
-
-
-
-<!--
-
-
-

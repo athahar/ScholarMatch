@@ -1,0 +1,77 @@
+{>"layouts/master" /}
+
+{<title}
+	Admin - Career Connections Program  - ScholarMatch
+{/title}
+
+
+{<body}
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
+
+			   <div class="col-md-9">
+			   		<div class="container-widest-white" style="text-align:left;">
+						
+							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+							&nbsp;&nbsp;
+							<div class="about-title">
+								Create Admin
+							</div>
+							<hr />
+							
+							{?messages}
+							<ul class="bg-warning">
+								{#messages}
+								<li>{.}</li>
+								{/messages}
+							</ul>
+							{/messages}
+							
+							<center>
+								<div class="curved-box"  style="margin-left:5%;">
+									<div class="curved-box-inside">
+										<div class="results clearfix" data-results="{data.results}"> 						
+
+											<form id="createAdmin" method="POST" class="form-horizontal" action="/admin/user/createAdmin">	
+
+												<table class="edit-settings-content-table">
+										        	<tr>
+														 <td class="edit-settings-content-table-left">User:</td>
+														<td class="edit-settings-content-table-right"> 
+												            <select name="coach" class="form-control col-sm-7">
+												            {#data.results}
+															  	<option value="{_id}">{fullName} ({email})</option>
+															  {/data.results}
+															</select>
+												        </td>              
+												   </tr>  												  
+											
+												    <input type="hidden" name="_csrf" value="{_csrf}" />    
+													<tr>
+														<td colspan = "2" style="text-align:center;">
+															<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Make Admin</button>
+														</td>
+													</tr>
+												</table>
+											    
+										   </form>	
+										 </div>		
+									</div>
+								</div>
+							</center>
+			   		</div>
+			   </div>
+			</div>	
+		</div>	
+	</div>
+{/body}
+
+
+
+
+

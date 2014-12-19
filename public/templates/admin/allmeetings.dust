@@ -1,57 +1,76 @@
 {>"layouts/master" /}
 
 {<title}
-	All Meetings - College to Career Program  - ScholarMatch
+	Admin - All meetings - Career Connections Program 
 {/title}
 
+
 {<body}
-
 	<div class="container-widest-white">
-		<div class="container-wide" style="text-align:left;">
-			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
-			&nbsp;&nbsp;
-			<div class="about-title">
-				All Meetings
-			</div>
-			<hr />
-
+		<div class="container-wide">
 			<div class="row">
-			   
-			   <div class="col-md-12">				
-					<table id="visits" class="table table-bordered table-striped table-condensed">
-				     <thead>
-				        <tr>
-				           <td>Date/Time</td>           
-				           <td>Attendees</td>
-				           <td>Address</td>
-				           <td>Topic</td>
-				           <td>Meeting Feedback</td>
-				           <td>Actions</td>
-				        </tr>
-				     </thead>
-				     <tbody>
-				        {#data.meetingDetails}  
-				        <tr>
-				           <td>{meetingdate}</td>
-				           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
-				           <td>{location}</td>
-				           <td>{topic}</td>
-	           				<td>
-	           				{?isMeetingCompleted}
-	           					<a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a>
-	           				{/isMeetingCompleted}
-	           				</td>
-	           				<td>
-	           			    {^isMeetingCompleted}
-	           			    	<a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a>
-	           			    {/isMeetingCompleted}
-	           			    </td>
-				           </tr>     
-				        {/data.meetingDetails}      
-				     </tbody>
-				  </table>
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
+
+			   <div class="col-md-9">
+			   	<div class="container-widest-white">
+					<div class="container-wide" style="text-align:left;">
+						<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+						&nbsp;&nbsp;
+						<div class="about-title">
+							All Meetings
+						</div>
+						<hr />
+
+						<div class="row">
+						   
+						   <div class="col-md-12">				
+								<table id="visits" class="table table-bordered table-striped table-condensed">
+							     <thead>
+							        <tr>
+							           <td>Date/Time</td>           
+							           <td>Attendees</td>
+							           <td>Address</td>
+							           <td>Topic</td>
+							           <td>Meeting Feedback</td>
+							           <td>Actions</td>
+							        </tr>
+							     </thead>
+							     <tbody>
+							        {#data.meetingDetails}  
+							        <tr>
+							           <td>{meetingdate}</td>
+							           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
+							           <td>{location}</td>
+							           <td>{topic}</td>
+				           				<td>
+				           				{?isMeetingCompleted}
+				           					<a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a>
+				           				{/isMeetingCompleted}
+				           				</td>
+				           				<td>
+				           			    {^isMeetingCompleted}
+				           			    	<a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a>
+				           			    {/isMeetingCompleted}
+				           			    </td>
+							           </tr>     
+							        {/data.meetingDetails}      
+							     </tbody>
+							  </table>
+						   </div>
+						</div>		
+					</div>
+				</div>
+			   		
 			   </div>
-			</div>		
-		</div>
+			</div>	
+		</div>	
 	</div>
 {/body}
+
+
+
+
+

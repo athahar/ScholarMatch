@@ -14,6 +14,8 @@
 						<div class="curved-box-inside">
 							<h3>Congratulations! The meeting has been set up. An email will be sent to both coach and student. </h3>
 							<br />
+							<br />
+							<button class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
 						</div>
 					</div>
 				</center>

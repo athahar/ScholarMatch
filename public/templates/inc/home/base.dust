@@ -9,25 +9,20 @@
 {:else}
 
 <div class="container-home-picture">
-<!--
-	<span class="banner-key">Only 27%</span> 
-	<br /> of college grads have a job closely related to their major
--->
+
 "<span class="banner-key">Networking</span> is one of the most important, but neglected elements of the college experience" - Maria Kefalas
 
 <br />
-"Research tells us between <span class="banner-key">60 to 80 percent</span> of jobs are found through personal relationships" - John Bennett
-
 
 	<a href="/about" style="color:white; text-decoration:none;">
-		<div class="learn-more">
-			Learn more about Career Connections
+		<div class="learn-more"  style="width:150px; ">
+			Learn more
 		</div>
 	</a>
 </div>
 
 <a id="login-main"></a>
-<div class="container-widest-white" id="click-to-open" style="cursor:pointer;">
+<div class="container-widest-white-prior-login" id="click-to-open" style="cursor:pointer;">
 	<div class="container-wide">
 		<div id="open-text" >
 			Get started with Career Connections by Signing Up or Logging In &nbsp;&nbsp;
@@ -85,7 +80,7 @@
 				</div>
 				<div class="testimonial-person">
 					Eddie - Student<br />
-					<img src="/images/EddieAshley.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/EddieAshley.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
 			<div class="testimonial">
@@ -94,26 +89,16 @@
 				</div>
 				<div class="testimonial-person">
 					Jessica - Student<br />
-					<img src="/images/JessicaCheung.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/JessicaCheung.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
-			<!--
-			<div class="testimonial">
-				<div class="testimonial-text">
-					"It's such a pleasure to work with an excited young student - a great reminder of the many things I love about my job and why I do the work I do."
-				</div>
-				<div class="testimonial-person">
-					Kathryn - Coach
-				</div>				
-			</div>
-			-->
 			<div class="testimonial">
 				<div class="testimonial-text">
 					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
 				</div>
 				<div class="testimonial-person">
 					Christine - Coach<br />
-					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/ChristineCatabay.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>		
 			</div>
 		</center>

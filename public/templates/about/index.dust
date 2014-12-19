@@ -30,9 +30,9 @@
 
 
 <a name="overview" id="overview"></a>
-<div class="container-widest-white">
+<div class="container-widest-gray">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			What is Career Connections?
@@ -55,9 +55,9 @@
 
 
 <a id="who" name="who"></a>
-<div class="container-widest-gray">
+<div class="container-widest-white">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			Who can Participate?
@@ -82,9 +82,9 @@
 
 
 <a id="expectations" name="expectations"></a>
-<div class="container-widest-gold">
+<div class="container-widest-gray">
 	<div class="container-wide" style="text-align:left;">
-		<img src="/images/RedShieldGoldBG.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+		<img src="/images/GoldShieldGrayBG.PNG"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
 		<div class="about-title">
 			Expectations
@@ -123,7 +123,7 @@
 
 
 <a id="testimonials" name="testimonials"></a>
-<div class="container-widest-white" style="padding-bottom:50px; ">
+<div class="container-widest-white-prior-login" style="padding-bottom:50px; ">
 	<div class="container-wide" style="text-align:left;">
 		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 		&nbsp;&nbsp;
@@ -139,7 +139,7 @@
 				</div>
 				<div class="testimonial-person">
 					Eddie - Student<br />
-					<img src="/images/EddieAshley.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/EddieAshley.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
 			<div class="testimonial">
@@ -148,26 +148,16 @@
 				</div>
 				<div class="testimonial-person">
 					Jessica - Student<br />
-					<img src="/images/JessicaCheung.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/JessicaCheung.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>
 			</div>
-			<!--
-			<div class="testimonial">
-				<div class="testimonial-text">
-					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
-				</div>
-				<div class="testimonial-person">
-					Christine - Coach
-				</div>				
-			</div>
-			-->
 			<div class="testimonial">
 				<div class="testimonial-text">
 					"Being a Career Coach was a great experience. It let me reflect on my own journey and help a student interested in the field I am passionate about."
 				</div>
 				<div class="testimonial-person">
 					Christine - Coach<br />
-					<img src="/images/ChristineCatabay.gif" class="testimonial-picture" style="height:110px;  width:90px;" />
+					<img src="/images/ChristineCatabay.min.png" class="testimonial-picture" style="height:110px;  width:90px;" />
 				</div>		
 			</div>
 		</center>
