@@ -7,7 +7,6 @@ Prerequisites
 	2. Install npm
 
 
-
 Getting setup 
 --------------------------------
 
