@@ -35,6 +35,14 @@
 						<div class="edit-settings-nav-items-coach" id="edit-settings-header-references">
 							References
 						</div>
+
+						{?messages}
+							<ul class="bg-warning">
+								{#messages}
+									<li>ERROR: {.}</li>
+								{/messages}
+							</ul>
+						{/messages}
 					</div>
 
 
@@ -93,6 +101,9 @@
 										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control">
+										</td>
+										<td class="edit-settings-content-table-right">
+											<a target="_blank" href="#" title="We need to review all coaches and your Linkedin Profile helps with this process."><img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
 										</td>
 									</tr>
 									<tr>
