@@ -1,0 +1,25 @@
+{>"layouts/master" /}
+
+{<title}
+	Meeting Notes - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide" data-model="{data|js}">
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h3>Thanks for submitting your meeting notes! <br /><br /> Please remember to schedule your next meeting. </h3>
+							<br />
+							<br />
+							<button class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+{/body}
