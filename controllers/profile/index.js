@@ -6,6 +6,8 @@ var User = mongoose.model("User");
 var logger = require('tracer').colorConsole();
 var validator = require('express-validator');
 var Industry = mongoose.model("Industry");
+var School = mongoose.model("School");
+var Major = mongoose.model("Major");
 
 module.exports = function (router) {
 
@@ -47,7 +49,9 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
-            model.data.industry = model.data.industry || {};
+            model.data.result.industry = model.data.industry || {};
+            model.data.result.school = model.data.school || {};
+            model.data.result.major = model.data.major || {};
 
             model.data.result.userid = req.user._id;
  
@@ -69,10 +73,33 @@ module.exports = function (router) {
                         }
                         else
                         {
-                            // console.log(result);
-                            model.data.industry = JSON.parse(JSON.stringify(result));
+                            console.log(result);
+                            model.data.result.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
+
+                    School.findAll(function(err, result){
+                        if(err) {
+                            console.log('error in reading the schools from DB');
+                        }
+                        else
+                        {
+                            console.log(result);
+                            model.data.result.school = JSON.parse(JSON.stringify(result));
+                        } 
+                    })
+
+                    Major.findAll(function(err, result){
+                        if(err) {
+                            console.log('error in reading the majors from DB');
+                        }
+                        else
+                        {
+                            console.log(result);
+                            model.data.result.major = JSON.parse(JSON.stringify(result));
+                        } 
+                    })                    
+
 
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
