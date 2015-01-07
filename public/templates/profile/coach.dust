@@ -252,14 +252,14 @@
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=primaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>											
 										</td>
 									</tr>
@@ -289,14 +289,14 @@
 											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=secondaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>												
 										</td>
 									</tr>
