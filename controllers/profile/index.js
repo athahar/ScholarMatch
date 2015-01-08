@@ -73,7 +73,7 @@ module.exports = function (router) {
                         }
                         else
                         {
-                            console.log(result);
+                            //console.log(result);
                             model.data.result.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
@@ -84,7 +84,7 @@ module.exports = function (router) {
                         }
                         else
                         {
-                            console.log(result);
+                            //console.log(result);
                             model.data.result.school = JSON.parse(JSON.stringify(result));
                         } 
                     })
@@ -95,7 +95,7 @@ module.exports = function (router) {
                         }
                         else
                         {
-                            console.log(result);
+                            //console.log(result);
                             model.data.result.major = JSON.parse(JSON.stringify(result));
                         } 
                     })                    
