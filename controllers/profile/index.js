@@ -28,7 +28,7 @@ module.exports = function (router) {
                 // model.messages = err;
                 res.send(err);
             } else {
-                // console.log(result);
+                console.log(result);
 
                 model.data.result = model.data.result || {};
                 model.data.result = JSON.parse(JSON.stringify(result));
