@@ -21,6 +21,8 @@
 				</div>
 
 
+				{@contextDump/}
+
 				<br />
 				{?ownProfile}
 					<center>
@@ -290,7 +292,6 @@
 						{/eq}
 					</div>
 
-					{@contextDump/}
 
 					{@eq key=role value="coach"}
 						<br />
