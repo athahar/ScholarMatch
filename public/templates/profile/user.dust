@@ -290,6 +290,7 @@
 						{/eq}
 					</div>
 
+					{@contextDump/}
 
 					{@eq key=role value="coach"}
 						<br />
