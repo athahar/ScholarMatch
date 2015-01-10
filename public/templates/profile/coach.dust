@@ -148,7 +148,36 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Phone</td>
-										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<select name="phoneType" id="phoneType" class="form-control col-sm-3">
+												<option value="-1">Choose a type...</option>
+												{#data.result.phoneTypeList}  
+													<option value="{type}" 
+														{@eq key=type value=phoneType} 
+															selected="true"
+														{/eq}>
+														{type}
+													</option>
+												{/data.result.phoneTypeList}
+											</select>
+										</td>
+										<td class="edit-settings-content-table-right">
+											<input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Address</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus="">
+												{#address}
+													{address}
+												{/address}
+											</textArea>
+										</td>
+										<td class="edit-settings-content-table-right">
+											<a target="_blank" href="#" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
@@ -174,7 +203,7 @@
 												<option value="-1">Choose a school...</option>
 												{#data.result.school}  
    													<option value="{name}" 
-   														{@eq key=field value=underGradSchool.name} 
+   														{@eq key=name value=underGradSchool.name} 
    															selected="true"
    														{/eq}>
    														{name}
@@ -191,7 +220,7 @@
 												<option value="-1">Choose a major...</option>
 												{#data.result.major}  
    													<option value="{name}" 
-   														{@eq key=field value=underGradSchool.major} 
+   														{@eq key=name value=underGradSchool.major} 
    															selected="true"
    														{/eq}>
    														{name}
@@ -208,7 +237,7 @@
 												<option value="-1">Choose a school...</option>
 												{#data.result.school}  
    													<option value="{name}" 
-   														{@eq key=field value=gradSchool.name} 
+   														{@eq key=name value=gradSchool.name} 
    															selected="true"
    														{/eq}>
    														{name}
@@ -225,7 +254,7 @@
 												<option value="-1">Choose a major...</option>
 												{#data.result.major}  
    													<option value="{name}" 
-   														{@eq key=field value=gradSchool.major} 
+   														{@eq key=name value=gradSchool.major} 
    															selected="true"
    														{/eq}>
    														{name}
@@ -252,14 +281,14 @@
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=primaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>											
 										</td>
 									</tr>
@@ -289,14 +318,14 @@
 											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=secondaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>												
 										</td>
 									</tr>

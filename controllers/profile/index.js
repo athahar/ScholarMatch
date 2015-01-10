@@ -49,9 +49,9 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
-            model.data.result.industry = model.data.industry || {};
-            model.data.result.school = model.data.school || {};
-            model.data.result.major = model.data.major || {};
+            model.data.result.industry = {};
+            model.data.result.school = {};
+            model.data.result.major = {};
 
             model.data.result.userid = req.user._id;
  
@@ -63,7 +63,7 @@ module.exports = function (router) {
                     // model.messages = err;
                     res.send(err);
                 } else {
-                    // console.log(result)
+                    //console.log(result)
                     model.data.result = JSON.parse(JSON.stringify(result));
                     model.data.result.isConnected = true;
 
@@ -71,9 +71,8 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the industries from DB');
                         }
-                        else
-                        {
-                            console.log(result);
+                        else {
+                            //console.log(result);
                             model.data.result.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
@@ -82,9 +81,8 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the schools from DB');
                         }
-                        else
-                        {
-                            console.log(result);
+                        else {
+                            //console.log(result);
                             model.data.result.school = JSON.parse(JSON.stringify(result));
                         } 
                     })
@@ -93,14 +91,18 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the majors from DB');
                         }
-                        else
-                        {
-                            console.log(result);
+                        else {
+                            //console.log(result);
                             model.data.result.major = JSON.parse(JSON.stringify(result));
                         } 
                     })                    
 
+                    model.data.result.phoneTypeList = {};
+                    model.data.result.phoneTypeList = [{"type": "Home"}, 
+                                                        {"type":"Mobile"}, 
+                                                        {"type":"Work"}];
 
+                    console.log("phoneTypeList: " + model.data.result.phoneTypeList);
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
                         res.render('profile/coach', model);    
@@ -142,15 +144,14 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the industries from DB');
                         }
-                        else
-                        {
+                        else {
                             // console.log(result);
                             model.data.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
 
                     // res.render(result);
-                    if(model.data.result.role == 'coach'){
+                    if(model.data.result.role == 'coach') {
                         res.render('profile/coach', model);    
                     } else {
                         res.render('profile/student', model);
@@ -175,6 +176,8 @@ module.exports = function (router) {
             model.data.result.preferredName = req.body.preferredName;
             model.data.result.email = req.body.email;
             model.data.result.phone = req.body.phone;
+            model.data.result.phoneType = req.body.phoneType;
+            model.data.result.address = req.body.address;
             model.data.result.location = req.body.location;
             model.data.result.gender = req.body.genderRadios;
             model.data.result.role = req.body.role;

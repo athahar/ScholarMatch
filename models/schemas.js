@@ -33,6 +33,8 @@ var userSchema = Schema({
     role: String,
     preferredName: String,
     phone: String,
+    phoneType: String,
+    address: String,
     location: String,
     underGradSchool: {
         name: String,
@@ -539,7 +541,7 @@ majorSchema.statics.findAll = function(callback) {
     this.find({},
             function(err, docs) {
                 if (!err){ 
-                    console.log(docs);
+                    //console.log(docs);
                 }
                 else { throw err;}
 
