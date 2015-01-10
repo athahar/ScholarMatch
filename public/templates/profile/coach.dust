@@ -189,6 +189,7 @@
 							</center>
 						</div>
 
+						{@contextDump/}
 
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-education">
 							<h3>Education Settings</h3>

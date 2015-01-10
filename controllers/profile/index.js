@@ -28,7 +28,7 @@ module.exports = function (router) {
                 // model.messages = err;
                 res.send(err);
             } else {
-                // console.log(result);
+                console.log(result);
 
                 model.data.result = model.data.result || {};
                 model.data.result = JSON.parse(JSON.stringify(result));
@@ -71,7 +71,8 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the industries from DB');
                         }
-                        else {
+                        else
+                        {
                             //console.log(result);
                             model.data.result.industry = JSON.parse(JSON.stringify(result));
                         } 
@@ -81,7 +82,8 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the schools from DB');
                         }
-                        else {
+                        else
+                        {
                             //console.log(result);
                             model.data.result.school = JSON.parse(JSON.stringify(result));
                         } 
@@ -91,7 +93,8 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the majors from DB');
                         }
-                        else {
+                        else
+                        {
                             //console.log(result);
                             model.data.result.major = JSON.parse(JSON.stringify(result));
                         } 

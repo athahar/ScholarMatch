@@ -107,7 +107,7 @@ module.exports = function (router) {
                     res.redirect('/dashboard');
                 } else {
                     model.messages = 'Meeting notes Updated';
-                    res.redirect('/dashboard');
+                    res.render('meeting-notes/success');
                 }
              });  
              

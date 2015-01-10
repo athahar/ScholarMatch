@@ -21,6 +21,8 @@
 				</div>
 
 
+				{@contextDump/}
+
 				<br />
 				{?ownProfile}
 					<center>
@@ -137,21 +139,21 @@
 						{@eq key=role value="student"}
 							<table class="profile-content-box-table">
 								{#school.name}
-									<tr><td><b>Undergrad School:</b> &nbsp; <span style="text-transform:capitalize;">{school.name}</span></td></tr>
+									<tr><td><b>Undergrad School:</b></td> <td> <span style="text-transform:capitalize;">{school.name}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add School</a></td></tr>
 									{/ownProfile}
 								{/school.name}
 								{#school.major}
-									<tr><td><b>Undergrad School:</b> &nbsp; <span style="text-transform:capitalize;">{school.major}</span></td></tr>
+									<tr><td><b>Undergrad Major:</b></td><td> <span style="text-transform:capitalize;">{school.major}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Major</a></td></tr>
 									{/ownProfile}
 								{/school.major}
 								{#school.currentYear}
-									<tr><td><b>{school.currentYear} year(s) in school</b></td></tr>
+									<tr><td><b>Year in School:</b></td><td> <span style="text-transform:capitalize;">{school.currentYear}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Education">+ Add Current Year</a></td></tr>
@@ -205,21 +207,21 @@
 						{@eq key=role value="student"}
 							<table class="profile-content-box-table">
 								{#industry.desired}
-									<tr><td><b>Desired:</b></td><td>{industry.desired}</td></tr>
+									<tr><td><b>Desired:</b></td><td> <span style="text-transform:capitalize;">{industry.desired}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Desired Industry</a></td></tr>
 									{/ownProfile}
 								{/industry.desired}
 								{#industry.secondary}
-									<tr><td><b>Secondary:</b></td><td>{industry.secondary}</td></tr>
+									<tr><td><b>Secondary:</b></td><td> <span style="text-transform:capitalize;">{industry.secondary}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Secondary Industry</a></td></tr>
 									{/ownProfile}
 								{/industry.secondary}
 								{#previousJobs}
-									<tr><td><b>Previous Jobs:</b></td><td>{previousJobs}</td></tr>
+									<tr><td><b>Previous Jobs:</b></td><td> <span style="text-transform:capitalize;">{previousJobs}</span></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#Industry">+ Add Previous Jobs</a></td></tr>		
