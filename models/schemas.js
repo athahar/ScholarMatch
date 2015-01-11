@@ -514,14 +514,50 @@ industrySchema.statics.findAll = function(callback) {
                 }).exec(callback);
 };
 
+var schoolSchema = new Schema({
+    _id: false,
+    name: String
+}, {collection: 'school'});
+
+schoolSchema.statics.findAll = function(callback) {
+    this.find({},
+            function(err, docs) {
+                if (!err){ 
+                    // console.log(docs);
+                }
+                else { throw err;}
+
+                }).exec(callback);
+};
+
+var majorSchema = new Schema({
+    _id: false,
+    name: String
+}, {collection: 'major'});
+
+majorSchema.statics.findAll = function(callback) {
+    this.find({},
+            function(err, docs) {
+                if (!err){ 
+                    console.log(docs);
+                }
+                else { throw err;}
+
+                }).exec(callback);
+};
+
 var Meeting = mongoose.model('Meeting', meetingSchema);
 var User = mongoose.model('User', userSchema);
 var Attendee = mongoose.model('Attendee', attendeeSchema);
 var MeetingNotes = mongoose.model('MeetingNotes', meetingNotesSchema);
 var Relationship = mongoose.model('Relationship', relationshipSchema);
 var Industry = mongoose.model('Industry', industrySchema);
+var School = mongoose.model('School', schoolSchema);
+var Major = mongoose.model('Major', majorSchema);
 
 module.exports.Meeting = Meeting;
 module.exports.User = User;
 module.exports.MeetingNotes = MeetingNotes;
 module.exports.Industry = Industry;
+module.exports.School = School;
+module.exports.Major = Major;

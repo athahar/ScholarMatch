@@ -169,21 +169,69 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">
+											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
+											<select name="underGradSchoolName" id="underGradSchoolName" class="form-control col-sm-7">
+												<option value="-1">Choose a school...</option>
+												{#data.result.school}  
+   													<option value="{name}" 
+   														{@eq key=field value=underGradSchool.name} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.school}
+   											</select>
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
+											<select name="underGradSchoolMajor" id="underGradSchoolMajor" class="form-control col-sm-7">
+												<option value="-1">Choose a major...</option>
+												{#data.result.major}  
+   													<option value="{name}" 
+   														{@eq key=field value=underGradSchool.major} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.major}
+   											</select>											
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--<input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control">-->
+											<select name="gradSchoolName" id="gradSchoolName" class="form-control col-sm-7">
+												<option value="-1">Choose a school...</option>
+												{#data.result.school}  
+   													<option value="{name}" 
+   														{@eq key=field value=gradSchool.name} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.school}
+   											</select>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Major</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">
+											<!--<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">-->
+											<select name="gradSchoolMajor" id="gradSchoolMajor" class="form-control col-sm-7">
+												<option value="-1">Choose a major...</option>
+												{#data.result.major}  
+   													<option value="{name}" 
+   														{@eq key=field value=gradSchool.major} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.major}
+   											</select>											
 										</td>
 									</tr>
 								</table>
@@ -204,14 +252,14 @@
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=primaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>											
 										</td>
 									</tr>
@@ -241,14 +289,14 @@
 											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=secondaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>												
 										</td>
 									</tr>
