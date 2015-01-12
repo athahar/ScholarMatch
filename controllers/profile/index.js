@@ -70,7 +70,7 @@ module.exports = function (router) {
                     Industry.findAll(function(err, result){
                         if(err) {
                             console.log('error in reading the industries from DB');
-                        }
+                        } 
                         else
                         {
                             //console.log(result);
