@@ -36,6 +36,7 @@ var userSchema = Schema({
     phoneType: String,
     address: String,
     location: String,
+    heardFrom: String,
     underGradSchool: {
         name: String,
         major: String
@@ -93,6 +94,7 @@ var userSchema = Schema({
         secondary: String
     },
     previousJobs: String,
+    secondPreviousJobs: String,
     additionalPersonalInfo: String,
     coachList: String,
     coachesLinked: [{

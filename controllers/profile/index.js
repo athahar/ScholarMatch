@@ -239,6 +239,7 @@ module.exports = function (router) {
                 
                 model.data.result.coachingInterest = req.body.coachingInterest;
                 model.data.result.studentMatchPreference = req.body.studentMatchPreference;
+                model.data.result.heardFrom = req.body.heardFrom;
 
                 model.data.result.primaryReference = model.data.result.primaryReference || {};
                 model.data.result.primaryReference.name = req.body.primaryReferenceName;
@@ -269,6 +270,7 @@ module.exports = function (router) {
                 }
 
                 model.data.result.previousJobs = req.body.previousJobs;
+                model.data.result.secondPreviousJobs = req.body.secondPreviousJobs;
             }
 
             userLib.updateUser(model.data.result, function (err, result) {

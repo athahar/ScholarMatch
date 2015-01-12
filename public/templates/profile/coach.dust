@@ -124,6 +124,15 @@
 													{coachingInterest}
 												{/coachingInterest}
 											</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">How did you hear about us?</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="heardFrom" id="heardFrom" placeholder="How did you hear about us?" autofocus="" >
+												{#heardFrom}
+													{heardFrom}
+												{/heardFrom}
 											</textarea>
 										</td>
 									</tr>
