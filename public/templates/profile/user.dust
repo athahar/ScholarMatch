@@ -20,7 +20,6 @@
 					</div>
 				</div>
 
-
 				<br />
 				{?ownProfile}
 					<center>
@@ -225,6 +224,13 @@
 										<tr><td><a href="/profile/edit#Industry">+ Add Previous Jobs</a></td></tr>		
 									{/ownProfile}					
 								{/previousJobs}
+								{#secondPreviousJobs}
+									<tr><td><b>2nd Previous Jobs:</b></td><td> <span style="text-transform:capitalize;">{secondPreviousJobs}</span></td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#Industry">+ Add 2nd Previous Jobs</a></td></tr>		
+									{/ownProfile}
+								{/secondPreviousJobs}
 							</table>
 						{:else}
 

@@ -172,14 +172,14 @@
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
 											<select name="industryDesired" id="industryDesired" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=industry.desired} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>
 										</td>
 									</tr>
@@ -189,14 +189,14 @@
 										<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control">-->
 											<select name="industrySecondary" id="industrySecondary" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												{#data.industry}  
+												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=industry.secondary} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.industry}
+   												{/data.result.industry}
    											</select>
 										</td>
 									</tr>
@@ -204,6 +204,10 @@
 										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"></td>
+									</tr>									
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button> 

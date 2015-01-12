@@ -4,7 +4,10 @@ var userLib = require('../../lib/user')();
 var mongoose = require('mongoose');
 var User = mongoose.model("User");
 var logger = require('tracer').colorConsole();
+var validator = require('express-validator');
 var Industry = mongoose.model("Industry");
+var School = mongoose.model("School");
+var Major = mongoose.model("Major");
 
 module.exports = function (router) {
 
@@ -25,7 +28,7 @@ module.exports = function (router) {
                 // model.messages = err;
                 res.send(err);
             } else {
-                // console.log(result);
+                console.log(result);
 
                 model.data.result = model.data.result || {};
                 model.data.result = JSON.parse(JSON.stringify(result));
@@ -46,7 +49,9 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
-            model.data.industry = model.data.industry || {};
+            model.data.result.industry = {};
+            model.data.result.school = {};
+            model.data.result.major = {};
 
             model.data.result.userid = req.user._id;
  
@@ -58,21 +63,49 @@ module.exports = function (router) {
                     // model.messages = err;
                     res.send(err);
                 } else {
-                    // console.log(result)
+                    //console.log(result)
                     model.data.result = JSON.parse(JSON.stringify(result));
                     model.data.result.isConnected = true;
 
                     Industry.findAll(function(err, result){
                         if(err) {
                             console.log('error in reading the industries from DB');
-                        }
+                        } 
                         else
                         {
-                            // console.log(result);
-                            model.data.industry = JSON.parse(JSON.stringify(result));
+                            //console.log(result);
+                            model.data.result.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
 
+                    School.findAll(function(err, result){
+                        if(err) {
+                            console.log('error in reading the schools from DB');
+                        }
+                        else
+                        {
+                            //console.log(result);
+                            model.data.result.school = JSON.parse(JSON.stringify(result));
+                        } 
+                    })
+
+                    Major.findAll(function(err, result){
+                        if(err) {
+                            console.log('error in reading the majors from DB');
+                        }
+                        else
+                        {
+                            //console.log(result);
+                            model.data.result.major = JSON.parse(JSON.stringify(result));
+                        } 
+                    })                    
+
+                    model.data.result.phoneTypeList = {};
+                    model.data.result.phoneTypeList = [{"type": "Home"}, 
+                                                        {"type":"Mobile"}, 
+                                                        {"type":"Work"}];
+
+                    console.log("phoneTypeList: " + model.data.result.phoneTypeList);
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
                         res.render('profile/coach', model);    
@@ -114,15 +147,14 @@ module.exports = function (router) {
                         if(err) {
                             console.log('error in reading the industries from DB');
                         }
-                        else
-                        {
+                        else {
                             // console.log(result);
                             model.data.industry = JSON.parse(JSON.stringify(result));
                         } 
                     })
 
                     // res.render(result);
-                    if(model.data.result.role == 'coach'){
+                    if(model.data.result.role == 'coach') {
                         res.render('profile/coach', model);    
                     } else {
                         res.render('profile/student', model);
@@ -147,6 +179,8 @@ module.exports = function (router) {
             model.data.result.preferredName = req.body.preferredName;
             model.data.result.email = req.body.email;
             model.data.result.phone = req.body.phone;
+            model.data.result.phoneType = req.body.phoneType;
+            model.data.result.address = req.body.address;
             model.data.result.location = req.body.location;
             model.data.result.gender = req.body.genderRadios;
             model.data.result.role = req.body.role;
@@ -164,6 +198,20 @@ module.exports = function (router) {
             req.session.firstlogin = false; // clear initial login flag
 
             if(req.body.role == "coach"){
+
+                // validate mandatory fields
+                req.checkBody('linkedinProfileUrl', 'Linkedin profile url is required').notEmpty();
+
+                var errors = req.validationErrors();
+                console.log(errors);
+
+                if(errors) {
+                    req.flash(errors[0].msg);
+                    model.messages = errors[0].msg;
+                    res.render('profile/coach', model);
+                    return;
+                } 
+
                 model.data.result.underGradSchool = model.data.result.underGradSchool || {};
                 model.data.result.underGradSchool.name = req.body.underGradSchoolName;
                 model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
@@ -191,6 +239,7 @@ module.exports = function (router) {
                 
                 model.data.result.coachingInterest = req.body.coachingInterest;
                 model.data.result.studentMatchPreference = req.body.studentMatchPreference;
+                model.data.result.heardFrom = req.body.heardFrom;
 
                 model.data.result.primaryReference = model.data.result.primaryReference || {};
                 model.data.result.primaryReference.name = req.body.primaryReferenceName;
@@ -201,7 +250,7 @@ module.exports = function (router) {
                 model.data.result.secondaryReference.name = req.body.secondaryReferenceName;
                 model.data.result.secondaryReference.phone = req.body.secondaryReferencePhone;
                 model.data.result.secondaryReference.email = req.body.secondaryReferenceEmail;
-            }else if(req.body.role == "student"){
+            } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
                 model.data.result.school.name = req.body.schoolName;
                 model.data.result.school.major = req.body.schoolMajor;
@@ -221,6 +270,7 @@ module.exports = function (router) {
                 }
 
                 model.data.result.previousJobs = req.body.previousJobs;
+                model.data.result.secondPreviousJobs = req.body.secondPreviousJobs;
             }
 
             userLib.updateUser(model.data.result, function (err, result) {
