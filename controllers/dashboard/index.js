@@ -38,7 +38,7 @@ module.exports = function (router) {
                 }
                 else
                 {
-                    console.log(result);
+                    // console.log(result);
                     model.data.industry = JSON.parse(JSON.stringify(result));
                 }
             })
@@ -51,7 +51,7 @@ module.exports = function (router) {
                         // res.send(err);
                         res.render(view, model);
                     } else {
-                        console.dir(result);
+                        // console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                         res.render(view, model);
                     }
@@ -72,9 +72,24 @@ module.exports = function (router) {
                         // res.send(err);
                         res.render(view, model);
                     } else {
-                        console.dir(result);
+                        // console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        res.render(view, model);
+                        for(var i = 0; i < model.data.meetingDetails.length; i++) {
+                            console.log("Meeting date from DB " + model.data.meetingDetails[i].meetingdate);
+                            var now = new Date();
+                            var meetDate = new Date(model.data.meetingDetails[i].meetingdate);
+                            console.log("now " + now);
+
+                            console.log("Meeting Date " + meetDate);
+                            if(now > meetDate) {
+                                model.data.meetingDetails[i].isMeetingCompleted = true;
+                                console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);          
+                            }
+                            else {
+                                model.data.meetingDetails[i].isMeetingCompleted = false;
+                            }
+                            res.render(view, model);
+                        }
                     }
                 })
 

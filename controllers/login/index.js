@@ -23,7 +23,7 @@ module.exports = function (router) {
      */
     router.get('/', function (req, res) {
 
-        console.dir(model);
+        // console.dir(model);
         //Include any error messages that come from the login process.
         model.messages = req.flash('error');
         res.render('login', model);

@@ -15,7 +15,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-      	debugger;
+      	// debugger;
         if (req.session.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
@@ -28,25 +28,21 @@ module.exports = function (router) {
                     callback(err);
 
                    }
-                console.log(meetingnotesrec)
+                // console.log(meetingnotesrec)
                 if(meetingnotesrec) {
                     model.data = model.data || {};
                     model.data.meetingnotes = model.data.meetingnotes || {};
                     model.data.meetingnotes = JSON.parse(JSON.stringify(meetingnotesrec));
-                    notesExists = 1;
+           
+                    console.log('note exists')
+                    res.render('meeting-notes/existing', model);   
                 }
-            } 
-            );
-            
-            if(notesExists == 1) {
-                console.log('note exists')
-                res.render('meeting-notes/existing', model);   
-            }
-            else {
-                console.log('new note')
-                res.render('meeting-notes/index', model);
-            }
-        
+                else {
+                    console.log('new note')
+                    res.render('meeting-notes/index', model);
+                }
+            }); 
+
         }
         else {
           res.redirect('/login');  
@@ -55,13 +51,13 @@ module.exports = function (router) {
     });
 
     router.get('/meeting-notes', function (req, res) {
-        debugger;
+        // debugger;
         model.data = model.data || {};
         model.data.meetingId = req.query.meetingId; 
 
         MeetingNotes.findByUserAndMeetingId(req.session.userid, req.query.meetingId, function (err, meetingnotesrec) {
 
-                debugger;
+                // debugger;
                 if (err) {
                     callback(err);
 
@@ -76,22 +72,19 @@ module.exports = function (router) {
                     model.data.nextCollaborationDescription = meetingnotesrec.nextCollaborationDescription;
                     model.data.participationSentiment = meetingnotesrec.participationSentiment;
                     model.data.speakWithStaff = meetingnotesrec.speakWithStaff; 
+                
+                    res.render('meeting-notes/index', model);   
                 }
-               } 
-              );
-            
-            if(model.data.interactionType) {
-        
-                res.render('meeting-notes/index', model);   
-            }
-            else {
-                res.render('meeting-notes/existing', model);
-            }
+                else {
+                    res.render('meeting-notes/existing', model);
+                }
+            }); 
+     
     });
     
     router.post('/', function (req, res) {
 
-        debugger;
+        // debugger;
         if (req.session.user._id) {
 
             var meetingnotes = new MeetingNotes({
@@ -114,7 +107,7 @@ module.exports = function (router) {
                     res.redirect('/dashboard');
                 } else {
                     model.messages = 'Meeting notes Updated';
-                    res.redirect('/dashboard');
+                    res.render('meeting-notes/success');
                 }
              });  
              

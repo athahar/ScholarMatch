@@ -6,13 +6,20 @@
 
 {<body}
 
-	<div class="container" data-model="{data.result|js}">
-		Request Approved!
-
-		<br/>
-
-		Respective coach and student have been emailed about the new connection.
-		
-
+	<div class="container-widest-white" style="text-align:left;">
+		<div class="container-wide" data-model="{data.result|js}">
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h3>Request Approved! <br /><br />Respective coach and student have been emailed about the new connection. </h3>
+							<br />
+						</div>
+						
+							<br /><br />
+							<button class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
+					</div>
+				</center>
+			</div>
+		</div>
 	</div>
 {/body}

@@ -6,68 +6,76 @@
 
 {<body}
 
+<div data-data={_csrf|js}>
+	<div class="container-widest-white">
+		<div class="container-wide" style="text-align:left;">
+		<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Create an account
+			</div>
+			<hr />
+			<div class="split-content-in-half-top-align" id="click-to-open">
+				<div class="curved-box"  style="margin-left:5%;">
+					<div class="curved-box-inside">
+						<h3>Get started</h3>
+						Please fill out the form below to sign up for Career Connections
+						<br />
+						{?messages}
+						    <ul class="bg-warning">
+						        {#messages}
+						            <li>ERROR: {.}</li>
+						        {/messages}
+						    </ul>
+						{/messages}
+		    
+						<form id="signup-form" method="POST" action="{requestURI}/signup" >		
+							<br />
+							<div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" class="form-control"></div>
+							<br /><br />
+							<div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email Address" autofocus="" class="form-control"></div>
+							<br />  <br />
+							<div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
+							<br /> <br />
+							<div class="col-sm-7"><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"></div>
+							<br />   <br />
+							<div class="col-sm-7">
+							    <select name="role" class="form-control col-sm-7">				      	  
+								    <option value="student">Select your role below</option>				      	  
+								    <option value="student">Student</option>
+								    <option value="coach">Coach</option>								  
+								</select>
+							</div>
+							<br /><br />
 
-    <div class="container-colored" data-data={_csrf|js}>
-		<div class="container-colored-extra">
-			<div class="center-text">
-				<h1>Signup</h1>
+							<center>
+							<div class="col-sm-7"><button type="submit" class="btn btn-primary" id="login-button" style="height:40px; width:315px; font-size:16px; background-color:#663333; border-color:#663333; position:relative; right:8%;">Signup</button></div>
+							</center>
 
-				{?messages}
-		            <ul class="bg-warning">
-		                {#messages}
-		                    <li>ERROR: {.}</li>
-		                {/messages}
-		            </ul>
-		        {/messages}
-
-				<br />
-
-		    	<center>
-					<form id="signup-form" method="POST" action="{requestURI}/signup" class="form-horizontal">						
-							<div class="form-group">
-				    		  <label for="fullName" class="col-sm-4 control-label">Full Name</label>
-						      <div class="col-sm-7"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" class="form-control"></div>
-						   </div>
-						   <div class="form-group">
-						      <label for="username" class="col-sm-4 control-label">Email ID</label>
-						      <div class="col-sm-7"><input type="text" name="username" id="username" placeholder="Email ID" autofocus="" class="form-control"></div>
-						   </div>
-						   <div class="form-group">
-						      <label for="password" class="col-sm-4 control-label">Password</label>
-						      <div class="col-sm-7"><input type="password" name="password" id="password" placeholder="Password" class="form-control"></div>
-						   </div>
-						   <div class="form-group">
-						      <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password</label>
-						      <div class="col-sm-7"><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"></div>
-						   </div>
-						    <div class="form-group">
-						      <label for="role" class="col-sm-4 control-label">Role</label>
-						      
-						      <div class="col-sm-7">
-							      <select name="role" class="form-control col-sm-7">				      	  
-									  <option value="student">Student</option>
-									  <option value="coach">Coach</option>								  
-									</select>
-								</div>			   
-						   </div>
-			<!-- 			   <div class="form-group">
-						      <label for="role" class="col-sm-4 control-label">Signing up as </label>
-						      <div class="col-sm-7"><input type="text" name="role" id="role" placeholder="Coach/Student ?" class="form-control"></div>
-
-						   </div> -->
-
-						   <center>
-						      <div class="col-sm-offset-4 col-sm-7"><button type="submit" class="btn btn-primary" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:#663333; border-color:#663333; position:relative; right:8%;">Signup</button></div>
-						   </center>
-
-						   	<input type="hidden" name="_csrf" value="{_csrf}" />
+							<input type="hidden" name="_csrf" value="{_csrf}" />
 							<input type="hidden" name="type" id="type" value="0" />
-					</form>		
-				</center>
+							<br /><br />
+						</form>	
+					</div>
+				</div>			
+			</div>
+			<div class="split-content-in-half-top-align" style="min-width:450px;">		
+				<div style="margin-right:75px;">
+					<h1>Who can participate</h1>
+					<br />
+
+					All ScholarMatch students and supporters are invited to participate. <br /><br />
+					Eligble scholars are ScholarMatch college students residing in the Bay Area for the summer and are interested in making connections in their field of study.  <br /><br />
+					Eligible career coaches are professionals in the Bay Area who are interested in supporting eager college students and sharing information about their career industry.  <br /><br />
+					<div class="signup-button" onclick="redirectPage('about')"">
+						Learn some more &nbsp;&nbsp;
+						<img src="/images/Expand.png"  />	
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
+</div>
 
 
 {/body}

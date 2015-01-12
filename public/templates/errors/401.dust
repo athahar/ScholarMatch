@@ -1,0 +1,10 @@
+{>"layouts/master" /}
+
+{<body}
+    <h1>Unauthorized Login</h1>  
+    <center>
+    	<p>
+    		You are not authorized to view this page. If this is an error, please email ScholarMatch staff.
+    	</p> 	 
+    </center>	
+{/body}

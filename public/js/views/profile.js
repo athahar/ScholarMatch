@@ -13,6 +13,15 @@ define([
                 // call super method first
                 View.prototype.afterRender.call(this);
                 console.log("ProfileView");
+                // $(".phone").mask("(999) 999-9999");
+            }
+        });
+
+        return ProfileView;
+    });
+
+
+
 
             var afterHash = window.location.href.split("#");
             var menuIDs = ["edit-settings-header-about","edit-settings-header-contact","edit-settings-header-education","edit-settings-header-industry","edit-settings-header-references"];
@@ -92,11 +101,9 @@ define([
                 $("#" + contentIDs[4]).toggleClass("edit-settings-content-items-hidden");
             });
 
-                // $(".phone").mask("(999) 999-9999");
-            }
-        });
-
-        return ProfileView;
+    $(".phone").text(function(i, text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        return text;
     });
-
-

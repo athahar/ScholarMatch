@@ -9,6 +9,7 @@
 {<body}
 	{#data.result}
 		<form  method="POST" action="/profile">	
+			
 			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
 				{?data.firstlogin}
 					<center>
@@ -32,9 +33,18 @@
 							Industry
 						</div>
 						<div class="edit-settings-nav-items-coach" id="edit-settings-header-references">
-							Industry
+							References
 						</div>
+
+						{?messages}
+							<ul class="bg-warning">
+								{#messages}
+									<li>ERROR: {.}</li>
+								{/messages}
+							</ul>
+						{/messages}
 					</div>
+
 
 					<div class="edit-settings-content">
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
@@ -50,13 +60,18 @@
 											<a href="#">Edit photo</a>
 										</td>
 									</tr>
+									<!-- {@contextDump/} -->
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control" ></td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control" >
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Preferred Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control" ></td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control" >
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Gender</td>
@@ -84,17 +99,45 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control">
+										</td>
+										<td class="edit-settings-content-table-right">
+											<a target="_blank" href="#" title="We need to review all coaches and your Linkedin Profile helps with this process."><img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">About Me</td>
-										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" ></textarea></td>
+										<td class="edit-settings-content-table-left">One Interesting Fact</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting face a student would want to know" autofocus="" >
+												{#additionalPersonalInfo}
+													{additionalPersonalInfo}
+												{/additionalPersonalInfo}
+											</textarea>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Why do you want to coach?</td>
-										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="coachingInterest" id="coachingInterest" placeholder="Why do you want to coach?" value="{coachingInterest}" autofocus="" ></textarea></td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="coachingInterest" id="coachingInterest" placeholder="Why do you want to coach?" autofocus="" >
+												{#coachingInterest}
+													{coachingInterest}
+												{/coachingInterest}
+											</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">How did you hear about us?</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="heardFrom" id="heardFrom" placeholder="How did you hear about us?" autofocus="" >
+												{#heardFrom}
+													{heardFrom}
+												{/heardFrom}
+											</textarea>
+										</td>
 									</tr>
 								</table>
+			
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -114,18 +157,46 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Phone</td>
-										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<select name="phoneType" id="phoneType" class="form-control col-sm-3">
+												<option value="-1">Choose a type...</option>
+												{#data.result.phoneTypeList}  
+													<option value="{type}" 
+														{@eq key=type value=phoneType} 
+															selected="true"
+														{/eq}>
+														{type}
+													</option>
+												{/data.result.phoneTypeList}
+											</select>
+										</td>
+										<td class="edit-settings-content-table-right">
+											<input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Address</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus="">
+												{#address}
+													{address}
+												{/address}
+											</textArea>
+										</td>
+										<td class="edit-settings-content-table-right">
+											<a target="_blank" href="#" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
 						</div>
-
 
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-education">
 							<h3>Education Settings</h3>
@@ -135,21 +206,69 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Under Grad School" value="{underGradSchool.name}" autofocus="" class="form-control">
+											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
+											<select name="underGradSchoolName" id="underGradSchoolName" class="form-control col-sm-7">
+												<option value="-1">Choose a school...</option>
+												{#data.result.school}  
+   													<option value="{name}" 
+   														{@eq key=name value=underGradSchool.name} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.school}
+   											</select>
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Under Grad Major" value="{underGradSchool.major}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
+											<select name="underGradSchoolMajor" id="underGradSchoolMajor" class="form-control col-sm-7">
+												<option value="-1">Choose a major...</option>
+												{#data.result.major}  
+   													<option value="{name}" 
+   														{@eq key=name value=underGradSchool.major} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.major}
+   											</select>											
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--<input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control">-->
+											<select name="gradSchoolName" id="gradSchoolName" class="form-control col-sm-7">
+												<option value="-1">Choose a school...</option>
+												{#data.result.school}  
+   													<option value="{name}" 
+   														{@eq key=name value=gradSchool.name} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.school}
+   											</select>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Major</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">
+											<!--<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">-->
+											<select name="gradSchoolMajor" id="gradSchoolMajor" class="form-control col-sm-7">
+												<option value="-1">Choose a major...</option>
+												{#data.result.major}  
+   													<option value="{name}" 
+   														{@eq key=name value=gradSchool.major} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.major}
+   											</select>											
 										</td>
 									</tr>
 								</table>
@@ -167,7 +286,18 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Industry</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">
+											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
+											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.result.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=primaryIndustry.industryName} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.result.industry}
+   											</select>											
 										</td>
 									</tr>
 									<tr>
@@ -193,7 +323,18 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">
+											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
+											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.result.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=secondaryIndustry.industryName} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.result.industry}
+   											</select>												
 										</td>
 									</tr>
 									<tr>
@@ -224,6 +365,9 @@
 							<h3>References Settings</h3>
 							<hr />
 							<center>
+								<p class="lead">
+									Note: Scholarmatch will contact your references as part of your application to coach
+								</p>
 								<table class="edit-settings-content-table">
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Reference</td>
@@ -265,6 +409,7 @@
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+
 							</center>
 						</div>
 					</div>
@@ -274,18 +419,6 @@
 			<input type="hidden" name="type" id="type" value="0" />
 			<input type="hidden" name="userid" id="userid" value="{userid}" />
 			<input type="hidden" name="role" id="role" value="{role}" />
-		</form>
-							<p class="lead-standard">
-								<a href="/changePassword/"><b>Click here to change your password...</b></a>
-							</p>		
+		</form>		
 	{/data.result}
 {/body}
-
-
-
-
-
-<!--
-
-
-

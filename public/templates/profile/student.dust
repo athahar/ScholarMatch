@@ -84,10 +84,17 @@
 										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">About Me</td>
-										<td class="edit-settings-content-table-right"><textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Additional Personal Info" value="{additionalPersonalInfo}" autofocus="" ></textarea></td>
+										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus="" >
+												{#additionalPersonalInfo}
+													{additionalPersonalInfo}
+												{/additionalPersonalInfo}
+											</textarea>
+										</td>
 									</tr>
 								</table>
+			
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
 							</center>
@@ -111,7 +118,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City / State" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
@@ -137,7 +144,15 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Year in School</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<!--	<input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"> -->
+											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7">
+												<option value="-1">Select one...</option>
+  												<option value="College Junior">College Junior</option>
+  												<option value="College Senior">College Senior</option>
+  												<option value="Recent College GraduaTE">Recent College Graduate</option> 
+   											</select>
+										</td>
 									</tr>
 								</table>
 								<br />
@@ -154,20 +169,48 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">
+											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
+											<select name="industryDesired" id="industryDesired" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.result.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=industry.desired} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.result.industry}
+   											</select>
 										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+										<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control">-->
+											<select name="industrySecondary" id="industrySecondary" class="form-control col-sm-7">
+												<option value="-1">Choose an Industry...</option>
+												{#data.result.industry}  
+   													<option value="{field}" 
+   														{@eq key=field value=industry.secondary} 
+   															selected="true"
+   														{/eq}>
+   														{field}
+   													</option>
+   												{/data.result.industry}
+   											</select>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"></td>
+									</tr>									
 								</table>
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button> 
 							</center>
 						</div>
 					</div>
@@ -178,13 +221,5 @@
 			<input type="hidden" name="userid" id="userid" value="{userid}" />
 			<input type="hidden" name="role" id="role" value="{role}" />
 		</form>
-							<p class="lead-standard">
-								<a href="/changePassword/"><b>Click here to change your password...</b></a>
-							</p>		
 	{/data.result}
 {/body}
-
-
-
-
-

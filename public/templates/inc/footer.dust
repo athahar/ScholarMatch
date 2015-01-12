@@ -1,26 +1,34 @@
 <div class="footer" >
 	<div class="container">
 		<hr />
+		<center>
 
-		<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank"><img src="/images/Linkedin.png" style="height:28px; width:28px;" /></a>&nbsp;
-		<a href="https://twitter.com/ScholarMatch" target="_blank"><img src="/images/Twitter.png" style="height:28px; width:28px;" /></a>&nbsp;
-		<a href="https://www.facebook.com/ScholarMatch" target="_blank"><img src="/images/Facebook.png" style="height:32px; width:32px;" /></a>&nbsp;
-		<a href="https://www.youtube.com/user/ScholarMatch" target="_blank"><img src="/images/Youtube.png" style="height:32px; width:32px;" ></a>&nbsp;
-<br />
-	      <p>
+			<a href="https://www.facebook.com/ScholarMatch" target="_blank">
+				<div id="facebook-image"></div>
+			</a>&nbsp;
+			<a href="https://www.linkedin.com/company/3763966?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1150267731411062418876%2CVSRPtargetId%3A3763966%2CVSRPcmpt%3Aprimary" target="_blank" >
+				<div id="linkedin-image"></div>
+			</a>&nbsp;
+			<a href="https://twitter.com/ScholarMatch" target="_blank">
+				<div id="twitter-image"></div>
+			</a>&nbsp;
+			<a href="https://www.youtube.com/user/ScholarMatch" target="_blank">
+				<div id="youtube-image"></div>
+			</a>&nbsp;
+		</center>
+	<br />
+	      <p style="font-size:12px;">
 	        Thank you for participating in our Career Connection program! <br />
 	        If you have any questions, please <a href="mailto:c2c@scholarmatch.org?subject=Career Connection">email us</a> or <a href="tel:4156522766">call us</a>. 
 	      <br /><br />
 
-	      <script type = "text/javscript">
+	      <script type = "text/javascript">
 		  	var d = new Date();
 			var n = d.getFullYear();
-			document.getElementById('footerTM').innerHTML = '';
-			$('#footerTM').html('&copy; 2012-'+ n +' ScholarMatch, 849 Valencia Street, All Rights Reserved');
 	      </script>
 
 	      <span id="footerTM">
-	      	&copy; 2012-2014 ScholarMatch, 849 Valencia Street, All Rights Reserved
+	      	&copy; 2012-<script>document.write(n);</script> ScholarMatch, 849 Valencia Street, All Rights Reserved
 	      </span>
     </div>
 

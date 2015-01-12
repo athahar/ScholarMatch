@@ -6,98 +6,111 @@
 
 {<body}
 	{#data}
-	<div class="container"  data-data2="{data|js}">
-		<h1>Add/View meeting notes</h1>		
-		<br/>
-		<form id="meeting-feedback-form" method="POST" class="form-horizontal">		   		   
-		   <div class="form-group">
-		      <label for="interactionType" class="col-sm-3 control-label">Meeting Topic</label>
-		      <div class="col-sm-7">
-		      	<select name="interactionType">
-		      		<option value="Resume and Linked In profile creation">Resume and Linked In profile creation</option>
-		      		<option value="Mock Interview">Mock Interview</option>
-		      		<option value="Insider Scoop">Insider Scoop</option>
-		      		<option value="Internship or Job Search">Internship or Job Search</option>
-		      		<option value="Office Visit">Office Visit</option>
-		      		<option value="Professional Etiquete">Professional Etiquete</option>
-		      	</select>
-		      </div>
-		   </div>
-		  	
-		   <div class="form-group">
-		      <label for="topicAppropriateness" class="col-sm-3 control-label">Appropriateness of topic  </label>
-		      <div class="col-sm-7">
-		      	<select name="topicAppropriateness">
-		      		<option value="1">1</option>
-		      		<option value="2">2</option>
-		      		<option value="3">3</option>
-		      		<option value="4">4</option>
-		      		<option value="5">5</option> 		
-		      	</select>
-		      	<span>  &nbsp; 5 being most appropriate</span>
-		      </div>
-		   </div>
-		   		   		   
-		   <div class="form-group">
-		      <label for="materialUsefulness" class="col-sm-3 control-label">Usefulness of material </label>
-		      <div class="col-sm-7">
-		      	<select name="materialUsefulness">
-		      		<option value="1">1</option>
-		      		<option value="2">2</option>
-		      		<option value="3">3</option>
-		      		<option value="4">4</option>
-		      		<option value="5">5</option> 		
-		      	</select>
-		      	<span>  &nbsp; 5 being most useful</span>
-		      </div>
-		   </div>
-		   		   		   
-		   <div class="form-group">
-		      <label for="timeUtilization" class="col-sm-3 control-label">Utilization of time </label>
-		      <div class="col-sm-7">
-		      	<select name="timeUtilization">
-		      		<option value="1">1</option>
-		      		<option value="2">2</option>
-		      		<option value="3">3</option>
-		      		<option value="4">4</option>
-		      		<option value="5">5</option> 		
-		      	</select>
-		      	<span>  &nbsp; 5 being most effective time utilization</span>
-		      </div>
-		   </div>
-		   <div class="form-group">
-		      <label for="collaborationDescription" class="col-sm-3 control-label">Description of collaboration</label>
-		      <div class="col-sm-7"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea></div>
-		   </div>
-		   <div class="form-group">
-		      <label for="nextCollaborationDescription" class="col-sm-3 control-label">Description of next collaboration</label>
-		      <div class="col-sm-7"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea></div>
-		   </div>
-		   <div class="form-group">
-		      <label for="participationSentiment" class="col-sm-3 control-label">Description of Participent's Sentiment</label>
-		      <div class="col-sm-7"><textarea  cols="50" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea></div>
-		   </div>
-		   
-		   <div class="form-group">
-		      <label for="speakWithStaff" class="col-sm-3 control-label">Have you spoken with the staff about this meeting?</label>
-		      <div class="col-sm-7">
-		      	<select name="speakWithStaff">
-		      		<option value="Yes">Yes</option>
-		      		<option value="No">No</option>	
-		      	</select>
-		      </div>
-		   </div>
-		   
-		   <div class="form-group">
-		      <div class="col-sm-7"><button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Add/update notes</button></div>
-		   </div>
+	<div class="container-widest-white">
+		<div class="container-wide"  style="text-align:left;" data-data2="{data|js}">
+			<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+			&nbsp;&nbsp;
+			<div class="about-title">
+				Add/View meeting notes
+			</div>
+			<hr />
 
-		   	<input type="hidden" name="_csrf" value="{_csrf}" />
-			<input type="hidden" name="type" id="type" value="0" />
-			<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
-			<input type="hidden" name="userid" id="userid" value="{userId}" />
-		</form>		
+			<br/>
+			<form id="meeting-feedback-form" method="POST" class="form-horizontal">		
 
+				<table class="edit-settings-content-table">
+					<tr>
+						<td class="edit-settings-content-table-left">Meeting Topic</td>
+						<td class="edit-settings-content-table-right">
+							<select name="interactionType">
+					      		<option value="Resume and Linked In profile creation">Resume and Linked In profile creation</option>
+					      		<option value="Mock Interview">Mock Interview</option>
+					      		<option value="Insider Scoop">Insider Scoop</option>
+					      		<option value="Internship or Job Search">Internship or Job Search</option>
+					      		<option value="Office Visit">Office Visit</option>
+					      		<option value="Professional Etiquete">Professional Etiquete</option>
+					      	</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">How appropriate was the covered topic? </td>
+						<td class="edit-settings-content-table-right">
+							<select name="topicAppropriateness">
+					      		<option value="1">1</option>
+					      		<option value="2">2</option>
+					      		<option value="3">3</option>
+					      		<option value="4">4</option>
+					      		<option value="5">5</option> 		
+					      	</select>
+					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
+					    </td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">How useful was the learnt material?</td>
+						<td class="edit-settings-content-table-right">
+					      	<select name="materialUsefulness">
+					      		<option value="1">1</option>
+					      		<option value="2">2</option>
+					      		<option value="3">3</option>
+					      		<option value="4">4</option>
+					      		<option value="5">5</option> 		
+					      	</select>
+					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
+					    </td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">How useful was the time spent?</td>
+						<td class="edit-settings-content-table-right">
+					      	<select name="timeUtilization">
+					      		<option value="1">1</option>
+					      		<option value="2">2</option>
+					      		<option value="3">3</option>
+					      		<option value="4">4</option>
+					      		<option value="5">5</option> 		
+					      	</select>
+					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
+					    </td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">How was the collaboration of this session?</td>
+						<td class="edit-settings-content-table-right"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">What are your plans for next session?</td>
+						<td class="edit-settings-content-table-right"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">How was the level of engagement of the session?</td>
+						<td class="edit-settings-content-table-right"><textarea  cols="50" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="edit-settings-content-table-left">Have you spoken to ScholarMatch staff about this meeting?</td>
+						<td class="edit-settings-content-table-right">
+							<select name="speakWithStaff">
+					      		<option value="Yes">Yes</option>
+					      		<option value="No">No</option>	
+					      	</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan ="2">
+						</td>
+					</tr>
+				</table>
+
+				<br />
+				<center><button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Add/Update Notes</button></center>
+
+			   	<input type="hidden" name="_csrf" value="{_csrf}" />
+				<input type="hidden" name="type" id="type" value="0" />
+				<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
+				<input type="hidden" name="userid" id="userid" value="{userId}" />
+			</form>		
+
+		</div>
 	</div>
 	{/data}
 {/body}

@@ -1,51 +1,72 @@
 {>"layouts/master" /}
 
 {<title}
-	Match Coach 2 Students  - ScholarMatch
+	Admin - Career Connections Program  - ScholarMatch
 {/title}
 
+
 {<body}
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {! >"dashboard/inc/upcoming-meetings" / !}  
+				  {>"dashboard/inc/quick-links-admin" /} 
+		   		</div>
 
-	<div class="container">
-		<h1>Pending requests</h1>
-		
-		{?messages}
-            <ul class="bg-warning">
-                {#messages}
-                    <li>{.}</li>
-                {/messages}
-            </ul>
-        {/messages}
-       		
-		<div class="results clearfix" data-results="{data.results|s}"> 						
-
-			<table class="table table-striped">
-				<thead>
-					<th>Student</th>
-					<th>Coach</th>
-					<th>Action</th>					
-				</thead>
-				<tbody>
-					{#data.result}
-					<tr>
-						<td>
-							{student.fullName}; {student.email} {student.phone} 
-							<a class="button" href="/profile/user?userId={student._id}">Details</a>		
-						</td>
-						<td>
-							{coach.fullName}; {coach.email}  {coach.phone} 
-							<a class="button" href="/profile/user?userId={coach._id}">Details</a>		
-						</td>						
-						<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
-					</tr>
-					{/data.result}
-				</tbody>
-			</table>
-
-			{! <p>Found: {data.count} record(s).</p> !}
-
-		 </div>
-		
-
+			   <div class="col-md-9">
+			   		<div class="container-widest-white" style="text-align:left;">
+						
+							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+							&nbsp;&nbsp;
+							<div class="about-title">
+								Pending Requests
+							</div>
+							<hr />
+							
+							{?messages}
+							<ul class="bg-warning">
+								{#messages}
+								<li>ERROR: {.}</li>
+								{/messages}
+							</ul>
+							{/messages}
+							
+							<div class="results clearfix" data-results="{data.results|s}">
+								<table class="table table-striped">
+									<thead>
+										<th>Student</th>
+										<th>Coach</th>
+										<th>Action</th>
+									</thead>
+									<tbody>
+										{#data.result}
+										<tr>
+											<td>
+												{student.fullName}; {student.email} {student.phone}
+												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
+											</td>
+											<td>
+												{coach.fullName}; {coach.email}  {coach.phone}
+												<a class="button" href="/profile/user?userId={coach._id}"> Details</a>
+											</td>
+											<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
+										</tr>
+										{/data.result}
+									</tbody>
+								</table>
+								{! <p>Found: {data.count} record(s).</p> !}
+							</div>
+						
+					</div>
+			   		
+			   </div>
+			</div>	
+		</div>	
 	</div>
 {/body}
+
+
+
+
+
