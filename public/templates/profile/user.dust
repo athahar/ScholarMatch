@@ -331,12 +331,26 @@
 									{/ownProfile}
 								{/primaryReference.phone}
 								{#primaryReference.email}
-									<tr><td><b> Email:</b> &nbsp; <a href="mailto:{secondaryReference.email}">{primaryReference.email}</a></td></tr>
+									<tr><td><b> Email:</b> &nbsp; <a href="mailto:{primaryReference.email}">{primaryReference.email}</a></td></tr>
 								{:else}
 									{?ownProfile}
 										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Email</a></td></tr>
 									{/ownProfile}
 								{/primaryReference.email}
+								{#primaryReference.relationship}
+									<tr><td><b> Relationship:</b> &nbsp; <span style="text-transform:capitalize;">{primaryReference.relationship}</span></td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Relationship</a></td></tr>
+									{/ownProfile}
+								{/primaryReference.relationship}
+								{#primaryReference.yearsKnown}
+									<tr><td><b> Years Known:</b> &nbsp; <span style="text-transform:capitalize;">{primaryReference.yearsKnown}</span></td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#References">+ Add Primary Reference Years Known</a></td></tr>
+									{/ownProfile}
+								{/primaryReference.yearsKnown}
 								{#secondaryReference.name}
 									<tr><td><b> Secondary:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.name}</span></td></tr>
 								{:else}
@@ -358,6 +372,22 @@
 										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Email</a></td></tr>
 									{/ownProfile}
 								{/secondaryReference.email}
+
+								{#secondaryReference.relationship}
+									<tr><td><b> Relationship:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.relationship}</span></td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Relationship</a></td></tr>
+									{/ownProfile}
+								{/secondaryReference.relationship}
+								{#secondaryReference.yearsKnown}
+									<tr><td><b> Years Known:</b> &nbsp; <span style="text-transform:capitalize;">{secondaryReference.yearsKnown}</span></td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#References">+ Add Secondary Reference Years Known</a></td></tr>
+									{/ownProfile}
+								{/secondaryReference.yearsKnown}
+
 							</table>
 						</div>
 					{/eq}

@@ -387,6 +387,18 @@
 											<input type="text" name="primaryReferenceEmail" id="primaryReferenceEmail" placeholder="Primary Reference Email" value="{primaryReference.email}" autofocus="" class="form-control">
 										</td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Primary Reference Relationship</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="primaryReferenceRelationship" id="primaryReferenceRelationship" placeholder="Coworker / Boss etc." value="{primaryReference.relationship}" autofocus="" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Primary Reference Years Known</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="primaryReferenceYearsKnown" id="primaryReferenceYearsKnown" placeholder="Primary Reference Years Known" value="{primaryReference.yearsKnown}" autofocus="" class="form-control">
+										</td>
+									</tr>
 
 									<tr>
 										<td class="edit-settings-content-table-left">Secondary Reference</td>
@@ -404,6 +416,18 @@
 										<td class="edit-settings-content-table-left">Secondary Reference Email</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="secondaryReferenceEmail" id="secondaryReferenceEmail" placeholder="Secondary Reference Email" value="{secondaryReference.email}" autofocus="" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Secondary Reference Relationship</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="secondaryReferenceRelationship" id="secondaryReferenceRelationship" placeholder="Coworker / Boss etc." value="{secondaryReference.relationship}" autofocus="" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Secondary Reference Years Known</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="secondaryReferenceYearsKnown" id="secondaryReferenceYearsKnown" placeholder="Secondary Reference Years Known" value="{secondaryReference.yearsKnown}" autofocus="" class="form-control">
 										</td>
 									</tr>
 								</table>

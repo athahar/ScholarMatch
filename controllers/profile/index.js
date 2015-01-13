@@ -245,11 +245,15 @@ module.exports = function (router) {
                 model.data.result.primaryReference.name = req.body.primaryReferenceName;
                 model.data.result.primaryReference.phone = req.body.primaryReferencePhone;
                 model.data.result.primaryReference.email = req.body.primaryReferenceEmail;
+                model.data.result.primaryReference.relationship = req.body.primaryReferenceRelationship;
+                model.data.result.primaryReference.yearsKnown = req.body.primaryReferenceYearsKnown;
 
                 model.data.result.secondaryReference = model.data.result.secondaryReference || {};
                 model.data.result.secondaryReference.name = req.body.secondaryReferenceName;
                 model.data.result.secondaryReference.phone = req.body.secondaryReferencePhone;
                 model.data.result.secondaryReference.email = req.body.secondaryReferenceEmail;
+                model.data.result.secondaryReference.relationship = req.body.secondaryReferenceRelationship;
+                model.data.result.secondaryReference.yearsKnown = req.body.secondaryReferenceYearsKnown;
             } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
                 model.data.result.school.name = req.body.schoolName;

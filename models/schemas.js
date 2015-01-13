@@ -70,12 +70,16 @@ var userSchema = Schema({
     primaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     secondaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     studentList: String,
     studentsLinked: [{
