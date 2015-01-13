@@ -109,6 +109,13 @@
 									<tr><td><a href="/profile/edit#Contact">+ Add Phone</a></td></tr>
 								{/ownProfile}
 							{/phone}
+							{?ownProfile}
+								{#address}
+									<tr><td><b>Address:</b> &nbsp;{address}</td></tr>
+								{:else}
+									<tr><td><a href="/profile/edit#Contact">+ Add Address</a></td></tr>
+								{/address}	
+							{/ownProfile}
 							{#location}
 								<tr><td><b>Location:</b> &nbsp;{location}</td></tr>
 							{:else}

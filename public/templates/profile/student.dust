@@ -114,7 +114,34 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Phone</td>
+										<td class="edit-settings-content-table-right">
+											<select name="phoneType" id="phoneType" class="form-control col-sm-3">
+												<option value="-1">Choose a type...</option>
+												{#data.result.phoneTypeList}  
+													<option value="{type}" 
+														{@eq key=type value=phoneType} 
+															selected="true"
+														{/eq}>
+														{type}
+													</option>
+												{/data.result.phoneTypeList}
+											</select>
+										</td>
 										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Address</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus="">
+												{#address}
+													{address}
+												{/address}
+											</textArea>
+										</td>
+										<td class="edit-settings-content-table-right">
+											<a target="_blank" href="#" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+										</td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Location</td>
