@@ -82,6 +82,7 @@
 									      <select name="meetingType" class="form-control col-sm-7">
 									      	  <option>In Person</option>	
 											  <option>Telephone</option>
+											  <option>Video Call</option>
 											</select>
 										</td>
 								   </tr>
@@ -96,7 +97,7 @@
 
 								   <tr>
 
-								   		<td class="edit-settings-content-table-left">Landmark</td>
+								   		<td class="edit-settings-content-table-left">Landmark and other info</td>
 								      
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc." autofocus="" class="form-control">
