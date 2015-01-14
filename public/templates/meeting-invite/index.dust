@@ -60,17 +60,22 @@
 								   <tr>
 										<td class="edit-settings-content-table-left">Topic</td> 		
 										<td class="edit-settings-content-table-right">
-									      <select name="meetingType" class="form-control col-sm-7">
+									      <select name="topic" class="form-control col-sm-7">
 									  			<option>Resume &amp; Linked In profile creation</option>
 									  			<option>Mock Interview</option>
 									  			<option>Insider Scoop</option>
 									  			<option>Office Visit</option>
 									  			<option>Internship or Job Search</option>
 									  			<option>Professional Etiquette</option>
+									  			<option>Other</option>
 											</select>
 										</td>			   
-									</tr>		
-
+									</tr>	
+									<tr>
+										<td class="edit-settings-content-table-left">If Other Topic Enter Here </td>
+										<td class="edit-settings-content-table-right">	
+										<input type="text" name="otherTopic" id="otherTopic" autofocus="" class="form-control" />
+										</td>
 								   <tr>
 										<td class="edit-settings-content-table-left">Meeting Type</td>
 										<td class="edit-settings-content-table-right">
@@ -90,9 +95,13 @@
 								   </tr>
 
 								   <tr>
-										<td class="edit-settings-content-table-left">Landmark</td>
+
+								   		<td class="edit-settings-content-table-left">Landmark</td>
+								      
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control">
+											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc." autofocus="" class="form-control">
+										
+											
 										</td>
 								   </tr>
 							   
