@@ -39,20 +39,26 @@ var userSchema = Schema({
     heardFrom: String,
     underGradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     gradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     primaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
     },
     secondaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
@@ -89,6 +95,7 @@ var userSchema = Schema({
 
     school: {
         name: String,
+        otherName: String,
         major: String,
         currentYear: String
     },

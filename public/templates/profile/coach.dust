@@ -209,6 +209,12 @@
 											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
 											<select name="underGradSchoolName" id="underGradSchoolName" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
+												<option value="" 
+													{#underGradSchool.otherName}
+														selected="true"
+													{/underGradSchool.otherName}>
+													Other...
+												</option>
 												{#data.result.school}  
    													<option value="{name}" 
    														{@eq key=name value=underGradSchool.name} 
@@ -221,11 +227,23 @@
 										</td>
 									</tr>
 									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Please enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control">
+										</td>
+									</tr>									
+									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
 											<select name="underGradSchoolMajor" id="underGradSchoolMajor" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
+												<option value=""
+													{#underGradSchool.otherMajor}
+														selected="true"
+													{/underGradSchool.otherMajor}>
+													Other...
+												</option>
 												{#data.result.major}  
    													<option value="{name}" 
    														{@eq key=name value=underGradSchool.major} 
@@ -238,11 +256,23 @@
 										</td>
 									</tr>
 									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Please enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control">
+										</td>
+									</tr>									
+									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control">-->
 											<select name="gradSchoolName" id="gradSchoolName" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
+												<option value=""
+													{#gradSchool.otherName}
+														selected="true"
+													{/gradSchool.otherName}>
+													Other...
+												</option>
 												{#data.result.school}  
    													<option value="{name}" 
    														{@eq key=name value=gradSchool.name} 
@@ -255,11 +285,23 @@
 										</td>
 									</tr>
 									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherGradSchoolName" id="otherGradSchoolName" placeholder="Please enter your grad school name here" value="{gradSchool.otherName}" autofocus="" class="form-control">
+										</td>
+									</tr>									
+									<tr>
 										<td class="edit-settings-content-table-left">Grad School Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">-->
 											<select name="gradSchoolMajor" id="gradSchoolMajor" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
+												<option value=""
+													{#gradSchool.otherMajor}
+														selected="true"
+													{/gradSchool.otherMajor}>
+													Other...
+												</option>
 												{#data.result.major}  
    													<option value="{name}" 
    														{@eq key=name value=gradSchool.major} 
@@ -271,6 +313,12 @@
    											</select>											
 										</td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherGradSchoolMajor" id="otherGradSchoolMajor" placeholder="Please enter your grad school major here" value="{gradSchool.otherMajor}" autofocus="" class="form-control">
+										</td>
+									</tr>									
 								</table>
 								<br />
 								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
@@ -289,6 +337,12 @@
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
+												<option value=""
+													{#primaryIndustry.otherIndustryName}
+														selected="true"
+													{/primaryIndustry.otherIndustryName}>
+													Other...
+												</option>
 												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=primaryIndustry.industryName} 
@@ -300,6 +354,12 @@
    											</select>											
 										</td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherPrimaryIndustryName" id="otherPrimaryIndustryName" placeholder="Please enter your primary industry name here" value="{primaryIndustry.otherIndustryName}" autofocus="" class="form-control">
+										</td>
+									</tr>									
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Job Title</td>
 										<td class="edit-settings-content-table-right">
@@ -326,6 +386,12 @@
 											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
 											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
+												<option value=""
+													{#secondaryIndustry.otherIndustryName}
+														selected="true"
+													{/secondaryIndustry.otherIndustryName}>
+													Other...
+												</option>
 												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=secondaryIndustry.industryName} 
@@ -337,6 +403,12 @@
    											</select>												
 										</td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">If Other</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherSecondaryIndustryName" id="otherSecondaryIndustryName" placeholder="Please enter your secondary industry name here" value="{secondaryIndustry.otherIndustryName}" autofocus="" class="form-control">
+										</td>
+									</tr>									
 									<tr>
 										<td class="edit-settings-content-table-left">Secondary Job Title</td>
 										<td class="edit-settings-content-table-right">

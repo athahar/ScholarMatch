@@ -213,25 +213,86 @@ module.exports = function (router) {
                 } 
 
                 model.data.result.underGradSchool = model.data.result.underGradSchool || {};
-                model.data.result.underGradSchool.name = req.body.underGradSchoolName;
-                model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
+                if((req.body.underGradSchoolName && (req.body.underGradSchoolName != "-1")) ||
+                    (req.body.otherUnderGradSchoolName)) {
+
+                    if(req.body.underGradSchoolName) {
+                        model.data.result.underGradSchool.name = req.body.underGradSchoolName;
+                        model.data.result.underGradSchool.otherName = null;
+                    } else {
+                        model.data.result.underGradSchool.name = req.body.otherUnderGradSchoolName;
+                        model.data.result.underGradSchool.otherName = req.body.otherUnderGradSchoolName;
+                    }
+
+                }
+
+                if((req.body.underGradSchoolMajor && (req.body.underGradSchoolMajor != "-1")) ||
+                    (req.body.otherUnderGradSchoolMajor)) {
+
+                    if(req.body.underGradSchoolMajor) {
+                        model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
+                        model.data.result.underGradSchool.otherMajor = null;
+                    } else {
+                        model.data.result.underGradSchool.major = req.body.otherUnderGradSchoolMajor;
+                        model.data.result.underGradSchool.otherMajor = req.body.otherUnderGradSchoolMajor;
+                    }
+                }
                 
                 model.data.result.gradSchool = model.data.result.gradSchool || {};
-                model.data.result.gradSchool.name = req.body.gradSchoolName;
-                model.data.result.gradSchool.major = req.body.gradSchoolMajor;
-                
+                if((req.body.gradSchoolName && (req.body.gradSchoolName != "-1")) ||
+                    (req.body.otherGradSchoolName)) {
+
+                    if(req.body.gradSchoolName) {
+                        model.data.result.gradSchool.name = req.body.gradSchoolName;
+                        model.data.result.gradSchool.otherName = null;
+                    } else {
+                        model.data.result.gradSchool.name = req.body.otherGradSchoolName;
+                        model.data.result.gradSchool.otherName = req.body.otherGradSchoolName;
+                    }
+
+                }
+
+                if((req.body.gradSchoolMajor && (req.body.gradSchoolMajor != "-1")) ||
+                    (req.body.otherGradSchoolMajor)) {
+
+                    if(req.body.gradSchoolMajor) {
+                        model.data.result.gradSchool.major = req.body.gradSchoolMajor;
+                        model.data.result.gradSchool.otherMajor = null;
+                    } else {
+                        model.data.result.gradSchool.major = req.body.otherGradSchoolMajor;
+                        model.data.result.gradSchool.otherMajor = req.body.otherGradSchoolMajor;
+                    }
+                }
                 
                 model.data.result.primaryIndustry = model.data.result.primaryIndustry || {};
-                if(req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) {                
-                    model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                if((req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) ||
+                  (req.body.otherPrimaryIndustryName)) {    
+
+                    if(req.body.primaryIndustryName) {
+                        model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                        model.data.result.primaryIndustry.otherIndustryName = null;
+                    } else {
+                        model.data.result.primaryIndustry.industryName = req.body.otherPrimaryIndustryName;
+                        model.data.result.primaryIndustry.otherIndustryName = req.body.otherPrimaryIndustryName;
+                    }
+
                     model.data.result.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
                     model.data.result.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
                     model.data.result.primaryIndustry.company = req.body.primaryIndustryCompany;
                 }
 
                 model.data.result.secondaryIndustry = model.data.result.secondaryIndustry || {};
-                if(req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) {
-                    model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                if((req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) ||
+                  (req.body.otherSecondaryIndustryName)) {    
+
+                    if(req.body.secondaryIndustryName) {
+                        model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                        model.data.result.secondaryIndustry.otherIndustryName = null;
+                    } else {
+                        model.data.result.secondaryIndustry.industryName = req.body.otherSecondaryIndustryName;
+                        model.data.result.secondaryIndustry.otherIndustryName = req.body.otherSecondaryIndustryName;
+                    }
+
                     model.data.result.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
                     model.data.result.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
                     model.data.result.secondaryIndustry.company = req.body.secondaryIndustryCompany;
