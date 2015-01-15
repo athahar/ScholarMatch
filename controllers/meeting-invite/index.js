@@ -76,7 +76,8 @@ module.exports = function (router) {
             meetinglocation: req.body.location,
             meetinglandmark: req.body.landmark,
             meetingType: req.body.meetingType,
-            meetingTopic: req.body.topic
+            meetingTopic: req.body.topic,
+            otherTopic: req.body.otherTopic
         }
 
         console.log("meeting : ", meeting);
@@ -117,6 +118,10 @@ module.exports = function (router) {
 
                     var invitee = result.invitee,
                         inviteCreator = result.inviteCreator;
+                        //debugger;
+                    if(meeting.meetingTopic === 'Other') {
+                        meeting.meetingTopic = meeting.otherTopic;
+                    }    
 
                     var meetingRequest = new MeetingRequest({
                         topic: meeting.meetingTopic,

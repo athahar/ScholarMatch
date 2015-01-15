@@ -52,8 +52,31 @@ module.exports = function (router) {
                         res.render(view, model);
                     } else {
                         // console.dir(result);
+                        /*model.data.meetingDetails = JSON.parse(JSON.stringify(result));
+                        console.log(model.data.meetingDetails);
+                        res.render(view, model);*/
+                        //debugger;
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        res.render(view, model);
+                        console.log(model.data.meetingDetails);
+                        console.log(model.data.meetingDetails.meetings.length);
+                        for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
+                            model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.coachesLinked[0].fullName;
+                            console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
+                            var now = new Date();
+                            var meetDate = new Date(model.data.meetingDetails.meetings[i].meetingdate);
+                            console.log("now " + now);
+
+                            console.log("Meeting Date " + meetDate);
+                            if(now > meetDate) {
+                                model.data.meetingDetails.meetings[i].isMeetingCompleted = true;
+                                console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
+                            }
+                            else {
+                                model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
+                            }
+                            
+                        }  
+                        res.render(view, model); 
                     }
                 })
 
@@ -74,24 +97,29 @@ module.exports = function (router) {
                     } else {
                         // console.dir(result);
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        for(var i = 0; i < model.data.meetingDetails.length; i++) {
-                            console.log("Meeting date from DB " + model.data.meetingDetails[i].meetingdate);
+                        console.log(model.data.meetingDetails);
+                        console.log(model.data.meetingDetails.meetings.length);
+                        for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
+                            model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.studentsLinked[0].fullName;
+                            console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
                             var now = new Date();
-                            var meetDate = new Date(model.data.meetingDetails[i].meetingdate);
+                            var meetDate = new Date(model.data.meetingDetails.meetings[i].meetingdate);
                             console.log("now " + now);
 
                             console.log("Meeting Date " + meetDate);
                             if(now > meetDate) {
-                                model.data.meetingDetails[i].isMeetingCompleted = true;
-                                console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);          
+                                model.data.meetingDetails.meetings[i].isMeetingCompleted = true;
+                                console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
                             }
                             else {
-                                model.data.meetingDetails[i].isMeetingCompleted = false;
+                                model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
                             }
-                            res.render(view, model);
-                        }
+                            
+                        } 
+                        res.render(view, model);  
                     }
                 })
+
 
             } else {
                 res.render(view, model);
