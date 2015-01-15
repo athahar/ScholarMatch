@@ -11,7 +11,7 @@
   </div>
   <div class="container-wide">
 
-      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogoBigger.PNG"  /></a>      
+      <a href="/" class="ScholarMatchFont"><img src="/images/HeaderLogo.PNG"  /></a>      
 
       <ul class="header-nav" >
         {^user}
