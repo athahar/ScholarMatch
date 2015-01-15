@@ -118,7 +118,7 @@ module.exports = function (router) {
 
                     var invitee = result.invitee,
                         inviteCreator = result.inviteCreator;
-                        debugger;
+                        //debugger;
                     if(meeting.meetingTopic === 'Other') {
                         meeting.meetingTopic = meeting.otherTopic;
                     }    
