@@ -1,10 +1,19 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>Unauthorized Login</h1>  
-    <center>
-    	<p>
-    		You are not authorized to view this page. If this is an error, please email ScholarMatch staff.
-    	</p> 	 
-    </center>	
+	<div class="container-widest-white" data-data={_csrf}>
+		<div class="container-wide" style="text-align:left;">
+<center>		
+			<div class="curved-box"  style="margin-left:5%;">
+				<div class="curved-box-inside">
+		  			<h1>Unauthorized Login</h1>  
+
+		    	<p>
+		    		You are not authorized to view this page. If this is an error, please email ScholarMatch staff.
+		    	</p> 	
+		    	</div>
+		    </div>
+</center>
+		</div>
+    </div> 
 {/body}
