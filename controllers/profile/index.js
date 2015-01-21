@@ -216,7 +216,7 @@ module.exports = function (router) {
                 if((req.body.underGradSchoolName && (req.body.underGradSchoolName != "-1")) ||
                     (req.body.otherUnderGradSchoolName)) {
 
-                    if(req.body.underGradSchoolName) {
+                    if(req.body.underGradSchoolName != "other") {
                         model.data.result.underGradSchool.name = req.body.underGradSchoolName;
                         model.data.result.underGradSchool.otherName = null;
                     } else {
@@ -229,7 +229,7 @@ module.exports = function (router) {
                 if((req.body.underGradSchoolMajor && (req.body.underGradSchoolMajor != "-1")) ||
                     (req.body.otherUnderGradSchoolMajor)) {
 
-                    if(req.body.underGradSchoolMajor) {
+                    if(req.body.underGradSchoolMajor != "other") {
                         model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
                         model.data.result.underGradSchool.otherMajor = null;
                     } else {
@@ -242,7 +242,7 @@ module.exports = function (router) {
                 if((req.body.gradSchoolName && (req.body.gradSchoolName != "-1")) ||
                     (req.body.otherGradSchoolName)) {
 
-                    if(req.body.gradSchoolName) {
+                    if(req.body.gradSchoolName != "other") {
                         model.data.result.gradSchool.name = req.body.gradSchoolName;
                         model.data.result.gradSchool.otherName = null;
                     } else {
@@ -255,7 +255,7 @@ module.exports = function (router) {
                 if((req.body.gradSchoolMajor && (req.body.gradSchoolMajor != "-1")) ||
                     (req.body.otherGradSchoolMajor)) {
 
-                    if(req.body.gradSchoolMajor) {
+                    if(req.body.gradSchoolMajor != "other") {
                         model.data.result.gradSchool.major = req.body.gradSchoolMajor;
                         model.data.result.gradSchool.otherMajor = null;
                     } else {
@@ -268,7 +268,7 @@ module.exports = function (router) {
                 if((req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) ||
                   (req.body.otherPrimaryIndustryName)) {    
 
-                    if(req.body.primaryIndustryName) {
+                    if(req.body.primaryIndustryName != "other") {
                         model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
                         model.data.result.primaryIndustry.otherIndustryName = null;
                     } else {
@@ -285,7 +285,7 @@ module.exports = function (router) {
                 if((req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) ||
                   (req.body.otherSecondaryIndustryName)) {    
 
-                    if(req.body.secondaryIndustryName) {
+                    if(req.body.secondaryIndustryName != "other") {
                         model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
                         model.data.result.secondaryIndustry.otherIndustryName = null;
                     } else {

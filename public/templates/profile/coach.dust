@@ -207,9 +207,9 @@
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolName" id="underGradSchoolName" class="form-control col-sm-7">
+											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.visibility='visible'}else {this.form['otherUnderGradSchoolName'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
-												<option value="" 
+												<option value="other" 
 													{#underGradSchool.otherName}
 														selected="true"
 													{/underGradSchool.otherName}>
@@ -225,20 +225,23 @@
    												{/data.result.school}
    											</select>
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Please enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control">
+											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Please enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control" 
+											{#underGradSchool.otherName}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/underGradSchool.otherName}
+											>
 										</td>
 									</tr>									
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolMajor" id="underGradSchoolMajor" class="form-control col-sm-7">
+											<select name="underGradSchoolMajor" id="underGradSchoolMajor" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolMajor'].style.visibility='visible'}else {this.form['otherUnderGradSchoolMajor'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
-												<option value=""
+												<option value="other"
 													{#underGradSchool.otherMajor}
 														selected="true"
 													{/underGradSchool.otherMajor}>
@@ -254,20 +257,24 @@
    												{/data.result.major}
    											</select>											
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Please enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control">
+											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Please enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
+											{#underGradSchool.otherMajor}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/underGradSchool.otherMajor}
+											>
+
 										</td>
 									</tr>									
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control">-->
-											<select name="gradSchoolName" id="gradSchoolName" class="form-control col-sm-7">
+											<select name="gradSchoolName" id="gradSchoolName" onchange="if (this.value=='other'){this.form['otherGradSchoolName'].style.visibility='visible'}else {this.form['otherGradSchoolName'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
-												<option value=""
+												<option value="other"
 													{#gradSchool.otherName}
 														selected="true"
 													{/gradSchool.otherName}>
@@ -283,20 +290,23 @@
    												{/data.result.school}
    											</select>
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherGradSchoolName" id="otherGradSchoolName" placeholder="Please enter your grad school name here" value="{gradSchool.otherName}" autofocus="" class="form-control">
+											<input type="text" name="otherGradSchoolName" id="otherGradSchoolName" placeholder="Please enter your grad school name here" value="{gradSchool.otherName}" autofocus="" class="form-control"
+											{#gradSchool.otherName}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/gradSchool.otherName}
+											>
 										</td>
 									</tr>									
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">-->
-											<select name="gradSchoolMajor" id="gradSchoolMajor" class="form-control col-sm-7">
+											<select name="gradSchoolMajor" id="gradSchoolMajor" onchange="if (this.value=='other'){this.form['otherGradSchoolMajor'].style.visibility='visible'}else {this.form['otherGradSchoolMajor'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
-												<option value=""
+												<option value="other"
 													{#gradSchool.otherMajor}
 														selected="true"
 													{/gradSchool.otherMajor}>
@@ -312,11 +322,14 @@
    												{/data.result.major}
    											</select>											
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherGradSchoolMajor" id="otherGradSchoolMajor" placeholder="Please enter your grad school major here" value="{gradSchool.otherMajor}" autofocus="" class="form-control">
+											<input type="text" name="otherGradSchoolMajor" id="otherGradSchoolMajor" placeholder="Please enter your grad school major here" value="{gradSchool.otherMajor}" autofocus="" class="form-control"
+											{#gradSchool.otherMajor}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/gradSchool.otherMajor}
+											>											
 										</td>
 									</tr>									
 								</table>
@@ -335,9 +348,9 @@
 										<td class="edit-settings-content-table-left">Primary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
-											<select name="primaryIndustryName" id="primaryIndustryName" class="form-control col-sm-7">
+											<select name="primaryIndustryName" id="primaryIndustryName" onchange="if (this.value=='other'){this.form['otherPrimaryIndustryName'].style.visibility='visible'}else {this.form['otherPrimaryIndustryName'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												<option value=""
+												<option value="other"
 													{#primaryIndustry.otherIndustryName}
 														selected="true"
 													{/primaryIndustry.otherIndustryName}>
@@ -353,11 +366,14 @@
    												{/data.result.industry}
    											</select>											
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherPrimaryIndustryName" id="otherPrimaryIndustryName" placeholder="Please enter your primary industry name here" value="{primaryIndustry.otherIndustryName}" autofocus="" class="form-control">
+											<input type="text" name="otherPrimaryIndustryName" id="otherPrimaryIndustryName" placeholder="Please enter your primary industry name here" value="{primaryIndustry.otherIndustryName}" autofocus="" class="form-control"
+											{#primaryIndustry.otherIndustryName}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/primaryIndustry.otherIndustryName}
+											>													
 										</td>
 									</tr>									
 									<tr>
@@ -384,9 +400,9 @@
 										<td class="edit-settings-content-table-left">Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
-											<select name="secondaryIndustryName" id="secondaryIndustryName" class="form-control col-sm-7">
+											<select name="secondaryIndustryName" id="secondaryIndustryName" onchange="if (this.value=='other'){this.form['otherSecondaryIndustryName'].style.visibility='visible'}else {this.form['otherSecondaryIndustryName'].style.visibility='hidden'};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
-												<option value=""
+												<option value="other"
 													{#secondaryIndustry.otherIndustryName}
 														selected="true"
 													{/secondaryIndustry.otherIndustryName}>
@@ -402,11 +418,14 @@
    												{/data.result.industry}
    											</select>												
 										</td>
-									</tr>
-									<tr>
-										<td class="edit-settings-content-table-left">If Other</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherSecondaryIndustryName" id="otherSecondaryIndustryName" placeholder="Please enter your secondary industry name here" value="{secondaryIndustry.otherIndustryName}" autofocus="" class="form-control">
+											<input type="text" name="otherSecondaryIndustryName" id="otherSecondaryIndustryName" placeholder="Please enter your secondary industry name here" value="{secondaryIndustry.otherIndustryName}" autofocus="" class="form-control"
+											{#secondaryIndustry.otherIndustryName}
+												style="visibility:visible;"
+											{:else}
+												style="visibility:hidden;"
+											{/secondaryIndustry.otherIndustryName}
+											>											
 										</td>
 									</tr>									
 									<tr>
