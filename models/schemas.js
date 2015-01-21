@@ -482,6 +482,8 @@ var meetingNotesSchema = Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Meeting'
     },
+    notesCreator: String,
+    attendee: String,
     interactionType: String,
     materialUsefulness:Number,
     topicAppropriateness:Number,

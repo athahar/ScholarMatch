@@ -21,7 +21,12 @@
 						<div class="curved-box-inside">
 							<h3>A note was submitted for this meeting already as follows:</h3>
 							<hr />
-
+							Notes creator - {meetingnotes.notesCreator}
+							<br/>
+							<br/>
+							Attendee - {meetingnotes.attendee}
+							<br/>
+							<br/>
 							Meeting Interaction Type - {meetingnotes.interactionType}
 							<br/>
 							<br/>

@@ -55,7 +55,7 @@ module.exports = function (router) {
                         /*model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                         console.log(model.data.meetingDetails);
                         res.render(view, model);*/
-                        debugger;
+                        //debugger;
                         model.data.meetingDetails = JSON.parse(JSON.stringify(result));
                         console.log(model.data.meetingDetails);
                         console.log(model.data.meetingDetails.meetings.length);
