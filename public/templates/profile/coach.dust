@@ -11,13 +11,14 @@
 		<form  method="POST" action="/profile">	
 			
 			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
-				{?data.firstlogin}
+				{?data.firstlogin}				
 					<center>
-						<p class="lead" style="margin-top:15px;">
-							Welcome to Career Connections. Please complete your profile. Edit sections by clicking the areas below.
+						<p style="margin-top:15px; font-size:18px;" >
+							Welcome to Career Connections! Please complete your profile. Edit sections by clicking the areas below.
 						</p>
 					</center>
 				{/data.firstlogin}
+				
 				<div class="container-colored-extra">
 					<div class="edit-settings-nav">
 						<div class="edit-settings-nav-items-coach" id="edit-settings-header-about">
@@ -103,7 +104,7 @@
 											<input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control">
 										</td>
 										<td class="edit-settings-content-table-right">
-											<a target="_blank" href="#" title="We need to review all coaches and your Linkedin Profile helps with this process."><img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "We need to review all coaches and your Linkedin Profile helps with this process."/>
 										</td>
 									</tr>
 									<tr>
