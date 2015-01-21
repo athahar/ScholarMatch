@@ -33,23 +33,32 @@ var userSchema = Schema({
     role: String,
     preferredName: String,
     phone: String,
+    phoneType: String,
+    address: String,
     location: String,
+    heardFrom: String,
     underGradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     gradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     primaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
     },
     secondaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
@@ -67,12 +76,16 @@ var userSchema = Schema({
     primaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     secondaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     studentList: String,
     studentsLinked: [{
@@ -82,6 +95,7 @@ var userSchema = Schema({
 
     school: {
         name: String,
+        otherName: String,
         major: String,
         currentYear: String
     },
@@ -91,6 +105,7 @@ var userSchema = Schema({
         secondary: String
     },
     previousJobs: String,
+    secondPreviousJobs: String,
     additionalPersonalInfo: String,
     coachList: String,
     coachesLinked: [{
@@ -541,7 +556,7 @@ majorSchema.statics.findAll = function(callback) {
     this.find({},
             function(err, docs) {
                 if (!err){ 
-                    console.log(docs);
+                    //console.log(docs);
                 }
                 else { throw err;}
 

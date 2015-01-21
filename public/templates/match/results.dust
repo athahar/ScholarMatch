@@ -48,9 +48,9 @@
 						<tr>
 							
 							<td>{fullName}</td>
-							<td>{college}</td>
-							<td>{industry}</td>
-							<td>{city}</td>
+							<td>{gradSchool.name}</td>
+							<td>{primaryIndustry.industryName}</td>
+							<td>{location}</td>
 							<td>{gender}</td>
 							<td>{additionalPersonalInfo}</td>
 							<td>{coachingInterest}</td>
