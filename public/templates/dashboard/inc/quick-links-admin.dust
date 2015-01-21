@@ -1,9 +1,3 @@
-<script type="text/javascript">
-	if(window.location.href.indexOf("manualconnection")>0){
-		$('#hi').css('background-color','black');
-	}
-</script>
-
 
 <div class="panel panel-info">
   	<div class="panel-heading">Quick Links</div>
