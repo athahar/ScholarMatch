@@ -107,7 +107,7 @@ Are you enjoying your role as a coach, your student match, etc.</td>
 				</table>
 
 				<br />
-				<center><button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Add/Update Notes</button></center>
+				<center><button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:175px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Add/Update Notes</button></center>
 
 			   	<input type="hidden" name="_csrf" value="{_csrf}" />
 				<input type="hidden" name="type" id="type" value="0" />

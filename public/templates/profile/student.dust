@@ -139,8 +139,7 @@
 											</textArea>
 										</td>
 										<td class="edit-settings-content-table-right">
-											<a target="_blank" href="#" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches">
-											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches"/>
 										</td>
 									</tr>
 									<tr>
