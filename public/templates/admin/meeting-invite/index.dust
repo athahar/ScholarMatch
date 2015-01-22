@@ -9,100 +9,139 @@
 	<div class="container-widest-white">
 		<div class="container-wide">
 			<div class="row">
-			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-				  {! >"dashboard/inc/upcoming-meetings" / !}  
-				  {>"dashboard/inc/quick-links-admin" /} 
+			    <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  <div class="panel panel-info">
+				  	<div class="panel-heading">Quick Links</div>
+					  	<ul class="nav nav-pills nav-stacked">
+					  		<li > <a href="/match/pending">Pending Match Request(s)</a></li>
+							<li > <a href="/match/manualconnection">Manually match student / Coach</a></li>
+							<li > <a href="/match/pendingOrientation">Pending Orientation(s)</a></li>
+							<li > <a href="/match/orientationInProgress">Orientation(s) in Progress</a></li>
+							<li > <a href="/admin/allmeetings">View all meetings</a></li>
+							<li style="background-color:#EEEEEE;"> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+							<li > <a href="/admin/user/createAdmin">New Admin Creation</a></li>
+						</ul>    
+				   </div>
 		   		</div>
 
-			   <div class="col-md-9">
+			    <div class="col-md-9">
 			   		<div class="container-widest-white" style="text-align:left;">
 						{#data}
-							<div class="container">
-								<h2>Setup a meeting</h2>
-								
-								<form id="meetingInviteAdmin" method="POST" class="form-horizontal">	
+							<div class="container-wide">
+								<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+								&nbsp;&nbsp;
+								<div class="about-title">
+									Setup a Meeting
+								</div>
+								<hr />
+
+
+								<center>
 									
-									   <div class="form-group">
-									      <label for="fullName" class="col-sm-3 control-label">Coach Name</label>
-									      <div class="col-sm-7">
-									      	<select name="invitee_coach" id="invitee_coach">
-									      		{#data.coaches}
-									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
-									      		{/data.coaches}
-									      	</select>
-										  	
-									      </div>			      
-									   </div>
-								  	
-								  	
-									   <div class="form-group">
-									      <label for="fullName" class="col-sm-3 control-label">Student Name</label>
-									      <div class="col-sm-7">
-									      
-									      	<select name="invitee_student" id="invitee_student">
-									      		{#data.students}
-									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
-									      		{/data.students}
-									      	</select> 
-									      	
-									      </div>
-									   </div>
-								  	
+											<form id="meetingInviteAdmin" method="POST" class="form-horizontal">	
+																							  	
+												<table class="edit-settings-content-table">
 
-								   <div class="form-group date">
-									   <label for="meetingDate" class="col-sm-3 control-label">Meeting Date / Time</label>
-										<div class="col-sm-7"> 
-											<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
-										</div>				
-								   </div>		   
-								   <div class="form-group">
-							  			<label for="topic" class="col-sm-3 control-label">Topic</label>	  			
-							  			<div class="col-sm-7">
-							      			<select name="topic" class="form-control topic col-sm-7"  data-placeholder="Choose a topic">
-									  			<option>Resume &amp; Linked In profile creation</option>
-									  			<option>Mock Interview</option>
-									  			<option>Insider Scoop</option>
-									  			<option>Office Visit</option>
-									  			<option>Internship or Job Search</option>
-									  			<option>Professional Etiquette</option>
-											</select>
-										</div>			   
-									</div>			
-								   <div class="form-group">
-								      <label for="meetingType" class="col-sm-3 control-label">Meeting Type</label>
-								      <div class="col-sm-7">
-									      <select name="meetingType" class="form-control col-sm-7">
-									      	  <option>In Person</option>	
-											  <option>Telephonic</option>
-											</select>
-										</div>
-								   </div>
-								   
-								   <div class="form-group">
-								      <label for="location" class="col-sm-3 control-label">Location</label>
-								      <div class="col-sm-7"><input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control"></div>
-								   </div>
+													<tr>
+														<td class="edit-settings-content-table-left">Coach Name</td>
+														<td class="edit-settings-content-table-right"> 
+															<select name="invitee_coach" id="invitee_coach">
+												      		{#data.coaches}
+													      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
+													      		{/data.coaches}
+													      	</select>
+														</td>			
+													</tr>
+													<tr>
+														<td class="edit-settings-content-table-left">Student Name</td>
+														<td class="edit-settings-content-table-right"> 
+															<select name="invitee_student" id="invitee_student">
+													      		{#data.students}
+													      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
+													      		{/data.students}
+													      	</select> 
+														</td>
+													</tr>
 
-								   <div class="form-group">
-								      <label for="landmark" class="col-sm-3 control-label">Landmark</label>
-								      <div class="col-sm-7"><input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc" autofocus="" class="form-control"></div>
-								   </div>
-								   
-								   <div class="form-group">
-								      <div class="col-sm-7"><button type="submit" class="btn btn-success">Create a meeting</button></div>
-								   </div>
+												   <tr>
+														<td class="edit-settings-content-table-left">Meeting Date / Time</td>
+														<td class="edit-settings-content-table-right"> 
+															<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+														</td>				
+												   </tr>
 
-								   	<input type="hidden" name="_csrf" value="{_csrf}" />
-									<input type="hidden" name="type" id="type" value="0" />
+						   
+												   <tr>
+														<td class="edit-settings-content-table-left">Topic</td> 		
+														<td class="edit-settings-content-table-right">
+													      <select name="topic" class="form-control col-sm-7">
+													  			<option>Resume &amp; Linked In profile creation</option>
+													  			<option>Mock Interview</option>
+													  			<option>Insider Scoop</option>
+													  			<option>Office Visit</option>
+													  			<option>Internship or Job Search</option>
+													  			<option>Professional Etiquette</option>
+													  			<option>Other</option>
+															</select>
+														</td>			   
+													</tr>	
+													<tr>
+														<td class="edit-settings-content-table-left">If Other Topic Enter Here </td>
+														<td class="edit-settings-content-table-right">	
+														<input type="text" name="otherTopic" id="otherTopic" autofocus="" class="form-control" />
+														</td>
+												   <tr>
+														<td class="edit-settings-content-table-left">Meeting Type</td>
+														<td class="edit-settings-content-table-right">
+													      <select name="meetingType" class="form-control col-sm-7">
+													      	  <option>In Person</option>	
+															  <option>Telephone</option>
+															  <option>Video Call</option>
+															</select>
+														</td>
+												   </tr>
 
-									<!-- Some hidden stuff -->
-									<input type="hidden" name="inviteCreator" value="{data._id}">
-									
-								</form>		
+												   <tr>
+														<td class="edit-settings-content-table-left">Location</td>
+												      
+														<td class="edit-settings-content-table-right">
+															<input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control">
+														</td>
+												   </tr>
 
-							</div>
-							{/data}
+												   <tr>
+
+												   		<td class="edit-settings-content-table-left">Landmark and other info</td>
+												      
+														<td class="edit-settings-content-table-right">
+															<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc." autofocus="" class="form-control">
+														
+															
+														</td>
+												   </tr>
+											   <br />
+												<tr>
+													<td colspan = "2" style="text-align:center;">
+														<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Create Meeting</button>
+													</td>
+												</tr>
+
+
+												   	<input type="hidden" name="_csrf" value="{_csrf}" />
+													<input type="hidden" name="type" id="type" value="0" />
+
+													<!-- Some hidden stuff -->
+													<input type="hidden" name="inviteCreator" value="{data.result._id}">
+												</table>
+												
+											</form>	
+											<br />
+							</center>	
+						</div>
+
+						{/data}
 					</div>
+				</div>			
 			</div>	
 		</div>	
 	</div>
