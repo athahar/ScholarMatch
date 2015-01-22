@@ -139,8 +139,7 @@
 											</textArea>
 										</td>
 										<td class="edit-settings-content-table-right">
-											<a target="_blank" href="#" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches">
-											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px"/></a>
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title="We will never share your contact information. Part of the requirement is that the address stays hidden from all other students & coaches"/>
 										</td>
 									</tr>
 									<tr>
@@ -162,13 +161,69 @@
 									<tr>
 										<td class="edit-settings-content-table-left">School Name</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">
+											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
+											<select name="schoolName" id="schoolName" onchange="if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.border=none;};" class="form-control col-sm-7">
+												<option value="-1">Choose a school...</option>
+												<option value="other" 
+													{#school.otherName}
+														selected="true"
+													{/school.otherName}>
+													Other...
+												</option>
+												{#data.result.school}  
+   													<option value="{name}" 
+   														{@eq key=name value=school.name} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.school}
+   											</select>
 										</td>
-									</tr>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherSchoolName" id="otherSchoolName" placeholder="Please enter your school name here" value="{school.otherName}" autofocus="" class="form-control" 
+											{#school.otherName}
+												style="height:30px;"
+											{:else}
+												style="height:0px;border:none"
+											{/school.otherName}
+											>
+										</td>
+									</tr>								
 									<tr>
 										<td class="edit-settings-content-table-left">Major</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control"></td>
-									</tr>
+										<td class="edit-settings-content-table-right">
+											<!--<input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control">-->
+											<select name="schoolMajor" id="schoolMajor" onchange="if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+												<option value="-1">Choose a major...</option>
+												<option value="other"
+													{#school.otherMajor}
+														selected="true"
+													{/school.otherMajor}>
+													Other...
+												</option>
+												{#data.result.major}  
+   													<option value="{name}" 
+   														{@eq key=name value=school.major} 
+   															selected="true"
+   														{/eq}>
+   														{name}
+   													</option>
+   												{/data.result.major}
+   											</select>											
+										</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherSchoolMajor" id="otherSchoolMajor" placeholder="Please enter your school major here" value="{school.otherMajor}" autofocus="" class="form-control"
+											{#school.otherMajor}
+												style="height:30px; border:thin groove black;"
+											{:else}
+												style="height:0px;border:none;"
+											{/school.otherMajor}
+											>
+
+										</td>
+									</tr>					
+
 									<tr>
 										<td class="edit-settings-content-table-left">Year in School</td>
 										<td class="edit-settings-content-table-right">
@@ -197,25 +252,48 @@
 										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
-											<select name="industryDesired" id="industryDesired" class="form-control col-sm-7">
+											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.border=none;};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
+												<option value="other"
+													{#industry.otherIndustryName}
+														selected="true"
+													{/industry.otherIndustryName}>
+													Other...
+												</option>
 												{#data.result.industry}  
    													<option value="{field}" 
-   														{@eq key=field value=industry.desired} 
+   														{@eq key=field value=industry.name} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
    												{/data.result.industry}
-   											</select>
+   											</select>											
 										</td>
-									</tr>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherIndustryDesired" id="otherIndustryDesired" placeholder="Please enter your desired industry here" value="{industry.otherIndustryName}" autofocus="" class="form-control"
+											{#industry.otherIndustryName}
+												style="height:30px;border:thin groove black;"
+											{:else}
+												style="height:0px;border:none"
+											{/industry.otherIndustryName}
+											>													
+										</td>
+									</tr>					
+
+
 									<tr>
 										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
-										<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Secondary Industry Name" value="{industry.secondary}" autofocus="" class="form-control">-->
-											<select name="industrySecondary" id="industrySecondary" class="form-control col-sm-7">
+											<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Desired Secondary Industry" value="{industry.secondary}" autofocus="" class="form-control">-->
+											<select name="industrySecondary" id="industrySecondary" onchange="if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.border=none;};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
+												<option value="other"
+													{#secondary.otherIndustryName}
+														selected="true"
+													{/secondary.otherIndustryName}>
+													Other...
+												</option>
 												{#data.result.industry}  
    													<option value="{field}" 
    														{@eq key=field value=industry.secondary} 
@@ -224,9 +302,19 @@
    														{field}
    													</option>
    												{/data.result.industry}
-   											</select>
+   											</select>												
 										</td>
-									</tr>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="otherIndustrySecondary" id="otherIndustrySecondary" placeholder="Please enter your secondary industry name here" value="{industry.secondary}" autofocus="" class="form-control"
+											{#secondary.otherIndustryName}
+												style="height:30px;border:thin groove black;"
+											{:else}
+												style="height:0px;border:none"
+											{/secondary.otherIndustryName}
+											>											
+										</td>
+									</tr>				
+
 									<tr>
 										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>

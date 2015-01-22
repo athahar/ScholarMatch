@@ -45,7 +45,7 @@
 							</ul>
 						{/messages}
 
-						<input type="text" class="text-box-home" name="username" id="username" placeholder="Email" >
+						<input type="text" class="text-box-home" name="username" id="username" placeholder="Email">
 						&nbsp;&nbsp;&nbsp;
 						<!--<br /><br />-->
 						<input type="password" class="text-box-home"  name="password" id="password" placeholder="Password" >
