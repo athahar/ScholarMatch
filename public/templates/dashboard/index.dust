@@ -32,52 +32,6 @@
 				</div>
 		   </div>
 
-		   <div class="col-md-8">
-		   		<p class="lead">Recent meetings</p>
-		      <!-- <h3>Recent meetings</h3> -->
-		      <table id="visits" class="table table-bordered table-striped table-condensed">
-		         <thead>
-		            <tr>
-		               <td>Date/Time</td>
-		               <td>Meeting With</td>
-		               <td>Topic</td>
-		               <td>Meeting Notes</td>
-		            </tr>
-		         </thead>
-		         <tbody>
-		            <tr>
-		               <td>07/10/2014 1:00PM</td>
-		               <td>Selina</td>
-		               <td>Preparing LinkedIn resume</td>
-		               <td><a href="/meeting-notes?meetingId=123">Add/View Notes</a></td>
-		            </tr>
-		             <tr>
-		               <td>07/01/2014 10:00AM</td>
-		               <td>Diana</td>
-		               <td>Meet n Greet</td>
-		               <td><a href="/meeting-notes?meetingId=436">Add/View Notes</a></td>
-		            </tr>
-		            <tr>
-		               <td>06/25/2014 11:00AM</td>
-		               <td>Ramirez</td>
-		               <td>Meet n Greet</td>
-		               <td><a href="/meeting-notes?meetingId=436">Add/View Notes</a></td>
-		            </tr>
-		            <tr>
-		               <td>06/19/2014 2:00PM</td>
-		               <td>Monica</td>
-		               <td>Meet n Greet</td>
-		               <td><a href="/meeting-notes?meetingId=426">Add/View Notes</a></td>
-		            </tr>
-		            <tr>
-		               <td>06/1/2014 4:00PM</td>
-		               <td>Juliana</td>
-		               <td>Meet n Greet</td>
-		               <td><a href="/meeting-notes?meetingId=456">Add/View Notes</a></td>
-		            </tr>
-		         </tbody>
-		      </table>		      
-		   </div>
 		</div>
 	</div>
 {/body}
