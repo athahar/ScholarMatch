@@ -586,18 +586,38 @@
 			}
 			else if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  && $('#coachingInterest').val() != ''  && $('#heardFrom').val() != ''){
 				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');
 			}
 			else if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
-				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');			
+				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');	
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');		
 			}
 			else if($('#underGradSchoolName').val() != 'Choose a school...' && $('#underGradSchoolMajor').val() != 'Choose a major...' ){
-				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
+				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');	
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');		
 			}
 			else if($('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != ''){
 				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');
 			}
 			else if($('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#SecondaryaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != ''){
-				$('#references-status').text("References: Completed! "); $('#references-status').css('color','green'); $('#references-complete').addClass('fa fa-check');			
+				$('#references-status').text("References: Completed! "); $('#references-status').css('color','green'); $('#references-complete').addClass('fa fa-check');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');			
 			}
 			else{
 				$('.btnbtn-success').css('background-color','#663333');
