@@ -48,7 +48,7 @@
 
 					<div class="edit-settings-content">
 						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
-						new code loaded
+						newer code loaded
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 
 							<h3>About Settings</h3>
@@ -237,7 +237,7 @@
    											</select>
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Please enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control" 
+											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control" 
 											{#underGradSchool.otherName}
 												style="height:30px;"
 											{:else}
@@ -269,7 +269,7 @@
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Please enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
+											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
 											{#underGradSchool.otherMajor}
 												style="height:30px; border:thin groove black;"
 											{:else}
@@ -302,7 +302,7 @@
    											</select>
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherGradSchoolName" id="otherGradSchoolName" placeholder="Please enter your grad school name here" value="{gradSchool.otherName}" autofocus="" class="form-control"
+											<input type="text" name="otherGradSchoolName" id="otherGradSchoolName" placeholder="Enter your grad school name here" value="{gradSchool.otherName}" autofocus="" class="form-control"
 											{#gradSchool.otherName}
 												style="height:30px;border:thin groove black;"
 											{:else}
@@ -334,7 +334,7 @@
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherGradSchoolMajor" id="otherGradSchoolMajor" placeholder="Please enter your grad school major here" value="{gradSchool.otherMajor}" autofocus="" class="form-control"
+											<input type="text" name="otherGradSchoolMajor" id="otherGradSchoolMajor" placeholder="Enter your grad school major here" value="{gradSchool.otherMajor}" autofocus="" class="form-control"
 											{#gradSchool.otherMajor}
 												style="height:30px;border:thin groove black;"
 											{:else}
@@ -383,7 +383,7 @@
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherPrimaryIndustryName" id="otherPrimaryIndustryName" placeholder="Please enter your primary industry name here" value="{primaryIndustry.otherIndustryName}" autofocus="" class="form-control"
+											<input type="text" name="otherPrimaryIndustryName" id="otherPrimaryIndustryName" placeholder="Enter your primary industry name here" value="{primaryIndustry.otherIndustryName}" autofocus="" class="form-control"
 											{#primaryIndustry.otherIndustryName}
 												style="height:30px;border:thin groove black;"
 											{:else}
@@ -435,7 +435,7 @@
    											</select>												
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherSecondaryIndustryName" id="otherSecondaryIndustryName" placeholder="Please enter your secondary industry name here" value="{secondaryIndustry.otherIndustryName}" autofocus="" class="form-control"
+											<input type="text" name="otherSecondaryIndustryName" id="otherSecondaryIndustryName" placeholder="Enter your secondary industry name here" value="{secondaryIndustry.otherIndustryName}" autofocus="" class="form-control"
 											{#secondaryIndustry.otherIndustryName}
 												style="height:30px;border:thin groove black;"
 											{:else}
