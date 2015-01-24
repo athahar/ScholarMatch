@@ -4,6 +4,10 @@
 	Profile - Career Connections Program  - ScholarMatch
 {/title}
 
+<script type="text/javascript">
+	var schoolChange = false;
+</script>
+
 
 {<body}
 	{#data.result}
@@ -217,7 +221,7 @@
 										<td class="edit-settings-content-table-left">Undergrad School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolName'].style.height='0px';this.form['otherUnderGradSchoolName'].style.border=none;};" class="form-control col-sm-7">
+											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherUnderGradSchoolName'].style.height='0px';this.form['otherUnderGradSchoolName'].style.border=none;};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#underGradSchool.otherName}
@@ -629,7 +633,7 @@
 
 			/*if user is writing in his last box*/
 	    	$('input[type="text"]').keyup(function() {
-				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1'   && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#secondaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
+				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1'  || schoolChange == true  && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#secondaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
 					$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 					$('.btnbtn-success').text('Update My Profile!');
@@ -662,7 +666,7 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
 				}
 
-				if($('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1' ){
+				if($('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1' || schoolChange == true){
 					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
 				}
 				else{
