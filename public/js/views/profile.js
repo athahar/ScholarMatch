@@ -56,50 +56,85 @@ define([
 
             //if click on another header, open that
             $('#edit-settings-header-about').on('click', function(e) {
+                loadAbout();
+            });
+            $('#edit-settings-header-contact').on('click', function(e) {
+                loadContact();
+            });
+            $('#edit-settings-header-education').on('click', function(e) {
+                loadEducation();
+            });
+            $('#edit-settings-header-industry').on('click', function(e) {
+                loadIndustry();
+            });
+            $('#edit-settings-header-references').on('click', function(e) {
+                loadReferences();
+            });
+
+            function loadAbout(){
                 for(var i = 0; i < contentIDs.length; i++){
                     $("#" + contentIDs[i]).removeClass();
-                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");
+                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");             
+                    $("#" + contentIDs[i]).css('height','0px');
                     $("#" + menuIDs[i]).css("background-color","#EFECE0");
                 }
                 $("#" + menuIDs[0]).css("background-color","white");
-                $("#" + contentIDs[0]).toggleClass("edit-settings-content-items-hidden");
-            });
-            $('#edit-settings-header-contact').on('click', function(e) {
+                $("#" + contentIDs[0]).toggleClass("edit-settings-content-items-hidden");          
+                $("#" + contentIDs[0]).css('height','100%');
+                $("html,body").animate({scrollTop: 0},750);
+            }
+
+            function loadContact(){
                 for(var i = 0; i < contentIDs.length; i++){
                     $("#" + contentIDs[i]).removeClass();
-                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");
+                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");          
+                    $("#" + contentIDs[i]).css('height','0px');
                     $("#" + menuIDs[i]).css("background-color","#EFECE0");
                 }
                 $("#" + menuIDs[1]).css("background-color","white");
-                $("#" + contentIDs[1]).toggleClass("edit-settings-content-items-hidden");
-            });
-            $('#edit-settings-header-education').on('click', function(e) {
+                $("#" + contentIDs[1]).toggleClass("edit-settings-content-items-hidden");        
+                $("#" + contentIDs[1]).css('height','100%');
+                $("html,body").animate({scrollTop: 0}, 750);
+            }
+
+            function loadEducation(){
                 for(var i = 0; i < contentIDs.length; i++){
                     $("#" + contentIDs[i]).removeClass();
-                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");
+                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");          
+                    $("#" + contentIDs[i]).css('height','0px');
                     $("#" + menuIDs[i]).css("background-color","#EFECE0");
                 }
                 $("#" + menuIDs[2]).css("background-color","white");
-                $("#" + contentIDs[2]).toggleClass("edit-settings-content-items-hidden");
-            });
-            $('#edit-settings-header-industry').on('click', function(e) {
+                $("#" + contentIDs[2]).toggleClass("edit-settings-content-items-hidden");        
+                $("#" + contentIDs[2]).css('height','100%');
+                $("html,body").animate({scrollTop: 0}, 750);
+            }
+
+            function loadIndustry(){
                 for(var i = 0; i < contentIDs.length; i++){
                     $("#" + contentIDs[i]).removeClass();
-                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");
+                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");          
+                    $("#" + contentIDs[i]).css('height','0px');
                     $("#" + menuIDs[i]).css("background-color","#EFECE0");
                 }
                 $("#" + menuIDs[3]).css("background-color","white");
-                $("#" + contentIDs[3]).toggleClass("edit-settings-content-items-hidden");
-            });
-            $('#edit-settings-header-references').on('click', function(e) {
+                $("#" + contentIDs[3]).toggleClass("edit-settings-content-items-hidden");        
+                $("#" + contentIDs[3]).css('height','100%');
+                $("html,body").animate({scrollTop: 0}, 750);
+            }
+
+            function loadReferences(){
                 for(var i = 0; i < contentIDs.length; i++){
                     $("#" + contentIDs[i]).removeClass();
-                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");
+                    $("#" + contentIDs[i]).addClass("edit-settings-content-items-hidden");          
+                    $("#" + contentIDs[i]).css('height','0px');
                     $("#" + menuIDs[i]).css("background-color","#EFECE0");
                 }
                 $("#" + menuIDs[4]).css("background-color","white");
-                $("#" + contentIDs[4]).toggleClass("edit-settings-content-items-hidden");
-            });
+                $("#" + contentIDs[4]).toggleClass("edit-settings-content-items-hidden");        
+                $("#" + contentIDs[4]).css('height','100%');
+                $("html,body").animate({scrollTop: 0}, 750);
+            }
 
     $(".phone").text(function(i, text) {
         text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
