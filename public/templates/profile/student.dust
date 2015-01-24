@@ -34,6 +34,7 @@
 					</div>
 
 					<div class="edit-settings-content">
+						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 							<h3>About Settings</h3>
 							<hr />
@@ -94,9 +95,14 @@
 										</td>
 									</tr>
 								</table>
-			
+
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Go to Contact</button>
+								
+								&nbsp; &nbsp;&nbsp;&nbsp;
+
+								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update My Profile</button>
+			
 							</center>
 						</div>
 
@@ -148,7 +154,11 @@
 									</tr>
 								</table>
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">Go to Education</button>
+								
+								&nbsp; &nbsp;&nbsp;&nbsp;
+
+								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update My Profile</button>
 							</center>
 						</div>
 
@@ -238,7 +248,12 @@
 									</tr>
 								</table>
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Go to Industry</button>
+								
+								&nbsp; &nbsp;&nbsp;&nbsp;
+
+
+								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update my Profile</button>
 							</center>
 						</div>
 
@@ -316,19 +331,31 @@
 									</tr>				
 
 									<tr>
-										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
+										<td class="edit-settings-content-table-left">Previous Jobs/Internships*</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships</td>
+										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships*</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"></td>
 									</tr>									
 								</table>
 								<br />
-								<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:200px; font-size:16px; background-color:#663333; border-color:#663333;"><i class="fa fa-check"></i>Update my Profile</button> 
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadReferences()">Go to References</button>
+								
+								&nbsp; &nbsp;&nbsp;&nbsp;
+
+								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update my Profile</button>
 							</center>
 						</div>
 					</div>
+					<table style="width:100%; text-align:center; table-layout:fixed;">
+						<tr>
+							<td id="about-status" onclick="loadAbout()" style="cursor:pointer;"><i id="about-complete"></i>About: Missing Something...</td>
+							<td id="contact-status" onclick="loadContact()" style="cursor:pointer;"><i  id="contact-complete"></i>Contact: Missing Something...</td>
+							<td id="education-status" onclick="loadEducation()" style="cursor:pointer;"><i id="education-complete"></i>Education: Missing Something...</td>
+							<td id="industry-status" onclick="loadIndustry()" style="cursor:pointer;"><i  id="industry-complete"></i>Industry: Missing Something...</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		   	<input type="hidden" name="_csrf" value="{_csrf}" />
@@ -336,5 +363,93 @@
 			<input type="hidden" name="userid" id="userid" value="{userid}" />
 			<input type="hidden" name="role" id="role" value="{role}" />
 		</form>
+
+
+		<!-- if everything is filled out in the form, make a submit button on each page.
+			 else if everything is filled out on that section, make a go to next section button
+			 else button should be unclickable
+			 also have to check on key up
+		-->
+		<script type="text/javascript">
+			/*on load, if everything is filled out*/
+			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '' && $('#schoolMajor').val() != ''  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+				$('.btnbtn-success').css('background-color','green');
+					$('.btnbtn-success').css('border-color','green');
+				$('.btnbtn-success').text('Update My Profile!');
+				$('.btnbtn-success').removeAttr('disabled');
+
+				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
+				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
+				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+			}
+			else if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''){
+				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+			}
+			else if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
+				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');			
+			}
+			else if($('#schoolName').val() != '' && $('#schoolMajor').val() != ''){
+				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
+			}
+			else if($('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+			}
+			else{
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');
+			}
+
+			/*if user is writing in his last box*/
+	    	$('input[type="text"]').keyup(function() {
+				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '' && $('#schoolMajor').val() != ''  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != ''  ){
+					$('.btnbtn-success').css('background-color','green');
+					$('.btnbtn-success').css('border-color','green');
+					$('.btnbtn-success').text('Update My Profile!');
+					$('.btnbtn-success').removeAttr('disabled');
+
+					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
+					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
+					$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+				}
+				else{
+					$('.btnbtn-success').css('background-color','#663333');
+					$('.btnbtn-success').text('Complete Profile First...');
+					$('.btnbtn-success').attr('disabled', 'disabled');
+				}
+
+				if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  ){
+					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+				}
+				else{
+					$('#about-status').text("About: Something Missing... "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
+				}
+
+				if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
+					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');			
+				}
+				else{
+					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
+				}
+
+				if($('#schoolName').val() != '' && $('#schoolMajor').val() != ''){
+					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
+				}
+				else{
+					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');						
+				}
+
+				if($('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+					$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+				}
+				else{
+					$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+				}
+			});
+
+
+		</script>
 	{/data.result}
 {/body}
