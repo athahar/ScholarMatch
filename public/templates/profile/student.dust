@@ -81,10 +81,6 @@
 				            			</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
-									</tr>
-									<tr>
 										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
 										<td class="edit-settings-content-table-right">
 											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus="" >
@@ -93,6 +89,10 @@
 												{/additionalPersonalInfo}
 											</textarea>
 										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 
@@ -421,7 +421,7 @@
 
 			/*if user is writing in his last box*/
 	    	$('input[type="text"]').keyup(function() {
-				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'   && $('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'   && $('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
 					$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 					$('.btnbtn-success').text('Update My Profile!');
