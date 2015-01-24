@@ -48,7 +48,6 @@
 
 					<div class="edit-settings-content">
 						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
-						hopefully last
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 
 							<h3>About Settings</h3>
@@ -600,7 +599,7 @@
 				$('.btnbtn-success').text('Complete Profile First...');
 				$('.btnbtn-success').attr('disabled', 'disabled');		
 			}
-			else if($('#underGradSchoolName').val() != 'Choose a school...' && $('#underGradSchoolMajor').val() != 'Choose a major...' ){
+			else if($('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1' ){
 				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');	
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('width','250px');

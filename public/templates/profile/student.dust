@@ -82,7 +82,7 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfiledUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
@@ -372,7 +372,8 @@
 		-->
 		<script type="text/javascript">
 			/*on load, if everything is filled out*/
-			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '' && $('#schoolMajor').val() != ''  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+
+			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != ''  ){
 				$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 				$('.btnbtn-success').text('Update My Profile!');
@@ -383,27 +384,44 @@
 				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
 				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
 			}
-			else if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''){
+			else if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' ){
 				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');
 			}
 			else if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
-				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');			
+				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');	
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');		
 			}
-			else if($('#schoolName').val() != '' && $('#schoolMajor').val() != ''){
-				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
+			else if($('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1' ){
+				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');	
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');		
 			}
-			else if($('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+			else if($('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
 				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
+				$('.btnbtn-success').text('Complete Profile First...');
+				$('.btnbtn-success').attr('disabled', 'disabled');
 			}
 			else{
 				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('width','250px');
 				$('.btnbtn-success').text('Complete Profile First...');
 				$('.btnbtn-success').attr('disabled', 'disabled');
 			}
 
 			/*if user is writing in his last box*/
 	    	$('input[type="text"]').keyup(function() {
-				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '' && $('#schoolMajor').val() != ''  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != ''  ){
+				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'   && $('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
 					$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 					$('.btnbtn-success').text('Update My Profile!');
@@ -416,11 +434,12 @@
 				}
 				else{
 					$('.btnbtn-success').css('background-color','#663333');
+					$('.btnbtn-success').css('width','250px');
 					$('.btnbtn-success').text('Complete Profile First...');
 					$('.btnbtn-success').attr('disabled', 'disabled');
 				}
 
-				if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfiledUrl').val() != '' && $('#additionalPersonalInfo').val() != ''  ){
+				if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' ){
 					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
 				}
 				else{
@@ -434,19 +453,20 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
 				}
 
-				if($('#schoolName').val() != '' && $('#schoolMajor').val() != ''){
+				if($('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1' ){
 					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
 				}
 				else{
 					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');						
 				}
 
-				if($('#industryDesired').val() != '' && $('#industrySecondary').val() != '' ){
+				if($('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
 					$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
 				}
 				else{
 					$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 				}
+
 			});
 
 
