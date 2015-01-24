@@ -101,15 +101,6 @@
 				            			</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
-										<td class="edit-settings-content-table-right">
-											<input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control">
-										</td>
-										<td class="edit-settings-content-table-right">
-											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "We need to review all coaches and your Linkedin Profile helps with this process."/>
-										</td>
-									</tr>
-									<tr>
 										<td class="edit-settings-content-table-left">One Interesting Fact</td>
 										<td class="edit-settings-content-table-right">
 											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting face a student would want to know" autofocus="" >
@@ -137,6 +128,15 @@
 													{heardFrom}
 												{/heardFrom}
 											</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
+										<td class="edit-settings-content-table-right">
+											<input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control">
+										</td>
+										<td class="edit-settings-content-table-right">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "We need to review all coaches and your Linkedin Profile helps with this process."/>
 										</td>
 									</tr>
 								</table>
@@ -629,7 +629,7 @@
 
 			/*if user is writing in his last box*/
 	    	$('input[type="text"]').keyup(function() {
-				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != 'Choose a school...' && $('#underGradSchoolMajor').val() != 'Choose a major...'   && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#secondaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
+				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1'   && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#secondaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
 					$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 					$('.btnbtn-success').text('Update My Profile!');
@@ -662,7 +662,7 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
 				}
 
-				if($('#underGradSchoolName').val() != 'Choose a school...' && $('#underGradSchoolMajor').val() != 'Choose a major...' ){
+				if($('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1' ){
 					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
 				}
 				else{
