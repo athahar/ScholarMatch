@@ -48,7 +48,7 @@
 
 					<div class="edit-settings-content">
 						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
-						newer code loaded
+						hopefully last
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 
 							<h3>About Settings</h3>
@@ -573,7 +573,8 @@
 		-->
 		<script type="text/javascript">
 			/*on load, if everything is filled out*/
-			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != 'Choose a school...' && $('#underGradSchoolMajor').val() != 'Choose a major...'  && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#SecondaryaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
+
+			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1'  && $('#primaryIndustryName').val() != '' && $('#primaryIndustryJobTitle').val() != '' && $('#primaryIndustryCompany').val() != '' && $('#primaryIndustryYearsOfExperience').val() != '' && $('#primaryReferenceName').val() != '' && $('#primaryReferencePhone').val() != '' && $('#primaryReferenceEmail').val() != '' && $('#primaryReferenceRelationship').val() != '' && $('#primaryReferenceYearsKnown').val() != '' && $('#secondaryReferenceName').val() != '' && $('#SecondaryaryReferencePhone').val() != '' && $('#secondaryReferenceEmail').val() != '' && $('#secondaryReferenceRelationship').val() != '' && $('#secondaryReferenceYearsKnown').val() != '' ){
 				$('.btnbtn-success').css('background-color','green');
 					$('.btnbtn-success').css('border-color','green');
 				$('.btnbtn-success').text('Update My Profile!');
