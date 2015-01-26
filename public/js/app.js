@@ -153,13 +153,6 @@ $('#click-to-open').on('click',function(e){
 
 $('#login-or-logout').on('click',function(e){
     window.location.href = "/login";
-    /* commented out until we can fix - nice to have
-    $('#login-section').slideDown("fast",function(){
-    //for(var i = 0; i < linkIds.length; i++)
-        //$("#"+linkIds[i]).removeClass();
-    //document.getElementById("login-or-logout").className = "active-link";
-    });
-    */
 });
 
 function redirectPage(page){
