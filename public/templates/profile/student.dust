@@ -175,7 +175,7 @@
 										<td class="edit-settings-content-table-left">School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
-											<select name="schoolName" id="schoolName" onchange="if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.border=none;};" class="form-control col-sm-7">
+											<select name="schoolName" id="schoolName" onchange="if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#school.otherName}
@@ -207,7 +207,7 @@
 										<td class="edit-settings-content-table-left">Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control">-->
-											<select name="schoolMajor" id="schoolMajor" onchange="if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolMajor" id="schoolMajor" onchange="if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#school.otherMajor}
@@ -270,7 +270,7 @@
 										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
-											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.border=none;};" class="form-control col-sm-7">
+											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#industry.otherIndustryName}
@@ -304,7 +304,7 @@
 										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Desired Secondary Industry" value="{industry.secondary}" autofocus="" class="form-control">-->
-											<select name="industrySecondary" id="industrySecondary" onchange="if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.border=none;};" class="form-control col-sm-7">
+											<select name="industrySecondary" id="industrySecondary" onchange="if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.width='0px';this.form['otherIndustrySecondary'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#secondary.otherIndustryName}
