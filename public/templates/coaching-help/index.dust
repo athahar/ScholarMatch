@@ -4,10 +4,214 @@
 	Career Connections Program  - ScholarMatch
 {/title}
 
+<script type="text/javascript">
+	$('#connections').css("height",$('.information').height());
+</script>
+
 {<body}            
-	<div class="container-widest-white">
-		<div class="container-wide">
-			stuff needs to go in here
+	<div class="container-widest-white" >
+		<div class="container-wide" style="text-align:left;">	
+		   <div id="connections" class="col-md-3" style="margin-right:25px; width:25%; display:inline-block; vertical-align:top;">		   
+			    <div class="panel panel-default">
+				  <div class="panel-heading" style="background-color:#D9EDF7; text-align:center;">Quick Links</div>				  
+				    <ul class="nav nav-pills nav-stacked" style="text-align:center;">
+				    	{?data.user.studentsLinked}
+						<li> <a href="/meeting-invite">Set up a meeting</a></li>
+						{/data.user.studentsLinked}
+						<li> <a href="/dashboard">Back to Dashboard</a></li>
+						<li class="link-selected"> <a href="/coaching-help">Coaching Help</a></li>
+						<li> <a href="/contact">Contact ScholarMatch</a></li>
+					</ul>
+				</div>
+		   </div>
+
+		   <div class="information" style="height:100%; width: 70%; display:inline-block; vertical-align:top;">
+				<a href="http://scholarmatch.org/wordpress/wp-content/uploads/2014/06/Training-Manual-Career-Coach.pdf" target="_blank">View in PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/images/TrainingManualCareerCoach.docx" >Download Copy</a>
+
+				<br /><br />
+
+				<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+				&nbsp;&nbsp;
+				<div class="about-title">
+					College to Career Program Overview
+				</div>
+				<hr />
+				<h3><b>ScholarMatch Mission</b></h3>
+				Our mission is to make college possible for underserved youth by matching students with donors, resources, colleges and professional networks.
+
+				<br /><br />
+
+				<h3><b>Why Professional Networking?</b></h3>
+				At ScholarMatch, we believe that our work does not stop until our students begin their own work. Saint Joseph’s University Professor Maria Kefalas indicated “Networking is one of the most important, but neglected elements of the college experience.”  She quotes John Bennett, Director of the Master of Science and executive coaching program at the McColl School of Business stating “Research tells us that between 60 to 80 percent of jobs are found through personal relationships.”   To combat our college students’ lack of professional resources, ScholarMatch is bridging the gap between college life and the professional world by matching students with a Career Coach in their field of study who will support the student in gaining valuable professional and networking skills.
+
+				<br />
+				<a href="http://parenting.blogs.nytimes.com/2014/04/30/stop-worrying-about-your-child-getting-into-college-worry-about-what-happens-next/?_php=true&_type=blogs&emc=edit_tnt_20140430&nlid=53947944&tntemail0=y&_r=2" target="_blank">Read full Kefalas Article</a>
+
+				<br /><br />
+
+				<h3><b>Program Objectives</b></h3>
+				<ol style="position:relative; left:25px;">
+					<li>Student grows in professional communication skills, develops professional documents, and gains exposure to a professional in their prospective field.</li>
+					<li>Coaches are able to contribute to the professional development of a college student in a meaningful way.</li>
+				</ol>
+
+				<br />
+
+				<h3><b>Expectations</b></h3>
+				Participating volunteers are expected to:
+				<ul style = "position:relative; left:25px;">
+					<li> 	Have a desire to share professional guidance to a college student aspiring to enter their field</li>
+					<li> 	Participate in an orientation call and an introduction call to “meet” their student</li>
+					<li>	Review collaboration resources, submit online form after student collaborations, complete feedback survey at the end of program</li>
+					<li> 	Partner with student for at least 3 coaching collaborations</li>
+
+				</ul>
+
+				<br />
+
+				<h3><b>Working with Students</b></h3>
+				All meetings should be scheduled in advance.<br />
+				In-person meetings should take place at the ScholarMatch office, at a coffee shop or restaurant, or at the Career Coach’s office during business hours.<br />
+				Any issues that arise during a session should be brought to the attention of the ScholarMatch staff.
+
+				<br /><br />
+
+				<h3><b>Student-Coach Collaboration Menu</b></h3>
+				Below are six relevant sessions to help students grow professionally. Students and coaches will mutually agree on which collaboration topics to pursue and the best method to connect. Further details are provided for each session in part II.
+
+				<ol style = "position:relative; left:25px;">
+					<li>Resume & LinkedIn: Create or review the student’s Resume and LinkedIn profile account.</li>
+					<li>Interview: Review interview best practices on how students can stand out as a candidate and rock the interview. Conduct a mock interview to refine interview skills.</li>
+					<li>Insider Scoop: Also known as an Informational Interview, the Insider Scoop session allows for the student to ask relevant questions about a typical career path, development and preparation for a specific industry. </li>
+					<li>Internship: Create a polished Cover Letter draft, review internship and job search best practices, and speak about tips on how to be a successful intern.</li>
+					<li>Office Visit: Student visits Career Coach in a professional setting: at the place of work or a company event. Ideally, the student will meet other professionals within the company.</li>
+				</ol>
+
+				<br />
+
+				<h3><b>Program Timeline</b></h3>
+				December-January: 	Student registration<br />
+				February 2 - 13:		Career Coach registration<br />
+				February 16- 28: 	Career Coach Orientation and student training; Introduction calls <br />
+				March: 			Career Coaches and students collaborate together to meet professional goals<br />
+				June 30:		Program concludes; Complete feedback survey
+
+				<br /><br /><br /><br />
+
+				<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+				&nbsp;&nbsp;
+				<div class="about-title">
+					Description of Collaborations
+				</div>
+				<hr />
+				<h3><b>Resume and LinkedIn Account</b></h3>
+				<u>Sample Structure of the Session</u><br />
+				<ul style = "position:relative; left:25px;">
+					<li>Before: Student will email Career Coach a copy of resume for review. Student will create a LinkedIn Account and send link to Career Coach for review.</li>
+			 		<li>During: Career Coach will provide constructive feedback for the student’s resume (format, word choice, and overall appearance) and offer suggestions for student’s LinkedIn account.</li>
+			 		<li>After: Student and Career Coach will decide on the next collaboration date and topic; both submit brief collaboration form. Student will receive suggestions and make appropriate adjustments to both the Resume and LinkedIn account. Follow up- Student will email updated copy of resume for final review and present any lasting questions to the Career Coach.</li>
+			 	</ul>
+			<u>Recommended method:</u> In person<br />
+			<u>Time estimate:</u> 1 hour<br />
+			<u>Tips for Career Coach:</u>
+			<ul style="position:relative; left:25px;">
+				<li>The goal of this session is to provide an “expert eye” while reviewing the student’s professional documents. Provide industry specific suggestions based off of your industry standards and trends. Suggest any relevant information onto the student’s Resume or LinkedIn account to help the student stand out as an applicant.</li>
+			</ul>
+			<a href="http://www.forbes.com/sites/susanadams/2012/05/10/how-to-write-a-resume-when-youre-just-out-of-college/" target="_blank">Relevant Resume Article</a><br />
+			<a href="http://www.searchenginejournal.com/linkedin-important-career-2014/95883/" target="_blank">Relevant LinkedIn Article</a>
+
+
+
+				<br /><br />
+
+				<h3><b>Interview</b></h3>
+				Review interview best practices on how students can make a positive impression as a candidate and stand out during the interview. Conduct a mock interview to refine interview skills.<br />
+
+				<u>Sample Structure of the Session</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Before: Student will practice highly used interview questions and research appropriate interview attire.</li>
+				 	<li>During: First, the Career Coach and student will review helpful interview tips and answer any initial interview questions.  Then, the Career Coach conducts a mock interview using career-field specific questions and takes notes. Career Coach provides feedback and suggestions for improvement.</li>
+				 	<li>After: Student and Career Coach will decide on the next collaboration date and topic; both submit brief collaboration form. Follow up- Student and Career Coach have the option to conduct a second mock interview on the phone or in person.</li>
+				 </ul>
+				<u>Recommended method:</u> In person<br />
+				<u>Time estimate:</u> 1 hour<br />
+				<u>Tips for Career Coach:</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Ask questions relevant to the job position or industry that you have been asked or questions that you ask candidates during an interview.</li>
+				 	<li>Replicate a typical interview setting related to the industry (if possible).</li>
+				 	<li>Provide constructive but gentle feedback, as this may be the student’s first practice at a professional interview setting.</li>
+				</ul>
+				<a href="http://www.experisjobs.us/exp_us/en/Career-Resources/Career-Center/20-Tips-for-Great-Job-Interviews.htm" target="_blank">Relevant Interview Article</a>
+
+
+				<br /><br />
+
+				<h3><b>Insider Scoop</b></h3>
+				Also known as an Informational Interview, the Insider Scoop session allows for the student to ask relevant questions about a typical career path, development and preparation for a specific industry. <br />
+
+				<u>Sample Structure of the Session</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Before: Student will compile a list of questions to ask the Career Coach about the industry. </li>
+				 	<li>During: Student will ask questions to Career Coach and Career Coach can add useful insight relevant for an entry level candidate. Career Coach may also share information about his or her own professional and educational journey.</li>
+				 	<li>After: Student and Career Coach will decide on next collaboration date and topic; both submit brief collaboration form. </li>
+				</ul>
+				<u>Recommended method:</u> In person<br />
+				<u>Time estimate:</u> 30 minutes<br />
+				<u>Tips for Career Coach:</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Remember when you were a college student or recent graduate and think about the advice you wish you would have known at that age or time in your life.
+				 	Encourage the student to take the lead and guide the discussion. If there are any suggestions you would give to the student about conducting another Informational Interview in the future, share those tips for the student to build those skills.</li>
+				</ul>
+				<a href="http://www.forbes.com/sites/francesbridges/2012/03/14/why-informational-interviews-are-more-important-than-cover-letters/" target="_blank">Relevant Informational Interview Article</a>
+
+
+				<br /><br />
+
+				<h3><b>Internship</b></h3>
+
+				Create a polished Cover Letter draft, review internship and job search best practices, and speak about tips on how to be a successful intern.<br />
+
+				<u>Sample Structure of the Session</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Before:  Student will create a Cover Letter draft or bring their Cover Letter questions to begin the process. Career Coach can compile a list of top job search websites specific to industry.</li>
+				 	<li>During: Student and Career Coach will review Cover Letter materials and edit the document. Speak about the best internship and job search techniques and go online to review how to search for postings. Student will pick at least one opportunity to apply to in the future. Career Coach will provide tips about the qualities and skills of successful interns.</li>
+				 	<li>After: Student and Career Coach will decide on the next collaboration date and topic; both submit brief collaboration form. Student will make appropriate adjustments to Cover Letter draft. Follow up- Student will "apply" to the opportunity by showing or emailing Career Coach all application materials (including a polished and personalized Cover Letter, Resume and References). After Career Coach reviews the draft application, student is encouraged to apply to the position.</li>
+				</ul>
+				<u>Recommended method:</u> In person<br />
+				<u>Time estimate:</u> 1 hour<br />
+				<u>Tips for Career Coach:</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>This may be the student’s first time applying for a job or internship opportunity. Building these skills will be extremely helpful for the student to master to use in their future career. It will be important to be patient as the student may need you to walk them through the process from beginning until the end.</li>
+				 	<li>This session might require follow up. Providing encouragement is key because students may not hear back from the company and get discouraged. Follow up is an important component to applying to opportunities and yet students do not know how to follow up appropriately.</li>
+				 	<li>Provide insight about your experience as an intern or job seeker.</li>
+				 </ul>
+				<a href="http://internships.about.com/od/internshiptip1/a/whydointernships.htm" target="_blank">Relevant Internship Article</a><br />
+				<a href="http://www.usatoday.com/story/money/2013/11/07/cover-letters-still-make-a-difference/3465629/">Relevant Cover Letter Article</a>
+
+
+				<br /><br />
+
+				<h3><b>Office Visit</b></h3>
+				Student visits Career Coach in a professional setting: at the place of work or a company event.<br />
+
+				<u>Sample Structure of the Session</u>
+				<ul style="position:relative; left:25px;">
+				 	<li>Before: Career Coach prepares student with information on what to expect during the Office Visit. This includes the various employees the student may meet during the visit, what the appropriate attire is, the company culture and environment, as well as the schedule.</li>
+				 	<li>During: Career Coach will introduce student to a professional work environment and review the daily activities of the company. Student will take notes and speak with any employees if introduced. Ideally, the student can interact with other staff to see the various job types.</li>
+				 	<li>After: Student and Career Coach will decide on the next collaboration date and topic; both submit brief collaboration form. </li>
+				 </ul>
+				<u>Only Method:</u> In person<br />
+				<u>Estimated time:</u> 1 hour<br />
+				<u>Tips for Career Coach:</u>
+				<ul style="position:relative; left:25px;">				
+				 	<li>Plan a brief agenda for the job shadow to make most use of your time, your company’s time and the student’s time.</li>
+				 	<li>Introduce student to any interns or entry level candidates so that the student may ask questions to people in a similar stage of life.</li>
+				 	<li>The job shadow can be short and sweet. Ask the student beforehand to see what he or she is interested in learning or observing during the meeting.</li>
+				</ul>
+				<a href="http://work.chron.com/job-shadowing-ideas-12456.html" target="_blank">Relevant Job Shadow Article</a>
+
+			</div>
 		</div>
 	</div>
 {/body}
