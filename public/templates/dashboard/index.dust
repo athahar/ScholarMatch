@@ -25,7 +25,9 @@
 			    <div class="panel panel-default">
 				  <div class="panel-heading">Quick Links</div>				  
 				    <ul class="nav nav-pills nav-stacked">
+				        {orientation}
 						<li> <a href="/meeting-invite">Set up a meeting</a></li>
+						{/orientation}
 						<li> <a href="/coaching-help">Coaching Help</a></li>
 						<li> <a href="/contact">Contact ScholarMatch</a></li>
 					</ul>

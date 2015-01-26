@@ -61,12 +61,12 @@ module.exports = function (router) {
                     //var meetDate = moment("");
                     console.log("Meeting Date " + meetDate);
                     if (now > meetDate) {
-                        model.data.meetingDetails[i].isMeetingCompleted = true;
+                        model.data.meetingDetails[i].isMeetingCompleted = "true";
                         console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
-                    } else {
+                    } /*else {
                         model.data.meetingDetails[i].isMeetingCompleted = false;
                         console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
-                    }
+                    }*/
                 }
                 res.render('admin/allmeetings', model);
             }

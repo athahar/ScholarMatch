@@ -1,7 +1,16 @@
 
 {! Recent meetings !}
 
+{?data.isStudent}
+  You are linked to coach {data.coachName}<br>
+{/data.isStudent}  
+{^data.isStudent}
+  You are linked to student {data.studentName}<br>
+{/data.isStudent}
+
 <p class="lead">Meetings</p>
+
+
 
 <!-- check for past meetings count  here below -->
 {^data.meetingDetails}    
@@ -32,10 +41,13 @@ You have not met anyone yet!
            <td>{fullName}</td>
            <td>{location}</td>
            <td>{topic}</td>
-           {isMeetingCompleted}
+           {?isMeetingCompleted}
            <td><a href="/meeting-notes?meetingId={_id}"> Add/Edit </a></td>
+           {/isMeetingCompleted}
            {^isMeetingCompleted}
-           <td><a href="/meetings/cancel?meetingId={_id}">Cancel</a></td>
+           <td></td>
+           <td><a href="/meetings/cancel?meetingId={_id}">Cancel</a>/<a href="/meetings/edit?meetingId={_id}">Edit</a></td>
+           
            {/isMeetingCompleted}
         </tr>     
         {/data.meetingDetails.meetings}      
