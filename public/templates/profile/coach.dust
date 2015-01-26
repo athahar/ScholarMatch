@@ -273,11 +273,11 @@
 										</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
-											{#underGradSchool.otherMajor}
+											{#underGradSchoolMajor.otherMajor}
 												style="height:30px; border:thin groove black;"
 											{:else}
 												style="height:0px;border:none;"
-											{/underGradSchool.otherMajor}
+											{/underGradSchoolMajor.otherMajor}
 											>
 
 										</td>
@@ -666,7 +666,7 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
 				}
 
-				if($(('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1') || schoolChange == true){
+				if(($('#underGradSchoolName').val() != '-1' && $('#underGradSchoolMajor').val() != '-1')  || schoolChange == true){
 					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
 				}
 				else{
