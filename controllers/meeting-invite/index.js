@@ -128,8 +128,8 @@ module.exports = function (router) {
                         _creator: inviteCreator._id, // assign the _id from the person
                         meetingdate: meeting.meetingdate,
                         location: meeting.meetinglocation,
-                        meetingType: meeting.meetingType,
-                        meetinglandmark: meeting.landmark,
+                        meetingtype: meeting.meetingType,
+                        meetinglandmark: meeting.meetinglandmark,
                         attendees: [inviteCreator._id, invitee._id],
                     });
 

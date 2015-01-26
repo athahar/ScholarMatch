@@ -304,6 +304,8 @@ var meetingSchema = Schema({
     topic: String,
     location: String,
     meetingdate: String,
+    meetinglandmark: String,
+    meetingtype: String, 
     attendees: [attendeeSchema]
 });
 
@@ -330,6 +332,12 @@ meetingSchema.statics.findById = function (id, callback) {
 meetingSchema.statics.removeMeetingById = function (id, callback) {
 
     this.findOne({_id: id}).remove(callback);
+};
+
+meetingSchema.statics.updateMeetingById = function (id, time, topic, type, location, landmark, callback) {
+
+    this.update({_id: id}, {$set: {topic: topic, location: location, meetingdate: time, landmark: landmark, meetingtype: type}}, callback);
+
 };
 
 var relationshipSchema = Schema({

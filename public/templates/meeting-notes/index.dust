@@ -41,11 +41,11 @@
 						<td class="edit-settings-content-table-left">How effective and appropriate was the topic for the session? </td>
 						<td class="edit-settings-content-table-right">
 							<p> Not very effective </p>
-							    1 <input type="checkbox" name="topicAppropriateness" value="1"  /><br />
-							    2 <input type="checkbox" name="topicAppropriateness" value="2"  /><br />
-							    3 <input type="checkbox" name="topicAppropriateness" value="3"  /><br />
-							    4 <input type="checkbox" name="topicAppropriateness" value="4"  /><br />
-							    5 <input type="checkbox" name="topicAppropriateness" value="5"  /><br />		
+							    1 <input type="radio" name="topicAppropriateness" value="1"  /><br />
+							    2 <input type="radio" name="topicAppropriateness" value="2"  /><br />
+							    3 <input type="radio" name="topicAppropriateness" value="3"  /><br />
+							    4 <input type="radio" name="topicAppropriateness" value="4"  /><br />
+							    5 <input type="radio" name="topicAppropriateness" value="5"  /><br />		
 					      	<p> Extremly effective </p>
 					    </td>
 					</tr>
@@ -53,11 +53,11 @@
 						<td class="edit-settings-content-table-left">How useful were the materials provided for the session? </td>
 						<td class="edit-settings-content-table-right">
 					      	<p> Not very useful </p>
-							    1 <input type="checkbox" name="materialUsefulness" value="1"  /><br />
-							    2 <input type="checkbox" name="materialUsefulness" value="2"  /><br />
-							    3 <input type="checkbox" name="materialUsefulness" value="3"  /><br />
-							    4 <input type="checkbox" name="materialUsefulness" value="4"  /><br />
-							    5 <input type="checkbox" name="materialUsefulness" value="5"  /><br />		
+							    1 <input type="radio" name="materialUsefulness" value="1"  /><br />
+							    2 <input type="radio" name="materialUsefulness" value="2"  /><br />
+							    3 <input type="radio" name="materialUsefulness" value="3"  /><br />
+							    4 <input type="radio" name="materialUsefulness" value="4"  /><br />
+							    5 <input type="radio" name="materialUsefulness" value="5"  /><br />		
 					      	<p> Extremly useful </p>
 					    </td>
 					</tr>
@@ -65,11 +65,11 @@
 						<td class="edit-settings-content-table-left">Did you feel this was a good use of your and your student's time?</td>
 						<td class="edit-settings-content-table-right">
 					      	<p> Not a good use of time </p>
-							    1 <input type="checkbox" name="timeUtilization" value="1"  /><br />
-							    2 <input type="checkbox" name="timeUtilization" value="2"  /><br />
-							    3 <input type="checkbox" name="timeUtilization" value="3"  /><br />
-							    4 <input type="checkbox" name="timeUtilization" value="4"  /><br />
-							    5 <input type="checkbox" name="timeUtilization" value="5"  /><br />		
+							    1 <input type="radio" name="timeUtilization" value="1"  /><br />
+							    2 <input type="radio" name="timeUtilization" value="2"  /><br />
+							    3 <input type="radio" name="timeUtilization" value="3"  /><br />
+							    4 <input type="radio" name="timeUtilization" value="4"  /><br />
+							    5 <input type="radio" name="timeUtilization" value="5"  /><br />		
 					      	<p> Extremly good use of time </p>
 					    </td>
 					</tr>
@@ -88,16 +88,16 @@ How or where did you meet, how did the interaction go, what went well and what w
 						<td class="edit-settings-content-table-left">How are you feeling so far about participating this program?
 Are you enjoying your role as a coach, your student match, etc.</td>
 						<td class="edit-settings-content-table-right">
-							Thumbs up <input type="checkbox" name="participationSentiment" value="Thumbs Up"  /><br />
-							On the fence... not sure yet <input type="checkbox" name="participationSentiment" value="On the fence"  /><br />
-							Thumbs down <input type="checkbox" name="participationSentiment" value="Thumbs down"  /><br />
+							Thumbs up <input type="radio" name="participationSentiment" value="Thumbs Up"  /><br />
+							On the fence... not sure yet <input type="radio" name="participationSentiment" value="On the fence"  /><br />
+							Thumbs down <input type="radio" name="participationSentiment" value="Thumbs down"  /><br />
 						</td>
 					</tr>
 					<tr>
 						<td class="edit-settings-content-table-left">Would you like to speak with a staff member before your next student collaboration?</td>
 						<td class="edit-settings-content-table-right">
-							 Yes <input type="checkbox" name="speakWithStaff" value="Yes"  /><br />
-							 No <input type="checkbox" name="speakWithStaff" value="No"  /><br />
+							 Yes <input type="radio" name="speakWithStaff" value="Yes"  /><br />
+							 No <input type="radio" name="speakWithStaff" value="No"  /><br />
 						</td>
 					</tr>
 					<tr>
