@@ -100,7 +100,7 @@
 								   		<td class="edit-settings-content-table-left">Landmark and other info</td>
 								      
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office etc." autofocus="" class="form-control">
+											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office, Suite #, etc." autofocus="" class="form-control">
 										
 											
 										</td>

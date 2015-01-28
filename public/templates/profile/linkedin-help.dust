@@ -1,0 +1,32 @@
+{>"layouts/master" /}
+
+{<title}
+	LinkedIn Help - College to Career Program  - ScholarMatch
+{/title}
+
+{<body}
+
+	<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
+				
+		<div class="container-colored-extra">
+
+			<div class="edit-settings-content">
+				<h3>Steps to get your LinkedIn Profile Public ID</h3>
+				<hr />
+
+				<ol>
+					<li>Go to <a href="http://www.linkedin.com" target="_blank">LinkedIn</a></li>
+					<li>Click on 'Profile'</li>
+					<li>Right click on the link under your picture, select copy link address</li>
+					<li>Click on the LinkedIn field and press 'ctrl + v'</li>
+				</ol>
+
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+{/body}

@@ -37,7 +37,7 @@
 					</div>
 
 					<div class="edit-settings-content">
-						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
+						<center><p class="lead">All fields are mandatory unless otherwise noted with *</p></center>
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 							<h3>About Settings</h3>
 							<hr />
@@ -94,13 +94,19 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
+										<td class="edit-settings-content-table-left">LinkedIn Profile*</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "Optional - if you have it. "/>
+										</td>
+										<td class="edit-settings-content-table-right" style="font-size:14px; cursor: pointer; vertical-align:bottom;">
+											<a href="/profile/linkedin-help" target="_blank">Trouble finding your URL?</a>
+										</td>
 									</tr>
 								</table>
 
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Go to Contact</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next - Contact</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -152,12 +158,13 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-left">City, ST</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">Go to Education</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">
+								Next - Education</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -251,7 +258,7 @@
 									</tr>
 								</table>
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Go to Industry</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Next - Industry</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
