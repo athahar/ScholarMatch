@@ -51,7 +51,7 @@
 
 
 					<div class="edit-settings-content">
-						<center><p class="lead">All fields are mandatory unless otherwise noted with *.</p></center>
+						<center><p class="lead">All fields are mandatory unless otherwise noted with *</p></center>
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 
 							<h3>About Settings</h3>
@@ -142,11 +142,14 @@
 										<td class="edit-settings-content-table-right">
 											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "We need to review all coaches and your Linkedin Profile helps with this process."/>
 										</td>
+										<td class="edit-settings-content-table-right" style="font-size:14px; cursor: pointer; vertical-align:bottom;">
+											<a href="/profile/linkedin-help" target="_blank">Trouble finding your URL?</a>
+										</td>
 									</tr>
 								</table>
 			
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Go to Contact</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next - Contact</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -199,12 +202,12 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Location</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, St" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-left">City, ST</td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control"></td>
 									</tr>
 								</table>
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">Go to Education</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">Next - Education</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -348,7 +351,7 @@
 									</tr>									
 								</table>
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Go to Industry</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Next - Industry</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -467,7 +470,7 @@
 									</tr>
 								</table>
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadReferences()">Go to References</button>
+								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadReferences()">Next - References</button>
 								
 								&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -480,7 +483,7 @@
 							<hr />
 							<center>
 								<p class="lead">
-									Note: Scholarmatch will contact your references as part of your application to coach
+									Note: ScholarMatch will contact your references as part of your application to coach
 								</p>
 								<table class="edit-settings-content-table">
 									<tr>
