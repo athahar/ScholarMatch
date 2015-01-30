@@ -54,12 +54,10 @@ define([
                 $("#meetingInvite #relationshipId").val($parentEl.data("relationshipid"));
                 $("#meetingInvite #studentEmail").val($parentEl.data("studentemail"));
                 $("#meetingInvite #coachEmail").val($parentEl.data("coachemail"));
-
-
-                $("#meetingInvite #studentName").html($parentEl.data("studentname"));
-                $("#meetingInvite #coachName").html($parentEl.data("coachname"));
-
-
+                $("#meetingInvite #stuName").html($parentEl.data("studentname"));
+                $("#meetingInvite #coName").html($parentEl.data("coachname"));
+                $("#meetingInvite #studentName").val($parentEl.data("studentname"));
+                $("#meetingInvite #coachName").val($parentEl.data("coachname"));
 
                 // console.log(e);
                 console.log($(e.currentTarget).parents("tr"));

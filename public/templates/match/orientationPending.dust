@@ -90,13 +90,13 @@
 					        	<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/setupOrientation">	
 						        	<div class="form-group">
 								       <label for="coachName" class="col-sm-3 control-label"> Coach: </label>
-								        <div class="col-sm-6" id="coachName" > 
+								        <div class="col-sm-6" id="coName"> 
 								            
 								        </div>              
 								   </div>  
 								   <div class="form-group">
 								       <label for="studentName" class="col-sm-3 control-label"> Student: </label>
-								        <div class="col-sm-6" id="studentName" > 
+								        <div class="col-sm-6" id="stuName"> 
 								            
 								        </div>              
 								   </div> 
@@ -115,6 +115,8 @@
 								    <input type="hidden" id="studentEmail" name="studentEmail" value="">
 								    <input type="hidden" id="coachEmail" name="coachEmail" value="">
 								    <input type="hidden" id="relationshipId" name="relationshipId" value="">
+								    <input type="hidden" id="coachName" name="coachName" value="">
+								    <input type="hidden" id="studentName" name="studentName" value="">
 							   </form>			
 					      </div>
 					      <div class="modal-footer">
