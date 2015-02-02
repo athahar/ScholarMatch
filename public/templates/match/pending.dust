@@ -54,11 +54,11 @@
 										{#data.result}
 										<tr>
 											<td>
-												{student.fullName}; {student.email} {student.phone}
+												{student.fullName}; {student.email}; <span class="phone">{student.phone}</span>
 												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
 											</td>
 											<td>
-												{coach.fullName}; {coach.email}  {coach.phone}
+												{coach.fullName}; {coach.email};  <span class ="phone">{coach.phone}</span>
 												<a class="button" href="/profile/user?userId={coach._id}"> Details</a>
 											</td>
 											<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
@@ -76,6 +76,15 @@
 		</div>	
 	</div>
 {/body}
+
+<script type="text/javascript">	
+    $(".phone").text(function(i, text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        return text;
+    });
+</script>
 
 
 
