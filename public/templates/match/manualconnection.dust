@@ -36,7 +36,7 @@
 						{?messages}
 				            <ul class="bg-warning">
 				                {#messages}
-				                    <li>ERROR: {.}</li>
+				                    <li>ERROR: {.} </li>
 				                {/messages}
 				            </ul>
 				        {/messages}
