@@ -77,6 +77,7 @@ define([
 
                         console.log(response);
                         $("#orientationModal").modal('hide');
+                        $("#orientationModal").modal('hide');
                         window.location.reload();
 
                     }, this),

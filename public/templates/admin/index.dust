@@ -1,7 +1,7 @@
 {>"layouts/master" /}
 
 {<body}
-
+<!--
 	<div class="container-widest-white">
 		<div class="container-wide">			
 				<div class="row">
@@ -13,10 +13,11 @@
 					    	
 							<li> <a href="/match/pending">Pending match request(s)</a></li>
 							<li> <a href="/match/manualconnection">Manually match student / coach</a></li>
-							<li> <a href="/match/pendingOrientation">Pending Intro call(s)</a></li>
+							<li> <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
 							<li> <a href="/match/orientationInProgress">Intro call(s) in progress</a></li>
 							<li> <a href="/admin/allmeetings">View all meetings</a></li>
 							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+							<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
 							
 						</ul>
 					</div>			  
@@ -28,7 +29,7 @@
 			</div>	
 		</div>
 	</div>
-
+-->
 {/body}
 
 

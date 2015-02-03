@@ -340,7 +340,7 @@ module.exports = function (router) {
                 //TODO: response handling shoudl be better
 
                 // res.render('admin', model);
-                res.redirect('/admin')
+                res.render('match/orientationProgress',model);
             }
 
         })
