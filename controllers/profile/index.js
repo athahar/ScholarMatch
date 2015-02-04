@@ -106,6 +106,7 @@ module.exports = function (router) {
                                                         {"type":"Work"}];
 
                     model.data.firstlogin = req.session.firstlogin;
+                    req.session.firstlogin = false;
 
                     console.log("phoneTypeList: " + model.data.result.phoneTypeList);
                     // res.render(result);
