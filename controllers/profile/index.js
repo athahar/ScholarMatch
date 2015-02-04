@@ -105,6 +105,8 @@ module.exports = function (router) {
                                                         {"type":"Mobile"}, 
                                                         {"type":"Work"}];
 
+                    model.data.firstlogin = req.session.firstlogin;
+
                     console.log("phoneTypeList: " + model.data.result.phoneTypeList);
                     // res.render(result);
                     if(model.data.result.role == 'coach'){
