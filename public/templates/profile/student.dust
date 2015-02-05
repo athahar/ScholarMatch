@@ -13,13 +13,6 @@
 	{#data.result}
 		<form  method="POST" action="/profile">	
 			<div class="container-colored" data-data2="{data|js}" style="position:relative; top:-25px;">
-				{?data.firstlogin}
-					<center>
-						<p class="lead" style="margin-top:15px;">
-							Welcome to Career Connections. Please complete your profile. Edit sections by clicking the areas below.
-						</p>
-					</center>
-				{/data.firstlogin}
 				<div class="container-colored-extra">
 					<div class="edit-settings-nav">
 						<div class="edit-settings-nav-items-student" id="edit-settings-header-about">
@@ -37,6 +30,13 @@
 					</div>
 
 					<div class="edit-settings-content">
+						{?data.firstlogin}
+							<center>
+								<p class="lead" style="margin-top:15px;">
+									Welcome to Career Connections. Please complete your profile. Edit sections by clicking the areas below.
+								</p>
+							</center>
+						{/data.firstlogin}
 						<center><p class="lead">All fields are mandatory unless otherwise noted with *</p></center>
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 							<h3>About Settings</h3>
@@ -53,18 +53,18 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control" ></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Preferred Name</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control" ></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Gender</td>
 										<td class="edit-settings-content-table-right">
 			            					<div style="display:inline;">
 			                					<label class="radio-inline">
-			                    					<input type="radio" name="genderRadios" id="genderRadios"value="male"
+			                    					<input type="radio" name="genderRadios" id="genderRadios"value="male" onclick="isComplete()" class = "genderRadios"
 			                   						{@eq key=gender value="male"}
 			                   							checked
 			                   						{/eq}
@@ -74,7 +74,7 @@
 			            					&nbsp;&nbsp;
 				            				<div style="display:inline;">
 				                				<label class="radio-inline">
-					                				<input type="radio" name="genderRadios" id="genderRadios" value="female"
+					                				<input type="radio" name="genderRadios" id="genderRadios" value="female" onclick="isComplete()" class="genderRadios2"
 				                   					{@eq key=gender value="female"}
 				                   						checked
 				                   					{/eq}
@@ -84,18 +84,8 @@
 				            			</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
-										<td class="edit-settings-content-table-right">
-											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus="" >
-												{#additionalPersonalInfo}
-													{additionalPersonalInfo}
-												{/additionalPersonalInfo}
-											</textarea>
-										</td>
-									</tr>
-									<tr>
 										<td class="edit-settings-content-table-left">LinkedIn Profile*</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 										<td class="edit-settings-content-table-right">
 											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "Optional - if you have it. "/>
 										</td>
@@ -103,14 +93,21 @@
 											<a href="/profile/linkedin-help" target="_blank">Trouble finding your URL?</a>
 										</td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
+										<td class="edit-settings-content-table-right">
+											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus=""  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
+												{#additionalPersonalInfo}
+													{additionalPersonalInfo}
+												{/additionalPersonalInfo}
+											</textarea>
+										</td>
+									</tr>
 								</table>
-
+			
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next - Contact</button>
-								
-								&nbsp; &nbsp;&nbsp;&nbsp;
 
-								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update My Profile</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
 			
 							</center>
 						</div>
@@ -124,7 +121,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Email</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{email}" class="form-control" >
+											<input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{email}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 										</td>
 									</tr>
 									<tr>
@@ -142,12 +139,12 @@
 												{/data.result.phoneTypeList}
 											</select>
 										</td>
-										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Address</td>
 										<td class="edit-settings-content-table-right">
-											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus="">
+											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus=""  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 												{#address}
 													{address}
 												{/address}
@@ -159,16 +156,13 @@
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">City, ST</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 								</table>
+			
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">
-								Next - Education</button>
-								
-								&nbsp; &nbsp;&nbsp;&nbsp;
 
-								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update My Profile</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
 							</center>
 						</div>
 
@@ -182,7 +176,7 @@
 										<td class="edit-settings-content-table-left">School Name</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
-											<select name="schoolName" id="schoolName" onchange="if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolName" id="schoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#school.otherName}
@@ -207,6 +201,7 @@
 											{:else}
 												style="height:0px;border:none"
 											{/school.otherName}
+											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>
 										</td>
 									</tr>								
@@ -214,7 +209,7 @@
 										<td class="edit-settings-content-table-left">Major</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control">-->
-											<select name="schoolMajor" id="schoolMajor" onchange="if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolMajor" id="schoolMajor" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#school.otherMajor}
@@ -239,6 +234,7 @@
 											{:else}
 												style="height:0px;border:none;"
 											{/school.otherMajor}
+											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>
 
 										</td>
@@ -248,7 +244,7 @@
 										<td class="edit-settings-content-table-left">Year in School</td>
 										<td class="edit-settings-content-table-right">
 											<!--	<input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"> -->
-											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7">
+											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7" onchange="isComplete()">
 												<option value="-1">Select one...</option>
   												<option value="College Junior">College Junior</option>
   												<option value="College Senior">College Senior</option>
@@ -257,13 +253,10 @@
 										</td>
 									</tr>
 								</table>
+			
 								<br />
-								<button type="button" class="btnbtn-success2" id="login-button2" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Next - Industry</button>
-								
-								&nbsp; &nbsp;&nbsp;&nbsp;
 
-
-								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update my Profile</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
 							</center>
 						</div>
 
@@ -277,7 +270,7 @@
 										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
-											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
+											<select name="industryDesired" id="industryDesired" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#industry.otherIndustryName}
@@ -302,6 +295,7 @@
 											{:else}
 												style="height:0px;border:none"
 											{/industry.otherIndustryName}
+											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>													
 										</td>
 									</tr>					
@@ -311,7 +305,7 @@
 										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Desired Secondary Industry" value="{industry.secondary}" autofocus="" class="form-control">-->
-											<select name="industrySecondary" id="industrySecondary" onchange="if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.width='0px';this.form['otherIndustrySecondary'].style.border='none';};" class="form-control col-sm-7">
+											<select name="industrySecondary" id="industrySecondary" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.width='0px';this.form['otherIndustrySecondary'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#secondary.otherIndustryName}
@@ -336,22 +330,24 @@
 											{:else}
 												style="height:0px;border:none"
 											{/secondary.otherIndustryName}
+											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>											
 										</td>
 									</tr>				
 
 									<tr>
 										<td class="edit-settings-content-table-left">Previous Jobs/Internships*</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships*</td>
-										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>									
 								</table>
 								<br />
+								
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; onclick="">Something Missing...</button>
 
-								<button type="submit" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;">Update my Profile</button>
 							</center>
 						</div>
 					</div>
@@ -378,103 +374,140 @@
 			 also have to check on key up
 		-->
 		<script type="text/javascript">
-			/*on load, if everything is filled out*/
 
-			if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != ''  && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'  && $('#industryDesired').val() != '' && $('#industrySecondary').val() != ''  ){
-				$('.btnbtn-success').css('background-color','green');
-					$('.btnbtn-success').css('border-color','green');
+			function makeSubmitButton(){
+				$('.btnbtn-success').prop('type','submit');
 				$('.btnbtn-success').text('Update My Profile!');
-				$('.btnbtn-success').removeAttr('disabled');
-
-				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
-				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
-				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
-				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
-			}
-			else if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' ){
-				$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
-				$('.btnbtn-success').css('background-color','#663333');
-				$('.btnbtn-success').css('width','250px');
-				$('.btnbtn-success').text('Complete Profile First...');
-				$('.btnbtn-success').attr('disabled', 'disabled');
-			}
-			else if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
-				$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');	
-				$('.btnbtn-success').css('background-color','#663333');
-				$('.btnbtn-success').css('width','250px');
-				$('.btnbtn-success').text('Complete Profile First...');
-				$('.btnbtn-success').attr('disabled', 'disabled');		
-			}
-			else if($('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1' ){
-				$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');	
-				$('.btnbtn-success').css('background-color','#663333');
-				$('.btnbtn-success').css('width','250px');
-				$('.btnbtn-success').text('Complete Profile First...');
-				$('.btnbtn-success').attr('disabled', 'disabled');		
-			}
-			else if($('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
-				$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
-				$('.btnbtn-success').css('background-color','#663333');
-				$('.btnbtn-success').css('width','250px');
-				$('.btnbtn-success').text('Complete Profile First...');
-				$('.btnbtn-success').attr('disabled', 'disabled');
-			}
-			else{
-				$('.btnbtn-success').css('background-color','#663333');
-				$('.btnbtn-success').css('width','250px');
-				$('.btnbtn-success').text('Complete Profile First...');
-				$('.btnbtn-success').attr('disabled', 'disabled');
+				$('.btnbtn-success').css('background-color','green');
+				$('.btnbtn-success').css('border-color','green');	
+				$(".btnbtn-success'").attr("onclick","");		
 			}
 
-			/*if user is writing in his last box*/
-	    	$('input[type="text"]').keyup(function() {
-				if( $('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' && $('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != '' && $('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1'   && $('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
-					$('.btnbtn-success').css('background-color','green');
-					$('.btnbtn-success').css('border-color','green');
-					$('.btnbtn-success').text('Update My Profile!');
-					$('.btnbtn-success').removeAttr('disabled');
+			function undoSubmitButton(about, contact, education, industry){
+				$('.btnbtn-success').prop('type','button');
+				$('.btnbtn-success').css('background-color','#663333');
+				$('.btnbtn-success').css('border-color','#663333');
 
-					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
-					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
-					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
-					$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
-				}
-				else{
-					$('.btnbtn-success').css('background-color','#663333');
-					$('.btnbtn-success').css('width','250px');
-					$('.btnbtn-success').text('Complete Profile First...');
-					$('.btnbtn-success').attr('disabled', 'disabled');
-				}
+				if(!about)
+					$(".btnbtn-success").attr("onclick","loadAbout()");	
+				else if(!contact)
+					$(".btnbtn-success").attr("onclick","loadContact()");	
+				else if(!education)
+					$(".btnbtn-success").attr("onclick","loadEducation()");
+				else if(!industry)
+					$(".btnbtn-success").attr("onclick","loadIndustry()");
 
-				if($('#fullName').val() != '' && $('#preferredName').val() != ''  && $('#genderRadios').is(':checked') && $('#linkedinProfileUrl').val() != '' ){
+
+				$('.btnbtn-success').text("Next Section");
+			}
+
+
+
+			function isComplete(){
+				var about = false; var contact = false; var education = false; var industry = false;
+				if( 
+					$('#fullName').val() && $('#preferredName').val() && ( $('.genderRadios').is(':checked') || $('.genderRadios2').is(':checked') )  && $('#additionalPersonalInfo').val()  
+				){
+					about = true;
 					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
 				}
 				else{
+					about = false;
 					$('#about-status').text("About: Something Missing... "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
 				}
 
-				if($('#email').val() != ''  && $('#phone').val() != '' && $('#address').val() != ''  && $('#location').val() != ''){
-					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');			
+				if(
+					$('#email').val() && $('#phone').val() && $('#address').val() && $('#location').val()
+				){
+					contact = true;
+					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
 				}
 				else{
-					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');				
+					contact = false;
+					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
-				if($('#schoolName').val() != '-1' && $('#schoolMajor').val() != '-1' ){
-					$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');			
+				var education2 = false;
+				if( document.getElementById("schoolName").value != -1 && document.getElementById("schoolMajor").value != -1){
+					education = true;
+					if(document.getElementById("schoolName").value == "other"){
+						if($('#otherSchoolName').val()){
+							education = true;
+						}
+						else{
+							education = false;
+						}
+					}
+					if(document.getElementById("schoolMajor").value == "other"){
+						if($('#otherSchoolMajor').val()){
+							education2 = true;
+						}
+						else{
+							education2 = false;
+						}
+					}
+					if(document.getElementById("schoolCurrentYear").value == "-1"){
+						education = false;
+					}
+
+					if(education && education2){
+						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');				
+					}
+					else{
+						$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
+					}
 				}
 				else{
-					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');						
+					education = false;
+					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
-				if($('#industryDesired').val() != '-1' && $('#industrySecondary').val() != '-1' ){
-					$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');
+				var industry2 = false;
+				if (document.getElementById("industryDesired").value != -1 && document.getElementById("industrySecondary").value != -1){
+					industry = true;
+					if(document.getElementById("industryDesired").value == "other"){
+						if($('#otherIndustryDesired').val()){
+							industry = true;
+						}
+						else{
+							industry = false;
+						}
+					}
+					if(document.getElementById("industrySecondary").value == "other"){
+						if($('#otherIndustrySecondary').val()){
+							industry2 = true;
+						}
+						else{
+							industry2 = false;
+						}
+					}
+					
+					if(industry && industry2){
+						$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');						
+					}
+					else{
+						$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+						industry = false;
+					}
 				}
 				else{
+					industry = false;
 					$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 				}
 
+
+				if(about && contact && education && industry){
+					makeSubmitButton();
+				}
+				else {
+					undoSubmitButton(about, contact, education, industry);
+				}
+			}
+
+			$( document ).ready(function() {
+			    isComplete();
 			});
+
 
 
 		</script>
