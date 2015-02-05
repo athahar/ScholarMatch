@@ -67,16 +67,6 @@ module.exports = function (router) {
                     model.data.result = JSON.parse(JSON.stringify(result));
                     model.data.result.isConnected = true;
 
-                    Industry.findAll(function(err, result){
-                        if(err) {
-                            console.log('error in reading the industries from DB');
-                        } 
-                        else
-                        {
-                            //console.log(result);
-                            model.data.result.industry = JSON.parse(JSON.stringify(result));
-                        } 
-                    })
 
                     School.findAll(function(err, result){
                         if(err) {
@@ -86,35 +76,50 @@ module.exports = function (router) {
                         {
                             //console.log(result);
                             model.data.result.school = JSON.parse(JSON.stringify(result));
+
+                            Industry.findAll(function(err, result){
+                                if(err) {
+                                    console.log('error in reading the industries from DB');
+                                } 
+                                else
+                                {
+                                    //console.log(result);
+                                    model.data.result.industry = JSON.parse(JSON.stringify(result));
+
+                                    Major.findAll(function(err, result){
+                                        if(err) {
+                                            console.log('error in reading the majors from DB');
+                                        }
+                                        else
+                                        {
+                                            //console.log(result);
+                                            model.data.result.major = JSON.parse(JSON.stringify(result));
+
+                                            model.data.result.phoneTypeList = {};
+                                            model.data.result.phoneTypeList = [{"type": "Home"}, 
+                                                                                {"type":"Mobile"}, 
+                                                                                {"type":"Work"}];
+
+                                            model.data.firstlogin = req.session.firstlogin;
+                                            req.session.firstlogin = false;
+
+                                            console.log("phoneTypeList: " + model.data.result.phoneTypeList);
+                                            // res.render(result);
+                                            if(model.data.result.role == 'coach'){
+                                                res.render('profile/coach', model);    
+                                            } else {
+                                                res.render('profile/student', model);
+                                            }
+
+                                        } 
+                                    })                    
+
+                                } 
+                            })
+
                         } 
                     })
 
-                    Major.findAll(function(err, result){
-                        if(err) {
-                            console.log('error in reading the majors from DB');
-                        }
-                        else
-                        {
-                            //console.log(result);
-                            model.data.result.major = JSON.parse(JSON.stringify(result));
-                        } 
-                    })                    
-
-                    model.data.result.phoneTypeList = {};
-                    model.data.result.phoneTypeList = [{"type": "Home"}, 
-                                                        {"type":"Mobile"}, 
-                                                        {"type":"Work"}];
-
-                    model.data.firstlogin = req.session.firstlogin;
-                    req.session.firstlogin = false;
-
-                    console.log("phoneTypeList: " + model.data.result.phoneTypeList);
-                    // res.render(result);
-                    if(model.data.result.role == 'coach'){
-                        res.render('profile/coach', model);    
-                    } else {
-                        res.render('profile/student', model);
-                    }
                 }
             });
         }
