@@ -407,12 +407,13 @@ module.exports = function (router) {
             }
         })
     });
+    
+    router.get('/linkedin-help', function (req, res) {
+        res.render('profile/linkedin-help');
+    });
 
     router.get('/:name', function (req, res) {
         res.render('profile/student', model);
     });
 
-    router.get('/linkedin-help', function (req, res) {
-        res.render('profile/linkedin-help');
-    });
 };
