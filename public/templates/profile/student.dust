@@ -5,10 +5,6 @@
 {/title}
 
 
-<script type="text/javascript">
-	var schoolChange = false;
-</script>
-
 {<body}
 	{#data.result}
 		<form  method="POST" action="/profile">	
@@ -170,7 +166,7 @@
 										<td class="edit-settings-content-table-left">School Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
-											<select name="schoolName" id="schoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolName" id="schoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else { this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#school.otherName}
@@ -335,18 +331,20 @@
 									</tr>									
 								</table>
 
-								<br />
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
 
 							</center>
 						</div>
+								<br />
+							<center>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
+							</center>
 					</div>
 					<table style="width:100%; text-align:center; table-layout:fixed;">
 						<tr>
-							<td id="about-status" onclick="loadAbout()" style="cursor:pointer;"><i id="about-complete"></i>About: Something Missing...</td>
-							<td id="contact-status" onclick="loadContact()" style="cursor:pointer;"><i  id="contact-complete"></i>Contact: Something Missing...</td>
-							<td id="education-status" onclick="loadEducation()" style="cursor:pointer;"><i id="education-complete"></i>Education: Something Missing...</td>
-							<td id="industry-status" onclick="loadIndustry()" style="cursor:pointer;"><i  id="industry-complete"></i>Industry: Something Missing...</td>
+							<td id="about-status" onclick="loadAbout()" style="cursor:pointer;"><i id="about-complete"></i>About: Something Missing...Go Here</td>
+							<td id="contact-status" onclick="loadContact()" style="cursor:pointer;"><i  id="contact-complete"></i>Contact: Something Missing...Go Here</td>
+							<td id="education-status" onclick="loadEducation()" style="cursor:pointer;"><i id="education-complete"></i>Education: Something Missing...Go Here</td>
+							<td id="industry-status" onclick="loadIndustry()" style="cursor:pointer;"><i  id="industry-complete"></i>Industry: Something Missing...Go Here</td>
 						</tr>
 					</table>
 				</div>

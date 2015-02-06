@@ -11,18 +11,33 @@
 		<div class="container-colored-extra">
 
 			<div class="edit-settings-content">
-				<h3>Steps to get your LinkedIn Profile Public ID</h3>
+				<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+				&nbsp;&nbsp;
+				<div class="about-title">
+					Steps to get your LinkedIn URL
+				</div>
 				<hr />
 
 				<ol>
 					<li>Go to <a href="http://www.linkedin.com" target="_blank">LinkedIn</a></li>
-					<li>Click on 'Profile'</li>
-					<li>Right click on the link under your picture, select copy link address</li>
-					<li>Click on the LinkedIn field and press 'ctrl + v'</li>
+					<br />
+					<li>Click on 'Profile' <br />
+						<img src="/images/Profile_LinkedIn.png"  style="width:100%;"/>
+					</li>
+					<br />
+					<li>Right click on the link under your picture, select copy link address
+						<img src="/images/Link_LinkedIn.png"  />
+					</li>
+					<br />
+					<li>Click on the LinkedIn field and press 'ctrl + v'
+						<img src="/images/Paste_LinkedIn.png"  style="width:100%;"/>
+					</li>
 				</ol>
 
-
-
+<br />
+				<center>
+					<a href="/profile/edit#About">Back to edit profile</a>
+				</center>
 			</div>
 
 		</div>
