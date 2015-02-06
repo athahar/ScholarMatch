@@ -37,7 +37,7 @@
 								</p>
 							</center>
 						{/data.firstlogin}
-						<center><p class="lead">All fields are mandatory unless otherwise noted with *</p></center>
+						<center><p class="lead">All mandatory fields are marked with <span style="color:red">*</span></p></center>
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-about">
 							<h3>About Settings</h3>
 							<hr />
@@ -52,15 +52,15 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Full Name</td>
+										<td class="edit-settings-content-table-left">Full Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right"><input type="text" name="fullName" id="fullName" placeholder="Full Name" autofocus="" value="{fullName}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Preferred Name</td>
+										<td class="edit-settings-content-table-left">Preferred Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right"><input type="text" name="preferredName" id="preferredName" placeholder="Preferred Name" autofocus="" value="{preferredName}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Gender</td>
+										<td class="edit-settings-content-table-left">Gender <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 			            					<div style="display:inline;">
 			                					<label class="radio-inline">
@@ -84,7 +84,7 @@
 				            			</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">LinkedIn Profile*</td>
+										<td class="edit-settings-content-table-left">LinkedIn Profile</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="linkedinProfileUrl" id="linkedinProfileUrl" placeholder="linkedin profile public url" value="{linkedinProfileUrl}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 										<td class="edit-settings-content-table-right">
 											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title = "Optional - if you have it. "/>
@@ -94,7 +94,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">One interesting fact about me...</td>
+										<td class="edit-settings-content-table-left">One interesting fact about me <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<textarea rows="4" cols="35" name="additionalPersonalInfo" id="additionalPersonalInfo" placeholder="Tell us one interesting fact about you." value="{additionalPersonalInfo}" autofocus=""  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 												{#additionalPersonalInfo}
@@ -104,10 +104,7 @@
 										</td>
 									</tr>
 								</table>
-			
-								<br />
-
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
+		
 			
 							</center>
 						</div>
@@ -119,13 +116,13 @@
 							<center>
 								<table class="edit-settings-content-table">
 									<tr>
-										<td class="edit-settings-content-table-left">Email</td>
+										<td class="edit-settings-content-table-left">Email <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="email" id="email" placeholder="E-mail" autofocus="" value="{email}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Phone</td>
+										<td class="edit-settings-content-table-left">Phone <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<select name="phoneType" id="phoneType" class="form-control col-sm-3">
 												<option value="-1">Choose a type...</option>
@@ -142,7 +139,7 @@
 										<td class="edit-settings-content-table-right"><input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" autofocus="" value="{phone}" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">Address</td>
+										<td class="edit-settings-content-table-left">Address <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<textarea rows="2" cols="35" name="address" id="address" placeholder="" autofocus=""  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 												{#address}
@@ -155,14 +152,11 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">City, ST</td>
+										<td class="edit-settings-content-table-left">City, ST <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 								</table>
 			
-								<br />
-
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
 							</center>
 						</div>
 
@@ -173,7 +167,7 @@
 							<center>
 								<table class="edit-settings-content-table">
 									<tr>
-										<td class="edit-settings-content-table-left">School Name</td>
+										<td class="edit-settings-content-table-left">School Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
 											<select name="schoolName" id="schoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else {schoolChange = true; this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
@@ -206,7 +200,7 @@
 										</td>
 									</tr>								
 									<tr>
-										<td class="edit-settings-content-table-left">Major</td>
+										<td class="edit-settings-content-table-left">Major <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control">-->
 											<select name="schoolMajor" id="schoolMajor" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
@@ -241,7 +235,7 @@
 									</tr>					
 
 									<tr>
-										<td class="edit-settings-content-table-left">Year in School</td>
+										<td class="edit-settings-content-table-left">Year in School <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--	<input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"> -->
 											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7" onchange="isComplete()">
@@ -253,10 +247,6 @@
 										</td>
 									</tr>
 								</table>
-			
-								<br />
-
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
 							</center>
 						</div>
 
@@ -267,7 +257,7 @@
 							<center>
 								<table class="edit-settings-content-table">
 									<tr>
-										<td class="edit-settings-content-table-left">Desired Primary Industry</td>
+										<td class="edit-settings-content-table-left">Desired Primary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
 											<select name="industryDesired" id="industryDesired" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
@@ -302,7 +292,7 @@
 
 
 									<tr>
-										<td class="edit-settings-content-table-left">Desired Secondary Industry</td>
+										<td class="edit-settings-content-table-left">Desired Secondary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industrySecondary" id="industrySecondary" placeholder="Desired Secondary Industry" value="{industry.secondary}" autofocus="" class="form-control">-->
 											<select name="industrySecondary" id="industrySecondary" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.width='0px';this.form['otherIndustrySecondary'].style.border='none';};" class="form-control col-sm-7">
@@ -336,17 +326,17 @@
 									</tr>				
 
 									<tr>
-										<td class="edit-settings-content-table-left">Previous Jobs/Internships*</td>
+										<td class="edit-settings-content-table-left">Previous Jobs/Internships</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="previousJobs" id="previousJobs" placeholder="Previous Jobs / Internships" value="{previousJobs}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
 									<tr>
-										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships*</td>
+										<td class="edit-settings-content-table-left">2nd Previous Jobs/Internships</td>
 										<td class="edit-settings-content-table-right"><input type="text" name="secondPreviousJobs" id="secondPreviousJobs" placeholder="2nd Previous Jobs / Internships" value="{secondPreviousJobs}" autofocus="" class="form-control"  onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>									
 								</table>
+
 								<br />
-								
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; onclick="">Something Missing...</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
 
 							</center>
 						</div>
@@ -380,27 +370,17 @@
 				$('.btnbtn-success').text('Update My Profile!');
 				$('.btnbtn-success').css('background-color','green');
 				$('.btnbtn-success').css('border-color','green');	
+				$('.btnbtn-success').css('cursor','pointer');	
 				$(".btnbtn-success'").attr("onclick","");		
 			}
 
-			function undoSubmitButton(about, contact, education, industry){
+			function undoSubmitButton(onPage, about, contact, education, industry){
 				$('.btnbtn-success').prop('type','button');
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
-
-				if(!about)
-					$(".btnbtn-success").attr("onclick","loadAbout()");	
-				else if(!contact)
-					$(".btnbtn-success").attr("onclick","loadContact()");	
-				else if(!education)
-					$(".btnbtn-success").attr("onclick","loadEducation()");
-				else if(!industry)
-					$(".btnbtn-success").attr("onclick","loadIndustry()");
-
-
-				$('.btnbtn-success').text("Next Section");
+				$('.btnbtn-success').css('cursor','default');	
+				$('.btnbtn-success').text("Something Missing...");
 			}
-
 
 
 			function isComplete(){
