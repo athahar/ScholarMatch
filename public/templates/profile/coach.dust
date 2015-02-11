@@ -268,11 +268,11 @@
 										</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
-											{#underGradSchoolMajor.otherMajor}
-												style="height:30px; border:thin groove black;"
+											{#underGradSchool.otherMajor}
+												style="height:30px;"
 											{:else}
 												style="height:0px;border:none;"
-											{/underGradSchoolMajor.otherMajor}
+											{/underGradSchool.otherMajor}
 											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()">
 
 										</td>
