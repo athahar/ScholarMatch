@@ -159,6 +159,7 @@
 
 						<div class="edit-settings-content-items-hidden" id="edit-settings-content-education">
 							<h3>Education Settings</h3>
+							{@contextDump/}
 							<hr />
 							<center>
 								<table class="edit-settings-content-table">
@@ -166,7 +167,8 @@
 										<td class="edit-settings-content-table-left">School Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolName" id="schoolName" placeholder="School" value="{school.name}" autofocus="" class="form-control">-->
-											<select name="schoolName" id="schoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else { this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolName" id="schoolName" onchange="if (this.value=='other'){this.form['otherSchoolName'].style.height='30px';this.form['otherSchoolName'].style.border='thin groove black';}else { this.form['otherSchoolName'].style.height='0px';this.form['otherSchoolName'].style.width='0px';this.form['otherSchoolName'].style.border='none';};" class="form-control col-sm-7">
+
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#school.otherName}
@@ -199,7 +201,7 @@
 										<td class="edit-settings-content-table-left">Major <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="schoolMajor" id="schoolMajor" placeholder="Major" value="{school.major}" autofocus="" class="form-control">-->
-											<select name="schoolMajor" id="schoolMajor" onchange="isComplete(); if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+											<select name="schoolMajor" id="schoolMajor" onchange="if (this.value=='other'){this.form['otherSchoolMajor'].style.height='30px';this.form['otherSchoolMajor'].style.border='thin groove black';}else {this.form['otherSchoolMajor'].style.height='0px';this.form['otherSchoolMajor'].style.width='0px';this.form['otherSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#school.otherMajor}
@@ -256,12 +258,12 @@
 										<td class="edit-settings-content-table-left">Desired Primary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
-											<select name="industryDesired" id="industryDesired" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
+											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
-													{#industry.otherIndustryName}
+													{#industry.otherName}
 														selected="true"
-													{/industry.otherIndustryName}>
+													{/industry.otherName}>
 													Other...
 												</option>
 												{#data.result.industry}  
@@ -276,11 +278,11 @@
 										</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherIndustryDesired" id="otherIndustryDesired" placeholder="Please enter your desired industry here" value="{industry.otherIndustryName}" autofocus="" class="form-control"
-											{#industry.otherIndustryName}
+											{#industry.otherName}
 												style="height:30px;border:thin groove black;"
 											{:else}
 												style="height:0px;border:none"
-											{/industry.otherIndustryName}
+											{/industry.otherName}
 											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>													
 										</td>
@@ -294,9 +296,9 @@
 											<select name="industrySecondary" id="industrySecondary" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustrySecondary'].style.height='30px';this.form['otherIndustrySecondary'].style.border='thin groove black';}else {this.form['otherIndustrySecondary'].style.height='0px';this.form['otherIndustrySecondary'].style.width='0px';this.form['otherIndustrySecondary'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
-													{#secondary.otherIndustryName}
+													{#industry.otherSecondary}
 														selected="true"
-													{/secondary.otherIndustryName}>
+													{/industry.otherSecondary}>
 													Other...
 												</option>
 												{#data.result.industry}  
@@ -311,11 +313,11 @@
 										</td>
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherIndustrySecondary" id="otherIndustrySecondary" placeholder="Please enter your secondary industry name here" value="{industry.secondary}" autofocus="" class="form-control"
-											{#secondary.otherIndustryName}
+											{#industry.otherSecondary}
 												style="height:30px;border:thin groove black;"
 											{:else}
 												style="height:0px;border:none"
-											{/secondary.otherIndustryName}
+											{/industry.otherSecondary}
 											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>											
 										</td>

@@ -97,12 +97,16 @@ var userSchema = Schema({
         name: String,
         otherName: String,
         major: String,
+        otherMajor: String,
         currentYear: String
     },
     industry: {
         desired: String,
+        otherDesired: String,
         interestedIn: String,
-        secondary: String
+        otherInterestedIn: String,
+        secondary: String,
+        otherSecondary: String
     },
     previousJobs: String,
     secondPreviousJobs: String,

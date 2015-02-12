@@ -325,21 +325,68 @@ module.exports = function (router) {
                 model.data.result.secondaryReference.yearsKnown = req.body.secondaryReferenceYearsKnown;
             } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
-                model.data.result.school.name = req.body.schoolName;
-                model.data.result.school.major = req.body.schoolMajor;
+
+                if((req.body.schoolName && (req.body.schoolName != "-1")) ||
+                    (req.body.otherSchoolName)) {
+                    if(req.body.schoolName != "other") {
+                        model.data.result.school.name = req.body.schoolName;
+                        model.data.result.school.otherName = null;
+                    } else {
+                        model.data.result.school.name = req.body.otherSchoolName;
+                        model.data.result.school.otherName = req.body.otherSchoolName;
+                    }
+                }
+
+                if((req.body.schoolMajor && (req.body.schoolMajor != "-1")) ||
+                    (req.body.otherSchoolMajor)) {
+                    if(req.body.schoolMajor != "other") {
+                        model.data.result.school.major = req.body.schoolMajor;
+                        model.data.result.school.otherMajor = null;
+                    } else {
+                        model.data.result.school.major = req.body.otherSchoolMajor;
+                        model.data.result.school.otherMajor = req.body.otherSchoolMajor;
+                    }
+                }
+
                 if(req.body.schoolCurrentYear && (req.body.schoolCurrentYear != "-1")) {
                     model.data.result.school.currentYear = req.body.schoolCurrentYear;
                 }
 
                 model.data.result.industry = model.data.result.industry || {};
-                if(req.body.industryDesired && (req.body.industryDesired != "-1")) {
-                    model.data.result.industry.desired = req.body.industryDesired;
+                
+                if((req.body.industryDesired && (req.body.industryDesired != "-1")) ||
+                (req.body.otherIndustryDesired)) {
+                    if(req.body.industryDesired != "other") {
+                        model.data.result.industry.desired = req.body.industryDesired;
+                        model.data.result.industry.otherDesired = null;
+                    } else {
+                        model.data.result.industry.desired = req.body.otherIndustryDesired;
+                        model.data.result.industry.otherDesired = req.body.otherIndustryDesired;
+                    }                
                 }
-                if(req.body.industryInterestedIn && (req.body.industryInterestedIn != "-1")) {
-                    model.data.result.industry.interestedIn = req.body.industryInterestedIn;
+
+                if((req.body.industryInterestedIn && (req.body.industryInterestedIn != "-1")) ||
+                    (req.body.otherIndustryInterestedIn)){
+                    if(req.body.industryInterestedIn != "other") {
+                        model.data.result.industry.interestedIn = req.body.industryInterestedIn;
+                        model.data.result.industry.otherInterestedIn = null;
+                    } else {
+                        model.data.result.industry.interestedIn = req.body.otherIndustryInterestedIn;
+                        model.data.result.industry.otherInterestedIn = req.body.otherIndustryInterestedIn;
+                    }                
                 }
-                if(req.body.industrySecondary && (req.body.industrySecondary != "-1")) {
+                
+                if((req.body.industrySecondary && (req.body.industrySecondary != "-1")) ||
+                    (req.body.otherIndustrySecondary)){
                     model.data.result.industry.secondary = req.body.industrySecondary;
+
+                    if(req.body.industrySecondary != "other") {
+                        model.data.result.industry.secondary = req.body.industrySecondary;
+                        model.data.result.industry.otherSecondary = null;
+                    } else {
+                        model.data.result.industry.secondary = req.body.otherIndustrySecondary;
+                        model.data.result.industry.otherSecondary = req.body.otherIndustrySecondary;
+                    } 
                 }
 
                 model.data.result.previousJobs = req.body.previousJobs;

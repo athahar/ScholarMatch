@@ -216,7 +216,7 @@
 										<td class="edit-settings-content-table-left">Undergrad School Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolName" id="underGradSchoolName" onchange="isComplete(); if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolName'].style.height='0px';this.form['otherUnderGradSchoolName'].style.width='0px';this.form['otherUnderGradSchoolName'].style.border='none';};" class="form-control col-sm-7" >
+											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolName'].style.height='0px';this.form['otherUnderGradSchoolName'].style.width='0px';this.form['otherUnderGradSchoolName'].style.border='none';};" class="form-control col-sm-7" >
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#underGradSchool.otherName}
@@ -237,7 +237,7 @@
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherUnderGradSchoolName" id="otherUnderGradSchoolName" placeholder="Enter your undergrad school name here" value="{underGradSchool.otherName}" autofocus="" class="form-control" 
 											{#underGradSchool.otherName}
-												style="height:30px;"
+												style="height:30px;border:thin groove black;"
 											{:else}
 												style="height:0px;border:none"
 											{/underGradSchool.otherName}
@@ -248,7 +248,7 @@
 										<td class="edit-settings-content-table-left">Undergrad Major <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolMajor" id="underGradSchoolMajor" onchange="isComplete(); if (this.value=='other'){this.form['otherUnderGradSchoolMajor'].style.height='30px';this.form['otherUnderGradSchoolMajor'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolMajor'].style.height='0px';this.form['otherUnderGradSchoolMajor'].style.width='0px';this.form['otherUnderGradSchoolMajor'].style.border='none';};" class="form-control col-sm-7" >
+											<select name="underGradSchoolMajor" id="underGradSchoolMajor" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolMajor'].style.height='30px';this.form['otherUnderGradSchoolMajor'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolMajor'].style.height='0px';this.form['otherUnderGradSchoolMajor'].style.width='0px';this.form['otherUnderGradSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#underGradSchool.otherMajor}
@@ -269,7 +269,7 @@
 										<td class="edit-settings-content-table-right">
 											<input type="text" name="otherUnderGradSchoolMajor" id="otherUnderGradSchoolMajor" placeholder="Enter your undergrad school major here" value="{underGradSchool.otherMajor}" autofocus="" class="form-control"
 											{#underGradSchool.otherMajor}
-												style="height:30px;"
+												style="height:30px;border:thin groove black;"
 											{:else}
 												style="height:0px;border:none;"
 											{/underGradSchool.otherMajor}
@@ -359,7 +359,7 @@
 										<td class="edit-settings-content-table-left">Primary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
-											<select name="primaryIndustryName" id="primaryIndustryName" onchange="isComplete(); if ( this.value=='other'){this.form['otherPrimaryIndustryName'].style.height='30px';this.form['otherPrimaryIndustryName'].style.border='thin groove black';}else {this.form['otherPrimaryIndustryName'].style.height='0px';this.form['otherPrimaryIndustryName'].style.width='0px';this.form['otherPrimaryIndustryName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="primaryIndustryName" id="primaryIndustryName" onchange="if ( this.value=='other'){this.form['otherPrimaryIndustryName'].style.height='30px';this.form['otherPrimaryIndustryName'].style.border='thin groove black';}else {this.form['otherPrimaryIndustryName'].style.height='0px';this.form['otherPrimaryIndustryName'].style.width='0px';this.form['otherPrimaryIndustryName'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#primaryIndustry.otherIndustryName}
