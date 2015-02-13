@@ -37,6 +37,7 @@ var userSchema = Schema({
     address: String,
     location: String,
     zipCode: String,
+    remoteLocation: String,
     heardFrom: String,
     underGradSchool: {
         name: String,

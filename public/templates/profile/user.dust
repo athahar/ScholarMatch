@@ -129,7 +129,17 @@
 								{?ownProfile}
 									<tr><td><a href="/profile/edit#Contact">+ Add Zip Code</a></td></tr>
 								{/ownProfile}
-							{/zipCode}								
+							{/zipCode}
+							{@eq key=role value="coach"}
+								{#remoteLocation}
+									<tr><td><b>Open to working with a student from a remote location?</b></td></tr>
+									<tr><td>{remoteLocation}</td></tr>
+								{:else}
+									{?ownProfile}
+										<tr><td><a href="/profile/edit#About">+ Open to working with a student from a remote location?</a></td></tr>
+									{/ownProfile}
+								{/remoteLocation}
+							{/eq}											
 						</table>
 					</div>
 

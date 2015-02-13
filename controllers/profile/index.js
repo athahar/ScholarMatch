@@ -324,6 +324,7 @@ module.exports = function (router) {
                 model.data.result.secondaryReference.email = req.body.secondaryReferenceEmail;
                 model.data.result.secondaryReference.relationship = req.body.secondaryReferenceRelationship;
                 model.data.result.secondaryReference.yearsKnown = req.body.secondaryReferenceYearsKnown;
+                model.data.result.remoteLocation = req.body.remoteLocation;
             } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
 

@@ -203,6 +203,33 @@
 										<td class="edit-settings-content-table-left">Zip Code<span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right"><input type="text" name="zipCode" id="zipCode" placeholder="Zip Code" value="{zipCode}" autofocus="" class="form-control" onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Open to working with a student from a remote location? <span style="color:red">*</span></td>
+										<td class="edit-settings-content-table-right">
+			            					<div style="display:inline;">
+			                					<label class="radio-inline">
+			                    					<input type="radio" name="remoteLocation" class="remoteLocationRadios" id="remoteLocation" value="yes" onclick="isComplete()"
+			                   						{@eq key=remoteLocation value="yes"}
+			                   							checked
+			                   						{/eq}
+			                    					> Yes
+			                					</label>
+			            					</div>
+			            					&nbsp;&nbsp;
+			            					<div style="display:inline;">
+			                					<label class="radio-inline">
+			                    					<input type="radio" name="remoteLocation" class="remoteLocationRadios2" id="remoteLocation" value="no" onclick="isComplete()"
+			                   						{@eq key=remoteLocation value="no"}
+			                   							checked
+			                   						{/eq}
+			                    					> No
+			                					</label>
+			            					</div>
+				            			</td>
+										<td class="edit-settings-content-table-right">
+											<img src="http://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" title="This would include only phone and video calls with your student"/>
+										</td>				            			
+									</tr>									
 								</table>
 								<br />
 								<!--
@@ -605,7 +632,7 @@
 				}
 
 				if(
-					$('#email').val() && $('#phone').val() && $('#address').val() && $('#location').val() && $('#zipCode').val()
+					$('#email').val() && $('#phone').val() && $('#address').val() && $('#location').val() && $('#zipCode').val() && ($('.remoteLocationRadios').is(':checked') || $('.remoteLocationRadios2').is(':checked'))
 				){
 					contact = true;
 					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
