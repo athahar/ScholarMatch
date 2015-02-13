@@ -190,6 +190,7 @@ module.exports = function (router) {
             model.data.result.phoneType = req.body.phoneType;
             model.data.result.address = req.body.address;
             model.data.result.location = req.body.location;
+            model.data.result.zipCode = req.body.zipCode;
             model.data.result.gender = req.body.genderRadios;
             model.data.result.role = req.body.role;
 

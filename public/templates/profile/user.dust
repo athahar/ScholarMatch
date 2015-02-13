@@ -123,6 +123,13 @@
 									<tr><td><a href="/profile/edit#Contact">+ Add Location</a></td></tr>
 								{/ownProfile}
 							{/location}	
+							{#zipCode}
+								<tr><td><b>Zip Code:</b> &nbsp;{zipCode}</td></tr>
+							{:else}
+								{?ownProfile}
+									<tr><td><a href="/profile/edit#Contact">+ Add Zip Code</a></td></tr>
+								{/ownProfile}
+							{/zipCode}								
 						</table>
 					</div>
 

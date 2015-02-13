@@ -199,6 +199,10 @@
 										<td class="edit-settings-content-table-left">City, ST <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right"><input type="text" name="location" id="location" placeholder="City, ST" value="{location}" autofocus="" class="form-control" onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
 									</tr>
+									<tr>
+										<td class="edit-settings-content-table-left">Zip Code<span style="color:red">*</span></td>
+										<td class="edit-settings-content-table-right"><input type="text" name="zipCode" id="zipCode" placeholder="Zip Code" value="{zipCode}" autofocus="" class="form-control" onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"></td>
+									</tr>
 								</table>
 								<br />
 								<!--
@@ -601,7 +605,7 @@
 				}
 
 				if(
-					$('#email').val() && $('#phone').val() && $('#address').val() && $('#location').val()
+					$('#email').val() && $('#phone').val() && $('#address').val() && $('#location').val() && $('#zipCode').val()
 				){
 					contact = true;
 					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');

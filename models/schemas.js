@@ -36,6 +36,7 @@ var userSchema = Schema({
     phoneType: String,
     address: String,
     location: String,
+    zipCode: String,
     heardFrom: String,
     underGradSchool: {
         name: String,
