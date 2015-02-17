@@ -62,6 +62,8 @@
 												<a class="button" href="/profile/user?userId={coach._id}"> Details</a>
 											</td>
 											<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
+											<td> / </td>
+											<td> <a class="button" href="/match/reject?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Reject</a></td>
 										</tr>
 										{/data.result}
 									</tbody>

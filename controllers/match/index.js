@@ -346,6 +346,7 @@ module.exports = function (router) {
         })
 
     })
+
     router.get('/approve', function (req, res) {
 
         // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
@@ -435,6 +436,83 @@ module.exports = function (router) {
                             //TODO: response handling shoudl be better
 
                             res.render('match/approved', model);
+                            // res.render('meeting-invite/emailSent', model);
+                        }
+                    })
+
+
+                }
+            }
+        );
+
+    })
+
+router.get('/reject', function (req, res) {
+
+        // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
+
+        var studentId = req.query.studentId;
+        var coachId = req.query.coachId;
+        var relationshipId = req.query.relationshipId;
+
+        // debugger;
+        async.parallel({
+                rejectConnection: function (callback) {
+
+                    relationship.rejectConnection(relationshipId, function (err, result) {
+                        if (err) {
+                            model.messages = err;
+                            callback(err);
+                        } else {
+                            callback(null, result);
+                        }
+                    });
+                }
+            },
+            function (err, result) {
+
+
+                if (err) {
+                    model.messages = err;
+                    res.render('match/index', model)
+                } else {
+
+                    // console.dir(result.approveConnection);
+                    // debugger;
+
+                    var student = result.rejectConnection.student,
+                        coach = result.rejectConnection.coach;
+
+
+                    var emailList = new Array();
+                    emailList.push(student.email);
+                    emailList.push(coach.email);
+
+                    var options = {
+                        to: emailList.toString(),
+                        subject: 'Coach/Student - Your connection request was rejected', // Subject line
+                        text: emailContent.matchRejectedText(student, coach), // plaintext body
+                        html: emailContent.matchRejected(student, coach) // html body
+                    }
+
+
+                    // users were succesfully connected, now send an email
+                    email.sendEmail(options, function (err, result) {
+
+                        if (err) {
+                            console.log(err);
+                            model.messages = err;
+                            res.render('errors/500', model);
+                        } else {
+
+                            console.dir(model);
+                            model.messages = 'Request rejected';
+                            model.data = model.data || {};
+                            model.data.result = JSON.parse(JSON.stringify(result));
+
+                            //TODO: response handling shoudl be better
+
+                            res.render('match/rejected', model);
                             // res.render('meeting-invite/emailSent', model);
                         }
                     })
