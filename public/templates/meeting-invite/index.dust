@@ -61,7 +61,7 @@
 										<td class="edit-settings-content-table-left">Topic</td> 		
 										<td class="edit-settings-content-table-right">
 									      <select name="topic" class="form-control col-sm-7">
-									  			<option>Resume &amp; Linked In profile creation</option>
+									  			<option>Resume &amp; LinkedIn profile creation</option>
 									  			<option>Mock Interview</option>
 									  			<option>Insider Scoop</option>
 									  			<option>Office Visit</option>

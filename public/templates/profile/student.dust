@@ -412,7 +412,7 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
-				var education2 = false;
+				var education2 = true;
 				if( document.getElementById("schoolName").value != -1 && document.getElementById("schoolMajor").value != -1){
 					education = true;
 					if(document.getElementById("schoolName").value == "other"){
@@ -447,7 +447,7 @@
 					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
-				var industry2 = false;
+				var industry2 = true;
 				if (document.getElementById("industryDesired").value != -1 && document.getElementById("industrySecondary").value != -1){
 					industry = true;
 					if(document.getElementById("industryDesired").value == "other"){
