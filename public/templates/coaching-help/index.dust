@@ -6,7 +6,26 @@
 
 <script type="text/javascript">
 	$('#connections').css("height",$('.information').height());
+	function download(path){
+		window.location = path;
+	}
+
 </script>
+
+
+{@eq key=user.role value="coach"}
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			download('/images/TrainingManualCareerCoach.docx');
+		});
+	</script>
+{:else}
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			download('/images/TrainingManualStudent.docx');
+		});
+	</script>
+{/eq}
 
 {<body}            
 	<div class="container-widest-white" >
@@ -19,18 +38,27 @@
 						<li> <a href="/meeting-invite">Set up a meeting</a></li>
 						{/data.user.studentsLinked}
 						<li> <a href="/dashboard">Back to Dashboard</a></li>
-						<li class="link-selected"> <a href="/coaching-help">Coaching Help</a></li>
+						{@eq key=user.role value="coach"}
+							<li class="link-selected"> <a href="/coaching-help">Coaching Help</a></li>
+						{:else}
+							<li class="link-selected"> <a href="/coaching-help">Student Help</a></li>
+						{/eq}
 						<li> <a href="/contact">Contact ScholarMatch</a></li>
 					</ul>
 				</div>
 		   </div>
 
+
 		   <div class="information" style="height:100%; width: 70%; display:inline-block; vertical-align:top;">
+		   		<h2> Help Document Downloaded...</h2>
+		   		<br />
+		   		<h3>Click below if help document did not download</h3>
 				<a href="http://scholarmatch.org/wordpress/wp-content/uploads/2014/06/Training-Manual-Career-Coach.pdf" target="_blank">View in PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/images/TrainingManualCareerCoach.docx" >Download Copy</a>
-
+			</div>
 				<br /><br />
 
+		   <!--
 				<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 				&nbsp;&nbsp;
 				<div class="about-title">
@@ -212,6 +240,7 @@
 				<a href="http://work.chron.com/job-shadowing-ideas-12456.html" target="_blank">Relevant Job Shadow Article</a>
 
 			</div>
+			-->
 		</div>
 	</div>
 {/body}

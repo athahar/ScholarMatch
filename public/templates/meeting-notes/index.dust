@@ -26,7 +26,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="edit-settings-content-table-left">Student/Coach you are working with</td>
+						<td class="edit-settings-content-table-left">Student / Coach you are working with</td>
 						<td class="edit-settings-content-table-right">
 							{meetingrec.attendee}
 						</td>
@@ -62,7 +62,7 @@
 					    </td>
 					</tr>
 					<tr>
-						<td class="edit-settings-content-table-left">Did you feel this was a good use of your and your student's time?</td>
+						<td class="edit-settings-content-table-left">Did you feel this was a good use of you and your coach's / student's time?</td>
 						<td class="edit-settings-content-table-right">
 					      	<p> Not a good use of time </p>
 							    1 <input type="radio" name="timeUtilization" value="1"  /><br />
@@ -80,7 +80,7 @@ How or where did you meet, how did the interaction go, what went well and what w
 						</td>
 					</tr>
 					<tr>
-						<td class="edit-settings-content-table-left">What is the next collaboration you and your student have planned?</td>
+						<td class="edit-settings-content-table-left">What is the next collaboration you and your coach / student have planned?</td>
 						<td class="edit-settings-content-table-right"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea>
 						</td>
 					</tr>
@@ -94,7 +94,7 @@ Are you enjoying your role as a coach, your student match, etc.</td>
 						</td>
 					</tr>
 					<tr>
-						<td class="edit-settings-content-table-left">Would you like to speak with a staff member before your next student collaboration?</td>
+						<td class="edit-settings-content-table-left">Would you like to speak with a staff member before your next collaboration?</td>
 						<td class="edit-settings-content-table-right">
 							 Yes <input type="radio" name="speakWithStaff" value="Yes"  /><br />
 							 No <input type="radio" name="speakWithStaff" value="No"  /><br />

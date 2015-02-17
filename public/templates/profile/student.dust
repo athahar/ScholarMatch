@@ -336,7 +336,7 @@
 						</div>
 								<br />
 							<center>
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; opacity:.7; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
 							</center>
 					</div>
 					<table style="width:100%; text-align:center; table-layout:fixed;">
@@ -369,6 +369,7 @@
 				$('.btnbtn-success').css('background-color','green');
 				$('.btnbtn-success').css('border-color','green');	
 				$('.btnbtn-success').css('cursor','pointer');	
+				$('.btnbtn-success').css('opacity','1');	
 				$(".btnbtn-success'").attr("onclick","");		
 			}
 
@@ -377,6 +378,7 @@
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
 				$('.btnbtn-success').css('cursor','default');	
+				$('.btnbtn-success').css('opacity','.7');	
 				$('.btnbtn-success').text("Something Missing...");
 			}
 
