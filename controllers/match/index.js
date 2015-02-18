@@ -477,47 +477,14 @@ router.get('/reject', function (req, res) {
                     res.render('match/index', model)
                 } else {
 
-                    // console.dir(result.approveConnection);
-                    // debugger;
+                    console.dir(model);
+                    model.messages = 'Request rejected';
+                    model.data = model.data || {};
+                    model.data.result = JSON.parse(JSON.stringify(result));
 
-                    var student = result.rejectConnection.student,
-                        coach = result.rejectConnection.coach;
+                    //TODO: response handling shoudl be better
 
-
-                    var emailList = new Array();
-                    emailList.push(student.email);
-                    emailList.push(coach.email);
-
-                    var options = {
-                        to: emailList.toString(),
-                        subject: 'Coach/Student - Your connection request was rejected', // Subject line
-                        text: emailContent.matchRejectedText(student, coach), // plaintext body
-                        html: emailContent.matchRejected(student, coach) // html body
-                    }
-
-
-                    // users were succesfully connected, now send an email
-                    email.sendEmail(options, function (err, result) {
-
-                        if (err) {
-                            console.log(err);
-                            model.messages = err;
-                            res.render('errors/500', model);
-                        } else {
-
-                            console.dir(model);
-                            model.messages = 'Request rejected';
-                            model.data = model.data || {};
-                            model.data.result = JSON.parse(JSON.stringify(result));
-
-                            //TODO: response handling shoudl be better
-
-                            res.render('match/rejected', model);
-                            // res.render('meeting-invite/emailSent', model);
-                        }
-                    })
-
-
+                    res.render('match/rejected', model);
                 }
             }
         );
