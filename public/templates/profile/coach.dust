@@ -578,15 +578,81 @@
 				$(".btnbtn-success'").attr("onclick","");		
 			}
 
-			function undoSubmitButton(onPage, about, contact, education, industry, references){
+			function undoSubmitButton(onPage, about, contact, education, industry, references, completionPercent){
 				$('.btnbtn-success').prop('type','button');
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
 				$('.btnbtn-success').css('opacity','.7');
 				$('.btnbtn-success').css('cursor','default');	
-				$('.btnbtn-success').text("Something Missing...");
+				$('.btnbtn-success').text(completionPercent + "% Completed...");
 			}
 
+			function percentComplete(education, education2, industry, industry2){
+				var totalFields = 28;
+				var totalCompleted = 0;
+				if($('#fullName').val())
+					totalCompleted++;
+				if($('#preferredName').val())
+					totalCompleted++;
+				if($('.genderRadios').is(':checked') || $('.genderRadios2').is(':checked'))
+					totalCompleted++;
+				if($('#linkedinProfileUrl').val())
+					totalCompleted++;
+				if($('#coachingInterest').val())
+					totalCompleted++;
+				if($('#heardFrom').val())
+					totalCompleted++;
+				if($('#additionalPersonalInfo').val())
+					totalCompleted++;
+
+				if($('#email').val())
+					totalCompleted++;
+				if($('#phone').val())
+					totalCompleted++;
+				if($('#address').val())
+					totalCompleted++;
+				if($('#location').val())
+					totalCompleted++;
+
+				if(education2)
+					totalCompleted++;
+				if(education)
+					totalCompleted++;
+				if(industry)
+					totalCompleted++;
+				if(industry2)
+					totalCompleted++;
+
+				if($('#primaryIndustryJobTitle').val())
+					totalCompleted++;
+				if($('#primaryIndustryCompany').val())
+					totalCompleted++;
+				if($('#primaryIndustryYearsOfExperience').val())
+					totalCompleted++;
+
+				if($('#primaryReferenceName').val())
+					totalCompleted++;
+				if($('#primaryReferencePhone').val())
+					totalCompleted++;
+				if($('#primaryReferenceEmail').val())
+					totalCompleted++;
+				if($('#primaryReferenceRelationship').val())
+					totalCompleted++;
+				if($('#primaryReferenceYearsKnown').val())
+					totalCompleted++;
+				if($('#secondaryReferenceName').val())
+					totalCompleted++;
+				if($('#secondaryReferencePhone').val())
+					totalCompleted++;
+				if($('#secondaryReferenceEmail').val())
+					totalCompleted++;
+				if($('#secondaryReferenceRelationship').val())
+					totalCompleted++;
+				if($('#secondaryReferenceYearsKnown').val())
+					totalCompleted++;
+
+				return (totalCompleted/totalFields)*100;
+			}
 
 
 			function isComplete(){
@@ -613,7 +679,7 @@
 					$('#contact-status').text("Contact: Something Missing...Go Here "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
-				var education2 = true;
+				var education2 = false;
 				if( document.getElementById("underGradSchoolName").value != -1 && document.getElementById("underGradSchoolMajor").value != -1){
 					education = true;
 					if(document.getElementById("underGradSchoolName").value == "other"){
@@ -644,7 +710,7 @@
 					$('#education-status').text("Education: Something Missing...Go Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
-				var industry2 = true;
+				var industry2 = false;
 				if (document.getElementById("primaryIndustryName").value != -1){
 					industry = true;
 					if(document.getElementById("primaryIndustryName").value == "other"){
@@ -687,9 +753,10 @@
 					makeSubmitButton();
 				}
 				else {
-
-					undoSubmitButton(onPage, about, contact, education, industry, references);
+					var completionPercent = Math.round(percentComplete(education, education2, industry, industry2));
+					undoSubmitButton(onPage, about, contact, education, industry, references, completionPercent);
 				}
+
 			}
 
 			$( document ).ready(function() {
