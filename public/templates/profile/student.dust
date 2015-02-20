@@ -378,13 +378,46 @@
 				$(".btnbtn-success'").attr("onclick","");		
 			}
 
-			function undoSubmitButton(onPage, about, contact, education, industry){
+			function undoSubmitButton(onPage, about, contact, education, industry, completionPercent){
 				$('.btnbtn-success').prop('type','button');
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
 				$('.btnbtn-success').css('cursor','default');	
-				$('.btnbtn-success').css('opacity','.7');	
-				$('.btnbtn-success').text("Something Missing...");
+				$('.btnbtn-success').css('opacity','.7');
+				$('.btnbtn-success').text(completionPercent + "% Completed...");
+			}
+
+			function percentComplete(education, education2, industry, industry2){
+				var totalFields = 12;
+				var totalCompleted = 0;
+				if($('#fullName').val())
+					totalCompleted++;
+				if($('#preferredName').val())
+					totalCompleted++;
+				if($('.genderRadios').is(':checked') || $('.genderRadios2').is(':checked'))
+					totalCompleted++;
+				if($('#additionalPersonalInfo').val())
+					totalCompleted++;
+
+				if($('#email').val())
+					totalCompleted++;
+				if($('#phone').val())
+					totalCompleted++;
+				if($('#address').val())
+					totalCompleted++;
+				if($('#location').val())
+					totalCompleted++;
+
+				if(education2)
+					totalCompleted++;
+				if(education)
+					totalCompleted++;
+				if(industry)
+					totalCompleted++;
+				if(industry2)
+					totalCompleted++;
+
+				return (totalCompleted/totalFields)*100;
 			}
 
 
@@ -412,7 +445,7 @@
 					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
-				var education2 = true;
+				var education2 = false;
 				if( document.getElementById("schoolName").value != -1 && document.getElementById("schoolMajor").value != -1){
 					education = true;
 					if(document.getElementById("schoolName").value == "other"){
@@ -447,7 +480,7 @@
 					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
-				var industry2 = true;
+				var industry2 = false;
 				if (document.getElementById("industryDesired").value != -1 && document.getElementById("industrySecondary").value != -1){
 					industry = true;
 					if(document.getElementById("industryDesired").value == "other"){
@@ -485,7 +518,8 @@
 					makeSubmitButton();
 				}
 				else {
-					undoSubmitButton(about, contact, education, industry);
+					var completionPercent = Math.round(percentComplete(education, education2, industry, industry2));
+					undoSubmitButton(onPage, about, contact, education, industry, completionPercent);
 				}
 			}
 
