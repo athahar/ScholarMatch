@@ -179,14 +179,14 @@
 													{/school.otherName}>
 													Other...
 												</option>
-												{#data.result.school}  
+												{#data.result.schoolList}  
    													<option value="{name}" 
    														{@eq key=name value=school.name} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.school}
+   												{/data.result.schoolList}
    											</select>
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -212,14 +212,14 @@
 													{/school.otherMajor}>
 													Other...
 												</option>
-												{#data.result.major}  
+												{#data.result.majorList}  
    													<option value="{name}" 
    														{@eq key=name value=school.major} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.major}
+   												{/data.result.majorList}
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -239,12 +239,18 @@
 										<td class="edit-settings-content-table-left">Year in School <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--	<input type="text" name="schoolCurrentYear" id="schoolCurrentYear" placeholder="Current Year In School" value="{school.currentYear}" autofocus="" class="form-control"> -->
-											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-7" onchange="isComplete()">
+											<select name="schoolCurrentYear" id="schoolCurrentYear" class="form-control col-sm-3" onchange="isComplete()">
 												<option value="-1">Select one...</option>
-  												<option value="College Junior">College Junior</option>
-  												<option value="College Senior">College Senior</option>
-  												<option value="Recent College GraduaTE">Recent College Graduate</option> 
-   											</select>
+												{#data.result.schoolYearList}  
+													<option value="{year}" 
+														{@eq key=year value=school.currentYear} 
+															selected="true"
+														{/eq}>
+														{year}
+													</option>
+												{/data.result.schoolYearList}
+											</select>
+
 										</td>
 									</tr>
 								</table>
@@ -261,31 +267,31 @@
 										<td class="edit-settings-content-table-left">Desired Primary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
 											<!--<input type="text" name="industryDesired" id="industryDesired" placeholder="Desired Industry" value="{industry.desired}" autofocus="" class="form-control">-->
-											<select name="industryDesired" id="industryDesired" onchange="if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
+											<select name="industryDesired" id="industryDesired" onchange="isComplete(); if (this.value=='other'){this.form['otherIndustryDesired'].style.height='30px';this.form['otherIndustryDesired'].style.border='thin groove black';}else {this.form['otherIndustryDesired'].style.height='0px';this.form['otherIndustryDesired'].style.width='0px';this.form['otherIndustryDesired'].style.border='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
-													{#industry.otherName}
+													{#industry.otherDesired}
 														selected="true"
-													{/industry.otherName}>
+													{/industry.otherDesired}>
 													Other...
 												</option>
-												{#data.result.industry}  
+												{#data.result.industryList}  
    													<option value="{field}" 
-   														{@eq key=field value=industry.name} 
+   														{@eq key=field value=industry.desired} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.result.industry}
+   												{/data.result.industryList}
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="otherIndustryDesired" id="otherIndustryDesired" placeholder="Please enter your desired industry here" value="{industry.otherIndustryName}" autofocus="" class="form-control"
-											{#industry.otherName}
+											<input type="text" name="otherIndustryDesired" id="otherIndustryDesired" placeholder="Please enter your desired industry here" value="{industry.otherDesired}" autofocus="" class="form-control"
+											{#industry.otherDesired}
 												style="height:30px;border:thin groove black;"
 											{:else}
 												style="height:0px;border:none"
-											{/industry.otherName}
+											{/industry.otherDesired}
 											 onkeydown="isComplete()" onkeyup="isComplete()" onpaste="isComplete()"
 											>													
 										</td>
@@ -304,14 +310,14 @@
 													{/industry.otherSecondary}>
 													Other...
 												</option>
-												{#data.result.industry}  
+												{#data.result.industryList}  
    													<option value="{field}" 
    														{@eq key=field value=industry.secondary} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.result.industry}
+   												{/data.result.industryList}
    											</select>												
 										</td>
 										<td class="edit-settings-content-table-right">

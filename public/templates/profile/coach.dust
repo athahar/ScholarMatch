@@ -255,14 +255,14 @@
 													{/underGradSchool.otherName}>
 													Other...
 												</option>
-												{#data.result.school}  
+												{#data.result.schoolList}  
    													<option value="{name}" 
    														{@eq key=name value=underGradSchool.name} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.school}
+   												{/data.result.schoolList}
    											</select>
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -287,14 +287,14 @@
 													{/underGradSchool.otherMajor}>
 													Other...
 												</option>
-												{#data.result.major}  
+												{#data.result.majorList}  
    													<option value="{name}" 
    														{@eq key=name value=underGradSchool.major} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.major}
+   												{/data.result.majorList}
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -320,14 +320,14 @@
 													{/gradSchool.otherName}>
 													Other...
 												</option>
-												{#data.result.school}  
+												{#data.result.schoolList}  
    													<option value="{name}" 
    														{@eq key=name value=gradSchool.name} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.school}
+   												{/data.result.schoolList}
    											</select>
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -398,14 +398,14 @@
 													{/primaryIndustry.otherIndustryName}>
 													Other...
 												</option>
-												{#data.result.industry}  
+												{#data.result.industryList}  
    													<option value="{field}" 
    														{@eq key=field value=primaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.result.industry}
+   												{/data.result.industryList}
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -450,14 +450,14 @@
 													{/secondaryIndustry.otherIndustryName}>
 													Other...
 												</option>
-												{#data.result.industry}  
+												{#data.result.industryList}  
    													<option value="{field}" 
    														{@eq key=field value=secondaryIndustry.industryName} 
    															selected="true"
    														{/eq}>
    														{field}
    													</option>
-   												{/data.result.industry}
+   												{/data.result.industryList}
    											</select>												
 										</td>
 										<td class="edit-settings-content-table-right">

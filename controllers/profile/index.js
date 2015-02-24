@@ -49,9 +49,9 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
-            model.data.result.industry = {};
-            model.data.result.school = {};
-            model.data.result.major = {};
+            model.data.result.industryList = {};
+            model.data.result.schoolList = {};
+            model.data.result.majorList = {};
 
             model.data.result.userid = req.user._id;
  
@@ -75,7 +75,7 @@ module.exports = function (router) {
                         else
                         {
                             //console.log(result);
-                            model.data.result.school = JSON.parse(JSON.stringify(result));
+                            model.data.result.schoolList = JSON.parse(JSON.stringify(result));
 
                             Industry.findAll(function(err, result){
                                 if(err) {
@@ -84,7 +84,7 @@ module.exports = function (router) {
                                 else
                                 {
                                     //console.log(result);
-                                    model.data.result.industry = JSON.parse(JSON.stringify(result));
+                                    model.data.result.industryList = JSON.parse(JSON.stringify(result));
 
                                     Major.findAll(function(err, result){
                                         if(err) {
@@ -93,12 +93,17 @@ module.exports = function (router) {
                                         else
                                         {
                                             //console.log(result);
-                                            model.data.result.major = JSON.parse(JSON.stringify(result));
+                                            model.data.result.majorList = JSON.parse(JSON.stringify(result));
 
                                             model.data.result.phoneTypeList = {};
                                             model.data.result.phoneTypeList = [{"type": "Home"}, 
                                                                                 {"type":"Mobile"}, 
                                                                                 {"type":"Work"}];
+
+                                            model.data.result.schoolYearList = {};
+                                            model.data.result.schoolYearList = [{"year": "College Junior"},
+                                                                                {"year": "College Senior"},
+                                                                                {"year": "Recent College Graduate"}];
 
                                             model.data.firstlogin = req.session.firstlogin;
                                             req.session.firstlogin = false;
