@@ -49,10 +49,7 @@ module.exports = function (router) {
                         }
                     });
                 }
-
-
                 //Remove meeting from db
-                /*
                 Meeting.removeMeetingById(req.query.meetingId, function(err) {
                     if(err) {
                         console.log("error removing meeting from meeting schema");
@@ -60,7 +57,6 @@ module.exports = function (router) {
                     }
 
                 });
-                */
                 var sub = 'Coach/Student meeting - ' + model.data.meeting.topic + " on " + model.data.meeting.meetingdate + " cancellation notice"; // Subject line
                 var txt =  emailContent.createMeetingCancelledText(model.data.meeting);
                 var htmlContent = emailContent.createMeetingCancelled(model.data.meeting);
