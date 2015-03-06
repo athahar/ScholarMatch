@@ -16,7 +16,7 @@
 {@eq key=user.role value="coach"}
 	<script type="text/javascript">
 		$(document).ready(function() { 
-			download('/images/TrainingManualCareerCoach.docx');
+			download('/images/TrainingManualCoach.docx');
 		});
 	</script>
 {:else}
@@ -53,8 +53,11 @@
 		   		<h2> Help Document Downloaded...</h2>
 		   		<br />
 		   		<h3>Click below if help document did not download</h3>
-				<a href="http://scholarmatch.org/wordpress/wp-content/uploads/2014/06/Training-Manual-Career-Coach.pdf" target="_blank">View in PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/images/TrainingManualCareerCoach.docx" >Download Copy</a>
+				{@eq key=user.role value="coach"}
+					<a href="/images/TrainingManualCoach.docx">Download Document</a>
+				{:else}
+					<a href="/images/TrainingManualStudent.docx">Download Document</a>
+				{/eq}
 			</div>
 				<br /><br />
 
