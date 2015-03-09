@@ -145,9 +145,6 @@
 								</table>
 			
 								<br />
-								<!--
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadContact()">Next Section</button>
-								-->
 							</center>
 						</div>
 
@@ -232,9 +229,6 @@
 									</tr>									
 								</table>
 								<br />
-								<!--
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadEducation()">Next Section</button>
-								-->
 							</center>
 						</div>
 
@@ -246,8 +240,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad School Name <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="underGradSchoolName" id="underGradSchoolName" placeholder="Undergrad School" value="{underGradSchool.name}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolName'].style.height='0px';this.form['otherUnderGradSchoolName'].style.width='0px';this.form['otherUnderGradSchoolName'].style.border='none';};" class="form-control col-sm-7" >
+											<select name="underGradSchoolName" id="underGradSchoolName" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolName'].style.height='30px';this.form['otherUnderGradSchoolName'].style.border='thin groove black';this.form['otherUnderGradSchoolName'].style.display='block';}else { this.form['otherUnderGradSchoolName'].style.display='none';};" class="form-control col-sm-7" >
 												<option value="-1">Choose a school...</option>
 												<option value="other" 
 													{#underGradSchool.otherName}
@@ -278,8 +271,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Undergrad Major <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="underGradSchoolMajor" id="underGradSchoolMajor" placeholder="Undergrad Major" value="{underGradSchool.major}" autofocus="" class="form-control">-->
-											<select name="underGradSchoolMajor" id="underGradSchoolMajor" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolMajor'].style.height='30px';this.form['otherUnderGradSchoolMajor'].style.border='thin groove black';}else {this.form['otherUnderGradSchoolMajor'].style.height='0px';this.form['otherUnderGradSchoolMajor'].style.width='0px';this.form['otherUnderGradSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+											<select name="underGradSchoolMajor" id="underGradSchoolMajor" onchange="if (this.value=='other'){this.form['otherUnderGradSchoolMajor'].style.height='30px';this.form['otherUnderGradSchoolMajor'].style.border='thin groove black';this.form['otherUnderGradSchoolMajor'].style.display='block';}else {this.form['otherUnderGradSchoolMajor'].style.display='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#underGradSchool.otherMajor}
@@ -311,8 +303,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Name</td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="gradSchoolName" id="gradSchoolName" placeholder="Grad School" value="{gradSchool.name}" autofocus="" class="form-control">-->
-											<select name="gradSchoolName" id="gradSchoolName" onchange="if (this.value=='other'){this.form['otherGradSchoolName'].style.height='30px';this.form['otherGradSchoolName'].style.border='thin groove black';}else {this.form['otherGradSchoolName'].style.height='0px';this.form['otherGradSchoolName'].style.width='0px';this.form['otherGradSchoolName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="gradSchoolName" id="gradSchoolName" onchange="if (this.value=='other'){this.form['otherGradSchoolName'].style.height='30px';this.form['otherGradSchoolName'].style.border='thin groove black';this.form['otherGradSchoolName'].style.display='block';}else {this.form['otherGradSchoolName'].style.display='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a school...</option>
 												<option value="other"
 													{#gradSchool.otherName}
@@ -343,8 +334,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Grad School Major</td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="gradSchoolMajor" id="gradSchoolMajor" placeholder="Grad Major" value="{gradSchool.major}" autofocus="" class="form-control">-->
-											<select name="gradSchoolMajor" id="gradSchoolMajor" onchange="if (this.value=='other'){this.form['otherGradSchoolMajor'].style.height='30px';this.form['otherGradSchoolMajor'].style.border='thin groove black';}else {this.form['otherGradSchoolMajor'].style.height='0px';this.form['otherGradSchoolMajor'].style.width='0px';this.form['otherGradSchoolMajor'].style.border='none';};" class="form-control col-sm-7">
+											<select name="gradSchoolMajor" id="gradSchoolMajor" onchange="if (this.value=='other'){this.form['otherGradSchoolMajor'].style.height='30px';this.form['otherGradSchoolMajor'].style.border='thin groove black';this.form['otherGradSchoolMajor'].style.display='block';}else {this.form['otherGradSchoolMajor'].style.display='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose a major...</option>
 												<option value="other"
 													{#gradSchool.otherMajor}
@@ -352,14 +342,14 @@
 													{/gradSchool.otherMajor}>
 													Other...
 												</option>
-												{#data.result.major}  
+												{#data.result.majorList}  
    													<option value="{name}" 
    														{@eq key=name value=gradSchool.major} 
    															selected="true"
    														{/eq}>
    														{name}
    													</option>
-   												{/data.result.major}
+   												{/data.result.majorList}
    											</select>											
 										</td>
 										<td class="edit-settings-content-table-right">
@@ -374,9 +364,6 @@
 									</tr>									
 								</table>
 								<br />
-								<!--
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadIndustry()">Next Section </button>
-								-->
 							</center>
 						</div>
 
@@ -389,8 +376,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Primary Industry <span style="color:red">*</span></td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="primaryIndustryName" id="primaryIndustryName" placeholder="Primary Industry" value="{primaryIndustry.industryName}" autofocus="" class="form-control">-->
-											<select name="primaryIndustryName" id="primaryIndustryName" onchange="if ( this.value=='other'){this.form['otherPrimaryIndustryName'].style.height='30px';this.form['otherPrimaryIndustryName'].style.border='thin groove black';}else {this.form['otherPrimaryIndustryName'].style.height='0px';this.form['otherPrimaryIndustryName'].style.width='0px';this.form['otherPrimaryIndustryName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="primaryIndustryName" id="primaryIndustryName" onchange="if ( this.value=='other'){this.form['otherPrimaryIndustryName'].style.height='30px';this.form['otherPrimaryIndustryName'].style.border='thin groove black';this.form['otherPrimaryIndustryName'].style.display='block';}else {this.form['otherPrimaryIndustryName'].style.display='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#primaryIndustry.otherIndustryName}
@@ -441,8 +427,7 @@
 									<tr>
 										<td class="edit-settings-content-table-left">Secondary Industry</td>
 										<td class="edit-settings-content-table-right">
-											<!--<input type="text" name="secondaryIndustryName" id="secondaryIndustryName" placeholder="Secondary Industry" value="{secondaryIndustry.industryName}" autofocus="" class="form-control">-->
-											<select name="secondaryIndustryName" id="secondaryIndustryName" onchange="if (this.value=='other'){this.form['otherSecondaryIndustryName'].style.height='30px';this.form['otherSecondaryIndustryName'].style.border='thin groove black';}else {this.form['otherSecondaryIndustryName'].style.height='0px';this.form['otherSecondaryIndustryName'].style.width='0px';this.form['otherSecondaryIndustryName'].style.border='none';};" class="form-control col-sm-7">
+											<select name="secondaryIndustryName" id="secondaryIndustryName" onchange="if (this.value=='other'){this.form['otherSecondaryIndustryName'].style.height='30px';this.form['otherSecondaryIndustryName'].style.border='thin groove black';this.form['otherSecondaryIndustryName'].style.display='block';}else {this.form['otherSecondaryIndustryName'].style.display='none';};" class="form-control col-sm-7">
 												<option value="-1">Choose an Industry...</option>
 												<option value="other"
 													{#secondaryIndustry.otherIndustryName}
@@ -490,9 +475,6 @@
 									</tr>
 								</table>
 								<br />
-								<!--
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; background-color:#663333; border-color:#663333;" onclick="loadReferences()">Next Section</button>
-								-->
 							</center>
 						</div>
 
