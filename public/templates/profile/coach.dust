@@ -694,7 +694,7 @@
 
 				var education2 = false;
 				if( document.getElementById("underGradSchoolName").value != -1 && document.getElementById("underGradSchoolMajor").value != -1){
-					education = true;
+					education = true; education2 = true;
 					if(document.getElementById("underGradSchoolName").value == "other"){
 						if($('#otherUnderGradSchoolName').val()){
 							education = true;
@@ -731,7 +731,7 @@
 
 				var industry2 = false;
 				if (document.getElementById("primaryIndustryName").value != -1){
-					industry = true;
+					industry = true; industry2 = true;
 					if(document.getElementById("primaryIndustryName").value == "other"){
 						if($('#otherPrimaryIndustryName').val()){
 							industry2 = true;
