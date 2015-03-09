@@ -457,6 +457,9 @@
 							education = false;
 						}
 					}
+					else{
+						education = true;
+					}
 					if(document.getElementById("schoolMajor").value == "other"){
 						if($('#otherSchoolMajor').val()){
 							education2 = true;
@@ -464,6 +467,9 @@
 						else{
 							education2 = false;
 						}
+					}
+					else{
+						education2 = true;
 					}
 					if(document.getElementById("schoolCurrentYear").value == "-1"){
 						education = false;
@@ -492,6 +498,9 @@
 							industry = false;
 						}
 					}
+					else{
+						industry = true;
+					}
 					if(document.getElementById("industrySecondary").value == "other"){
 						if($('#otherIndustrySecondary').val()){
 							industry2 = true;
@@ -499,6 +508,9 @@
 						else{
 							industry2 = false;
 						}
+					}
+					else{
+						industry2 = true;
 					}
 					
 					if(industry && industry2){
