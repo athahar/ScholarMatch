@@ -229,21 +229,21 @@ module.exports = function (router) {
 
 
 
-    router.get('/setupOrientation', function (req, res) {
+    router.post('/setupOrientation', function (req, res) {
 
         // debugger;
         model.messages = null;
 
-        var relationshipId = req.query.relationshipId;
-        var meetingDate = req.query.meetingDate;
+        var relationshipId = req.body.relationshipId;
+        var meetingDate = req.body.meetingDate;
 
         var student = {
-                name: req.query.studentName,
-                email: req.query.studentEmail,
+                name: req.body.studentName,
+                email: req.body.studentEmail,
             },
             coach = {
-                name: req.query.coachName,
-                email: req.query.coachEmail,
+                name: req.body.coachName,
+                email: req.body.coachEmail,
             };
 
         relationship.setupOrientation(relationshipId, function (err, result) {
@@ -272,26 +272,52 @@ module.exports = function (router) {
                     if (err) {
                         console.log(err);
                         model.messages = err;
-                        res.render('errors/500', model);
+                        //res.render('errors/500', model);
+                        res.render('match/orientationPending', model)
                     } else {
 
                         // console.dir(model);
-                        // model.messages = 'sucessfully connected';
-                        model.data = model.data || {};
-                        model.data.result = JSON.parse(JSON.stringify(result));
+                        model.successMessages = 'Setup Orientation Meeting';
+
+                        relationship.setupOrientation(relationshipId, function (err, result) {
+
+                            if (err) {
+                                model.messages = err;
+                                res.render('match/orientationPending', model)
+                            } else {
+
+                                relationship.showOrientationPending(function (err, result) {
+
+                                    if (err) {
+                                        model.messages = err;
+                                        res.render('match/index', model)
+                                    } else {
+
+                                        // debugger;
+                                        model.data = model.data || {};
+                                        // console.dir(result);
+                                        model.data.result = JSON.parse(JSON.stringify(result));
+
+                                        //TODO: response handling shoudl be better
+
+                                        res.render('match/orientationPending', model);
+                                    }
+                                })                        
+                            }
+                        })
+
+                        //model.data = model.data || {};
+                        //model.data.result = JSON.parse(JSON.stringify(result));
 
                         //TODO: response handling shoudl be better
                         // AJAX call - hence send a JSON response.
-                        res.send('match/orientationPending', model);
+                        //return res.redirect('/match/pendingOrientation', model);
+                        //res.render('match/orientationPending', model);
                         // res.render('meeting-invite/emailSent', model);
                     }
                 })
-
-
             }
         });
-
-
     })
 
     router.get('/orientationInProgress', function (req, res) {
