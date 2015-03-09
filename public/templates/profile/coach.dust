@@ -703,6 +703,9 @@
 							education = false;
 						}
 					}
+					else{
+						education = true;
+					}
 					if(document.getElementById("underGradSchoolMajor").value == "other"){
 						if($('#otherUnderGradSchoolMajor').val()){
 							education2 = true;
@@ -710,6 +713,9 @@
 						else{
 							education2 = false;
 						}
+					}
+					else{
+						education2 = true;
 					}
 					if(education && education2){
 						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');					
@@ -734,6 +740,9 @@
 							industry2 = false;
 							$('#industry-status').text("Industry: Something Missing...Go Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 						}
+					}
+					else{
+						industry2 = true;
 					}
 					
 					if($('#primaryIndustryJobTitle').val() && $('#primaryIndustryCompany').val() && $('#primaryIndustryYearsOfExperience').val()){
