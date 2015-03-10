@@ -5,6 +5,10 @@
 {/title}
 
 
+	<div id="fakeHeader" style="height:110px; width:100%; position:fixed; top:0px; right: 0px; z-index:100000;">
+
+	</div>
+
 {<body}
 	{#data.result}
 		<form  method="POST" action="/profile">	
@@ -369,6 +373,18 @@
 		-->
 		<script type="text/javascript">
 
+			function makeHeaderUnclickable(booleanValue){
+				if(booleanValue == "clickable"){
+					$('#fakeHeader').hide();
+				}
+				else{
+					$('#fakeHeader').show();
+					$('#fakeHeader').click(function(){
+						alert("Please complete profile before navigating away.");
+					});
+				}
+			}
+
 			function makeSubmitButton(){
 				$('.btnbtn-success').prop('type','submit');
 				$('.btnbtn-success').text('Update My Profile!');
@@ -376,7 +392,9 @@
 				$('.btnbtn-success').css('border-color','green');	
 				$('.btnbtn-success').css('cursor','pointer');	
 				$('.btnbtn-success').css('opacity','1');	
-				$(".btnbtn-success'").attr("onclick","");		
+				$(".btnbtn-success").attr("onclick","");		
+
+				makeHeaderUnclickable("clickable");
 			}
 
 			function undoSubmitButton(onPage, about, contact, education, industry, completionPercent){
@@ -386,6 +404,8 @@
 				$('.btnbtn-success').css('cursor','default');	
 				$('.btnbtn-success').css('opacity','.7');
 				$('.btnbtn-success').text(completionPercent + "% Completed...");
+
+				makeHeaderUnclickable("unclickable");
 			}
 
 			function percentComplete(education, education2, industry, industry2){
