@@ -47,6 +47,7 @@ module.exports = function (router) {
         // options.login = req.body.username;
         options.password = req.body.password;
         options.role = req.body.role;
+        options.status = "Profile Created";
 
 
         userLib.createUser(options, function (err, result) {

@@ -14,66 +14,6 @@ module.exports = function (router) {
     var userrole = '';
     var notesExists = 0;
 
-    router.get('/', function (req, res) {
-
-      	
-        if (req.session.user._id) {
-            model.data = model.data || {};
-            model.data.meetingId = req.query.meetingId; 
-            model.data.userId = req.session.user._id;
-            
-            MeetingNotes.findByUserAndMeetingId(req.session.user._id, req.query.meetingId, function (err, meetingnotesrec) {
-
-                if (err) {
-                    console.log('Error looking up meeting notes');
-                    callback(err);
-
-                   }
-                // console.log(meetingnotesrec)
-                if(meetingnotesrec) {
-                    model.data = model.data || {};
-                    model.data.meetingnotes = model.data.meetingnotes || {};
-                    model.data.meetingnotes = JSON.parse(JSON.stringify(meetingnotesrec));
-           
-                    console.log('note exists')
-                    res.render('meeting-notes/existing', model);   
-                }
-                else {
-                    //debugger;
-                    console.log('new note');
-                    //Find the meeting by id
-                    Meeting.findById(req.query.meetingId, function( err, meetingRec) {
-                        debugger;
-                        if(err) {
-                            console.log('Error looking up meeting record');
-                            callback(err);
-                        }
-                        if(meetingRec) {
-                            model.data.meetingrec = model.data.meetingnrec || {};
-                            model.data.meetingrec = JSON.parse(JSON.stringify(meetingRec));
-                            for(var i = 0; i < model.data.meetingrec.attendees.length; i++){
-                                if(model.data.meetingrec.attendees[i]._id === req.session.user._id) {
-                                    model.data.meetingrec.notescreator = model.data.meetingrec.attendees[i].fullName;
-                                }
-                                else {
-                                    model.data.meetingrec.attendee = model.data.meetingrec.attendees[i].fullName;
-                                }
-                            }
-                            console.log(model.data.meetingrec);
-                        }
-                        res.render('meeting-notes/index', model);
-                    });
-                    
-                }
-            }); 
-
-        }
-        else {
-          res.redirect('/login');  
-        }
-        
-    });
-
     router.get('/meeting-notes', function (req, res) {
         // debugger;
         model.data = model.data || {};
@@ -105,7 +45,73 @@ module.exports = function (router) {
             }); 
      
     });
-    
+
+
+    router.get('/', function (req, res) {
+      	
+        if (req.session.user._id) {
+            model.data = model.data || {};
+            model.data.meetingId = req.query.meetingId; 
+            model.data.userId = req.session.user._id;
+            
+
+            Meeting.findById(req.query.meetingId, function( err, meetingRec) {
+                debugger;
+ 
+                if(err) {
+                    console.log('Error looking up meeting record');
+                    callback(err);
+                }
+ 
+                if(meetingRec) {
+                    model.data.meetingrec = model.data.meetingRec || {};
+                    model.data.meetingrec = JSON.parse(JSON.stringify(meetingRec));
+                    for(var i = 0; i < model.data.meetingrec.attendees.length; i++){
+                        if(model.data.meetingrec.attendees[i]._id === req.session.user._id) {
+                            model.data.meetingrec.notescreator = model.data.meetingrec.attendees[i].fullName;
+                        }
+                        else {
+                            model.data.meetingrec.attendee = model.data.meetingrec.attendees[i].fullName;
+                        }
+                    }
+                    console.log(model.data.meetingrec);
+
+                    MeetingNotes.findByUserAndMeetingId(req.session.user._id, req.query.meetingId, function (err, meetingnotesrec) {
+
+                       if (err) {
+                        console.log('Error looking up meeting notes');
+                        callback(err);
+
+                        }
+
+                        model.data = model.data || {};
+                        model.data.meetingnotes = model.data.meetingnotes || {};
+
+                        // console.log(meetingnotesrec)
+                        if(meetingnotesrec) {
+                            model.data.meetingnotes = JSON.parse(JSON.stringify(meetingnotesrec));
+                   
+                            console.log('note exists')
+                            //res.render('meeting-notes/existing', model);   
+
+                            res.render('meeting-notes/index', model);
+                        }
+                        else {
+                            //debugger;
+                            console.log('new note');
+                            //Find the meeting by id
+                            res.render('meeting-notes/index', model);
+                        }
+                    });                
+                }
+            }); 
+        }
+        else {
+          res.redirect('/login');  
+        }
+        
+    });
+
     router.post('/', function (req, res) {
 
         debugger;

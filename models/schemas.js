@@ -119,6 +119,8 @@ var userSchema = Schema({
         ref: 'User'
     }],
 
+    status: String,
+
     creationDate: {
         type: Date
     },

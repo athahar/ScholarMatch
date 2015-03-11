@@ -130,53 +130,6 @@ module.exports = function (router) {
         }
     });
 
-
-
-    // router.post('/edit', function (req, res) {
-
-    //     // debugger;
-
-    //     if (req.session.user._id) {
-
-    //         model.data = model.data || {};
-    //         model.data.result = model.data.result || {};
-    //         //model.data.industry = model.data.industry || {};
-
-    //         model.data.result.userid = req.user._id;
- 
-    //         model.messages = ''; // clear any messages
-    //         userLib.findUser(model.data.result, function (err, result) {
-
-    //             if (err) {
-    //                 console.log('error')
-    //                 // model.messages = err;
-    //                 res.send(err);
-    //             } else {
-    //                 // console.log(result)
-    //                 model.data.result = JSON.parse(JSON.stringify(result));
-    //                 model.data.result.isConnected = true;
-
-    //                 //Industry.findAll(function(err, result){
-    //                 //    if(err) {
-    //                 //        console.log('error in reading the industries from DB');
-    //                 //    }
-    //                 //    else {
-    //                 //        // console.log(result);
-    //                 //        model.data.industry = JSON.parse(JSON.stringify(result));
-    //                 //    } 
-    //                 //})
-
-    //                 // res.render(result);
-    //                 if(model.data.result.role == 'coach') {
-    //                     res.render('profile/coach', model);    
-    //                 } else {
-    //                     res.render('profile/student', model);
-    //                 }
-    //             }
-    //         });
-    //     }
-    // });
-
     router.post('/', function (req, res) {
 
         // debugger;
@@ -207,6 +160,8 @@ module.exports = function (router) {
             
             model.data.result.linkedinProfileUrl = req.body.linkedinProfileUrl;
             model.data.result.additionalPersonalInfo = req.body.additionalPersonalInfo;
+
+            model.data.result.status = "Profile Completed";
 
             model.data.firstlogin = req.session.firstlogin;
             req.session.firstlogin = false; // clear initial login flag
