@@ -538,7 +538,6 @@
 					}
 					else{
 						$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
-						industry = false;
 					}
 				}
 				else{
