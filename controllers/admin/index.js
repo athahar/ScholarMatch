@@ -23,6 +23,11 @@ module.exports = function (router) {
         res.render('admin/index', model);
     });
 
+
+    router.get('/exitInterviewComplete', function (req, res) {
+        res.render('admin/exitInterviewComplete');
+    });
+
     router.get('/allmeetings', auth.isAdmin(), function (req, res) {
         // debugger;
         MeetingRequest.findAll(function (err, result) {
