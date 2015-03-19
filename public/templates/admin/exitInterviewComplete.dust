@@ -1,7 +1,7 @@
 {>"layouts/master" /}
 
 {<title}
-	Admin - All meetings - Career Connections Program 
+	Admin - Exit Survey Complete - Career Connections Program 
 {/title}
 
 
@@ -17,8 +17,8 @@
 							<li > <a href="/match/manualconnection">Manually match student / coach</a></li>
 							<li> <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
 							<li> <a href="/match/orientationInProgress">Intro call(s) in progress</a></li>
-							<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
-							<li style="background-color:#EEEEEE;"> <a href="/admin/allmeetings">View all meetings</a></li>
+							<li style="background-color:#EEEEEE;"> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
+							<li> <a href="/admin/allmeetings">View all meetings</a></li>
 							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
 							<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
 						</ul>    
@@ -32,7 +32,7 @@
 						<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 						&nbsp;&nbsp;
 						<div class="about-title">
-							All Meetings
+							Exit Survey Completed?
 						</div>
 						<hr />
 
@@ -42,33 +42,17 @@
 								<table id="visits" class="table table-bordered table-striped table-condensed">
 							     <thead>
 							        <tr>
-							           <td>Date/Time</td>           
-							           <td>Attendees</td>
-							           <td>Address</td>
-							           <td>Topic</td>
-							           <td>Meeting Feedback</td>
-							           <td>Actions</td>
+							           <td>Student or Coach Name</td>           
+							           <td>Exit Survey Completed?</td>
 							        </tr>
 							     </thead>
 							     <tbody>
-							        {#data.meetingDetails}  
+							          
 							        <tr>
-							           <td>{meetingdate}</td>
-							           <td><ol>{#attendees} <li> {fullName}</li>{/attendees}<ol></td>
-							           <td>{location}</td>
-							           <td>{topic}</td>
-				           				<td>
-				           				{?isMeetingCompleted}
-				           					<a href="/admin/meeting-notes?meetingId={_id}"> Add/Edit </a>
-				           				{/isMeetingCompleted}
-				           				</td>
-				           				<td>
-				           			    {^isMeetingCompleted}
-				           			    	<a href="/meetings/cancel?meetingId={_id}">Cancel Meeting</a>
-				           			    {/isMeetingCompleted}
-				           			    </td>
-							           </tr>     
-							        {/data.meetingDetails}      
+							           <td><!--backend code here for name--></td>
+							           <td><a href="">Confirm Program Completion</td>
+							        </tr>     
+
 							     </tbody>
 							  </table>
 						   </div>

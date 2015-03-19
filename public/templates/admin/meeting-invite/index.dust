@@ -17,6 +17,7 @@
 							<li > <a href="/match/manualconnection">Manually match student / coach</a></li>
 							<li> <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
 							<li> <a href="/match/orientationInProgress">Intro call(s) in progress</a></li>
+							<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
 							<li > <a href="/admin/allmeetings">View all meetings</a></li>
 							<li style="background-color:#EEEEEE;"> <a href="/admin/meeting-setup">Setup a meeting</a></li>
 							<li > <a href="/admin/user/createAdmin">New admin creation</a></li>
