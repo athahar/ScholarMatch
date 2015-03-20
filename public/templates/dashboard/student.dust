@@ -15,7 +15,7 @@
 				   !}
 				  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
 				  
-				  {>"dashboard/inc/progress" role="{data.user.role}" /}  
+				  {>"dashboard/inc/progress" role="{data.user.status}" /}  
 		   		</div>
 
 			   <div class="col-md-8">

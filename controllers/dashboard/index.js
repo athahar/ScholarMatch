@@ -45,6 +45,11 @@ module.exports = function (router) {
             })
 
             if (req.user.coachesLinked && (req.user.coachesLinked.length > 0)) {
+                if(model.data.user.status != "Orientation Complete")
+                {
+                    model.data.user.status = "Match Approved";
+                }
+
                 User.linkedCoach(req.session.user._id ,function (error, linkresult) {
                      debugger;
                      if (error) {
@@ -97,6 +102,18 @@ module.exports = function (router) {
                             console.log("Meeting Date " + meetDate);
                             if(now > meetDate) {
                                 model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
+                                if(i == 0)
+                                {
+                                    model.data.user.status = "1st Meeting Complete";
+                                }
+                                else if (i == 1)
+                                {
+                                    model.data.user.status = "2nd Meeting Complete";
+                                }
+                                else if (i >= 2)
+                                {
+                                    model.data.user.status = "Final Meeting Complete";
+                                }
                                 console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
                             }
                             /*else {
@@ -121,6 +138,11 @@ module.exports = function (router) {
             view = 'dashboard/coach';
 
             if (req.user.studentsLinked && (req.user.studentsLinked.length > 0) ) {
+                if(model.data.user.status != "Orientation Complete")
+                {
+                    model.data.user.status = "Match Approved";
+                }
+
 
                      User.linkedStudents(req.session.user._id ,function (error, linkresult) {
                      if (error) {
@@ -167,6 +189,18 @@ module.exports = function (router) {
                             console.log("now " + now);
 
                             if(now > meetDate) {
+                                if(i == 0)
+                                {
+                                    model.data.user.status = "1st Meeting Complete";
+                                }
+                                else if (i == 1)
+                                {
+                                    model.data.user.status = "2nd Meeting Complete";
+                                }
+                                else if (i >= 2)
+                                {
+                                    model.data.user.status = "Final Meeting Complete";
+                                }
                                 model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
                                 console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
                             }

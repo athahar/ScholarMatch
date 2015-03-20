@@ -11,7 +11,7 @@
 			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
 				  {! >"dashboard/inc/upcoming-meetings" / !}  
 				  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
-				  {>"dashboard/inc/progress" role="{data.user.role}" /}  
+				  {>"dashboard/inc/progress" role="{data.user.status}" /}  
 		   		</div>
 
 			   <div class="col-md-8">

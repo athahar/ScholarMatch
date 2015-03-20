@@ -6,12 +6,82 @@
 <div class="panel panel-info">
   	<div class="panel-heading">Progress so far</div>
     <ul class="nav nav-pills nav-stacked">
-		<li> <i id="paired" class="fa fa-check"></i> Paired  </li>
-		<li> <i id="intro" class="fa fa-check"></i> Intro call </li>
-		<li> <i id="first" class="fa fa-uncheck"></i> First Meeting </li>
-		<li> <i id="second" class="fa fa-uncheck"></i> Second Meeting </li>
-		<li> <i id="final" class="fa fa-uncheck"></i> Final Meeting </li>
-		<li> <i id="complete" class="fa fa-uncheck"></i> Complete</li>
+		<li> <i id="profileCompleted" 
+			{@select key=data.user.status}
+			 	{@eq value="Profile Completed"} class="fa fa-check" {/eq}
+			 	{@eq value="Profile Approved"} class="fa fa-check" {/eq}
+			 	{@eq value="Match Approved"} class="fa fa-check" {/eq}
+			 	{@eq value="Orientation Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="1st Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Profile Completed 
+		</li>
+		<li> <i id="intro" 
+			{@select key=data.user.status}
+			 	{@eq value="Profile Approved"} class="fa fa-check" {/eq}
+			 	{@eq value="Match Approved"} class="fa fa-check" {/eq}
+			 	{@eq value="Orientation Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="1st Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Profile Approved 
+		</li>
+		<li> <i id="first" 
+			{@select key=data.user.status}
+			 	{@eq value="Match Approved"} class="fa fa-check" {/eq}
+			 	{@eq value="Orientation Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="1st Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Match Approved 
+		</li>
+		<li> <i id="second" 
+			{@select key=data.user.status}
+			 	{@eq value="Orientation Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="1st Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Orientation Complete 
+		</li>
+		<li> <i id="final" 
+			{@select key=data.user.status}
+			 	{@eq value="1st Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> 1st Meeting Complete 
+		</li>
+		<li> <i id="complete" 
+			{@select key=data.user.status}
+			 	{@eq value="2nd Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> 2nd Meeting Complete 
+		</li>
+		<li> <i id="complete" 
+			{@select key=data.user.status}
+			 	{@eq value="Final Meeting Complete"} class="fa fa-check" {/eq}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Final Meeting Complete 
+		</li>
+		<li> <i id="complete" 
+			{@select key=data.user.status}
+			 	{@eq value="Exit Survey Complete"} class="fa fa-check" {/eq}
+				{@default}class="fa fa-uncheck"{/default}
+			{/select}></i> Exit Survey Complete 
+		</li>
 	</ul>
 </div>
 
