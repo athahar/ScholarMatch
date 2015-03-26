@@ -11,18 +11,18 @@
 			<div class="row">
 			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
 				  {>"dashboard/inc/quick-links-admin" /} 
-		   		</div>
+	   			</div>
 
 			   <div class="col-md-9">
 			   		<div class="container-widest-white" style="text-align:left;">
-						
+					
 							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 							&nbsp;&nbsp;
 							<div class="about-title">
-								Pending Match Requests
+								Pending Signups
 							</div>
 							<hr />
-							
+
 							{?messages}
 							<ul class="bg-warning">
 								{#messages}
@@ -34,26 +34,25 @@
 							<div class="results clearfix" data-results="{data.results|s}">
 								<table class="table table-striped">
 									<thead>
-										<th>Student</th>
-										<th>Coach</th>
+										<th>User</th>
+										<th>Role</th>
 										<th>Action</th>
 									</thead>
 									<tbody>
-										{#data.result}
+										{#data.results}
 										<tr>
 											<td>
-												{student.fullName}; {student.email}; <span class="phone">{student.phone}</span>
+												{fullName}; {email}; <span class="phone">{phone}</span>
 												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
 											</td>
 											<td>
-												{coach.fullName}; {coach.email};  <span class ="phone">{coach.phone}</span>
-												<a class="button" href="/profile/user?userId={coach._id}"> Details</a>
+												{role}
 											</td>
-											<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
+											<td> <a class="button" href="/signup/approve?userId={_id}">Approve</a></td>
 											<td> / </td>
-											<td> <a class="button" href="/match/reject?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Reject</a></td>
+											<td> <a class="button" href="/signup/reject?userId={_id}">Reject</a></td>
 										</tr>
-										{/data.result}
+										{/data.results}
 									</tbody>
 								</table>
 								{! <p>Found: {data.count} record(s).</p> !}

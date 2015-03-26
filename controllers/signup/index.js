@@ -14,12 +14,75 @@ module.exports = function (router) {
     model.viewName = 'signup';
 
 
+    router.get('/pending', function (req, res) {
+
+        model.messages = ''; //clear msgs
+
+        var options = {};
+
+        options.status = "Profile Created";
+
+        userLib.queryAllUsers(options, function (err, result) {
+
+            if (!err) {
+                model.data = model.data || {};
+                model.data.results = JSON.parse(JSON.stringify(result));
+                console.log(model.data.results);
+                model.data.count = result.length;
+
+
+                res.render('admin/approveSignup', model);
+            } else {
+                res.send(err);
+            }
+
+        })        
+
+    });
+
     router.get('/', function (req, res) {
 
         model.messages = ''; // clear flash messages
         res.render('signup/index', model);
 
     });
+
+    router.get('/approve', function (req, res) {
+
+        // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
+
+        var userId = req.query.userId;
+
+        // debugger;
+        userLib.updateStatus(userId, "Profile Approved", function (err, result) {
+            if (err) {
+                req.flash('error', 'approval failed');
+                return res.redirect('/signup/pending');
+            } else {
+                req.flash('success', 'sucessfully approved');
+                return res.redirect('/signup/pending');
+            }
+        });
+    })
+
+
+    router.get('/reject', function (req, res) {
+
+        // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
+
+        var userId = req.query.userId;
+
+        // debugger;
+        userLib.updateStatus(userId, "Profile Rejected", function (err, result) {
+            if (err) {
+                req.flash('error', 'approval failed');
+                return res.redirect('/signup/pending');
+            } else {
+                req.flash('success', 'sucessfully approved');
+                return res.redirect('/signup/pending');
+            }
+        });
+    })
 
     router.post('/', function (req, res) {
 
