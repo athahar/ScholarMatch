@@ -23,8 +23,73 @@ module.exports = function (router) {
         res.render('admin/index', model);
     });
 
+    router.get('/listUserStatus', function (req, res) {
+
+        model.messages = ''; //clear msgs
+
+        var options = {};
+
+        userLib.listAllUsers(options, function (err, result) {
+
+            if (!err) {
+                model.data = model.data || {};
+                model.data.results = JSON.parse(JSON.stringify(result));
+                console.log(model.data.results);
+                model.data.count = result.length;
+
+
+                res.render('admin/updateUserStatus.dust', model);
+            } else {
+                res.send(err);
+            }
+
+        })        
+
+    });
+
+    router.get('/UpdateUserStatus', function (req, res) {
+
+        var userId = req.query.studentId;
+        var newStatus = req.query.newStatus;
+
+
+        // debugger;
+        userLib.updateStatus(userId, "Profile Approved", function (err, result) {
+            if (err) {
+                req.flash('error', 'approval failed');
+                return res.redirect('/admin/listUserStatus');
+            } else {
+                req.flash('success', 'sucessfully approved');
+                return res.redirect('/admin/listUserStatus');
+            }
+        });
+
+    });
 
     router.get('/exitInterviewComplete', function (req, res) {
+
+                model.messages = ''; //clear msgs
+
+        var options = {};
+
+        options.status = "Profile Created";
+
+        userLib.queryAllUsers(options, function (err, result) {
+
+            if (!err) {
+                model.data = model.data || {};
+                model.data.results = JSON.parse(JSON.stringify(result));
+                console.log(model.data.results);
+                model.data.count = result.length;
+
+
+                res.render('admin/approveSignup', model);
+            } else {
+                res.send(err);
+            }
+
+        })        
+
         res.render('admin/exitInterviewComplete');
     });
 

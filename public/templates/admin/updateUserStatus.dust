@@ -1,0 +1,100 @@
+{>"layouts/master" /}
+
+{<title}
+	Admin - Career Connections Program  - ScholarMatch
+{/title}
+
+
+{<body}
+	<div class="container-widest-white">
+		<div class="container-wide">
+			<div class="row">
+			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+				  {>"dashboard/inc/quick-links-admin" /} 
+	   			</div>
+
+			   <div class="col-md-9">
+			   		<div class="container-widest-white" style="text-align:left;">
+					
+							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
+							&nbsp;&nbsp;
+							<div class="about-title">
+								Pending Signups
+							</div>
+							<hr />
+
+							{?messages}
+							<ul class="bg-warning">
+								{#messages}
+								<li>ERROR: {.}</li>
+								{/messages}
+							</ul>
+							{/messages}
+							
+							<div class="results clearfix" data-results="{data.results|s}">
+								<table class="table table-striped">
+									<thead>
+										<th>User</th>
+										<th>Role</th>
+										<th>Current Status</th>
+										<th>New Status</th>
+										<th>Action</th>
+									</thead>
+									<tbody>
+										{#data.results}
+										<tr>
+											<td>
+												{fullName}; {email}; <span class="phone">{phone}</span>
+												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
+											</td>
+											<td>
+												{role}
+											</td>
+											<td>
+												{status}
+											</td>
+											<td>
+												<select name="newStatus" id="newStatus" class="form-control col-sm-3">
+												<option value="-1">Select the new status...</option>
+													<option value="Profile Completed">Profile Completed</option>
+													<option value="Profile Approved">Profile Approved</option>
+													<option value="Match Approved">Match Approved</option>
+													<option value="Orientation Complete">Orientation Complete</option>
+													<option value="1st Meeting Complete">1st Meeting Complete</option>
+													<option value="2nd Meeting Complete">2nd Meeting Complete</option>
+													<option value="Final Meeting Complete">Final Meeting Complete</option>
+													<option value="Exit Survey Complete">Exit Survey Complete</option>
+												</select>
+
+											</td>											
+											<td> 
+												<a class="button" href="/admin/updateUserStatus?userId={_id}&amp;newStatus={newStatus}">Update</a>
+											</td>
+										</tr>
+										{/data.results}
+									</tbody>
+								</table>
+								{! <p>Found: {data.count} record(s).</p> !}
+							</div>
+						
+					</div>
+			   		
+			   </div>
+			</div>	
+		</div>	
+	</div>
+{/body}
+
+<script type="text/javascript">	
+    $(".phone").text(function(i, text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        return text;
+    });
+</script>
+
+
+
+
+

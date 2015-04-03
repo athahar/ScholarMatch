@@ -201,6 +201,9 @@ userSchema.statics.findById = function (id, callback) {
 
 };
 
+userSchema.statics.findAllDisplaySelected = function (display, callback) {
+    this.find({}, display, callback);
+}
 userSchema.statics.findAll = function (callback) {
     this.find({}, callback);
 

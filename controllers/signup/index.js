@@ -40,13 +40,6 @@ module.exports = function (router) {
 
     });
 
-    router.get('/', function (req, res) {
-
-        model.messages = ''; // clear flash messages
-        res.render('signup/index', model);
-
-    });
-
     router.get('/approve', function (req, res) {
 
         // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
@@ -83,6 +76,14 @@ module.exports = function (router) {
             }
         });
     })
+
+    router.get('/', function (req, res) {
+
+        model.messages = ''; // clear flash messages
+        res.render('signup/index', model);
+
+    });
+
 
     router.post('/', function (req, res) {
 
