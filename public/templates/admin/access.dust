@@ -8,19 +8,15 @@
 {<body}
 	<div class="container-widest-white">
 		<div class="container-wide">
-			<div class="row">
-			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-				  {! >"dashboard/inc/upcoming-meetings" / !}  
-				  {>"dashboard/inc/quick-links-admin" /} 
-		   		</div>
-
-			   <div class="col-md-9">
-			   		<div class="container-widest-white" style="text-align:left;">
-						<p class="lead">
-							Access Granted!
-						</p>
-			   </div>
-			</div>	
+			<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+							<h2>Access Granted!</h2>
+							<br /><br />
+							<button class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('admin/index')">Back to Admin</button>
+						</div>
+					</div>
+				</center>
 		</div>	
 	</div>
 {/body}

@@ -5,6 +5,7 @@ var MeetingNotesModel = require('../../models/meeting-notes'),
 mongoose = require('mongoose'),   
 async = require('async'),
 MeetingNotes = mongoose.model("MeetingNotes"),
+Meeting = mongoose.model("Meeting"),
 User = mongoose.model("User");
 
 module.exports = function (router) {
@@ -15,7 +16,7 @@ module.exports = function (router) {
 
     router.get('/', function (req, res) {
 
-      	// debugger;
+      	
         if (req.session.user._id) {
             model.data = model.data || {};
             model.data.meetingId = req.query.meetingId; 
@@ -38,8 +39,31 @@ module.exports = function (router) {
                     res.render('meeting-notes/existing', model);   
                 }
                 else {
-                    console.log('new note')
-                    res.render('meeting-notes/index', model);
+                    //debugger;
+                    console.log('new note');
+                    //Find the meeting by id
+                    Meeting.findById(req.query.meetingId, function( err, meetingRec) {
+                        debugger;
+                        if(err) {
+                            console.log('Error looking up meeting record');
+                            callback(err);
+                        }
+                        if(meetingRec) {
+                            model.data.meetingrec = model.data.meetingnrec || {};
+                            model.data.meetingrec = JSON.parse(JSON.stringify(meetingRec));
+                            for(var i = 0; i < model.data.meetingrec.attendees.length; i++){
+                                if(model.data.meetingrec.attendees[i]._id === req.session.user._id) {
+                                    model.data.meetingrec.notescreator = model.data.meetingrec.attendees[i].fullName;
+                                }
+                                else {
+                                    model.data.meetingrec.attendee = model.data.meetingrec.attendees[i].fullName;
+                                }
+                            }
+                            console.log(model.data.meetingrec);
+                        }
+                        res.render('meeting-notes/index', model);
+                    });
+                    
                 }
             }); 
 
@@ -84,11 +108,13 @@ module.exports = function (router) {
     
     router.post('/', function (req, res) {
 
-        // debugger;
+        debugger;
         if (req.session.user._id) {
 
             var meetingnotes = new MeetingNotes({
                 notesBy: req.session.user._id,
+                notesCreator: req.body.notesCreator,
+                attendee: req.body.attendee, 
                 meetingId: req.body.meetingId,
                 interactionType: req.body.interactionType,
                 materialUsefulness: req.body.materialUsefulness,

@@ -10,8 +10,20 @@
 		<div class="container-wide">
 			<div class="row">
 			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-				  {! >"dashboard/inc/upcoming-meetings" / !}  
-				  {>"dashboard/inc/quick-links-admin" /} 
+				  <div class="panel panel-info">
+				  	<div class="panel-heading">Quick Links</div>
+					  	<ul class="nav nav-pills nav-stacked">
+					  		<li > <a href="/match/pending">Pending match request(s)</a></li>
+							<li > <a href="/match/manualconnection">Manually match student / coach</a></li>
+							<li style="background-color:#EEEEEE;"> <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
+							<li > <a href="/match/orientationInProgress">Intro call(s) in progress</a></li> 
+							<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
+							<li > <a href="/admin/allmeetings">View all meetings</a></li>
+							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+							<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
+						</ul>    
+					</div>
+
 		   		</div>
 
 			   <div class="col-md-9">
@@ -24,11 +36,20 @@
 							</div>
 							<hr />
 
-							
+							{?successMessages}
+								<div class="text-success">
+									<ul>
+										{#successMessages}
+											<li>SUCCESS: {.}</li>
+										{/successMessages}
+									<ul>
+								</div>
+							{/successMessages}
+
 							{?messages}
-					            <ul class="bg-warning">
-					                {#messages}
-					                    <li>ERROR: {.}</li>
+				            	<ul class="bg-warning">
+				                	{#messages}
+				                    	<li>ERROR: {.}</li>
 					                {/messages}
 					            </ul>
 					        {/messages}
@@ -69,55 +90,62 @@
 					</div>
 					<!-- Modal -->
 					<div class="modal fade" id="orientationModal" tabindex="-1" role="dialog" aria-labelledby="orientationLabel" aria-hidden="true">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					        <h4 class="modal-title" id="orientationLabel">Setup Orientation Meeting</h4>
-					      </div>
-					      <div class="modal-body">
-					        	<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/setupOrientation">	
-						        	<div class="form-group">
-								       <label for="coachName" class="col-sm-3 control-label"> Coach: </label>
-								        <div class="col-sm-6" id="coachName" > 
+					  	<div class="modal-dialog">
+					    	<div class="modal-content">
+					      		<div class="modal-header">
+					        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					        		<h4 class="modal-title" id="orientationLabel">Setup intro call</h4>
+					      		</div>
+					      		<div class="modal-body">
+					        		<form id="meetingInvite" method="POST" class="form-horizontal" action="/match/setupOrientation">	
+						        		<div class="form-group">
+								       		<label for="coachName" class="col-sm-3 control-label"> Coach: </label>
+								        	<div class="col-sm-6" id="coName"> 
 								            
-								        </div>              
-								   </div>  
-								   <div class="form-group">
-								       <label for="studentName" class="col-sm-3 control-label"> Student: </label>
-								        <div class="col-sm-6" id="studentName" > 
+								        	</div>              
+								   		</div>  
+								   		<div class="form-group">
+								       		<label for="studentName" class="col-sm-3 control-label"> Student: </label>
+								        	<div class="col-sm-6" id="stuName"> 
 								            
-								        </div>              
-								   </div> 
-						        	<div class="form-group date">
-								       <label for="meetingDate" class="col-sm-3 control-label"> Date / Time:</label>
-								        <div class="col-sm-6"> 
-								            <input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
-								        </div>              
-								   </div>   	            
+								        	</div>              
+								   		</div> 
+						        		<div class="form-group date">
+								       		<label for="meetingDate" class="col-sm-3 control-label"> Date / Time:</label>
+								        	<div class="col-sm-6"> 
+								            	<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+								        	</div>              
+								   		</div>   	            
 								
-								    <input type="hidden" name="_csrf" value="{_csrf}" />    
+								    	<input type="hidden" name="_csrf" value="{_csrf}" />    
 
-								    <!-- Some hidden stuff -->
-								    <input type="hidden" id="studentId" name="studentId" value="">
-								    <input type="hidden" id="coachId" name="coachId" value="">
-								    <input type="hidden" id="studentEmail" name="studentEmail" value="">
-								    <input type="hidden" id="coachEmail" name="coachEmail" value="">
-								    <input type="hidden" id="relationshipId" name="relationshipId" value="">
-							   </form>			
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-primary setupOrientation">Create Meeting</button>
-					      </div>
-					    </div>
-					  </div>
+									    <!-- Some hidden stuff -->
+									    <input type="hidden" id="studentId" name="studentId" value="">
+									    <input type="hidden" id="coachId" name="coachId" value="">
+									    <input type="hidden" id="studentEmail" name="studentEmail" value="">
+									    <input type="hidden" id="coachEmail" name="coachEmail" value="">
+									    <input type="hidden" id="relationshipId" name="relationshipId" value="{_id}">
+									    <input type="hidden" id="coachName" name="coachName" value="">
+									    <input type="hidden" id="studentName" name="studentName" value="">
+							   		</form>			
+					      		</div>
+					      		<div class="modal-footer">
+					        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        		<button type="button" class="btn btn-primary">Create Meeting</button>
+					      		</div>
+					    	</div>
+					  	</div>
 					</div>
 			   		
-			   </div>
+			   	</div>
 			</div>	
 		</div>	
 	</div>
+	<script>
+		$('button.btn-primary').click(function(){
+			$('form').submit();
+		});
+	</script>
 {/body}
 
 

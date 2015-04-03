@@ -10,8 +10,20 @@
 		<div class="container-wide">
 			<div class="row">
 			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-				  {! >"dashboard/inc/upcoming-meetings" / !}  
-				  {>"dashboard/inc/quick-links-admin" /} 
+				  <div class="panel panel-info">
+				  	<div class="panel-heading">Quick Links</div>
+					  	<ul class="nav nav-pills nav-stacked">
+					  		<li style="background-color:#EEEEEE;"> <a href="/match/pending">Pending match request(s)</a></li>
+							<li > <a href="/match/manualconnection">Manually match student / coach</a></li>
+							<li > <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
+							<li > <a href="/match/orientationInProgress">Intro call(s) in progress</a></li>
+							<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
+							<li > <a href="/admin/allmeetings">View all meetings</a></li>
+							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
+							<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
+						</ul>    
+					</div>
+
 		   		</div>
 
 			   <div class="col-md-9">
@@ -20,7 +32,7 @@
 							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 							&nbsp;&nbsp;
 							<div class="about-title">
-								Pending Requests
+								Pending Match Requests
 							</div>
 							<hr />
 							
@@ -43,14 +55,16 @@
 										{#data.result}
 										<tr>
 											<td>
-												{student.fullName}; {student.email} {student.phone}
+												{student.fullName}; {student.email}; <span class="phone">{student.phone}</span>
 												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
 											</td>
 											<td>
-												{coach.fullName}; {coach.email}  {coach.phone}
+												{coach.fullName}; {coach.email};  <span class ="phone">{coach.phone}</span>
 												<a class="button" href="/profile/user?userId={coach._id}"> Details</a>
 											</td>
 											<td> <a class="button" href="/match/approve?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Approve</a></td>
+											<td> / </td>
+											<td> <a class="button" href="/match/reject?coachId={coach._id}&amp;studentId={student._id}&amp;relationshipId={_id}">Reject</a></td>
 										</tr>
 										{/data.result}
 									</tbody>
@@ -65,6 +79,15 @@
 		</div>	
 	</div>
 {/body}
+
+<script type="text/javascript">	
+    $(".phone").text(function(i, text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
+        return text;
+    });
+</script>
 
 
 

@@ -19,40 +19,40 @@
 				<center>
 					<div class="curved-box"  style="margin-left:5%;">
 						<div class="curved-box-inside">
-							<form id="meetingInvite" method="POST" class="form-horizontal">	
+							<form id="meetingEdit" method="POST" class="form-horizontal">	
 
 
 								<table class="edit-settings-content-table">
-									{?data.result.coachesLinked}
+									{?data.meeting.coachesLinked}
 									   <tr>
 										 <td class="edit-settings-content-table-left">Coach Name</td>
 										 <td class="edit-settings-content-table-right">
 										 	<select name="invitee">
-									      		{#data.result.coachesLinked}
+									      		{#data.meeting.coachesLinked}
 									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email})</option>
-									      		{/data.result.coachesLinked}
+									      		{/data.meeting.coachesLinked}
 									      	</select>
 									      </td>
 									    </tr>
-								  	{/data.result.coachesLinked}
-								  	{?data.result.studentsLinked}
+								  	{/data.meeting.coachesLinked}
+								  	{?data.meeting.studentsLinked}
 									   <tr>
 										 <td class="edit-settings-content-table-left">Student Name</td>
 									     <td class="edit-settings-content-table-right">
 									      
 									      	<select name="invitee">
-									      		{#data.result.studentsLinked}
+									      		{#data.meeting.studentsLinked}
 									      		<option value="{_id}" email="{email}" fullName="{fullName}" phone="{phone}">{fullName} ({email}) </option>
-									      		{/data.result.studentsLinked}
+									      		{/data.meeting.studentsLinked}
 									      	</select> 
 									      	
 									      </td>
 									   </tr>
-								  	{/data.result.studentsLinked} 
+								  	{/data.meeting.studentsLinked} 
 								   <tr>
 										<td class="edit-settings-content-table-left">Meeting Date / Time</td>
 										<td class="edit-settings-content-table-right"> 
-											<input type="text" name="meetingDate" id="meetingDate" placeholder="mm/dd/yyyy" class="form-control">
+											<input type="text" name="meetingDate" id="meetingDate" placeholder={data.meeting.meetingdate} class="form-control">
 										</td>				
 								   </tr>
 
@@ -61,27 +61,72 @@
 										<td class="edit-settings-content-table-left">Topic</td> 		
 										<td class="edit-settings-content-table-right">
 									      <select name="topic" class="form-control col-sm-7">
-									  			<option>Resume &amp; LinkedIn profile creation</option>
+									      		{?data.meeting.resume}
+									  			<option selected>Resume &amp; Linked In profile creation</option>
+									  			{:else}
+									  			<option>Resume &amp; Linked In profile creation</option>
+									  			{/data.meeting.resume}
+									  			{?data.meeting.interview}
+									  			<option selected>Mock Interview</option>
+									  			{:else}
 									  			<option>Mock Interview</option>
+									  			{/data.meeting.interview}
+									  			{?data.meeting.scoop}
+									  			<option selected>Insider Scoop</option>
+									  			{:else}
 									  			<option>Insider Scoop</option>
+									  			{/data.meeting.scoop}
+									  			{?data.meeting.visit}
+									  			<option selected>Office Visit</option>
+									  			{:else}
 									  			<option>Office Visit</option>
-									  			<option>Internship or Job Search</option>
+									  			{/data.meeting.visit}
+									  			{?data.meeting.internship}
+									  			<option selected>Internship or Job Search</option>
+									  			{:else}
+									  			{/data.meeting.internship}
+									  			{?data.meeting.etiquette}
+									  			<option selected>Professional Etiquette</option>
+									  			{:else}
+									  			<option>Professional Etiquette</option>
+									  			{/data.meeting.etiquette}
+									  			{?data.meeting.other}
+									  			<option selected>Other</option>
+									  			{:else}
 									  			<option>Other</option>
+									  			{/data.meeting.other}
+
 											</select>
 										</td>			   
 									</tr>	
 									<tr>
 										<td class="edit-settings-content-table-left">If Other Topic Enter Here </td>
 										<td class="edit-settings-content-table-right">	
-										<input type="text" name="otherTopic" id="otherTopic" autofocus="" class="form-control" />
+										{?data.meeting.other}
+										<input type="text" name="otherTopic" id="otherTopic" autofocus="" placeholder={data.meeting.topic} class="form-control" />
+										{:else}
+										<input type="text" name="otherTopic" id="otherTopic" autofocus=""  class="form-control" />
+										{/data.meeting.other}
 										</td>
 								   <tr>
 										<td class="edit-settings-content-table-left">Meeting Type</td>
 										<td class="edit-settings-content-table-right">
 									      <select name="meetingType" class="form-control col-sm-7">
-									      	  <option>In Person</option>	
+									      	  {?data.meeting.person}
+									      	  <option selected>In Person</option>
+									      	  {:else}
+									      	  <option>In Person</option>
+									      	  {/data.meeting.person}
+									      	  {?data.meeting.telephone}
+											  <option selected>Telephone</option>
+											  {:else}
 											  <option>Telephone</option>
+											  {/data.meeting.telephone}
+											  {?data.meeting.video}
+											  <option selected>Video Call</option>
+											  {:else}
 											  <option>Video Call</option>
+											  {/data.meeting.video}
 											</select>
 										</td>
 								   </tr>
@@ -90,7 +135,7 @@
 										<td class="edit-settings-content-table-left">Location</td>
 								      
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="location" id="location" placeholder="Address" autofocus="" class="form-control">
+											<input type="text" name="location" id="location" placeholder="{data.meeting.location}" autofocus="" class="form-control">
 										</td>
 								   </tr>
 
@@ -99,7 +144,7 @@
 								   		<td class="edit-settings-content-table-left">Landmark and other info</td>
 								      
 										<td class="edit-settings-content-table-right">
-											<input type="text" name="landmark" id="landmark" placeholder="Starbucks, Office, Suite #, etc." autofocus="" class="form-control">
+											<input type="text" name="landmark" id="landmark" placeholder={data.meeting.meetinglandmark} autofocus="" class="form-control">
 										
 											
 										</td>
@@ -107,13 +152,14 @@
 							   
 								<tr>
 									<td colspan = "2" style="text-align:center;">
-										<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Create Meeting</button>
+										<button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Edit Meeting</button>
 									</td>
 								</tr>
 
 
 								   	<input type="hidden" name="_csrf" value="{_csrf}" />
 									<input type="hidden" name="type" id="type" value="0" />
+									
 
 									<!-- Some hidden stuff -->
 									<input type="hidden" name="inviteCreator" value="{data.result._id}">

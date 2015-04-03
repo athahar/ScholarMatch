@@ -4,6 +4,10 @@
 	Meeting notes - College to Career Program  - ScholarMatch
 {/title}
 
+<script type="text/javascript">
+	$("html,body").animate({scrollTop: 0}, 1);
+</script>
+
 {<body}
 	{#data}
 	<div class="container-widest-white">
@@ -15,101 +19,115 @@
 			</div>
 			<hr />
 
-			<br/>
-			<form id="meeting-feedback-form" method="POST" class="form-horizontal">		
+				<center>
+					<div class="curved-box"  style="margin-left:5%;">
+						<div class="curved-box-inside">
+				<br/>
+				<form id="meeting-feedback-form" method="POST" class="form-horizontal">		
 
-				<table class="edit-settings-content-table">
-					<tr>
-						<td class="edit-settings-content-table-left">Meeting Topic</td>
-						<td class="edit-settings-content-table-right">
-							<select name="interactionType">
-					      		<option value="Resume and Linked In profile creation">Resume and Linked In profile creation</option>
-					      		<option value="Mock Interview">Mock Interview</option>
-					      		<option value="Insider Scoop">Insider Scoop</option>
-					      		<option value="Internship or Job Search">Internship or Job Search</option>
-					      		<option value="Office Visit">Office Visit</option>
-					      		<option value="Professional Etiquete">Professional Etiquete</option>
-					      	</select>
-						</td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">How appropriate was the covered topic? </td>
-						<td class="edit-settings-content-table-right">
-							<select name="topicAppropriateness">
-					      		<option value="1">1</option>
-					      		<option value="2">2</option>
-					      		<option value="3">3</option>
-					      		<option value="4">4</option>
-					      		<option value="5">5</option> 		
-					      	</select>
-					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
-					    </td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">How useful was the learnt material?</td>
-						<td class="edit-settings-content-table-right">
-					      	<select name="materialUsefulness">
-					      		<option value="1">1</option>
-					      		<option value="2">2</option>
-					      		<option value="3">3</option>
-					      		<option value="4">4</option>
-					      		<option value="5">5</option> 		
-					      	</select>
-					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
-					    </td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">How useful was the time spent?</td>
-						<td class="edit-settings-content-table-right">
-					      	<select name="timeUtilization">
-					      		<option value="1">1</option>
-					      		<option value="2">2</option>
-					      		<option value="3">3</option>
-					      		<option value="4">4</option>
-					      		<option value="5">5</option> 		
-					      	</select>
-					      	<span>  &nbsp; 1 being least appropriate, 5 being most appropriate</span>
-					    </td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">How was the collaboration of this session?</td>
-						<td class="edit-settings-content-table-right"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">What are your plans for next session?</td>
-						<td class="edit-settings-content-table-right"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">How was the level of engagement of the session?</td>
-						<td class="edit-settings-content-table-right"><textarea  cols="50" name="participationSentiment" id="participationSentiment" placeholder="Notes" autofocus="" class="form-control"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td class="edit-settings-content-table-left">Have you spoken to ScholarMatch staff about this meeting?</td>
-						<td class="edit-settings-content-table-right">
-							<select name="speakWithStaff">
-					      		<option value="Yes">Yes</option>
-					      		<option value="No">No</option>	
-					      	</select>
-						</td>
-					</tr>
-					<tr>
-						<td colspan ="2">
-						</td>
-					</tr>
-				</table>
+					<table class="edit-settings-content-table">
+						<tr>
+							<td class="edit-settings-content-table-left">Name</td>
+							<td class="edit-settings-content-table-right">
+								{meetingrec.notescreator}
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">Student / Coach you are working with</td>
+							<td class="edit-settings-content-table-right">
+								{meetingrec.attendee}
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">Interaction you worked on today</td>
+							<td class="edit-settings-content-table-right">
+								{meetingrec.topic}
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">How effective and appropriate was the topic for the session? </td>
+							<td class="edit-settings-content-table-right">
+								<p> Not very effective </p>
+								    1 <input type="radio" name="topicAppropriateness" value="1"  /><br />
+								    2 <input type="radio" name="topicAppropriateness" value="2"  /><br />
+								    3 <input type="radio" name="topicAppropriateness" value="3"  /><br />
+								    4 <input type="radio" name="topicAppropriateness" value="4"  /><br />
+								    5 <input type="radio" name="topicAppropriateness" value="5"  /><br />		
+						      	<p> Extremly effective </p>
+						    </td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">How useful were the materials provided for the session? </td>
+							<td class="edit-settings-content-table-right">
+						      	<p> Not very useful </p>
+								    1 <input type="radio" name="materialUsefulness" value="1"  /><br />
+								    2 <input type="radio" name="materialUsefulness" value="2"  /><br />
+								    3 <input type="radio" name="materialUsefulness" value="3"  /><br />
+								    4 <input type="radio" name="materialUsefulness" value="4"  /><br />
+								    5 <input type="radio" name="materialUsefulness" value="5"  /><br />		
+						      	<p> Extremly useful </p>
+						    </td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">Did you feel this was a good use of you and your coach's / student's time?</td>
+							<td class="edit-settings-content-table-right">
+						      	<p> Not a good use of time </p>
+								    1 <input type="radio" name="timeUtilization" value="1"  /><br />
+								    2 <input type="radio" name="timeUtilization" value="2"  /><br />
+								    3 <input type="radio" name="timeUtilization" value="3"  /><br />
+								    4 <input type="radio" name="timeUtilization" value="4"  /><br />
+								    5 <input type="radio" name="timeUtilization" value="5"  /><br />		
+						      	<p> Extremly good use of time </p>
+						    </td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">Tell us briefly about your collaboration.
+	How or where did you meet, how did the interaction go, what went well and what would you change?</td>
+							<td class="edit-settings-content-table-right"><textarea cols="50" name="collaborationDescription" id="collaborationDescription" autofocus="" class="form-control"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">What is the next collaboration you and your coach / student have planned?</td>
+							<td class="edit-settings-content-table-right"><textarea cols="50" name="nextCollaborationDescription" id="nextCollaborationDescription" autofocus="" class="form-control"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">How are you feeling so far about participating this program?
+	Are you enjoying your role as a coach, your student match, etc.</td>
+							<td class="edit-settings-content-table-right">
+								Thumbs up <input type="radio" name="participationSentiment" value="Thumbs Up"  /><br />
+								On the fence... not sure yet <input type="radio" name="participationSentiment" value="On the fence"  /><br />
+								Thumbs down <input type="radio" name="participationSentiment" value="Thumbs down"  /><br />
+							</td>
+						</tr>
+						<tr>
+							<td class="edit-settings-content-table-left">Would you like to speak with a staff member before your next collaboration?</td>
+							<td class="edit-settings-content-table-right">
+								 Yes <input type="radio" name="speakWithStaff" value="Yes"  /><br />
+								 No <input type="radio" name="speakWithStaff" value="No"  /><br />
+							</td>
+						</tr>
+						<tr>
+							<td colspan ="2">
+							</td>
+						</tr>
+					</table>
 
-				<br />
-				<center><button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Add/Update Notes</button></center>
+					<br />
+					<center><button type="submit" class="btn btn-success" id="login-button" style="height:40px; width:175px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);">Add/Update Notes</button></center>
 
-			   	<input type="hidden" name="_csrf" value="{_csrf}" />
-				<input type="hidden" name="type" id="type" value="0" />
-				<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
-				<input type="hidden" name="userid" id="userid" value="{userId}" />
-			</form>		
+				   	<input type="hidden" name="_csrf" value="{_csrf}" />
+					<input type="hidden" name="type" id="type" value="0" />
+					<input type="hidden" name="meetingId" id="meetingId" value="{meetingId}" />
+					<input type="hidden" name="userid" id="userid" value="{userId}" />
+					<input type="hidden" name="attendee" id="attendee" value="{meetingrec.attendee}" />
+					<input type="hidden" name="notesCreator" id="notesCreator" value="{meetingrec.notescreator}" />
+					<input type="hidden" name="interactionType" id="interactionType" value="{meetingrec.topic}" />
 
+				</form>	
+				</div>
+				</div>	
+			</center>
 		</div>
 	</div>
 	{/data}

@@ -28,6 +28,7 @@ html {
   background-color:white;
   height:110px;
   border-bottom: 1px groove #EFECE0;
+  min-width:1400px;
 }
 
 
@@ -37,7 +38,7 @@ body {
   font-family: 'Sentinel SSm A', 'Sentinel SSm B'; font-weight: 400; font-style: normal;
 }
 
-#wrapper{
+#wrapper{ 
   min-height: 100%;
   height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
   height: 100%;
@@ -322,6 +323,13 @@ h1{
   font-style: normal;
 }
 
+h3{
+  color:#8C1D41;
+  font-family: 'Tungsten A', 'Tungsten B'; 
+  font-weight: 400; 
+  font-style: normal;  
+}
+
 .text-box-home{
   width:250px;
   height:35px;
@@ -556,11 +564,13 @@ h1{
   margin-top:5px;
   text-align:right;
   font-weight:bold;
+  width: 45%;
 }
 .edit-settings-content-table-right{
   padding:15px;
   margin-top:5px;
   text-align:left;
+  width: 45%;
 }
 
 .edit-settings-nav-items-coach{
@@ -599,47 +609,13 @@ h1{
   padding:15px;
   padding-left:50px;
   padding-right:50px;
+  word-wrap: break-word;
 }
 
 input{
   color:black;
 }
 
-
-
-@media screen and (max-width: 1250px){
-    .fixed-header{
-      height:175px;
-    }
-    .sub-menu{
-      top:175px;
-      z-index:10000000;
-    }
-    .container-about-picture{
-      top:175px;
-    }
-    body{
-      top:175px;
-    }
-}
-@media screen and (min-width: 1250px){
-    .fixed-header{
-      height:110px;
-    }
-}
-@media screen and (max-width: 760px){
-    .fixed-header{
-      height:225px;
-    }
-    .sub-menu{
-      top:225px;
-      height:100px;
-      z-index:10000000;
-    }
-    body{
-      top:225px;
-    }
-}
 
 a:link {
     color: #8C1D41;
@@ -658,4 +634,13 @@ a:hover {
 /* selected link */
 a:active {
     color: #8C1D41;
+}
+
+.link-selected{
+  background-color:#EEEEEE;
+}
+
+.form-control{
+  padding: 0px;
+  margin: 0px;
 }

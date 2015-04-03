@@ -1,22 +1,21 @@
 {>"layouts/master" /}
 
 {<title}
-	Meeting invite - College to Career Program  - ScholarMatch
+	Match  - College to Career Program  - ScholarMatch
 {/title}
 
 {<body}
 
-
 	<div class="container-widest-white" style="text-align:left;">
-		<div class="container-wide" data-model="{data|js}">
+		<div class="container-wide" data-model="{data.result|js}">
 				<center>
 					<div class="curved-box"  style="margin-left:5%;">
 						<div class="curved-box-inside">
-							<h3>Congratulations! The meeting has been set up. An email will be sent to both coach and student. </h3>
-							<br />
-							<br />
+							<h3>Request Rejected!</h3><br />Respective Coach and Student have not been approved for match. Please e-mail them manually if any further notification or explanation is needed. 
+							<br /><br />
 							<button class="btn btn-success" id="login-button" style="height:40px; width:175px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
 						</div>
+						
 					</div>
 				</center>
 			</div>

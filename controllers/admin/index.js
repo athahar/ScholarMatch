@@ -23,6 +23,11 @@ module.exports = function (router) {
         res.render('admin/index', model);
     });
 
+
+    router.get('/exitInterviewComplete', function (req, res) {
+        res.render('admin/exitInterviewComplete');
+    });
+
     router.get('/allmeetings', auth.isAdmin(), function (req, res) {
         // debugger;
         MeetingRequest.findAll(function (err, result) {
@@ -61,12 +66,12 @@ module.exports = function (router) {
                     //var meetDate = moment("");
                     console.log("Meeting Date " + meetDate);
                     if (now > meetDate) {
-                        model.data.meetingDetails[i].isMeetingCompleted = true;
+                        model.data.meetingDetails[i].isMeetingCompleted = "true";
                         console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
-                    } else {
+                    } /*else {
                         model.data.meetingDetails[i].isMeetingCompleted = false;
                         console.log("IS meeting completed? " + model.data.meetingDetails[i].isMeetingCompleted);
-                    }
+                    }*/
                 }
                 res.render('admin/allmeetings', model);
             }
@@ -108,7 +113,7 @@ module.exports = function (router) {
             } else {
                 // debugger;
                 // console.dir(result);
-                //model.data = model.data || {};
+                model.data = model.data || {};
                 //model.data.view = "MeetingInvite"
                 model.data.students = model.data.students || {};
                 model.data.students = JSON.parse(JSON.stringify(result));

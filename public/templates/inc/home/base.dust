@@ -45,7 +45,7 @@
 							</ul>
 						{/messages}
 
-						<input type="text" class="text-box-home" name="username" id="username" placeholder="Email" >
+						<input type="text" class="text-box-home" name="username" id="username" placeholder="Email">
 						&nbsp;&nbsp;&nbsp;
 						<!--<br /><br />-->
 						<input type="password" class="text-box-home"  name="password" id="password" placeholder="Password" >
@@ -113,11 +113,14 @@
 				<h1 style="color:black;">
 					Overview
 				</h1>
-				At ScholarMatch, we believe that our work does not stop until our scholars start their own work. 
-				<br /><br />
-				ScholarMatch is joining forces with the community to bridge the gap between college life and the professional world. 
-				<br /><br />
-				Through the Career Connections program, each student will be matched with an expert in their field who will support our students in pursuing their professional dreams and gaining valuable professional and networking skills.
+
+
+
+				All ScholarMatch students and supporters are invited to participate. <br /><br />
+				Eligble scholars are ScholarMatch students who are interested in making connections in their field.  <br /><br />
+				Eligible career coaches are professionals who are interested in supporting eager college students and sharing information about their industry. <br /><br />
+				Career Coaches will be paired with a student based on geographical location and expertise match.  
+
 
 				<a href="/about" style="color:white; text-decoration:none;">
 					<div class="learn-more" style="width:150px; color:black;">
@@ -133,8 +136,8 @@
 			<ol>
 				<li>Students connect with volunteer professionals in their desired industry</li><br />
 				<li>ScholarMatch facilitates an introductory call with the student & coach</li><br />
-				<li>The student & coach pick 3 career goals to master over the summer </li><br />
-				<li>The career coach helps the scholar master these skills and also provides other tips to become a successful professional in the field</li>
+				<li>The student & coach pick 3 career goals to master over the duration of the program </li><br />
+				<li>The career coach helps the student master these skills and also provides other tips to become a successful professional in the field</li>
 			</ol>
 
 			<a href="/signup" style="color:white; text-decoration:none;">

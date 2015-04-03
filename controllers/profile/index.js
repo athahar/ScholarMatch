@@ -49,9 +49,9 @@ module.exports = function (router) {
 
             model.data = model.data || {};
             model.data.result = model.data.result || {};
-            model.data.result.industry = model.data.industry || {};
-            model.data.result.school = model.data.school || {};
-            model.data.result.major = model.data.major || {};
+            model.data.result.industryList = {};
+            model.data.result.schoolList = {};
+            model.data.result.majorList = {};
 
             model.data.result.userid = req.user._id;
  
@@ -63,20 +63,10 @@ module.exports = function (router) {
                     // model.messages = err;
                     res.send(err);
                 } else {
-                    // console.log(result)
+                    //console.log(result)
                     model.data.result = JSON.parse(JSON.stringify(result));
                     model.data.result.isConnected = true;
 
-                    Industry.findAll(function(err, result){
-                        if(err) {
-                            console.log('error in reading the industries from DB');
-                        }
-                        else
-                        {
-                            //console.log(result);
-                            model.data.result.industry = JSON.parse(JSON.stringify(result));
-                        } 
-                    })
 
                     School.findAll(function(err, result){
                         if(err) {
@@ -85,28 +75,56 @@ module.exports = function (router) {
                         else
                         {
                             //console.log(result);
-                            model.data.result.school = JSON.parse(JSON.stringify(result));
+                            model.data.result.schoolList = JSON.parse(JSON.stringify(result));
+
+                            Industry.findAll(function(err, result){
+                                if(err) {
+                                    console.log('error in reading the industries from DB');
+                                } 
+                                else
+                                {
+                                    //console.log(result);
+                                    model.data.result.industryList = JSON.parse(JSON.stringify(result));
+
+                                    Major.findAll(function(err, result){
+                                        if(err) {
+                                            console.log('error in reading the majors from DB');
+                                        }
+                                        else
+                                        {
+                                            //console.log(result);
+                                            model.data.result.majorList = JSON.parse(JSON.stringify(result));
+
+                                            model.data.result.phoneTypeList = {};
+                                            model.data.result.phoneTypeList = [{"type": "Home"}, 
+                                                                                {"type":"Mobile"}, 
+                                                                                {"type":"Work"}];
+
+                                            model.data.result.schoolYearList = {};
+                                            model.data.result.schoolYearList = [{"year": "College Junior"},
+                                                                                {"year": "College Senior"},
+                                                                                {"year": "Recent College Graduate"}];
+
+                                            model.data.firstlogin = req.session.firstlogin;
+                                            req.session.firstlogin = false;
+
+                                            console.log("phoneTypeList: " + model.data.result.phoneTypeList);
+                                            // res.render(result);
+                                            if(model.data.result.role == 'coach'){
+                                                res.render('profile/coach', model);    
+                                            } else {
+                                                res.render('profile/student', model);
+                                            }
+
+                                        } 
+                                    })                    
+
+                                } 
+                            })
+
                         } 
                     })
 
-                    Major.findAll(function(err, result){
-                        if(err) {
-                            console.log('error in reading the majors from DB');
-                        }
-                        else
-                        {
-                            //console.log(result);
-                            model.data.result.major = JSON.parse(JSON.stringify(result));
-                        } 
-                    })                    
-
-
-                    // res.render(result);
-                    if(model.data.result.role == 'coach'){
-                        res.render('profile/coach', model);    
-                    } else {
-                        res.render('profile/student', model);
-                    }
                 }
             });
         }
@@ -114,51 +132,50 @@ module.exports = function (router) {
 
 
 
-    router.post('/edit', function (req, res) {
+    // router.post('/edit', function (req, res) {
 
-        // debugger;
+    //     // debugger;
 
-        if (req.session.user._id) {
+    //     if (req.session.user._id) {
 
-            model.data = model.data || {};
-            model.data.result = model.data.result || {};
-            model.data.industry = model.data.industry || {};
+    //         model.data = model.data || {};
+    //         model.data.result = model.data.result || {};
+    //         //model.data.industry = model.data.industry || {};
 
-            model.data.result.userid = req.user._id;
+    //         model.data.result.userid = req.user._id;
  
-            model.messages = ''; // clear any messages
-            userLib.findUser(model.data.result, function (err, result) {
+    //         model.messages = ''; // clear any messages
+    //         userLib.findUser(model.data.result, function (err, result) {
 
-                if (err) {
-                    console.log('error')
-                    // model.messages = err;
-                    res.send(err);
-                } else {
-                    // console.log(result)
-                    model.data.result = JSON.parse(JSON.stringify(result));
-                    model.data.result.isConnected = true;
+    //             if (err) {
+    //                 console.log('error')
+    //                 // model.messages = err;
+    //                 res.send(err);
+    //             } else {
+    //                 // console.log(result)
+    //                 model.data.result = JSON.parse(JSON.stringify(result));
+    //                 model.data.result.isConnected = true;
 
-                    Industry.findAll(function(err, result){
-                        if(err) {
-                            console.log('error in reading the industries from DB');
-                        }
-                        else
-                        {
-                            // console.log(result);
-                            model.data.industry = JSON.parse(JSON.stringify(result));
-                        } 
-                    })
+    //                 //Industry.findAll(function(err, result){
+    //                 //    if(err) {
+    //                 //        console.log('error in reading the industries from DB');
+    //                 //    }
+    //                 //    else {
+    //                 //        // console.log(result);
+    //                 //        model.data.industry = JSON.parse(JSON.stringify(result));
+    //                 //    } 
+    //                 //})
 
-                    // res.render(result);
-                    if(model.data.result.role == 'coach'){
-                        res.render('profile/coach', model);    
-                    } else {
-                        res.render('profile/student', model);
-                    }
-                }
-            });
-        }
-    });
+    //                 // res.render(result);
+    //                 if(model.data.result.role == 'coach') {
+    //                     res.render('profile/coach', model);    
+    //                 } else {
+    //                     res.render('profile/student', model);
+    //                 }
+    //             }
+    //         });
+    //     }
+    // });
 
     router.post('/', function (req, res) {
 
@@ -175,7 +192,10 @@ module.exports = function (router) {
             model.data.result.preferredName = req.body.preferredName;
             model.data.result.email = req.body.email;
             model.data.result.phone = req.body.phone;
+            model.data.result.phoneType = req.body.phoneType;
+            model.data.result.address = req.body.address;
             model.data.result.location = req.body.location;
+            model.data.result.zipCode = req.body.zipCode;
             model.data.result.gender = req.body.genderRadios;
             model.data.result.role = req.body.role;
 
@@ -207,25 +227,86 @@ module.exports = function (router) {
                 } 
 
                 model.data.result.underGradSchool = model.data.result.underGradSchool || {};
-                model.data.result.underGradSchool.name = req.body.underGradSchoolName;
-                model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
+                if((req.body.underGradSchoolName && (req.body.underGradSchoolName != "-1")) ||
+                    (req.body.otherUnderGradSchoolName)) {
+
+                    if(req.body.underGradSchoolName != "other") {
+                        model.data.result.underGradSchool.name = req.body.underGradSchoolName;
+                        model.data.result.underGradSchool.otherName = null;
+                    } else {
+                        model.data.result.underGradSchool.name = req.body.otherUnderGradSchoolName;
+                        model.data.result.underGradSchool.otherName = req.body.otherUnderGradSchoolName;
+                    }
+
+                }
+
+                if((req.body.underGradSchoolMajor && (req.body.underGradSchoolMajor != "-1")) ||
+                    (req.body.otherUnderGradSchoolMajor)) {
+
+                    if(req.body.underGradSchoolMajor != "other") {
+                        model.data.result.underGradSchool.major = req.body.underGradSchoolMajor;
+                        model.data.result.underGradSchool.otherMajor = null;
+                    } else {
+                        model.data.result.underGradSchool.major = req.body.otherUnderGradSchoolMajor;
+                        model.data.result.underGradSchool.otherMajor = req.body.otherUnderGradSchoolMajor;
+                    }
+                }
                 
                 model.data.result.gradSchool = model.data.result.gradSchool || {};
-                model.data.result.gradSchool.name = req.body.gradSchoolName;
-                model.data.result.gradSchool.major = req.body.gradSchoolMajor;
-                
+                if((req.body.gradSchoolName && (req.body.gradSchoolName != "-1")) ||
+                    (req.body.otherGradSchoolName)) {
+
+                    if(req.body.gradSchoolName != "other") {
+                        model.data.result.gradSchool.name = req.body.gradSchoolName;
+                        model.data.result.gradSchool.otherName = null;
+                    } else {
+                        model.data.result.gradSchool.name = req.body.otherGradSchoolName;
+                        model.data.result.gradSchool.otherName = req.body.otherGradSchoolName;
+                    }
+
+                }
+
+                if((req.body.gradSchoolMajor && (req.body.gradSchoolMajor != "-1")) ||
+                    (req.body.otherGradSchoolMajor)) {
+
+                    if(req.body.gradSchoolMajor != "other") {
+                        model.data.result.gradSchool.major = req.body.gradSchoolMajor;
+                        model.data.result.gradSchool.otherMajor = null;
+                    } else {
+                        model.data.result.gradSchool.major = req.body.otherGradSchoolMajor;
+                        model.data.result.gradSchool.otherMajor = req.body.otherGradSchoolMajor;
+                    }
+                }
                 
                 model.data.result.primaryIndustry = model.data.result.primaryIndustry || {};
-                if(req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) {                
-                    model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                if((req.body.primaryIndustryName && (req.body.primaryIndustryName != "-1")) ||
+                  (req.body.otherPrimaryIndustryName)) {    
+
+                    if(req.body.primaryIndustryName != "other") {
+                        model.data.result.primaryIndustry.industryName = req.body.primaryIndustryName;
+                        model.data.result.primaryIndustry.otherIndustryName = null;
+                    } else {
+                        model.data.result.primaryIndustry.industryName = req.body.otherPrimaryIndustryName;
+                        model.data.result.primaryIndustry.otherIndustryName = req.body.otherPrimaryIndustryName;
+                    }
+
                     model.data.result.primaryIndustry.jobTitle = req.body.primaryIndustryJobTitle
                     model.data.result.primaryIndustry.yearsOfExperience = req.body.primaryIndustryYearsOfExperience;
                     model.data.result.primaryIndustry.company = req.body.primaryIndustryCompany;
                 }
 
                 model.data.result.secondaryIndustry = model.data.result.secondaryIndustry || {};
-                if(req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) {
-                    model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                if((req.body.secondaryIndustryName && (req.body.secondaryIndustryName !=  "-1")) ||
+                  (req.body.otherSecondaryIndustryName)) {    
+
+                    if(req.body.secondaryIndustryName != "other") {
+                        model.data.result.secondaryIndustry.industryName = req.body.secondaryIndustryName;
+                        model.data.result.secondaryIndustry.otherIndustryName = null;
+                    } else {
+                        model.data.result.secondaryIndustry.industryName = req.body.otherSecondaryIndustryName;
+                        model.data.result.secondaryIndustry.otherIndustryName = req.body.otherSecondaryIndustryName;
+                    }
+
                     model.data.result.secondaryIndustry.jobTitle = req.body.secondaryIndustryJobTitle;
                     model.data.result.secondaryIndustry.yearsOfExperience = req.body.secondaryIndustryYearsOfExperience;
                     model.data.result.secondaryIndustry.company = req.body.secondaryIndustryCompany;
@@ -233,36 +314,90 @@ module.exports = function (router) {
                 
                 model.data.result.coachingInterest = req.body.coachingInterest;
                 model.data.result.studentMatchPreference = req.body.studentMatchPreference;
+                model.data.result.heardFrom = req.body.heardFrom;
 
                 model.data.result.primaryReference = model.data.result.primaryReference || {};
                 model.data.result.primaryReference.name = req.body.primaryReferenceName;
                 model.data.result.primaryReference.phone = req.body.primaryReferencePhone;
                 model.data.result.primaryReference.email = req.body.primaryReferenceEmail;
+                model.data.result.primaryReference.relationship = req.body.primaryReferenceRelationship;
+                model.data.result.primaryReference.yearsKnown = req.body.primaryReferenceYearsKnown;
 
                 model.data.result.secondaryReference = model.data.result.secondaryReference || {};
                 model.data.result.secondaryReference.name = req.body.secondaryReferenceName;
                 model.data.result.secondaryReference.phone = req.body.secondaryReferencePhone;
                 model.data.result.secondaryReference.email = req.body.secondaryReferenceEmail;
+                model.data.result.secondaryReference.relationship = req.body.secondaryReferenceRelationship;
+                model.data.result.secondaryReference.yearsKnown = req.body.secondaryReferenceYearsKnown;
+                model.data.result.remoteLocation = req.body.remoteLocation;
             } else if(req.body.role == "student"){
                 model.data.result.school = model.data.result.school || {};
-                model.data.result.school.name = req.body.schoolName;
-                model.data.result.school.major = req.body.schoolMajor;
+
+                if((req.body.schoolName && (req.body.schoolName != "-1")) ||
+                    (req.body.otherSchoolName)) {
+                    if(req.body.schoolName != "other") {
+                        model.data.result.school.name = req.body.schoolName;
+                        model.data.result.school.otherName = null;
+                    } else {
+                        model.data.result.school.name = req.body.otherSchoolName;
+                        model.data.result.school.otherName = req.body.otherSchoolName;
+                    }
+                }
+
+                if((req.body.schoolMajor && (req.body.schoolMajor != "-1")) ||
+                    (req.body.otherSchoolMajor)) {
+                    if(req.body.schoolMajor != "other") {
+                        model.data.result.school.major = req.body.schoolMajor;
+                        model.data.result.school.otherMajor = null;
+                    } else {
+                        model.data.result.school.major = req.body.otherSchoolMajor;
+                        model.data.result.school.otherMajor = req.body.otherSchoolMajor;
+                    }
+                }
+
                 if(req.body.schoolCurrentYear && (req.body.schoolCurrentYear != "-1")) {
                     model.data.result.school.currentYear = req.body.schoolCurrentYear;
                 }
 
                 model.data.result.industry = model.data.result.industry || {};
-                if(req.body.industryDesired && (req.body.industryDesired != "-1")) {
-                    model.data.result.industry.desired = req.body.industryDesired;
+                
+                if((req.body.industryDesired && (req.body.industryDesired != "-1")) ||
+                (req.body.otherIndustryDesired)) {
+                    if(req.body.industryDesired != "other") {
+                        model.data.result.industry.desired = req.body.industryDesired;
+                        model.data.result.industry.otherDesired = null;
+                    } else {
+                        model.data.result.industry.desired = req.body.otherIndustryDesired;
+                        model.data.result.industry.otherDesired = req.body.otherIndustryDesired;
+                    }                
                 }
-                if(req.body.industryInterestedIn && (req.body.industryInterestedIn != "-1")) {
-                    model.data.result.industry.interestedIn = req.body.industryInterestedIn;
+
+                if((req.body.industryInterestedIn && (req.body.industryInterestedIn != "-1")) ||
+                    (req.body.otherIndustryInterestedIn)){
+                    if(req.body.industryInterestedIn != "other") {
+                        model.data.result.industry.interestedIn = req.body.industryInterestedIn;
+                        model.data.result.industry.otherInterestedIn = null;
+                    } else {
+                        model.data.result.industry.interestedIn = req.body.otherIndustryInterestedIn;
+                        model.data.result.industry.otherInterestedIn = req.body.otherIndustryInterestedIn;
+                    }                
                 }
-                if(req.body.industrySecondary && (req.body.industrySecondary != "-1")) {
+                
+                if((req.body.industrySecondary && (req.body.industrySecondary != "-1")) ||
+                    (req.body.otherIndustrySecondary)){
                     model.data.result.industry.secondary = req.body.industrySecondary;
+
+                    if(req.body.industrySecondary != "other") {
+                        model.data.result.industry.secondary = req.body.industrySecondary;
+                        model.data.result.industry.otherSecondary = null;
+                    } else {
+                        model.data.result.industry.secondary = req.body.otherIndustrySecondary;
+                        model.data.result.industry.otherSecondary = req.body.otherIndustrySecondary;
+                    } 
                 }
 
                 model.data.result.previousJobs = req.body.previousJobs;
+                model.data.result.secondPreviousJobs = req.body.secondPreviousJobs;
             }
 
             userLib.updateUser(model.data.result, function (err, result) {
@@ -326,8 +461,13 @@ module.exports = function (router) {
             }
         })
     });
+    
+    router.get('/linkedin-help', function (req, res) {
+        res.render('profile/linkedin-help');
+    });
 
     router.get('/:name', function (req, res) {
         res.render('profile/student', model);
     });
+
 };

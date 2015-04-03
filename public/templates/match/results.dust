@@ -25,7 +25,7 @@
 	            </ul>
 	        {/messages}
 
-			<a href="/match/findcoach"> List all Coaches</a> {@eq key=forStudent value=false} | <a href="/match/findstudent"> List all students </a> {/eq}
+			<a href="/match/findcoach"> List all Coaches</a> 
 
 
 			<hr/>
@@ -48,9 +48,9 @@
 						<tr>
 							
 							<td>{fullName}</td>
-							<td>{college}</td>
-							<td>{industry}</td>
-							<td>{city}</td>
+							<td>{gradSchool.name}</td>
+							<td>{primaryIndustry.industryName}</td>
+							<td>{location}</td>
 							<td>{gender}</td>
 							<td>{additionalPersonalInfo}</td>
 							<td>{coachingInterest}</td>

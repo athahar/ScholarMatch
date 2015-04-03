@@ -11,12 +11,11 @@
 				<center>
 					<div class="curved-box"  style="margin-left:5%;">
 						<div class="curved-box-inside">
-							<h3>Request Approved! <br /><br />Respective coach and student have been emailed about the new connection. </h3>
-							<br />
+							<h3>Request Approved!</h3><br />Respective coach and student have been emailed about the new connection. 
+							<br /><br />
+							<button class="btn btn-success" id="login-button" style="height:40px; width:175px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
 						</div>
 						
-							<br /><br />
-							<button class="btn btn-success" id="login-button" style="height:40px; width:150px; font-size:16px; background-color:rgb(153,51,51); border-color:rgb(153,51,51);" onclick="redirectPage('dashboard')">Back to Dashboard</button>
 					</div>
 				</center>
 			</div>

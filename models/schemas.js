@@ -33,23 +33,34 @@ var userSchema = Schema({
     role: String,
     preferredName: String,
     phone: String,
+    phoneType: String,
+    address: String,
     location: String,
+    zipCode: String,
+    remoteLocation: String,
+    heardFrom: String,
     underGradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     gradSchool: {
         name: String,
-        major: String
+        otherName: String,
+        major: String,
+        otherMajor: String
     },
     primaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
     },
     secondaryIndustry: {
         industryName: String,
+        otherIndustryName: String,
         jobTitle: String,
         company: String,
         yearsOfExperience: String
@@ -67,12 +78,16 @@ var userSchema = Schema({
     primaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     secondaryReference: {
         name: String,
         phone: String,
-        email: String
+        email: String,
+        relationship: String,
+        yearsKnown: String
     },
     studentList: String,
     studentsLinked: [{
@@ -82,15 +97,21 @@ var userSchema = Schema({
 
     school: {
         name: String,
+        otherName: String,
         major: String,
+        otherMajor: String,
         currentYear: String
     },
     industry: {
         desired: String,
+        otherDesired: String,
         interestedIn: String,
-        secondary: String
+        otherInterestedIn: String,
+        secondary: String,
+        otherSecondary: String
     },
     previousJobs: String,
+    secondPreviousJobs: String,
     additionalPersonalInfo: String,
     coachList: String,
     coachesLinked: [{
@@ -304,6 +325,8 @@ var meetingSchema = Schema({
     topic: String,
     location: String,
     meetingdate: String,
+    meetinglandmark: String,
+    meetingtype: String, 
     attendees: [attendeeSchema]
 });
 
@@ -330,6 +353,12 @@ meetingSchema.statics.findById = function (id, callback) {
 meetingSchema.statics.removeMeetingById = function (id, callback) {
 
     this.findOne({_id: id}).remove(callback);
+};
+
+meetingSchema.statics.updateMeetingById = function (id, time, topic, type, location, landmark, callback) {
+
+    this.update({_id: id}, {$set: {topic: topic, location: location, meetingdate: time, landmark: landmark, meetingtype: type}}, callback);
+
 };
 
 var relationshipSchema = Schema({
@@ -467,6 +496,8 @@ var meetingNotesSchema = Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Meeting'
     },
+    notesCreator: String,
+    attendee: String,
     interactionType: String,
     materialUsefulness:Number,
     topicAppropriateness:Number,
@@ -539,7 +570,7 @@ majorSchema.statics.findAll = function(callback) {
     this.find({},
             function(err, docs) {
                 if (!err){ 
-                    console.log(docs);
+                    //console.log(docs);
                 }
                 else { throw err;}
 
