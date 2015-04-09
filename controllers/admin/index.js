@@ -88,9 +88,7 @@ module.exports = function (router) {
                 res.send(err);
             }
 
-        })        
-
-        res.render('admin/exitInterviewComplete');
+        })                
     });
 
     router.get('/allmeetings', auth.isAdmin(), function (req, res) {

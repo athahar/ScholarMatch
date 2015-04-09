@@ -43,7 +43,7 @@
 										<tr>
 											<td>
 												{fullName}; {email}; <span class="phone">{phone}</span>
-												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
+												<a class="button" href="/profile/user?userId={_id}" target="_blank"> Details</a>
 											</td>
 											<td>
 												{role}
