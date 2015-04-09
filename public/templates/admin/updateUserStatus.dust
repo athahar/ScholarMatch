@@ -14,48 +14,101 @@
 	   			</div>
 
 			   <div class="col-md-9">
-			   		<div class="container-widest-white" style="text-align:left;">
-					
+			   		<div class="container-widest-white">
+						<div class="container-wide" style="text-align:left;">
 							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
 							&nbsp;&nbsp;
 							<div class="about-title">
-								Pending Signups
+								Update User Status
 							</div>
 							<hr />
 
+							{?successMessages}
+								<div class="text-success">
+									<ul>
+										{#successMessages}
+											<li>SUCCESS: {.}</li>
+										{/successMessages}
+									<ul>
+								</div>
+							{/successMessages}
+
 							{?messages}
-							<ul class="bg-warning">
-								{#messages}
-								<li>ERROR: {.}</li>
-								{/messages}
-							</ul>
-							{/messages}
-							
-							<div class="results clearfix" data-results="{data.results|s}">
+				            	<ul class="bg-warning">
+				                	{#messages}
+				                    	<li>ERROR: {.}</li>
+					                {/messages}
+					            </ul>
+					        {/messages}
+					       		
+							<div class="results clearfix" data-results="{data.results|s}"> 						
+
 								<table class="table table-striped">
 									<thead>
 										<th>User</th>
 										<th>Role</th>
 										<th>Current Status</th>
-										<th>New Status</th>
-										<th>Action</th>
+										<th>Action</th>				
 									</thead>
 									<tbody>
 										{#data.results}
-										<tr>
+										<tr data-fullName="{fullName}" data-email="{email}" data-id="{_id}" data-role="{role}" data-status="{status}">
 											<td>
 												{fullName}; {email}; <span class="phone">{phone}</span>
-												<a class="button" href="/profile/user?userId={student._id}"> Details</a>
+												<a class="button" href="/profile/user?userId={_id}"> Details</a>												
 											</td>
 											<td>
-												{role}
-											</td>
+												{role}	
+											</td>		
 											<td>
 												{status}
+											</td>				
+											<td> 
+												<a class="updateStatus" href="#" data-toggle="modal" data-target="#statusModal">Update Status</a>
 											</td>
-											<td>
+										</tr>
+										{/data.results}
+									</tbody>
+								</table>
+
+								{! <p>Found: {data.count} record(s).</p> !}
+
+							 </div>
+						</div>
+					</div>
+					<!-- Modal -->
+					<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusLabel" aria-hidden="true">
+					  	<div class="modal-dialog">
+					    	<div class="modal-content">
+					      		<div class="modal-header">
+					        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					        		<h4 class="modal-title" id="statusLabel">Update User Status</h4>
+					      		</div>
+					      		<div class="modal-body">
+					        		<form id="userStatus" method="POST" class="form-horizontal" action="/admin/updateUserStatus">	
+						        		<div class="form-group">
+								       		<label for="fullName" class="col-sm-3 control-label"> User: </label>
+								        	<div class="col-sm-6" id="userName"> 
+								            
+								        	</div>              
+								   		</div>  
+								   		<div class="form-group">
+								       		<label for="role" class="col-sm-3 control-label"> Role: </label>
+								        	<div class="col-sm-6" id="userRole"> 
+								            
+								        	</div>              
+								   		</div> 
+								   		<div class="form-group">
+								       		<label for="status" class="col-sm-3 control-label"> Status: </label>
+								        	<div class="col-sm-6" id="userStatus"> 
+								            
+								        	</div>              
+								   		</div>								   		
+						        		<div class="form-group">
+								       		<label for="newStatus" class="col-sm-3 control-label"> New Status:</label>
+								        	<div class="col-sm-6"> 
 												<select name="newStatus" id="newStatus" class="form-control col-sm-3">
-												<option value="-1">Select the new status...</option>
+													<option value="-1">Select the new status...</option>
 													<option value="Profile Completed">Profile Completed</option>
 													<option value="Profile Approved">Profile Approved</option>
 													<option value="Match Approved">Match Approved</option>
@@ -64,35 +117,34 @@
 													<option value="2nd Meeting Complete">2nd Meeting Complete</option>
 													<option value="Final Meeting Complete">Final Meeting Complete</option>
 													<option value="Exit Survey Complete">Exit Survey Complete</option>
-												</select>
+												</select>								            	
+								        	</div>              
+								   		</div>   	            
+								
+								    	<input type="hidden" name="_csrf" value="{_csrf}" />    
 
-											</td>											
-											<td> 
-												<a class="button" href="/admin/updateUserStatus?userId={_id}&amp;newStatus={newStatus}">Update</a>
-											</td>
-										</tr>
-										{/data.results}
-									</tbody>
-								</table>
-								{! <p>Found: {data.count} record(s).</p> !}
-							</div>
-						
+									    <!-- Some hidden stuff -->
+									    <input type="hidden" id="userId" name="studentId" value="{_Id}">
+							   		</form>			
+					      		</div>
+					      		<div class="modal-footer">
+					        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        		<button type="button" class="btn btn-primary">Create Meeting</button>
+					      		</div>
+					    	</div>
+					  	</div>
 					</div>
 			   		
-			   </div>
+			   	</div>
 			</div>	
 		</div>	
 	</div>
+	<script>
+		$('button.btn-primary').click(function(){
+			$('form').submit();
+		});
+	</script>
 {/body}
-
-<script type="text/javascript">	
-    $(".phone").text(function(i, text) {
-        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "(" + "$1" + ")" + " $2-$3");
-        text = text.replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
-        text = text.replace(/(\d{3})\ ?(\d{3})\ ?(\d{4})/, "(" + "$1" + ")" + " $2-$3");
-        return text;
-    });
-</script>
 
 
 
