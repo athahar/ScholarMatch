@@ -10,20 +10,7 @@
 		<div class="container-wide">
 			<div class="row">
 			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-				  <div class="panel panel-info">
-				  	<div class="panel-heading">Quick Links</div>
-					  	<ul class="nav nav-pills nav-stacked">
-					  		<li > <a href="/match/pending">Pending match request(s)</a></li>
-							<li style="background-color:#EEEEEE;"> <a href="/match/manualconnection">Manually match student / coach</a></li>
-							<li > <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
-							<li > <a href="/match/orientationInProgress">Intro call(s) in progress</a></li>
-							<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
-							<li > <a href="/admin/allmeetings">View all meetings</a></li>
-							<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
-							<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
-						</ul>    
-					</div>
-
+				  {>"dashboard/inc/quick-links-admin" /} 
 		   		</div>
 
 			   <div class="col-md-9">

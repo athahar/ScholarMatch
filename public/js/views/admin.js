@@ -1,16 +1,17 @@
 define([
         "jquery",
+        "bootstrap",
         "view",
         "datetimepicker",
         "chosen"
     ],
-    function ($, View, datetimepicker, chosen) {
+    function ($, bootstrap, View, datetimepicker, chosen) {
 
         "use strict";
 
         var AdminView = View.extend({
             events: {
-                'click .setupOrientation': setupOrientation
+                // 'click .setupOrientation': setupOrientation
             },
             afterRender: function () {
                 // call super method first
