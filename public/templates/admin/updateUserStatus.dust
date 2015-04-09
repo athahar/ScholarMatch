@@ -80,10 +80,6 @@
 					<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusLabel" aria-hidden="true">
 					  	<div class="modal-dialog">
 					    	<div class="modal-content">
-					      		<div class="modal-header">
-					        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        		<h4 class="modal-title" id="statusLabel">Update User Status</h4>
-					      		</div>
 					      		<div class="modal-body">
 					        		<form id="userStatus" method="POST" class="form-horizontal" action="/admin/updateUserStatus">	
 						        		<div class="form-group">
