@@ -47,10 +47,10 @@ module.exports = function (router) {
 
     });
 
-    router.get('/UpdateUserStatus', function (req, res) {
+    router.post('/UpdateUserStatus', function (req, res) {
 
-        var userId = req.query.studentId;
-        var newStatus = req.query.newStatus;
+        var userId = req.body.userId;
+        var newStatus = req.body.newStatus;
 
 
         // debugger;
