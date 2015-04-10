@@ -88,9 +88,7 @@ module.exports = function (router) {
                 res.send(err);
             }
 
-        })        
-
-        res.render('admin/exitInterviewComplete');
+        })                
     });
 
     router.get('/allmeetings', auth.isAdmin(), function (req, res) {
@@ -145,48 +143,60 @@ module.exports = function (router) {
     });
 
     router.get('/meeting-setup', function (req, res) {
-        // debugger;
-        var options = {
-            role: 'coach'
-        };
-        userLib.queryEveryCoach(options, function (err, result) {
-            if (err) {
-                console.log(err);
-                model.messages = err;
-                // res.render('meeting-invite/index', model);
-                res.send(model);
-            } else {
-                // debugger;
-                // console.dir(result);
-                model.data = model.data || {};
-                //model.data.view = "MeetingInvite"
-                model.data.coaches = JSON.parse(JSON.stringify(result));
 
-                //res.render("admin/meeting-invite/index", model);
+
+        var options = null;
+        async.parallel({
+            allCoaches: function (callback) {
+                options = {
+                    role: 'coach'
+                };
+                userLib.queryEveryCoach(options, function (err, allCoaches) {
+                    if (err) {
+                        console.log(err);
+                        callback(err);                        
+                    } else {
+                        callback(null, allCoaches)                        
+                    }
+                })
+                
+            },
+            allStudents: function (callback) {
+
+                options = {
+                    role: 'coach'
+                };
+                userLib.queryEveryStudent(options, function (err, allStudents) {
+                    if (err) {
+                        console.log(err);
+                        callback(err);                        
+                    } else {
+                        callback(null, allStudents)                        
+                    }
+                })
+
             }
-        })
-        options = {
-            role: 'student'
-        };
-        userLib.queryEveryStudent(options, function (err, result) {
+        },        
+        function (err, result) {
 
             if (err) {
-                console.log(err);
                 model.messages = err;
-                // res.render('meeting-invite/index', model);
+                // res.render("admin/meeting-invite/index", model);
                 res.send(model);
+
             } else {
-                // debugger;
-                // console.dir(result);
+
                 model.data = model.data || {};
                 //model.data.view = "MeetingInvite"
+                model.data.coaches = JSON.parse(JSON.stringify(result.allCoaches));
+
                 model.data.students = model.data.students || {};
-                model.data.students = JSON.parse(JSON.stringify(result));
+                model.data.students = JSON.parse(JSON.stringify(result.allStudents));
                 model.data._id = req.session.user._id;
                 res.render("admin/meeting-invite/index", model);
+
             }
         })
-
 
     });
 

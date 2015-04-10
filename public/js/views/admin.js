@@ -1,16 +1,17 @@
 define([
         "jquery",
+        "bootstrap",
         "view",
         "datetimepicker",
         "chosen"
     ],
-    function ($, View, datetimepicker, chosen) {
+    function ($, bootstrap, View, datetimepicker, chosen) {
 
         "use strict";
 
         var AdminView = View.extend({
             events: {
-                'click .setupOrientation': setupOrientation
+                "click a.updateStatus": "populateUserStatusModalData"
             },
             afterRender: function () {
                 // call super method first
@@ -33,9 +34,22 @@ define([
                     autoclose: true,
                     startDate: date
                 });
-
-
             },
+            populateUserStatusModalData: function (e) {
+
+                var $parentEl = $(e.currentTarget).parents("tr");
+                debugger;
+
+                var userId = $parentEl.data("userId");
+
+                $("#userStatus #userName").val($parentEl.data("name"));
+                $("#userStatus #userRole").val($parentEl.data("role"));
+                $("#userStatus #currentStatus").val($parentEl.data("status"));
+
+                // console.log(e);
+                console.log($(e.currentTarget).parents("tr"));
+            },
+
             initGooglePlaces: function () {
 
                 // loaded google maps js in the initial layout rendering itself
@@ -51,6 +65,7 @@ define([
                 // ev.preventDefault();
                 $(".setupOrientation").addClass("disabled").text('Creating');
             }
+
         });
 
         return AdminView;

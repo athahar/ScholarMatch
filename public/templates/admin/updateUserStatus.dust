@@ -52,7 +52,7 @@
 									</thead>
 									<tbody>
 										{#data.results}
-										<tr data-fullName="{fullName}" data-email="{email}" data-id="{_id}" data-role="{role}" data-status="{status}">
+										<tr data-name="{fullName}" data-id="{_id}" data-role="{role}" data-status="{status}">
 											<td>
 												{fullName}; {email}; <span class="phone">{phone}</span>
 												<a class="button" href="/profile/user?userId={_id}"> Details</a>												
@@ -83,20 +83,20 @@
 					      		<div class="modal-body">
 					        		<form id="userStatus" method="POST" class="form-horizontal" action="/admin/updateUserStatus">	
 						        		<div class="form-group">
-								       		<label for="fullName" class="col-sm-3 control-label"> User: </label>
-								        	<div class="col-sm-6" id="userName"> 
+								       		<label for="name" class="col-sm-3 control-label"> User: </label>
+								        	<div class="col-sm-6" id="usName"> 
 								            
 								        	</div>              
 								   		</div>  
 								   		<div class="form-group">
 								       		<label for="role" class="col-sm-3 control-label"> Role: </label>
-								        	<div class="col-sm-6" id="userRole"> 
+								        	<div class="col-sm-6" id="usRole"> 
 								            
 								        	</div>              
 								   		</div> 
 								   		<div class="form-group">
 								       		<label for="status" class="col-sm-3 control-label"> Status: </label>
-								        	<div class="col-sm-6" id="userStatus"> 
+								        	<div class="col-sm-6" id="usStatus"> 
 								            
 								        	</div>              
 								   		</div>								   		
