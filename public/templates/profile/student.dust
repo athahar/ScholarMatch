@@ -44,12 +44,14 @@
 							<center>
 								<table class="edit-settings-content-table">
 									<tr>
+									<!--
 										<td class="edit-settings-content-table-left">Profile Picture</td>
 										<td class="edit-settings-content-table-right">
 											<img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle" >
 											&nbsp;&nbsp;
 											<a href="#">Edit photo</a>
 										</td>
+										-->
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name <span style="color:red">*</span></td>
