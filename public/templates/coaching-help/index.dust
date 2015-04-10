@@ -16,13 +16,13 @@
 {@eq key=user.role value="coach"}
 	<script type="text/javascript">
 		$(document).ready(function() { 
-			download('/images/TrainingManualCoach.docx');
+			download('/images/TrainingManual-CareerCoach2015.pdf');
 		});
 	</script>
 {:else}
 	<script type="text/javascript">
 		$(document).ready(function() { 
-			download('/images/TrainingManualStudent.docx');
+			download('/images/TrainingManual-Student2015.pdf');
 		});
 	</script>
 {/eq}
