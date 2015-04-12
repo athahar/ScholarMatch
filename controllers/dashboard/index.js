@@ -30,6 +30,14 @@ module.exports = function (router) {
         model.viewName = 'dashboard';
 
 
+        if(req.user.status == "Profile Created" || req.user.status == "Profile Completed") {
+            model.data.user.blockDashBoard = true;
+        } else {
+            model.data.user.blockDashBoard = false;
+        }
+
+        console.log("blockDashBoard: " + model.data.user.blockDashBoard);
+
         if (req.user.role === 'student') {
             view = 'dashboard/student';
 
@@ -37,18 +45,16 @@ module.exports = function (router) {
                 if(err) {
                     console.log('error in reading the industries from DB');
                 }
-                else
-                {
+                else {
                     // console.log(result);
                     model.data.industry = JSON.parse(JSON.stringify(result));
                 }
             })
 
             if (req.user.coachesLinked && (req.user.coachesLinked.length > 0)) {
-                if(model.data.user.status != "Orientation Complete")
-                {
-                    model.data.user.status = "Match Approved";
-                }
+               
+                // set status to Match Approved for display in the progress bar               
+                model.data.user.status = "Match Approved";
 
                 User.linkedCoach(req.session.user._id ,function (error, linkresult) {
                      debugger;
@@ -62,171 +68,154 @@ module.exports = function (router) {
                     }
                        
                 
-                if (req.user.meetings && (req.user.meetings.length > 0)) {
+                    if (req.user.meetings && (req.user.meetings.length > 0)) {
 
-                User.findByIdAndMeetings(req.session.user._id, function (err, result) {
-                    if (err) {
-                        console.log('error')
-                        // res.send(err);
-                        res.render(view, model);
+                        User.findByIdAndMeetings(req.session.user._id, function (err, result) {
+                            if (err) {
+                                console.log('error')
+                                // res.send(err);
+                                res.render(view, model);
+                            } else {
+                                // console.dir(result);
+                                /*model.data.meetingDetails = JSON.parse(JSON.stringify(result));
+                                console.log(model.data.meetingDetails);
+                                res.render(view, model);*/
+                                //debugger;
+                               
+                                model.data.meetingDetails = JSON.parse(JSON.stringify(result));
+                                console.log(model.data.meetingDetails);
+                                console.log(model.data.meetingDetails.meetings.length);
+                                for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
+                                    model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.coachesLinked[0].fullName;
+                                    console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
+                                    var now = new Date();
+                                    var nowMoment = moment(now);
+                                    var meetingtimeNew = model.data.meetingDetails.meetings[i].meetingdate;
+                                    console.log("now " + now);
+                                    var arr = meetingtimeNew.split(" ");
+                                    if (arr.length > 4) {
+                                        var hour = arr[4].split(":");
+                                        var hr = hour[0];
+                                        var min = hour[1];
+                                        if (arr[5] == "PM") {
+                                            hr = hr + 12;
+                                        }
+                                        meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
+                                    }
+                                    console.log("New meeting time = " + meetingtimeNew);
+                                    var meetDate = moment(model.data.meetingDetails.meetings[i].meetingdate, "D MMM YYYY - HH:mm");
+                                    console.log("now " + nowMoment);
+                                    console.log("Meeting Date " + meetDate);
+                                    if(now > meetDate) {
+                                        model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
+                                        if(i == 0) {
+                                            model.data.user.status = "1st Meeting Complete";
+                                        }
+                                        else if (i == 1) {
+                                            model.data.user.status = "2nd Meeting Complete";
+                                        }
+                                        else if (i >= 2) {
+                                            model.data.user.status = "Final Meeting Complete";
+                                        }
+                                        console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
+                                    }
+                                    /*else {
+                                        model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
+                                    }*/
+                                
+                                }  
+                                res.render(view, model); 
+                            } 
+                        });   
                     } else {
-                        // console.dir(result);
-                        /*model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        console.log(model.data.meetingDetails);
-                        res.render(view, model);*/
-                        //debugger;
-                       
-                        model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        console.log(model.data.meetingDetails);
-                        console.log(model.data.meetingDetails.meetings.length);
-                        for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
-                            model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.coachesLinked[0].fullName;
-                            console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
-                            var now = new Date();
-                            var nowMoment = moment(now);
-                            var meetingtimeNew = model.data.meetingDetails.meetings[i].meetingdate;
-                            console.log("now " + now);
-                            var arr = meetingtimeNew.split(" ");
-                            if (arr.length > 4) {
-                                var hour = arr[4].split(":");
-                                var hr = hour[0];
-                                var min = hour[1];
-                                if (arr[5] == "PM") {
-                                    hr = hr + 12;
-                                }
-                                meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
-                            }
-                            console.log("New meeting time = " + meetingtimeNew);
-                            var meetDate = moment(model.data.meetingDetails.meetings[i].meetingdate, "D MMM YYYY - HH:mm");
-                            console.log("now " + nowMoment);
-                            console.log("Meeting Date " + meetDate);
-                            if(now > meetDate) {
-                                model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
-                                if(i == 0)
-                                {
-                                    model.data.user.status = "1st Meeting Complete";
-                                }
-                                else if (i == 1)
-                                {
-                                    model.data.user.status = "2nd Meeting Complete";
-                                }
-                                else if (i >= 2)
-                                {
-                                    model.data.user.status = "Final Meeting Complete";
-                                }
-                                console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
-                            }
-                            /*else {
-                                model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
-                            }*/
-                            
-                        }  
-                        res.render(view, model); 
-                       } 
-                     });   
-                    }  else {
                         res.render(view, model);
                     }
-                
-              }); 
-
-            
-         } else {
+                }); 
+            } else {
                 res.render(view, model);
-         }
+            }
         } else if (req.user.role === 'coach') {
             view = 'dashboard/coach';
 
             if (req.user.studentsLinked && (req.user.studentsLinked.length > 0) ) {
-                if(model.data.user.status != "Orientation Complete")
-                {
-                    model.data.user.status = "Match Approved";
-                }
 
+                // set status to Match Approved for display in the progress bar
+                model.data.user.status = "Match Approved";
 
-                     User.linkedStudents(req.session.user._id ,function (error, linkresult) {
-                     if (error) {
+                User.linkedStudents(req.session.user._id ,function (error, linkresult) {
+                    if (error) {
                         console.log('error')
                         res.render(view, model);
                     } else {
                         model.data.studentInfo  = JSON.parse(JSON.stringify(linkresult));
-                            
-                            model.data.studentName = model.data.studentInfo.studentsLinked[0].fullName;
-                        }
-                       
-                if(req.user.meetings && (req.user.meetings.length > 0)) {
-
-                User.findByIdAndMeetings(req.session.user._id, function (err, result) {
-                    if (err) {
-                        console.log('error')
-                        res.render(view, model);
-                    } else {
-                        // console.dir(result);
-                        model.data.meetingDetails = JSON.parse(JSON.stringify(result));
-                        console.log(model.data.meetingDetails);
-                        console.log(model.data.meetingDetails.meetings.length);
-                        for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
-                            model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.studentsLinked[0].fullName;
-                            console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
-                            var now = new Date();
-                            var nowMoment = moment(now);
-                            var meetingtimeNew = model.data.meetingDetails.meetings[i].meetingdate;
-                            console.log("now " + now);
-                            var arr = meetingtimeNew.split(" ");
-                            if (arr.length > 4) {
-                                var hour = arr[4].split(":");
-                                var hr = hour[0];
-                                var min = hour[1];
-                                if (arr[5] == "PM") {
-                                    hr = hr + 12;
-                                }
-                                meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
-                            }
-                            console.log("New meeting time = " + meetingtimeNew);
-                            var meetDate = moment(model.data.meetingDetails.meetings[i].meetingdate, "D MMM YYYY - HH:mm");
-                            console.log("now " + nowMoment);
-                            console.log("Meeting Date " + meetDate);
-                            console.log("now " + now);
-
-                            if(now > meetDate) {
-                                if(i == 0)
-                                {
-                                    model.data.user.status = "1st Meeting Complete";
-                                }
-                                else if (i == 1)
-                                {
-                                    model.data.user.status = "2nd Meeting Complete";
-                                }
-                                else if (i >= 2)
-                                {
-                                    model.data.user.status = "Final Meeting Complete";
-                                }
-                                model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
-                                console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
-                            }
-                            /*else {
-                                model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
-                            }*/
-                            
-                        } 
-                        res.render(view, model);  
+                        model.data.studentName = model.data.studentInfo.studentsLinked[0].fullName;
                     }
-                })
+                           
+                    if(req.user.meetings && (req.user.meetings.length > 0)) {
 
+                        User.findByIdAndMeetings(req.session.user._id, function (err, result) {
+                            if (err) {
+                                console.log('error')
+                                res.render(view, model);
+                            } else {
+                                // console.dir(result);
+                                model.data.meetingDetails = JSON.parse(JSON.stringify(result));
+                                console.log(model.data.meetingDetails);
+                                console.log(model.data.meetingDetails.meetings.length);
+                                for(var i = 0; i < model.data.meetingDetails.meetings.length; i++) {
+                                    model.data.meetingDetails.meetings[i].fullName = model.data.meetingDetails.studentsLinked[0].fullName;
+                                    console.log("Meeting date from DB " + model.data.meetingDetails.meetings[i].meetingdate);
+                                    var now = new Date();
+                                    var nowMoment = moment(now);
+                                    var meetingtimeNew = model.data.meetingDetails.meetings[i].meetingdate;
+                                    console.log("now " + now);
+                                    var arr = meetingtimeNew.split(" ");
+                                    if (arr.length > 4) {
+                                        var hour = arr[4].split(":");
+                                        var hr = hour[0];
+                                        var min = hour[1];
+                                        if (arr[5] == "PM") {
+                                            hr = hr + 12;
+                                        }
+                                        meetingtimeNew = arr[0] + " " + arr[1] + " " + arr[2] + " - " + hr + min;
+                                    }
+                                    console.log("New meeting time = " + meetingtimeNew);
+                                    var meetDate = moment(model.data.meetingDetails.meetings[i].meetingdate, "D MMM YYYY - HH:mm");
+                                    console.log("now " + nowMoment);
+                                    console.log("Meeting Date " + meetDate);
+                                    console.log("now " + now);
 
+                                    if(now > meetDate) {
+                                        if(i == 0) {
+                                            model.data.user.status = "1st Meeting Complete";
+                                        }
+                                        else if (i == 1) {
+                                            model.data.user.status = "2nd Meeting Complete";
+                                        }
+                                        else if (i >= 2) {
+                                            model.data.user.status = "Final Meeting Complete";
+                                        }
+                                        model.data.meetingDetails.meetings[i].isMeetingCompleted = "true";
+                                        console.log("IS meeting completed? " + model.data.meetingDetails.meetings[i].isMeetingCompleted);          
+                                    }
+                                    /*else {
+                                        model.data.meetingDetails.meetings[i].isMeetingCompleted = false;
+                                    }*/
+                                } 
+                                res.render(view, model);  
+                            }
+                        })
+                    } else {
+                        res.render(view, model);
+                    }
+                });   
             } else {
                 res.render(view, model);
-            }
-           });   
-          } else {
-                res.render(view, model);
-          }  
-
+            }  
         } else if (req.user.role === 'admin') {
             view = 'dashboard/admin';
             res.render(view, model);
         }
-
     });
 
     router.get('/getAllMeetings', function (req, res) {
@@ -257,10 +246,6 @@ module.exports = function (router) {
                 // res.render(view, model);
                 // res.send(result);
             }
-
         })
-
     });
-
-
 };
