@@ -11,7 +11,7 @@
 		<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
 		<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
 		<li> <a href="/admin/user/createAdmin">New admin creation</a></li>
-		<li> <a href="/admin/listUserStatus">Upate User Status</a></li>
+		<li> <a href="/admin/listUserStatus">Update User Status</a></li>
 	</ul>    
 </div>
 
