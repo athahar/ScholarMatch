@@ -201,9 +201,6 @@ userSchema.statics.findById = function (id, callback) {
 
 };
 
-userSchema.statics.findAllDisplaySelected = function (display, callback) {
-    this.find({}, display, callback);
-}
 userSchema.statics.findAll = function (callback) {
     this.find({}, callback);
 
@@ -297,6 +294,11 @@ userSchema.statics.findByObjQuery = function (objQuery, display, callback) {
 
     // find({$or: [{role: 'coach'}]}, {fullName:1,role:1,city:1,industry:1}).
 };
+
+userSchema.statics.findByObjQueryAndDisplaySelected = function (objQuery, display, callback) {
+    this.find(objQuery, display, callback);
+}
+
 
 userSchema.statics.removeMeetingFromSchemaById = function(id, meetingid, callback) {
     this.update(

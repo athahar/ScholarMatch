@@ -35,6 +35,7 @@ define([
                     startDate: date
                 });
             },
+
             populateUserStatusModalData: function (e) {
 
                 var $parentEl = $(e.currentTarget).parents("tr");
@@ -42,9 +43,10 @@ define([
 
                 var userId = $parentEl.data("userId");
 
-                $("#userStatus #userName").val($parentEl.data("name"));
-                $("#userStatus #userRole").val($parentEl.data("role"));
-                $("#userStatus #currentStatus").val($parentEl.data("status"));
+                $("#userStatus #usName").html($parentEl.data("name"));
+                $("#userStatus #usRole").html($parentEl.data("role"));
+                $("#userStatus #usStatus").html($parentEl.data("status"));
+                $("#userStatus #userId").val($parentEl.data("id"));
 
                 // console.log(e);
                 console.log($(e.currentTarget).parents("tr"));

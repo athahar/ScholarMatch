@@ -29,7 +29,7 @@ module.exports = function (router) {
 
         var options = {};
 
-        userLib.listAllUsers(options, function (err, result) {
+        userLib.listAllActiveUsers(options, function (err, result) {
 
             if (!err) {
                 model.data = model.data || {};
@@ -54,7 +54,7 @@ module.exports = function (router) {
 
 
         // debugger;
-        userLib.updateStatus(userId, "Profile Approved", function (err, result) {
+        userLib.updateStatus(userId, newStatus, function (err, result) {
             if (err) {
                 req.flash('error', 'approval failed');
                 return res.redirect('/admin/listUserStatus');

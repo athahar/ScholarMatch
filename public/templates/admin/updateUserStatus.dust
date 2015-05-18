@@ -9,25 +9,11 @@
 	<div class="container-widest-white">
 		<div class="container-wide">
 			<div class="row">
-			   <div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
-<div class="panel panel-info">
-  	<div class="panel-heading">Quick Links</div>
-  	<ul class="nav nav-pills nav-stacked">
-  		<li > <a href="/signup/pending">Pending new signups</a></li>
-  		<li > <a href="/match/pending">Pending match request(s)</a></li>
-		<li id="manual"> <a href="/match/manualconnection">Manually match student / coach</a></li>
-		<li id="pending"> <a href="/match/pendingOrientation">Pending intro call(s)</a></li>
-		<li id="pending-orientation"> <a href="/match/orientationInProgress">Intro call(s) in Progress</a></li>
-		<li  id="hi"> <a href="/admin/allmeetings">View all meetings</a></li>
-		<li> <a href="/admin/meeting-setup">Setup a meeting</a></li>
-		<li> <a href="/admin/exitInterviewComplete">Exit interview progress</a></li>
-		<li > <a href="/admin/user/createAdmin">New admin creation</a></li>
-		<li style="background-color:#EEEEEE;"> <a href="/admin/listUserStatus">Update User Status</a></li>
-	</ul>    
-</div>	
-	   			</div>
+				<div id="connections" class="col-md-3 col-sm-3 col-xs-12">	  
+					{>"dashboard/inc/quick-links-admin" /}
+				</div>
 
-			   <div class="col-md-9">
+				<div class="col-md-9">
 			   		<div class="container-widest-white">
 						<div class="container-wide" style="text-align:left;">
 							<img src="/images/Laurel.png"  style=" height:42px; width:42px; vertical-align:middle;"/>
@@ -97,19 +83,19 @@
 					      		<div class="modal-body">
 					        		<form id="userStatus" method="POST" class="form-horizontal" action="/admin/updateUserStatus">	
 						        		<div class="form-group">
-								       		<label for="name" class="col-sm-3 control-label"> User: </label>
+								       		<label for="userName" class="col-sm-3 control-label"> User: </label>
 								        	<div class="col-sm-6" id="usName"> 
 								            
 								        	</div>              
 								   		</div>  
 								   		<div class="form-group">
-								       		<label for="role" class="col-sm-3 control-label"> Role: </label>
+								       		<label for="userRole" class="col-sm-3 control-label"> Role: </label>
 								        	<div class="col-sm-6" id="usRole"> 
 								            
 								        	</div>              
 								   		</div> 
 								   		<div class="form-group">
-								       		<label for="status" class="col-sm-3 control-label"> Status: </label>
+								       		<label for="currentStatus" class="col-sm-3 control-label"> Status: </label>
 								        	<div class="col-sm-6" id="usStatus"> 
 								            
 								        	</div>              
@@ -134,12 +120,12 @@
 								    	<input type="hidden" name="_csrf" value="{_csrf}" />    
 
 									    <!-- Some hidden stuff -->
-									    <input type="hidden" id="userId" name="studentId" value="{_Id}">
+									    <input type="hidden" id="userId" name="userId" value="">
 							   		</form>			
 					      		</div>
 					      		<div class="modal-footer">
 					        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        		<button type="button" class="btn btn-primary">Create Meeting</button>
+					        		<button type="button" class="btn btn-primary">Update Status</button>
 					      		</div>
 					    	</div>
 					  	</div>
