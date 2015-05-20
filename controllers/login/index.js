@@ -102,7 +102,7 @@ module.exports = function (router) {
                 User.findByEmail(emailAddress, function (err, users) {
                     if (!users) {
                         req.flash('error', 'No account with this email address (' + emailAddress + ') exists.');
-                        // return res.render('forgot/index');
+                        return res.render('forgot/index');
                         done(err, null);
                     }
 
