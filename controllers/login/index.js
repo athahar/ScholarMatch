@@ -78,6 +78,7 @@ module.exports = function (router) {
      */
     router.post('/forgot', function (req, res) {
         var emailAddress = req.body.username;
+        var err = "";
 
         async.waterfall([
 
@@ -94,26 +95,29 @@ module.exports = function (router) {
                 if (!emailAddress) {
                     // TODO: Better error handling
                     err = 'No email entered';
-                    model.messages = req.flash('Please enter your email');
-                    done(err, 'done');
-                }
+                    req.flash('error', 'Please enter your email');
+                    model.messages = req.flash('error')[0];
+                    done(err, model);
+                } else {
+                    User.findByEmail(emailAddress, function (err, users) {
+                        var user = users[0];
 
-                // could be refactored to use a User.findOne
-                User.findByEmail(emailAddress, function (err, users) {
-                    if (!users) {
-                        req.flash('error', 'No account with this email address (' + emailAddress + ') exists.');
-                        //return res.render('forgot/index');
-                        done(err, null);
-                    }
-
-                    var user = users[0];
-
-                    user.resetPasswordToken = token;
-                    user.resetPasswordExpires = Date.now() + 3600000; // 1 hour                    
-                    user.save(function (err) {
-                        done(err, token, user);
+                        if (!user) {
+                            err = 'user ' + emailAddress + ' not found';
+                            req.flash('error', 'No account with this email address (' + emailAddress + ') exists.');
+                            model.messages = req.flash('error')[0];
+                            //return res.render('forgot/index');
+                            done(err, model);
+                        } else {
+                            user.resetPasswordToken = token;
+                            user.resetPasswordExpires = Date.now() + 3600000; // 1 hour                    
+                            user.save(function (err) {
+                                done(err, token, user);
+                            });
+                        }
                     });
-                });
+                }
+                // could be refactored to use a User.findOne
             },
             //send email to the user with a reset link
             function (token, user, done) {
@@ -129,8 +133,10 @@ module.exports = function (router) {
                 email.sendEmail(options, function (err, result) {
 
                     if (err) {
-                        model.messages = err;
-                        done(err, 'done');
+                        err = 'error when sending password forgot email to ' + emailAddress;
+                        req.flash('error', err);
+                        model.messages = req.flash('error')[0];
+                        done(err, model);
                     } else {
 
                         model.messages = 'An e-mail has been sent to ' + emailAddress + ' with further instructions.';
@@ -146,10 +152,10 @@ module.exports = function (router) {
         ], function (err, model) {
             if (err) {
                 console.log('ERROR: ' + err);
-                return res.render('forgot/index');
+                res.render('forgot/index', model);
+            } else {
+                res.render('forgot/sent', model);
             }
-
-            res.render('forgot/sent', model);
         });
     });
 
