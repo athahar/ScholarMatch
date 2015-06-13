@@ -24,29 +24,42 @@
 						<hr />
 
 						<div class="row">
-						   
+
 						   <div class="col-md-12">				
 								<table id="visits" class="table table-bordered table-striped table-condensed">
 							     <thead>
 							        <tr>
-							           <td>Student or Coach Name</td>           
+							           <td>Student or Coach Name</td>     
+							           <td>Role</td>
+							           <td>Status</td>      
 							           <td>Exit Survey Completed?</td>
 							        </tr>
 							     </thead>
 							     <tbody>
-							          
-							        <tr>
-							           <td><!--backend code here for name--></td>
-							           <td><a href="">Confirm Program Completion</td>
-							        </tr>     
-
+									{#data.results}
+										<tr>
+											<td>
+												{fullName}; {email}; <span class="phone">{phone}</span>
+												<a class="button" href="/profile/user?userId={_id}"> Details</a>												
+											</td>
+											<td>
+												{role}	
+											</td>		
+											<td>
+												{status}
+											</td>				
+											<td> 
+												<a class="button" href="/signup/programComplete?userId={_id}">Confirm Program Completion</a>
+											</td>
+										</tr>
+									{/data.results}
 							     </tbody>
 							  </table>
 						   </div>
 						</div>		
 					</div>
 				</div>
-			   		
+
 			   </div>
 			</div>	
 		</div>	

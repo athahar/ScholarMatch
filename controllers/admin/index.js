@@ -72,7 +72,7 @@ module.exports = function (router) {
 
         var options = {};
 
-        options.status = "Profile Created";
+        options.status = "Final Meeting Complete";
 
         userLib.queryAllUsers(options, function (err, result) {
 
@@ -83,7 +83,7 @@ module.exports = function (router) {
                 model.data.count = result.length;
 
 
-                res.render('admin/approveSignup', model);
+                res.render('admin/exitInterviewComplete', model);
             } else {
                 res.send(err);
             }

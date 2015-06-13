@@ -95,8 +95,7 @@ module.exports = function (router) {
                 return res.redirect('/signup/pending');
             }
         });
-    })
-
+    });
 
     router.get('/reject', function (req, res) {
 
@@ -114,7 +113,26 @@ module.exports = function (router) {
                 return res.redirect('/signup/pending');
             }
         });
+    });
+
+    router.get('/programComplete', function (req, res) {
+
+        // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
+
+        var userId = req.query.userId;
+
+        // debugger;
+        userLib.updateStatus(userId, "Exit Survey Complete", function (err, result) {
+            if (err) {
+                req.flash('error', 'approval failed');
+                return res.redirect('/admin/exitInterviewComplete');
+            } else {
+                req.flash('success', 'sucessfully approved');
+                return res.redirect('/admin/exitInterviewComplete');
+            }
+        });
     })
+
 
     router.get('/', function (req, res) {
 

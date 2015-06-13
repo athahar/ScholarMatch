@@ -41,7 +41,7 @@ module.exports = function (router) {
 
         options.fullName = req.body.fullName;
         options.industry = req.body.industry;
-        options.city = req.body.city;
+        options.location = req.body.city;
         options.college = req.body.college;
         options.gender = req.body.gender;
         options.role = req.body.role || 'coach';
