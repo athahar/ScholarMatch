@@ -410,6 +410,7 @@ module.exports = function (router) {
                 model.data.result = JSON.parse(JSON.stringify(result));
                 model.data.result.ownProfile = false;
                 model.data.result.isConnected = true;
+                model.data.result.admin = true;
 
                 // res.render(result);
                 res.render('profile/user', model);

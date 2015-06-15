@@ -118,6 +118,11 @@
 									<tr><td><a href="/profile/edit#Contact">+ Add Address</a></td></tr>
 								{/address}	
 							{/ownProfile}
+							{?admin}
+								{#address}
+									<tr><td><b>Address</b> &nbsp; {address}</td></tr>
+								{/address}
+							{/admin}							
 							{#location}
 								<tr><td><b>Location:</b> &nbsp;{location}</td></tr>
 							{:else}
