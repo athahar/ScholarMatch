@@ -24,7 +24,7 @@ module.exports = function (router) {
     // });
 
 
-    router.get('/createAdmin', function (req, res) {
+    router.get('/createAdmin', auth.isAdmin(), function (req, res) {
 
         model.messages = ''; //clear msgs
         var options = {};

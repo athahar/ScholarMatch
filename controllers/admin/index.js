@@ -142,7 +142,7 @@ module.exports = function (router) {
 
     });
 
-    router.get('/meeting-setup', function (req, res) {
+    router.get('/meeting-setup', auth.isAdmin(), function (req, res) {
 
 
         var options = null;
@@ -200,7 +200,7 @@ module.exports = function (router) {
 
     });
 
-    router.post('/meeting-setup', function (req, res) {
+    router.post('/meeting-setup', auth.isAdmin(), function (req, res) {
         // debugger;
         var meeting = {
             meetingdate: req.body.meetingDate,
