@@ -1,6 +1,6 @@
 'use strict';
 
-
+var auth = require('../../lib/auth');
 var SignupModel = require('../../models/signup');
 var userLib = require('../../lib/user')();
 var passport = require('passport');
@@ -14,7 +14,7 @@ module.exports = function (router) {
     model.viewName = 'signup';
 
 
-    router.get('/pending', function (req, res) {
+    router.get('/pending', auth.isAdmin(), function (req, res) {
 
         model.messages = ''; //clear msgs
 

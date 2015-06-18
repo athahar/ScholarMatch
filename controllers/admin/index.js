@@ -23,7 +23,7 @@ module.exports = function (router) {
         res.render('admin/index', model);
     });
 
-    router.get('/listUserStatus', function (req, res) {
+    router.get('/listUserStatus', auth.isAdmin(), function (req, res) {
 
         model.messages = ''; //clear msgs
 
@@ -66,7 +66,7 @@ module.exports = function (router) {
 
     });
 
-    router.get('/exitInterviewComplete', function (req, res) {
+    router.get('/exitInterviewComplete', auth.isAdmin(), function (req, res) {
 
                 model.messages = ''; //clear msgs
 
