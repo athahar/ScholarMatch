@@ -54,7 +54,7 @@
     "supertest": "^0.9.0"
   },
   "generator-kraken": {
-    "version": "1.0.0",
+    "version": "2.1.0",
     "template": "dustjs",
     "css": "less",
     "js": "requirejs",
