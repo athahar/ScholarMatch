@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+	test
  * Module dependencies.
  */
 var should = require('should'),
