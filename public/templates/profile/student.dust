@@ -44,12 +44,14 @@
 							<center>
 								<table class="edit-settings-content-table">
 									<tr>
+									<!--
 										<td class="edit-settings-content-table-left">Profile Picture</td>
 										<td class="edit-settings-content-table-right">
 											<img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle" >
 											&nbsp;&nbsp;
 											<a href="#">Edit photo</a>
 										</td>
+										-->
 									</tr>
 									<tr>
 										<td class="edit-settings-content-table-left">Full Name <span style="color:red">*</span></td>
@@ -346,15 +348,15 @@
 						</div>
 								<br />
 							<center>
-								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; opacity:.7; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Something Missing...</button>
+								<button type="button" class="btnbtn-success" id="login-button" style="height:40px; width:200px; color:white; font-size:16px; opacity:.7; background-color:#663333; border-color:#663333; cursor:default;" onclick="">Not Completed...</button>
 							</center>
 					</div>
 					<table style="width:100%; text-align:center; table-layout:fixed;">
 						<tr>
-							<td id="about-status" onclick="loadAbout()" style="cursor:pointer;"><i id="about-complete"></i>About: Something Missing...Go Here</td>
-							<td id="contact-status" onclick="loadContact()" style="cursor:pointer;"><i  id="contact-complete"></i>Contact: Something Missing...Go Here</td>
-							<td id="education-status" onclick="loadEducation()" style="cursor:pointer;"><i id="education-complete"></i>Education: Something Missing...Go Here</td>
-							<td id="industry-status" onclick="loadIndustry()" style="cursor:pointer;"><i  id="industry-complete"></i>Industry: Something Missing...Go Here</td>
+							<td id="about-status" onclick="loadAbout()" style="cursor:pointer;"><i id="about-complete"></i>About: Not Completed...Click Here</td>
+							<td id="contact-status" onclick="loadContact()" style="cursor:pointer;"><i  id="contact-complete"></i>Contact: Not Completed...Click Here</td>
+							<td id="education-status" onclick="loadEducation()" style="cursor:pointer;"><i id="education-complete"></i>Education: Not Completed...Click Here</td>
+							<td id="industry-status" onclick="loadIndustry()" style="cursor:pointer;"><i  id="industry-complete"></i>Industry: Not Completed...Click Here</td>
 						</tr>
 					</table>
 				</div>
@@ -397,13 +399,34 @@
 				makeHeaderUnclickable("clickable");
 			}
 
-			function undoSubmitButton(onPage, about, contact, education, industry, completionPercent){
+			function undoSubmitButton(finished, about, contact, education, industry, completionPercent){
 				$('.btnbtn-success').prop('type','button');
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
 				$('.btnbtn-success').css('cursor','default');	
 				$('.btnbtn-success').css('opacity','.7');
-				$('.btnbtn-success').text(completionPercent + "% Completed...");
+
+
+				//add a go to next button or something here instead
+				$('.btnbtn-success').text("Continue");
+
+				if(!finished[0]){
+					loadAbout();
+				}
+				else if(!finished[1]){
+					loadContact();
+				}
+				else if(!finished[2]){
+					loadEducation();
+				}
+				else if(!finished[3]){
+					loadIndustry();
+				}
+				else if(!finished[4]){
+					loadReferences();
+				}
+
+				//$('.btnbtn-success').text(completionPercent + "% Completed...");
 
 				makeHeaderUnclickable("unclickable");
 			}
@@ -444,15 +467,17 @@
 
 			function isComplete(){
 				var about = false; var contact = false; var education = false; var industry = false;
+				var finished = [false, false, false, false, false];
 				if( 
 					$('#fullName').val() && $('#preferredName').val() && ( $('.genderRadios').is(':checked') || $('.genderRadios2').is(':checked') )  && $('#additionalPersonalInfo').val()  
 				){
 					about = true;
 					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+					finished[0] = true;
 				}
 				else{
 					about = false;
-					$('#about-status').text("About: Something Missing... "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
+					$('#about-status').text("About: Not Completed...Click Here "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
 				}
 
 				if(
@@ -460,10 +485,11 @@
 				){
 					contact = true;
 					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
+					finished[1] = true;
 				}
 				else{
 					contact = false;
-					$('#contact-status').text("Contact: Something Missing... "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
+					$('#contact-status').text("Contact: Not Completed...Click Here "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
 				var education2 = false;
@@ -496,15 +522,16 @@
 					}
 
 					if(education && education2){
-						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');				
+						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');
+						finished[2] = true;				
 					}
 					else{
-						$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
+						$('#education-status').text("Education: Not Completed...Click Here"); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 					}
 				}
 				else{
 					education = false;
-					$('#education-status').text("Education: Something Missing... "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
+					$('#education-status').text("Education: Not Completed...Click Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
 				var industry2 = false;
@@ -534,15 +561,16 @@
 					}
 					
 					if(industry && industry2){
-						$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');						
+						$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');	
+						finished[3] = true;					
 					}
 					else{
-						$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+						$('#industry-status').text("Industry: Not Completed...Click Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 					}
 				}
 				else{
 					industry = false;
-					$('#industry-status').text("Industry: Something Missing... "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+					$('#industry-status').text("Industry: Not Completed...Click Here"); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 				}
 
 
@@ -551,7 +579,7 @@
 				}
 				else {
 					var completionPercent = Math.round(percentComplete(education, education2, industry, industry2));
-					undoSubmitButton(onPage, about, contact, education, industry, completionPercent);
+					undoSubmitButton(finished, about, contact, education, industry, completionPercent);
 				}
 			}
 

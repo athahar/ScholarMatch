@@ -19,7 +19,11 @@
 			   		{?data.user.studentsLinked}
 			   			{>"dashboard/inc/meetings" /}
 			   		{:else}	
-			   			<div style="font-size:20px;"> Sorry, you do not have any students assigned yet. </div>
+			   			{?data.user.blockDashBoard}
+			   				{>"dashboard/inc/blockDashBoard" /}
+			   			{:else}
+			   				<div style="font-size:20px;"> Sorry, you do not have any students assigned yet. </div>
+			   			{/data.user.blockDashBoard}
 			   		{/data.user.studentsLinked}
 			   		
 			   </div>

@@ -10,32 +10,32 @@
 
 			<div class="row">
 			   <div id="connections" class="col-md-3">	   					  
-				  {! 
+				  	{! 
 				   		{>"dashboard/inc/upcoming-meetings" /} 
-				   !}
-				  {>"dashboard/inc/quick-links" role="{data.user.role}" /}  
+				   	!}
+				  	{>"dashboard/inc/quick-links" role="{data.user.role}" /}  
 				  
-				  {>"dashboard/inc/progress" role="{data.user.status}" /}  
+				  	{>"dashboard/inc/progress" role="{data.user.status}" /}  
 		   		</div>
 
-			   <div class="col-md-8">
+			   	<div class="col-md-8">
 
 			   		{! the user doesnt have had any coaches assigned yet !}
-			   		
+
 			   		{?data.user.coachesLinked}
 			   			<!-- {data.user.meetings|js} -->
 			   			{>"dashboard/inc/meetings" /}
-			   			
 			   		{:else}	
-			   			{>"match/inc/custom-match" /}
+			   			{?data.user.blockDashBoard}
+			   				{>"dashboard/inc/blockDashBoard" /}
+			   			{:else}
+			   				{>"match/inc/custom-match" /}
+			   			{/data.user.blockDashBoard}
 			   		{/data.user.coachesLinked}
-
-			   		
-
 			   		{! 
 			   			{>"dashboard/inc/recent-meetings" /} 
 			   		!}
-			   </div>
+			   	</div>
 			</div>
 		</div>
 	</div>

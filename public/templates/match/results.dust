@@ -48,7 +48,13 @@
 						<tr>
 							
 							<td>{fullName}</td>
-							<td>{gradSchool.name}</td>
+							<td>
+								{#gradSchool.name}
+									{gradSchool.name}
+								{:else}
+									{underGradSchool.name}
+								{/gradSchool.name}
+							</td>
 							<td>{primaryIndustry.industryName}</td>
 							<td>{location}</td>
 							<td>{gender}</td>

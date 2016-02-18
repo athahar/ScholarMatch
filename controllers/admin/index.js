@@ -23,13 +23,13 @@ module.exports = function (router) {
         res.render('admin/index', model);
     });
 
-    router.get('/listUserStatus', function (req, res) {
+    router.get('/listUserStatus', auth.isAdmin(), function (req, res) {
 
         model.messages = ''; //clear msgs
 
         var options = {};
 
-        userLib.listAllUsers(options, function (err, result) {
+        userLib.listAllActiveUsers(options, function (err, result) {
 
             if (!err) {
                 model.data = model.data || {};
@@ -54,7 +54,7 @@ module.exports = function (router) {
 
 
         // debugger;
-        userLib.updateStatus(userId, "Profile Approved", function (err, result) {
+        userLib.updateStatus(userId, newStatus, function (err, result) {
             if (err) {
                 req.flash('error', 'approval failed');
                 return res.redirect('/admin/listUserStatus');
@@ -66,13 +66,13 @@ module.exports = function (router) {
 
     });
 
-    router.get('/exitInterviewComplete', function (req, res) {
+    router.get('/exitInterviewComplete', auth.isAdmin(), function (req, res) {
 
                 model.messages = ''; //clear msgs
 
         var options = {};
 
-        options.status = "Profile Created";
+        options.status = "Final Meeting Complete";
 
         userLib.queryAllUsers(options, function (err, result) {
 
@@ -83,7 +83,7 @@ module.exports = function (router) {
                 model.data.count = result.length;
 
 
-                res.render('admin/approveSignup', model);
+                res.render('admin/exitInterviewComplete', model);
             } else {
                 res.send(err);
             }
@@ -142,7 +142,7 @@ module.exports = function (router) {
 
     });
 
-    router.get('/meeting-setup', function (req, res) {
+    router.get('/meeting-setup', auth.isAdmin(), function (req, res) {
 
 
         var options = null;
@@ -200,7 +200,7 @@ module.exports = function (router) {
 
     });
 
-    router.post('/meeting-setup', function (req, res) {
+    router.post('/meeting-setup', auth.isAdmin(), function (req, res) {
         // debugger;
         var meeting = {
             meetingdate: req.body.meetingDate,

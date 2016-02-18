@@ -47,6 +47,7 @@ module.exports = function (router) {
 
             			}
             			else if(model.data.meetingnotes[i].notesBy.role == 'student') {
+                            model.data.student = {};
             				model.data.student.notesWriter = model.data.meetingnotes[i].notesBy.fullName;
             				model.data.student.interactionType = model.data.meetingnotes[i].interactionType;
             				model.data.student.materialUsefulness = model.data.meetingnotes[i].materialUsefulness;

@@ -1,6 +1,6 @@
 'use strict';
 
-
+var auth = require('../../lib/auth');
 var SignupModel = require('../../models/signup');
 var userLib = require('../../lib/user')();
 var passport = require('passport');
@@ -14,13 +14,13 @@ module.exports = function (router) {
     model.viewName = 'signup';
 
 
-    router.get('/pending', function (req, res) {
+    router.get('/pending', auth.isAdmin(), function (req, res) {
 
         model.messages = ''; //clear msgs
 
         var options = {};
 
-        options.status = "Profile Created";
+        options.status = "Profile Completed";
 
         userLib.queryAllUsers(options, function (err, result) {
 
@@ -52,12 +52,50 @@ module.exports = function (router) {
                 req.flash('error', 'approval failed');
                 return res.redirect('/signup/pending');
             } else {
+
+                console.log('result ' + result);
+
+                model.data = model.data || {};
+                model.data.userid = userId;
+
+                model.messages = ''; // clear any messages
+
+
+                userLib.findUser(model.data, function (err, result) {
+
+                    if (err) {
+                        console.log('Error. could not find the user');
+                        // model.messages = 'Error. could not find the user';
+                    } else {
+                        model.data.result = model.data.result || {};
+                        model.data.result = JSON.parse(JSON.stringify(result));
+
+                        var emailList = new Array();
+                        emailList.push(model.data.result.email);
+
+                        var emailOptions = {
+                            to: emailList.toString(),
+                            subject: 'Welcome to Career Connections - Profiled Approved', // Subject line
+                            text: emailContent.profileApproved(model.data.result.fullName), // plaintext body
+                            html: emailContent.profileApproved(model.data.result.fullName) // html body
+                        };
+
+                        email.sendEmail(emailOptions, function (err, result) {
+
+                            if (err) {
+                                console.log(err);
+                            } else {
+                                console.log(result);
+                            }
+                        });
+                    }
+                });
+
                 req.flash('success', 'sucessfully approved');
                 return res.redirect('/signup/pending');
             }
         });
-    })
-
+    });
 
     router.get('/reject', function (req, res) {
 
@@ -75,7 +113,26 @@ module.exports = function (router) {
                 return res.redirect('/signup/pending');
             }
         });
+    });
+
+    router.get('/programComplete', function (req, res) {
+
+        // FIXME : get the params dynamically from the UI  & change the GET /connect to POST / connect
+
+        var userId = req.query.userId;
+
+        // debugger;
+        userLib.updateStatus(userId, "Exit Survey Complete", function (err, result) {
+            if (err) {
+                req.flash('error', 'approval failed');
+                return res.redirect('/admin/exitInterviewComplete');
+            } else {
+                req.flash('success', 'sucessfully approved');
+                return res.redirect('/admin/exitInterviewComplete');
+            }
+        });
     })
+
 
     router.get('/', function (req, res) {
 

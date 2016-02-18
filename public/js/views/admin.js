@@ -11,7 +11,7 @@ define([
 
         var AdminView = View.extend({
             events: {
-                // 'click .setupOrientation': setupOrientation
+                "click a.updateStatus": "populateUserStatusModalData"
             },
             afterRender: function () {
                 // call super method first
@@ -34,9 +34,24 @@ define([
                     autoclose: true,
                     startDate: date
                 });
-
-
             },
+
+            populateUserStatusModalData: function (e) {
+
+                var $parentEl = $(e.currentTarget).parents("tr");
+                debugger;
+
+                var userId = $parentEl.data("userId");
+
+                $("#userStatus #usName").html($parentEl.data("name"));
+                $("#userStatus #usRole").html($parentEl.data("role"));
+                $("#userStatus #usStatus").html($parentEl.data("status"));
+                $("#userStatus #userId").val($parentEl.data("id"));
+
+                // console.log(e);
+                console.log($(e.currentTarget).parents("tr"));
+            },
+
             initGooglePlaces: function () {
 
                 // loaded google maps js in the initial layout rendering itself
@@ -52,6 +67,7 @@ define([
                 // ev.preventDefault();
                 $(".setupOrientation").addClass("disabled").text('Creating');
             }
+
         });
 
         return AdminView;

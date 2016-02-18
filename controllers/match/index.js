@@ -41,7 +41,7 @@ module.exports = function (router) {
 
         options.fullName = req.body.fullName;
         options.industry = req.body.industry;
-        options.city = req.body.city;
+        options.location = req.body.city;
         options.college = req.body.college;
         options.gender = req.body.gender;
         options.role = req.body.role || 'coach';
@@ -177,7 +177,7 @@ module.exports = function (router) {
 
     })
 
-    router.get('/pending', function (req, res) {
+    router.get('/pending', auth.isAdmin(), function (req, res) {
 
         model.messages = null;
 
@@ -202,7 +202,7 @@ module.exports = function (router) {
 
     });
 
-    router.get('/pendingOrientation', function (req, res) {
+    router.get('/pendingOrientation', auth.isAdmin(), function (req, res) {
 
         model.messages = null;
 
@@ -320,7 +320,7 @@ module.exports = function (router) {
         });
     })
 
-    router.get('/orientationInProgress', function (req, res) {
+    router.get('/orientationInProgress', auth.isAdmin(), function (req, res) {
 
         model.messages = null;
 
@@ -525,7 +525,7 @@ router.get('/reject', function (req, res) {
      * @param  {[type]} res [description]
      * @return {[type]}     [description]
      */
-    router.get('/manualconnection', function (req, res) {
+    router.get('/manualconnection', auth.isAdmin(), function (req, res) {
 
         async.parallel({
                 coaches: function (callback) {
