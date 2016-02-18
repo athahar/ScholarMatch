@@ -613,13 +613,34 @@
 				makeHeaderUnclickable("clickable");	
 			}
 
-			function undoSubmitButton(onPage, about, contact, education, industry, references, completionPercent){
+			function undoSubmitButton(finished, about, contact, education, industry, references){   //, completionPercent){
 				$('.btnbtn-success').prop('type','button');
 				$('.btnbtn-success').css('background-color','#663333');
 				$('.btnbtn-success').css('border-color','#663333');
 				$('.btnbtn-success').css('opacity','.7');
 				$('.btnbtn-success').css('cursor','default');	
-				$('.btnbtn-success').text(completionPercent + "% Completed...");
+
+				//add a go to next button or something here instead
+				$('.btnbtn-success').text("Continue");
+
+				if(!finished[0]){
+					loadAbout();
+				}
+				else if(!finished[1]){
+					loadContact();
+				}
+				else if(!finished[2]){
+					loadEducation();
+				}
+				else if(!finished[3]){
+					loadIndustry();
+				}
+				else if(!finished[4]){
+					loadReferences();
+				}
+
+
+				//$('.btnbtn-success').text(completionPercent + "% Completed...");
 
 				makeHeaderUnclickable("unclickable");
 			}
@@ -695,16 +716,21 @@
 
 
 			function isComplete(){
+				//check for onpage 
+
+
 				var about = false; var contact = false; var education = false; var industry = false; var references = false;
+				var finished = [false, false, false, false, false];
 				if( 
 					$('#fullName').val() && $('#preferredName').val() && ( $('.genderRadios').is(':checked') || $('.genderRadios2').is(':checked') ) && $('#linkedinProfileUrl').val() && $('#additionalPersonalInfo').val() && $('#coachingInterest').val() && $('#heardFrom').val() 
 				){
 					about = true;
 					$('#about-status').text("About: Completed! "); $('#about-status').css('color','green'); $('#about-complete').addClass('fa fa-check');
+					finished[0] = true;
 				}
 				else{
 					about = false;
-					$('#about-status').text("About: Something Missing...Go Here "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
+					$('#about-status').text("About: Not Completed...Click Here "); $('#about-status').css('color','black'); $('#about-complete').removeClass('fa fa-check');
 				}
 
 				if(
@@ -712,10 +738,11 @@
 				){
 					contact = true;
 					$('#contact-status').text("Contact: Completed! "); $('#contact-status').css('color','green'); $('#contact-complete').addClass('fa fa-check');
+					finished[1] = true;
 				}
 				else{
 					contact = false;
-					$('#contact-status').text("Contact: Something Missing...Go Here "); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
+					$('#contact-status').text("Contact:Not Completed...Click Here"); $('#contact-status').css('color','black'); $('#contact-complete').removeClass('fa fa-check');
 				}
 
 				var education2 = false;
@@ -744,15 +771,16 @@
 						education2 = true;
 					}
 					if(education && education2){
-						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');					
+						$('#education-status').text("Education: Completed! "); $('#education-status').css('color','green'); $('#education-complete').addClass('fa fa-check');	
+						finished[2] = true;				
 					}
 					else{
-						$('#education-status').text("Education: Something Missing...Go Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
+						$('#education-status').text("Education: Not Completed...Click Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 					}
 				}
 				else{
 					education = false;
-					$('#education-status').text("Education: Something Missing...Go Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
+					$('#education-status').text("Education: Not Completed...Click Here "); $('#education-status').css('color','black'); $('#education-complete').removeClass('fa fa-check');
 				}
 
 				var industry2 = false;
@@ -764,7 +792,7 @@
 						}
 						else{
 							industry2 = false;
-							$('#industry-status').text("Industry: Something Missing...Go Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+							$('#industry-status').text("Industry: Not Completed...Click Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 						}
 					}
 					else{
@@ -776,33 +804,35 @@
 					}
 					else{
 						industry = false;
-						$('#industry-status').text("Industry: Something Missing...Go Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+						$('#industry-status').text("Industry: Not Completed...Click Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 					}
 
 					if(industry && industry2){
-						$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');						
+						$('#industry-status').text("Industry: Completed! "); $('#industry-status').css('color','green'); $('#industry-complete').addClass('fa fa-check');	
+						finished[3] = true;					
 					}
 				}
 				else{
 					industry = false;
-					$('#industry-status').text("Industry: Something Missing...Go Here "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
+					$('#industry-status').text("Industry: Not Completed...Click Heree "); $('#industry-status').css('color','black'); $('#industry-complete').removeClass('fa fa-check');
 				}
 
 				if( $('#primaryReferenceName').val() && $('#primaryReferencePhone').val() && $('#primaryReferenceEmail').val() && $('#primaryReferenceRelationship').val() && $('#primaryReferenceYearsKnown').val() && $('#secondaryReferenceName').val() && $('#secondaryReferencePhone').val() && $('#secondaryReferenceEmail').val() && $('#secondaryReferenceRelationship').val() && $('#secondaryReferenceYearsKnown').val() ){
 					references = true;
 					$('#references-status').text("References: Completed! "); $('#references-status').css('color','green'); $('#references-complete').addClass('fa fa-check');
+					finished[4] = true;
 				}
 				else{
 					references = false;
-					$('#references-status').text("References: Something Missing...Go Here "); $('#references-status').css('color','black'); $('#references-complete').removeClass('fa fa-check');
+					$('#references-status').text("References: Not Completed...Click Here "); $('#references-status').css('color','black'); $('#references-complete').removeClass('fa fa-check');
 				}
 
 				if(about && contact && education && industry && references){
 					makeSubmitButton();
 				}
 				else {
-					var completionPercent = Math.round(percentComplete(education, education2, industry, industry2));
-					undoSubmitButton(onPage, about, contact, education, industry, references, completionPercent);
+					//var completionPercent = Math.round(percentComplete(education, education2, industry, industry2));
+					undoSubmitButton(finished, about, contact, education, industry, references);//, completionPercent);
 				}
 
 			}
